@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pessoa extends Model
 {
+    use HasFactory;
     protected $fillable = [ //filable é usado para especificar quais colunas na tabela podem 
         //ser preenchidas em massa, todas de uma vez só 
         'nome', 
@@ -14,7 +15,10 @@ class Pessoa extends Model
         'senha', 
         'cpf', 
         'telefone', 
-        'tipo'
+        'tipo', 
+        'universidade_id'
     ];
-    use HasFactory;
+    public function universidade(){
+        return $this->belongsTo(Universidade::class);
+    }
 }

@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('pessoas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('nome');
+            $table->string('email'); 
+            $table->string('senha'); 
+            $table->string('cpf');
+            $table->string('telefone');
+            $table->string('tipo');
+            // $table->foreignId('universidade_id')->references('id')->on('universidades')->cascadeOnDelete();
+            $table->foreignId('universidade_id')->references('id')->on('universidades')->onDelete('cascade');
         });
     }
 

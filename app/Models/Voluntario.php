@@ -11,4 +11,7 @@ class Voluntario extends Pessoa
         'matricula',
     ];
     use HasFactory;
+    public function horarios(){
+        return $this->belongsToMany(Horario::class, "horario_voluntario");
+    }
 }

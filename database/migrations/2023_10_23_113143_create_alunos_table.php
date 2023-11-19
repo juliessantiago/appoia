@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('dataNascimento');
             $table->text('email');
             $table->text('senha'); 
-            $table->text('responsavel');
+            $table->text('responsavel');    
             // $table->text('escola_id');
             $table->text('cidade');
             $table->text('telefone');

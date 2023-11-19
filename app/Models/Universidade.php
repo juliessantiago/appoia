@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Universidade extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'nome', 
         'cidade', 
@@ -18,5 +19,9 @@ class Universidade extends Model
         'org_acad', //faculdade, universidade ou instituto federal
         'credenciamento', //presencial ou EAD
     ];
-    use HasFactory;
+
+    public function pessoas(){
+        return $this->hasMany(Pessoa::class);
+    }
+    
 }
