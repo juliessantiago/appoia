@@ -1,0 +1,32 @@
+*--------------------------Pacotes---------------------------*
+taillwind css 
+swiper 
+scroll reveal 
+
+*---------------------------Fontes--------------------------------*
+LeagueSpartan 
+
+
+*---------------------------Cores--------------------------------*
+azul-escuro: #38bdf8
+azul-escuro: #7dd3fc
+roxo: #c4b5fd
+lilás: #d8b4fe
+rosa: #f5d0fe
+
+*--------------------------Atribuições--------------------------* 
+<a href="https://br.freepik.com/vetores-gratis/conceito-plano-de-saude-mental-com-pessoas-que-lidam-com-ilustracao-vetorial-de-problemas-psicologicos_38754391.htm#page=2&query=sa%C3%BAde%20mental&position=15&from_view=search&track=ais&uuid=2a03b149-7b8a-4795-a3f1-a7342b07835f">Imagem de macrovector</a> no Freepik
+<a href="https://www.flaticon.com/free-icons/mental-health" title="mental health icons">Mental health icons created by juicy_fish - Flaticon</a>
+#stickers# 
+<a href="https://www.flaticon.com/free-stickers/brain" title="brain stickers">Brain stickers created by Stickers - Flaticon</a>
+*-----------------------Tamanho de fontes-----------------*
+títulos de seções: 3xl
+*-----------------------Espaçamento-------------------------* 
+padding entre seções: p-6 
+padding entre letreiros: p-2 
+
+cards:
+    padding top/bottom: py-4 
+    padding left/right: px-2
+
+    ATENÇÃO: não estou usando branco, apenas slate-50
