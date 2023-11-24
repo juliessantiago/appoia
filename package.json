@@ -2,7 +2,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "tailwindcss"
+        "dev": "vite",
+        "build": "vite build"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.16",

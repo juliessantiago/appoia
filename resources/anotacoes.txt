@@ -19,7 +19,7 @@ rosa: #f5d0fe
 <a href="https://www.flaticon.com/free-icons/mental-health" title="mental health icons">Mental health icons created by juicy_fish - Flaticon</a>
 #stickers# 
 <a href="https://www.flaticon.com/free-stickers/brain" title="brain stickers">Brain stickers created by Stickers - Flaticon</a>
-*-----------------------Tamanho de fontes-----------------*
+#logo appoia# <a href="https://www.flaticon.com/br/icones-gratis/saude-mental" title="saúde mental ícones">Saúde mental ícones criados por Freepik - Flaticon</a>*-----------------------Tamanho de fontes-----------------*
 títulos de seções: 3xl
 *-----------------------Espaçamento-------------------------* 
 padding entre seções: p-6 
@@ -30,3 +30,6 @@ cards:
     padding left/right: px-2
 
     ATENÇÃO: não estou usando branco, apenas slate-50
+
+*-----------------Imagens--------------------------------------*
+Todas as imagens precisam ser comprimidas, exceto a da seção "como funciona" 

@@ -29,6 +29,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->profile(EditProfile::class)
             ->login()
+            ->registration()
             ->colors([
                 'primary' => Color::Sky,
             ])
