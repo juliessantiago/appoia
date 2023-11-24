@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
+  @vite([
+  'resources/css/input.css', 
+  'resources/js/app.js'
+  ])
+  {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
   <title>Appoia</title>
-  <!--Configuração do build está errada, usando cdn por enquanto-->
-  <!--CSS-->
-  <!-- <link rel="stylesheet" href="../css/input.css"> -->
-  <link href="../../dist/output.css" rel="stylesheet">
-  <!--swiper-->
-  <link rel="icon" type="image/x-icon" href="../img/iconezinho.ico">
+  <link rel="icon" type="image/x-icon" src="{{ asset('images/iconezinho.ico')}}"">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
 <nav class=" dark:bg-gray-900">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="" class="h-8" alt="Appoia logo" />
+        <img  src="{{ asset('images/logo_provisorio.png')}}" class="h-8" alt="Appoia logo" />
+        <span class="text-violet-300 tet-sm text-bold">Appoia</span>
         <!-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Appoia</span> -->
     </a>
     <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -50,34 +50,34 @@
 </nav>
 <!------------------------------header--------------------------------> 
 <div class="flex">
-  <img class="" src="https://img.freepik.com/vetores-gratis/conceito-plano-de-saude-mental-com-pessoas-que-lidam-com-ilustracao-vetorial-de-problemas-psicologicos_1284-80677.jpg?w=900&t=st=1700628528~exp=1700629128~hmac=a3df4356e6e093f4021255e27741959222fe4924fbf087a75d99661b115ecd2d">
+  <img class="max-w-screen-md" src="{{ asset('images/imagem_header.jpg')}}"> 
   <div class="flex flex-col justify-center align-middle">
     <h1 class="text-violet-300 text-6xl">Você não esta sozinho</h1>
   </div>
 </div>
 <!-----------------------Como podemos ajudar------------------------>
-<h4 class="text-center text-fuchsia-200 text-3xl p-6">Como podemos ajudar você</h4>
+<h4 class="text-center text-sky-300 text-4xl p-6 font-bold">Como podemos ajudar você</h4>
 
 <div class="flex flex-row p-6 align-middle justify-between">
   <!-- <h3 class="text-purple-300 text-center text-3xl p-2">Cuide de sua mente</h3>
   <p class="text-fuchsia-200 text-center text-2xl p-2">Sua saúde mental é tão importante quanto sua saúde física</p> -->
 
-  <div href="#" class="flex flex-col items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
-      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="../img/stickers/sentimentos_confusos.png" alt="sentimentos confusos">
+  <div href="#" class="flex flex-col items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6 max-w-md">
+      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/sentimentos_confusos.png')}}" alt="sentimentos confusos">
       <div class="flex flex-col justify-between p-4 leading-normal">
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Lidar com sentimentos confusos</h5>
       </div>
   </div>
 
   <div href="#" class="flex flex-col items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
-      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="../img/stickers/habitos.png" alt="habitos">
+      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/habitos.png')}}" alt="habitos">
       <div class="flex flex-col justify-between p-4 leading-normal">
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Adquirir bons hábitos</h5>
       </div>
   </div>
 
   <div href="#" class="flex flex-col items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
-    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="../img/stickers/habitos.png" alt="habitos">
+    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/escola.png')}}" alt="habitos">
     <div class="flex flex-col justify-between p-4 leading-normal">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Orientação vocacional</h5>
     </div>
@@ -85,15 +85,40 @@
 
 </div>
 
-<!------------------------------------Escolha um voluntário--------------------------------->
+<div class="flex flex-row p-6 align-middle justify-between">
+  <div href="#" class="flex flex-col items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
+      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/relacionamentos.png')}}" alt="sentimentos confusos">
+      <div class="flex flex-col justify-between p-4 leading-normal">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Ter relacionamentos saudáveis</h5>
+      </div>
+  </div>
+
+  <div href="#" class="flex flex-col items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
+      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/luto.png')}}" alt="habitos">
+      <div class="flex flex-col justify-between p-4 leading-normal">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Lidar com o luto</h5>
+      </div>
+  </div>
+
+  <div href="#" class="flex flex-col items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
+    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/autoconhecimento.png')}}" alt="habitos">
+    <div class="flex flex-col justify-between p-4 leading-normal">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Autoconhecimento</h5>
+    </div>
+  </div>
+
+</div>
+
+<!-----------------------------------Como funciona-------------------------------------------->
 <div class="flex justify-center">
+  <img src="{{ asset('images/funciona.png')}}"">
+</div>
+<!------------------------------------Escolha um voluntário--------------------------------->
+<div class="flex justify-center py-10 my-10">
   <button type="button" class="text-white bg-sky-300 hover:bg-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-300 font-medium rounded-full text-sm px-10 py-4 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-sky-900">Ver voluntários</button>
 </div>
-<!-----------------------------------Como funciona-------------------------------------------->
-<div class="container flex">
-  <img src="../resources/img/como_funciona.png">
-</div>
 <!----------------------------------Depoimentos------------------------------------------------->
+
 
 <!--------------------------------------Footer------------------------------------------------------>
 <footer class="bg-purple-300  shadow dark:bg-gray-800">

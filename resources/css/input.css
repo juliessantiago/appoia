@@ -1,11 +1,11 @@
 
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
 @font-face {
     font-family: "LeagueSpartanRegular";
     src: url("../fonts/league_spartan/LeagueSpartan-Regular.ttf") format("ttf");
 }
-@tailwind utilities;
 body {
     @apply text-secondary font-primary text-[20px] leading-8;
 }
