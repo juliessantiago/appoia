@@ -7,16 +7,11 @@
     <title>Alunos</title>
 </head>
 <body>
-
-    {{$alunos}}
     <h1>Lista de Alunos</h1>
-
     <ul>
         @foreach($alunos as $aluno)
             <li>{{ $aluno->nome }}</li>
-            <!-- Adicione outros campos que você deseja exibir -->
         @endforeach
     </ul>
-
 </body>
 </html>
