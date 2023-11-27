@@ -16,7 +16,7 @@ class Pessoa extends Model
         'cpf', 
         'telefone', 
         'tipo', 
-        // 'universidade_id'
+        'universidade_id'
     ];
     // public function universidade(){
     //     return $this->belongsTo(Universidade::class);
