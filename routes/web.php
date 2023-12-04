@@ -1,23 +1,28 @@
 <?php
 
-use App\Http\Controllers\AlunoController;
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VoluntarioController;
-use App\Http\Controllers\PessoaController;
-
+use App\Http\Controllers\AlunoController;
 use Illuminate\Support\Facades\Route;
-
-/*Web Routes*/
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/showLogin', [LoginController::class, 'showLoginForm']); 
-Route::get('/showCadastro', [LoginController::class, 'showCadastro']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+// Route::get('/showLogin', [LoginController::class, 'showLoginForm']); 
+// Route::get('/showCadastro', [LoginController::class, 'showCadastro']);
 
 Route::get('/voluntarios', [VoluntarioController::class, 'index']); 
-Route::get('/showCreate', [PessoaController::class, 'showCreate']);
-Route::post('/storePessoa', [PessoaController::class, 'store']); 
 
 Route::get('/alunos', [AlunoController::class, 'index']); 
+require __DIR__.'/auth.php';
