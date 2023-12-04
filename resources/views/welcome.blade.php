@@ -1,49 +1,152 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        @vite('resources/css/app.css')
-        <title>Appoia</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  @vite([
+  'resources/css/input.css', 
+  'resources/js/app.js'
+  ])
+  {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+  <title>Appoia</title>
+  <link rel="icon" src="{{ asset('images/favicon/favicon.png')}}"">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+  <nav class="bg-violet-400 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img  src="{{ asset('images/logo_provisorio.png')}}" class="h-8" alt="Appoia logo" />
+          <span class="text-violet-300 tet-sm text-bold">Appoia</span>
+          <!-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Appoia</span> -->
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Abrir menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 
+        md:p-0 mt-4  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Dashboard</a>
+          </li>
+          <li>
+            <a href="#" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Como podemos ajudar</a>
+          </li>
+          <li>
+              <a href="#" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Como funciona</a>
+          </li>
+          <li>
+              <a href="#" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Agende uma conversa</a>
+          </li>
+          <li>
+              <a href="{{ route('login') }}" class="text-lg font-bold block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Entrar</a>
+          </li>
+          <li>
+            <a href="{{ route('register') }}" class="text-lg font-bold block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Criar Conta</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<!------------------------------header--------------------------------> 
+<div class="flex">
+  <img class="max-w-screen-lg" src="{{ asset('images/imagem_header.jpg')}}"> 
+  <div class="flex flex-col justify-center align-middle">
+    <h1 class="text-violet-300 text-5xl">Você não esta</h1>
+    <h2 class="text-violet-400 text-6xl">sozinho</h2>
+  </div>
+</div>
+<!-----------------------Como podemos ajudar------------------------>
+<h4 class="text-center text-sky-300 text-4xl p-6 font-bold">Como podemos ajudar você</h4>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+<div class="flex flex-row p-6 align-middle justify-between">
+  <!-- <h3 class="text-purple-300 text-center text-3xl p-2">Cuide de sua mente</h3>
+  <p class="text-fuchsia-200 text-center text-2xl p-2">Sua saúde mental é tão importante quanto sua saúde física</p> -->
 
-        <!-- Styles -->
-        <link rel="stylesheet" type="text/css" href="../css/app.css" media="screen" />
-    </head>
-    <body class="antialiased">
-        <nav class="flex items-center justify-between flex-wrap bg-sky-700 p-6">
-            <div class="flex items-center flex-shrink-0 text-white mr-6">
-              <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
-              <span class="font-semibold text-xl tracking-tight">Tailwind CSS</span>
-            </div>
-            <div class="block lg:hidden">
-              <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-              </button>
-            </div>
-            <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-              <div class="text-sm lg:flex-grow">
-                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                  Docs
-                </a>
-                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                  Examples
-                </a>
-                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-                  Blog
-                </a>
-              </div>
-              <div>
-                <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a>
-              </div>
-            </div>
-          </nav>
-        <h1 class="text-3xl font-bold underline">
-            Hello world!
-        </h1>
-    </body>
+  <div href="#" class="flex flex-col items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6 max-w-md">
+      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/sentimentos_confusos.png')}}" alt="sentimentos confusos">
+      <div class="flex flex-col justify-between p-4 leading-normal">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Lidar com sentimentos confusos</h5>
+      </div>
+  </div>
+
+  <div href="#" class="flex flex-col items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
+      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/habitos.png')}}" alt="habitos">
+      <div class="flex flex-col justify-between p-4 leading-normal">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Adquirir bons hábitos</h5>
+      </div>
+  </div>
+
+  <div href="#" class="flex flex-col items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
+    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/escola.png')}}" alt="habitos">
+    <div class="flex flex-col justify-between p-4 leading-normal">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Orientação vocacional</h5>
+    </div>
+  </div>
+
+</div>
+
+<div class="flex flex-row p-6 align-middle justify-between">
+  <div href="#" class="flex flex-col items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
+      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/relacionamentos.png')}}" alt="sentimentos confusos">
+      <div class="flex flex-col justify-between p-4 leading-normal">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Ter relacionamentos saudáveis</h5>
+      </div>
+  </div>
+
+  <div href="#" class="flex flex-col items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
+      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/luto.png')}}" alt="habitos">
+      <div class="flex flex-col justify-between p-4 leading-normal">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Lidar com o luto</h5>
+      </div>
+  </div>
+
+  <div href="#" class="flex flex-col items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
+    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/autoconhecimento.png')}}" alt="habitos">
+    <div class="flex flex-col justify-between p-4 leading-normal">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Autoconhecimento</h5>
+    </div>
+  </div>
+
+</div>
+
+<!-----------------------------------Como funciona-------------------------------------------->
+<div class="flex justify-center">
+  <img src="{{ asset('images/funciona.png')}}"">
+</div>
+<!------------------------------------Escolha um voluntário--------------------------------->
+<div class="flex justify-center py-10 my-10">
+  <button type="button" class="text-white bg-sky-300 hover:bg-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-300 font-medium rounded-full text-sm px-10 py-4 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-sky-900">Ver voluntários</button>
+</div>
+<!----------------------------------Depoimentos------------------------------------------------->
+
+
+<!--------------------------------------Footer------------------------------------------------------>
+<footer class="bg-purple-300  shadow dark:bg-gray-800">
+  <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#" class="hover:underline">Appoia</a>. Licença MIT.
+  </span>
+  <ul class="flex flex-wrap items-center mt-3 text-base font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+      <li>
+          <a href="#" class="hover:text-slate-50 me-4 md:me-6">Como podemos ajudar</a>
+      </li>
+      <li>
+          <a href="#" class="hover:text-slate-50 me-4 md:me-6">Como funciona</a>
+      </li>
+      <li>
+          <a href="#" class="hover:text-slate-50 me-4 md:me-6">Agende uma conversa</a>
+      </li>
+      <li>
+        <a href="#" class="hover:text-slate-50 me-4 md:me-6">Depoimentos</a>
+    </li>
+  </ul>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- <script src="https://unpkg.com/scrollreveal"></script> -->
+</body>
 </html>

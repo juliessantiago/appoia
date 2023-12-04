@@ -1,0 +1,21 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: "LeagueSpartanRegular";
+    src: url("../fonts/league_spartan/LeagueSpartan-Regular.ttf") format("ttf");
+}
+
+body {
+    /* @apply font-Spartan;  */
+}
+h1{
+    @apply text-primary leading-[130%];
+}
+.titles{
+    @apply text-primary;
+}
+input::placeholder{
+    @apply bg-transparent !important; 
+}
