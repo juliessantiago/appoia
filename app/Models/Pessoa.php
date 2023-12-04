@@ -18,7 +18,7 @@ class Pessoa extends Model
         'tipo', 
         'universidade_id'
     ];
-    public function universidade(){
-        return $this->belongsTo(Universidade::class);
-    }
+    // public function universidade(){
+    //     return $this->belongsTo(Universidade::class);
+    // }
 }

@@ -19,7 +19,7 @@ export default {
     }, 
     extend: {
       colors: {
-        primary: '#38bdf8',//azul mais escuro
+        primary: '#FFFFFF',//azul mais escuro
         secondary:'#7dd3fc', //azul mais claro
         accent: { //cor de destaque
           default: 'c4b5fd',//roxo
@@ -28,14 +28,12 @@ export default {
         }
       }, 
       fontFamily: {
-        primary: 'LeagueSpartanRegular'
+        'Spartan' : ['LeagueSpartanRegular'], 
       }, 
       boxShadow: {
         custom1: '0px 2px 40px 0px rgba(0, 0, 0, 0.08)', 
       }, 
-      backgroundImage: { //especificar por secção da página
-        services: 'url(/resources/img/flores_cabaca.jpg)'
-      }
+     
     }
 
   },

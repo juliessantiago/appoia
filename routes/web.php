@@ -1,18 +1,23 @@
 <?php
 
+use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\VoluntarioController;
+use App\Http\Controllers\PessoaController;
+
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+/*Web Routes*/
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/showLogin', [LoginController::class, 'showLoginForm']); 
+Route::get('/showCadastro', [LoginController::class, 'showCadastro']);
+
+Route::get('/voluntarios', [VoluntarioController::class, 'index']); 
+Route::get('/showCreate', [PessoaController::class, 'showCreate']);
+Route::post('/storePessoa', [PessoaController::class, 'store']); 
+
+Route::get('/alunos', [AlunoController::class, 'index']); 
