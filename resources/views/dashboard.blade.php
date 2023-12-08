@@ -7,8 +7,8 @@
                   {{-- @foreach($voluntarios as $voluntario) --}}
                     <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
                   
-                      <div class="flex flex-col items-center pb-10">
-                          <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="/docs/images/people/profile-picture-3.jpg" alt="foto voluntário"/>
+                      <div class="flex flex-col items-center pt-10 pb-10">
+                          <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ asset('images/voluntario.png') }}" alt="foto voluntário"/>
                           <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Nome do voluntário</h5>
                           <span class="text-sm text-gray-500 dark:text-gray-400">Voluntário desde: data</span>
                           <span class="text-sm text-gray-500 dark:text-gray-400">Universidade: instituição</span>
@@ -26,7 +26,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-transparent dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("Bem vindo(a)!") }}
                 </div>
