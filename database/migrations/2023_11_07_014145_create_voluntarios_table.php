@@ -14,7 +14,12 @@ return new class extends Migration
         Schema::create('voluntarios', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->text('nome'); 
+            $table->text('dataNascimento'); 
             $table->text('matricula'); 
+            $table->text('cpf'); 
+            $table->text('email'); 
+            $table->text('senha');
         });
     }
 

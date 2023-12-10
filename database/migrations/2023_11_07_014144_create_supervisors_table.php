@@ -14,7 +14,13 @@ return new class extends Migration
         Schema::create('supervisors', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->text('CRP'); 
+            $table->text('nome'); 
+            $table->text('dataNascimento'); 
+            $table->text('crp'); 
+            $table->text('cpf'); 
+            $table->text('email'); 
+            $table->text('senha');
+           
         });
     }
 

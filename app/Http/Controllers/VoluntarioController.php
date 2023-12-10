@@ -1,10 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Controllers\Controller;
 use App\Models\Voluntario;
-
 use Illuminate\Http\Request;
 
 class VoluntarioController extends Controller
