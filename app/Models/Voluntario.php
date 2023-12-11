@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Voluntario
+class Voluntario extends Model
 {
     protected $fillable = [
         'nome', 
@@ -13,12 +13,12 @@ class Voluntario
         'senha', 
         'cpf', 
         'telefone', 
-        'tipo', 
-        'universidade_id',
-        'matricula'
+        // 'universidade_id',
+        'matricula', 
+        // 'supervisor_id'
     ];
     use HasFactory;
-    // public function horarios(){
-    //     return $this->belongsToMany(Horario::class, "horario_voluntario");
-    // }
+    public function assuntos(){
+        return $this->belongsToMany(Assunto::class);
+    }
 }

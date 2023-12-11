@@ -11,16 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('supervisors', function (Blueprint $table) {
+        Schema::create('assuntos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->text('nome'); 
-            $table->text('dataNascimento'); 
-            $table->text('crp'); 
-            $table->text('cpf'); 
-            $table->text('email'); 
-            $table->text('senha');
-           
+            $table->text('descricao');
         });
     }
 
@@ -29,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('supervisors');
+        Schema::dropIfExists('assuntos');
     }
 };
