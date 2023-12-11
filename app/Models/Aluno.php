@@ -13,14 +13,13 @@ class Aluno extends Model
         'senha', 
         'data_nascimento', 
         'responsavel', 
-        'escola_id', 
+        // 'escola_id', 
         'cidade',
         'telefone', 
         'rua', 
         'numero', 
         'bairro', 
         'cidade', 
-        'estado',
         'sexo'
     ];
     use HasFactory;

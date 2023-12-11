@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->text('nome');
-            $table->text('dataNascimento');
+            $table->text('data_nascimento');
             $table->text('email');
             $table->text('senha'); 
             $table->text('responsavel');    

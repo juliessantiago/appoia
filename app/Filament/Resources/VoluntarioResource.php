@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PessoaResource\Pages;
-use App\Filament\Resources\PessoaResource\RelationManagers;
-use App\Models\Pessoa;
+use App\Filament\Resources\VoluntarioResource\Pages;
+use App\Filament\Resources\VoluntarioResource\RelationManagers;
+use App\Models\Voluntario;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,39 +13,41 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PessoaResource extends Resource
+class VoluntarioResource extends Resource
 {
-    protected static ?string $model = Pessoa::class;
+    protected static ?string $model = Voluntario::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    // protected static ?string $recordTitleAttribute = 'nome';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('universidade_id')
+                Forms\Components\Textarea::make('nome')
                     ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('nome')
+                    ->maxLength(65535)
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('email')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->email()
+                    ->maxLength(65535)
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('senha')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('senha')
+                    ->maxLength(65535)
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('cpf')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('cpf')
+                    ->maxLength(65535)
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('telefone')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('telefone')
-                    ->tel()
+                    ->maxLength(65535)
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('matricula')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('tipo')
-                    ->required()
-                    ->maxLength(255),
+                    ->maxLength(65535)
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -53,9 +55,6 @@ class PessoaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('universidade_id')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -64,23 +63,18 @@ class PessoaResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('nome')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('senha')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('cpf')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('telefone')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('tipo')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('nome'),
+                Tables\Columns\TextColumn::make('email'),
+                // Tables\Columns\TextColumn::make('senha'), 
+                Tables\Columns\TextColumn::make('cpf'), 
+                // Tables\Columns\TextColumn::make('telefone'),
+                Tables\Columns\TextColumn::make('matricula')
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
@@ -97,7 +91,7 @@ class PessoaResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManagePessoas::route('/'),
+            'index' => Pages\ManageVoluntarios::route('/'),
         ];
     }    
 }

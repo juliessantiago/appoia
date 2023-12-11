@@ -13,14 +13,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Route::get('/dashboard', 'VoluntarioController@index')->middleware('auth', 'verified');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-// Route::get('/showLogin', [LoginController::class, 'showLoginForm']); 
-// Route::get('/showCadastro', [LoginController::class, 'showCadastro']);
 
 Route::get('/voluntarios', [VoluntarioController::class, 'index']); 
 

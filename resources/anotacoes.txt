@@ -22,6 +22,10 @@ rosa: #f5d0fe
 #logo appoia# <a href="https://www.flaticon.com/br/icones-gratis/saude-mental" title="saúde mental ícones">Saúde mental ícones criados por Freepik - Flaticon</a>*-----------------------Tamanho de fontes-----------------*
 #sticker login 
 <a href="https://www.flaticon.com/free-stickers/password" title="password stickers">Password stickers created by vectorsmarket15 - Flaticon</a>
+
+#ícone de usuário genérico
+<a href="https://www.flaticon.com/br/icones-gratis/persona" title="persona ícones">Persona ícones criados por amoghdesign - Flaticon</a>
+
 títulos de seções: 3xl
 *-----------------------Espaçamento-------------------------* 
 padding entre seções: p-6 
