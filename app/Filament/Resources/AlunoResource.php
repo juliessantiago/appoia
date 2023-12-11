@@ -27,7 +27,7 @@ class AlunoResource extends Resource
                     ->required()
                     ->maxLength(65535)
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('dataNascimento')
+                Forms\Components\Textarea::make('data_nascimento')
                     ->required()
                     ->maxLength(65535)
                     ->columnSpanFull(),
