@@ -24,17 +24,17 @@ class VoluntarioSeeder extends Seeder
                     'nome' => 'João da Silva Nunes',
                     'email' => 'joaosilva@gmail.com',
                     'senha' => '12345',
-                    'cpf' => '83275254090',
+                    'cpf' => '80280561059',
                     'telefone' => '(12) 98301-8718', 
-                    'matricula' => '467061584247'
+                    'matricula' => '837151065'
                 ], 
                 [
                     'created_at' => Carbon::now(),
-                    'nome' => 'Ana Paula Fagundes',
-                    'email' => 'anapaulafagundes@gmail.com',
+                    'nome' => 'Ana Paula Pereira',
+                    'email' => 'anapaulapereira@gmail.com',
                     'senha' => '12345',
-                    'cpf' => '83275254090',
-                    'telefone' => '(12) 98301-8718', 
+                    'cpf' => '32019883082',
+                    'telefone' => '(41) 2052-9564', 
                     'matricula' => '467061584247'
                 ], 
                 [
@@ -42,9 +42,9 @@ class VoluntarioSeeder extends Seeder
                     'nome' => 'Luíza Gonçalves de Azevedo',
                     'email' => 'luizagazevedo@gmail.com',
                     'senha' => '12345',
-                    'cpf' => '83275254090',
-                    'telefone' => '(12) 98301-8718', 
-                    'matricula' => '467061584247'
+                    'cpf' => '64869754070',
+                    'telefone' => '(17) 2175-2427', 
+                    'matricula' => '562483330'
                 ], 
             ]; 
             Voluntario::insert($voluntarios); 
