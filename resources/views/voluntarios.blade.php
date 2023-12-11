@@ -5,9 +5,9 @@
       </h2>
   </x-slot> --}}
 
-  <div class="container">
-    <h4 class="text-center text-sky-300 text-4xl p-6 font-bold">Nossos voluntários</h4>
-    <div class="flex justify-around">
+  <div class="">
+    <h4 class="text-center text-purple-300 text-4xl p-6 font-bold">Nossos voluntários</h4>
+    <div class="flex justify-center">
       @foreach($voluntarios as $voluntario)
         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
       
