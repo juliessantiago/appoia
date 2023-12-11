@@ -31,9 +31,12 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->registration()
             ->colors([
-                'primary' =>'#E2D2F6',
+                'primary' =>'#e879f9', //fuchsia-400 (uso 300 na aplicação)
+                'secondary'=>'#d8b4fe',
+
             ])
             ->font(family: 'Spartan') //não está funcionando... 
+            ->brandName('Appoia')
             ->sidebarCollapsibleOnDesktop()
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
