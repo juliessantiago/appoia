@@ -13,12 +13,12 @@ class Voluntario extends Model
         'senha', 
         'cpf', 
         'telefone', 
-        'tipo', 
-        'universidade_id',
-        'matricula'
+        // 'universidade_id',
+        'matricula', 
+        // 'supervisor_id'
     ];
     use HasFactory;
-    // public function horarios(){
-    //     return $this->belongsToMany(Horario::class, "horario_voluntario");
-    // }
+    public function assuntos(){
+        return $this->belongsToMany(Assunto::class);
+    }
 }
