@@ -21,7 +21,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/voluntarios', [VoluntarioController::class, 'index']); 
+Route::get('/voluntarios', [VoluntarioController::class, 'index'])->name('allVoluntarios'); 
+Route::get('/voluntario/{id}', [VoluntarioController::class, 'show'])->name('showVoluntario'); 
 
 Route::get('/alunos', [AlunoController::class, 'index']); 
 require __DIR__.'/auth.php';
