@@ -27,10 +27,15 @@ Route::middleware('auth')->group(function () {
 Route::get('/voluntarios', [VoluntarioController::class, 'index'])->name('allVoluntarios'); 
 Route::get('/voluntario/{id}', [VoluntarioController::class, 'show'])->name('showVoluntario'); 
 Route::post('/voluntario/{id}/update', [VoluntarioController::class, 'update'])->name('updateVoluntario'); 
+//exibir todos os horários de determinado voluntário
+Route::get('/voluntarioHorarios/{id}', [VoluntarioController::class, 'showHorarios'])->name('voluntarioHorarios'); 
+
 
 Route::get('/assuntos',[AssuntoController::class, 'index'])->name('allAssuntos'); 
 Route::get('/assunto/{id}', [AssuntoController::class, 'show'])->name('showAssunto'); 
+//exibir todos os voluntários que atendem determinado assunto
 Route::get('/assuntoVoluntarios/{id}', [AssuntoController::class, 'showVoluntarios'])->name('assuntoVoluntarios');
+
 
 Route::get('/alunos', [AlunoController::class, 'index']); 
 require __DIR__.'/auth.php';

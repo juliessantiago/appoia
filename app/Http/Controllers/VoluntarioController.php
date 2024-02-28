@@ -24,4 +24,9 @@ class VoluntarioController extends Controller
         // })
         return(redirect('voluntarios')); 
     }
+
+    public function showHorarios($id){
+        $voluntario = Voluntario::find($id);
+        dd($voluntario->nome); 
+    }
 }
