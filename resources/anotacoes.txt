@@ -8,11 +8,11 @@ LeagueSpartan
 
 
 *---------------------------Cores--------------------------------*
-azul-escuro: #38bdf8
-azul-escuro: #7dd3fc
-roxo: #c4b5fd
-lilás: #d8b4fe
-rosa: #f5d0fe
+azul-escuro: #38bdf8 - sky-400
+azul-escuro: #7dd3fc - sky-300
+roxo: #c4b5fd - violet-300
+lilás: #d8b4fe - purple-300
+rosa: #f5d0fe - fuchsia-200
 
 *--------------------------Atribuições--------------------------* 
 <a href="https://br.freepik.com/vetores-gratis/conceito-plano-de-saude-mental-com-pessoas-que-lidam-com-ilustracao-vetorial-de-problemas-psicologicos_38754391.htm#page=2&query=sa%C3%BAde%20mental&position=15&from_view=search&track=ais&uuid=2a03b149-7b8a-4795-a3f1-a7342b07835f">Imagem de macrovector</a> no Freepik

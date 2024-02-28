@@ -19,6 +19,9 @@ class VoluntarioController extends Controller
         $voluntario = Voluntario::find($id); 
         $voluntario->nome = $updateVoluntario['nome']; 
         $voluntario->email = $updateVoluntario['email']; 
-
+        // if (!voluntario->save(){
+         
+        // })
+        return(redirect('voluntarios')); 
     }
 }

@@ -9,6 +9,9 @@
               <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ asset('images/voluntario.png')}}" alt="foto voluntário"/>
               <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{$voluntario->nome}}</h5>
               <span class="text-sm text-gray-500 dark:text-gray-400">Entrada: {{$voluntario->created_at}}</span>
+              <span class="text-sm text-gray-500 dark:text-gray-400">CPF: {{$voluntario->cpf}}</span>
+              <span class="text-sm text-gray-500 dark:text-gray-400">Matrícula: {{$voluntario->matricula}}</span>
+
 
               {{-- <span class="text-sm text-gray-500 dark:text-gray-400">Universidade: instituição</span> --}}
     
