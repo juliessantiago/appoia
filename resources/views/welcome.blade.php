@@ -39,7 +39,7 @@
               <a href="#" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Como funciona</a>
           </li>
           <li>
-              <a href="#" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Agende uma conversa</a>
+              <a href="{{route('allAssuntos')}}" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Agende uma conversa</a>
           </li>
           <li>
               <a href="{{ route('login') }}" class="text-lg font-bold block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Entrar</a>
@@ -169,7 +169,7 @@
           <a href="#" class="hover:text-slate-50 me-4 md:me-6">Como funciona</a>
       </li>
       <li>
-          <a href="#" class="hover:text-slate-50 me-4 md:me-6">Agende uma conversa</a>
+          <a href="{{route('allAssuntos')}}" class="hover:text-slate-50 me-4 md:me-6">Agende uma conversa</a>
       </li>
       <li>
         <a href="#" class="hover:text-slate-50 me-4 md:me-6">Depoimentos</a>
