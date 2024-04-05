@@ -19,3 +19,4 @@ class AssuntoController extends Controller
         return view('assuntoVoluntarios', ['assuntoVoluntarios' =>Assunto::find($id)->voluntarios]); 
     }
 }
+     

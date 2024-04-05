@@ -24,4 +24,12 @@ class VoluntarioController extends Controller
         // })
         return(redirect('voluntarios')); 
     }
+
+    public function showHorarios($id){
+        $voluntario = Voluntario::find($id);
+        $horarios = $voluntario->horarios; 
+        // foreach($horarios as $horario)
+        //     dd($horario->diaSemana, $horario->inicioExpediente, $horario->fimExpediente); 
+        return view ('voluntarioHorarios', ['horariosLivres' => $horarios]); 
+    }
 }

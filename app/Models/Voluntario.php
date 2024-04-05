@@ -21,4 +21,7 @@ class Voluntario extends Model
     public function assuntos(){
         return $this->belongsToMany(Assunto::class);
     }
+    public function horarios(){
+        return $this->belongsToMany(Horario::class); 
+    }
 }
