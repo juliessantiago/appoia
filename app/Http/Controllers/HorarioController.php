@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class HorariosLivresController extends Controller
+class HorarioController extends Controller
 {
-    //
+    public function create(){
+        
+    }
 }

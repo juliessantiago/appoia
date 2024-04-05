@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('horarios', function (Blueprint $table) {
+        Schema::create('horarios', function (Blueprint $table) { //horários livres 
             $table->id();
             $table->timestamps();
+            $table->string('diaSemana'); 
+            $table->time('inicioExpediente'); 
+            $table->time('fimExpediente'); 
         });
     }
 

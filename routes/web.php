@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VoluntarioController;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\AssuntoController;
+use App\Http\Controllers\HorarioController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,10 @@ Route::get('/voluntario/{id}', [VoluntarioController::class, 'show'])->name('sho
 Route::post('/voluntario/{id}/update', [VoluntarioController::class, 'update'])->name('updateVoluntario'); 
 //exibir todos os horários de determinado voluntário
 Route::get('/voluntarioHorarios/{id}', [VoluntarioController::class, 'showHorarios'])->name('voluntarioHorarios'); 
+
+//rota de criação de horários livres de voluntário
+Route::post('/horarios', [HorarioController::class, 'create'])->name('createHorarios'); 
+
 
 
 Route::get('/assuntos',[AssuntoController::class, 'index'])->name('allAssuntos'); 

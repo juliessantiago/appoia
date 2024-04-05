@@ -11,7 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('horario_voluntario', function (Blueprint $table) {
+            $table->foreignId('voluntario_id')
+            ->references('id')->on('voluntarios')
+            ->cascadeOnDelete(); 
+            $table->foreignId('horario_id')
+            ->references('id')->on('horarios')
+            ->cascadeOnDelete(); 
+            $table->primary(['voluntario_id', 'horario_id']); //as duas serão chave primária
+        });
     }
 
     /**
@@ -19,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('horario_voluntario');
     }
 };

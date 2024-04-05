@@ -12,7 +12,7 @@
   <link rel="icon" src="{{ asset('images/favicon/favicon.png')}}"">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
-<body>
+<body class="scroll-smooth">
   <nav class="bg-violet-400 dark:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -154,7 +154,7 @@
 
 <!------------------------------------Escolha um voluntário--------------------------------->
 <div class="flex justify-center py-10 my-10">
-  <button type="button" class="text-white bg-sky-300 hover:bg-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-300 font-medium rounded-full text-sm px-10 py-4 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-sky-900">Ver voluntários</button>
+  <button type="button" class="text-white bg-sky-300 hover:bg-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-300 font-medium rounded-full text-sm px-10 py-4 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-sky-900"> <a href="{{route('allVoluntarios')}}" class="hover:text-slate-50 me-4 md:me-6">Ver voluntários</a></button>
 </div>
 <!--------------------------------------Footer------------------------------------------------------>
 <footer class="bg-purple-300  shadow dark:bg-gray-800">
