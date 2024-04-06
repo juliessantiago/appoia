@@ -9,8 +9,6 @@ class Consulta extends Model
 {
     use HasFactory;
     protected $fillable = [
-
         'title', 'start', 'end'
-
     ];
 }
