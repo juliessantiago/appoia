@@ -19,6 +19,7 @@
         <div id="calendar" class="p-10 m-10"> 
         </div> 
       </div>
+      {{-- <script src="sweetalert2.all.min.js"></script> --}}
       <script type="text/javascript">
         $(document).ready(function () {
     /*------------Get Site URL----*/
@@ -30,7 +31,7 @@
            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
            }
        });
-       /*------FullCalender JS Code------*/
+       /*------FullCalendar JS Code------*/
        var calendar = $('#calendar').fullCalendar({
                        header: {
                            left: 'prev,next',
@@ -38,7 +39,7 @@
                            right: 'agendaWeek, agendaDay'
                        },
                        timezone: 'America/Sao_Paulo', 
-                       backgroundColor: '#f1f1f1',
+                       backgroundColor: '#f1f1f1',//não funciona
                        eventColor: '#db2777',
                        editable: true,
                        events: SITEURL + "/fullcalendar",
@@ -69,12 +70,18 @@
                        selectable: true,
                        selectHelper: true,
                        select: function (start, end, allDay) { //função executada quando as datas são selecionadas
-                           alert(teste)
                            var title = prompt('Event Title:');
-                           if (title) {
+                           if (title) { //alterar posteriormente! 
+                              var hoje = moment().format('HH:00')
                                var start = $.fullCalendar.formatDate(start, "Y-MM-DD H:mm");
                                var end = $.fullCalendar.formatDate(end, "Y-MM-DD H:mm");
-                               $.ajax({
+                              // console.log(start)
+                               if(moment(start).format('HH:mm') < hoje){
+                                alert('Data anterior a hoje');
+                                calendar.fullCalendar('unselect'); 
+                               }
+                               else{
+                                $.ajax({
                                    url: SITEURL + "/fullcalendarAjax",
                                    data: {
                                        title: title,
@@ -97,6 +104,8 @@
                                        calendar.fullCalendar('unselect');
                                    }
                                });
+                               }
+                              
                            }
                        },
                        /*-------------------arrasta e solta --------------------------*/ 
