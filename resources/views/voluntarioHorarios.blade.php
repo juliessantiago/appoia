@@ -1,56 +1,150 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-          <h4 class="text-center text-sky-300 text-4xl p-6 font-bold">Nossos voluntários</h4>
-        </h2>
-    </x-slot> --}}
-  
-    <div class="">
-      <h4 class="text-center text-purple-300 text-4xl p-6 font-bold">Horários desse voluntário</h4>
-      <div class="flex justify-center">
-        @foreach($horariosLivres as $horarios)
-          <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
-        
-            <div class="flex flex-col items-center pt-10 pb-10">
-              
-                <table class="table-auto">
-                    <thead>
-                      <tr>
-                        <th>Dia da semana</th>
-                        <th>Início Expediente</th>
-                        <th>Final Expediente</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>{{$horarios->diaSemana}}</td>
-                        <td>{{$horarios->inicioExpediente}}</td>
-                        <td>{{$horarios->fimExpediente}}</td>
-                      </tr>
-
-                   
-                    </tbody>
-                  </table>
-
-
-
-                <div class="flex mt-4 md:mt-6">
-                    {{-- <a href="{{route('voluntarioHorarios', $voluntario->id)}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ver horários</a> --}}
-                </div>
-            </div>
-          </div>
-        @endforeach
+  <html>
+    <head>
+      <title>Full calendar</title>
+      <meta name="csrf-token" content="{{ csrf_token() }}">
+      @vite([
+        'resources/css/input.css', 
+        'resources/js/app.js'
+        ])
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    </head>
+    <body> 
+      <div class="container">
+        <div id="calendar" class="p-10 m-10"> 
+        </div> 
       </div>
-    </div>
-  
-    <!--<div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-transparent dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("Bem vindo(a)!") }}
-                </div>
-            </div>
-        </div>
-    </div>-->
-  </x-app-layout>
+      <script type="text/javascript">
+        $(document).ready(function () {
+    /*------------Get Site URL----*/
+       var SITEURL = "{{ url('/') }}";
+       const teste = "teste global"
+       /*-------------- CSRF Token------*/
+       $.ajaxSetup({
+           headers: {
+           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+           }
+       });
+       /*------FullCalender JS Code------*/
+       var calendar = $('#calendar').fullCalendar({
+                       header: {
+                           left: 'prev,next',
+                           center: 'title',
+                           right: 'agendaWeek, agendaDay'
+                       },
+                       timezone: 'America/Sao_Paulo', 
+                       backgroundColor: '#f1f1f1',
+                       eventColor: '#db2777',
+                       editable: true,
+                       events: SITEURL + "/fullcalendar",
+                       displayEventTime: true,
+                       editable: true,
+                       defaultView: 'agendaWeek',
+                       timeFormat: 'H:mm',
+                       slotDuration: "01:00:00",
+                       allDaySlot: false, 
+                       slotLabelFormat: 'H:mm', 
+                       nowIndicator: false,
+                       defaultTimedEventDuration : { 
+                           hours: 1, 
+                       },
+                       timeFormat: 'HH:mm', 
+                       // allDay: false, 
+                       allDayDefault: false,
+                       eventRender: function (event, element, view) {
+                           // if (event.allDay === 'true') {
+                           //         event.allDay = true;
+                           // } else {
+                           //         event.allDay = false;
+                           // }
+                           event.allDay = false;
+                       },
+                      
+                      
+                       selectable: true,
+                       selectHelper: true,
+                       select: function (start, end, allDay) { //função executada quando as datas são selecionadas
+                           alert(teste)
+                           var title = prompt('Event Title:');
+                           if (title) {
+                               var start = $.fullCalendar.formatDate(start, "Y-MM-DD H:mm");
+                               var end = $.fullCalendar.formatDate(end, "Y-MM-DD H:mm");
+                               $.ajax({
+                                   url: SITEURL + "/fullcalendarAjax",
+                                   data: {
+                                       title: title,
+                                       start: start,
+                                       end: end,
+                                       type: 'add'
+                                   },
+                                   type: "POST",
+                                   success: function (data) {
+                                       //data: dados do evento
+                                       displayMessage("Evento criado com sucesso");
+                                       calendar.fullCalendar('renderEvent',
+                                           {
+                                               id: data.id,
+                                               title: title,
+                                               start: start,
+                                               end: end,
+                                               allDay: allDay
+                                           },true);
+                                       calendar.fullCalendar('unselect');
+                                   }
+                               });
+                           }
+                       },
+                       /*-------------------arrasta e solta --------------------------*/ 
+                       eventDrop: function (event, delta) {
+                           var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD");
+                           var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD");
+                           $.ajax({
+                               url: SITEURL + '/fullcalendarAjax',
+                               data: {
+                                   title: event.title,
+                                   start: start,
+                                   end: end,
+                                   id: event.id,
+                                   type: 'update'
+                               },
+                               type: "POST",
+                               success: function (response) {
+                                   displayMessage("Evento atualizado com sucesso");
+                               }
+                           });
+                       },
+
+                       eventClick: function (event) { //evento quando é clicado é excluído
+                           var deleteMsg = confirm("Você realmente gostaria de excluir?");
+                           if (deleteMsg) {
+                               $.ajax({
+                                   type: "POST",
+                                   url: SITEURL + '/fullcalendarAjax',
+                                   data: {
+                                           id: event.id,
+                                           type: 'delete'
+                                   },
+
+                                   success: function (response) {
+                                       calendar.fullCalendar('removeEvents', event.id);
+                                       displayMessage("Evento excluído com sucesso");
+                                   }
+                               });
+                           }
+                       }
+                   });
+       });
+       /*---------Toastr Success ------------*/
+       function displayMessage(message) {
+           toastr.success(message, 'SUCESSO');
+       } 
+   </script>
+    </body>
+  </html>
+</x-app-layout>
   

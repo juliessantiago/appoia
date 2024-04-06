@@ -4,7 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VoluntarioController;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\AssuntoController;
-use App\Http\Controllers\HorarioController;
+use App\Http\Controllers\FullCalendarController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,12 @@ Route::get('/assunto/{id}', [AssuntoController::class, 'show'])->name('showAssun
 //exibir todos os voluntários que atendem determinado assunto
 Route::get('/assuntoVoluntarios/{id}', [AssuntoController::class, 'showVoluntarios'])->name('assuntoVoluntarios');
 
+
+/*----------------------------------------------Calendário---------------------------------------*/ 
+Route::controller(FullCalendarController::class)->group(function(){
+    Route::get('fullcalendar', 'index');
+    Route::post('fullcalendarAjax', 'ajax');
+});
 
 Route::get('/alunos', [AlunoController::class, 'index']); 
 require __DIR__.'/auth.php';
