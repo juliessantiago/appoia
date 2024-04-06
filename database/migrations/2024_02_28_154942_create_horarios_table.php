@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('diaSemana'); 
             $table->time('inicioExpediente'); 
             $table->time('fimExpediente'); 
+            $table->unsignedBigInteger('id_voluntario');
+            $table->foreign('id_voluntario')->references('id')->on('voluntarios')->onDelete('cascade');
+            //se um voluntário for deletado, seus horários serão automaticamente deletados
         });
     }
 

@@ -24,15 +24,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+//-------------------------------------Voluntários---------------------------------------------------------//
 Route::get('/voluntarios', [VoluntarioController::class, 'index'])->name('allVoluntarios'); 
 Route::get('/voluntario/{id}', [VoluntarioController::class, 'show'])->name('showVoluntario'); 
 Route::post('/voluntario/{id}/update', [VoluntarioController::class, 'update'])->name('updateVoluntario'); 
 //exibir todos os horários de determinado voluntário
 Route::get('/voluntarioHorarios/{id}', [VoluntarioController::class, 'showHorarios'])->name('voluntarioHorarios'); 
 
-//rota de criação de horários livres de voluntário
-Route::post('/horarios', [HorarioController::class, 'create'])->name('createHorarios'); 
+
 
 
 

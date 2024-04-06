@@ -22,6 +22,6 @@ class Voluntario extends Model
         return $this->belongsToMany(Assunto::class);
     }
     public function horarios(){
-        return $this->belongsToMany(Horario::class); 
+        return $this->hasMany(Horario::class, 'id_voluntario'); 
     }
 }

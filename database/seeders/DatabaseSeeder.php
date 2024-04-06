@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             AssuntoSeeder::class, 
             AssuntoVoluntarioSeeder::class, 
             HorarioSeeder::class,
-            HorarioVoluntarioSeeder::class,
         ]);
     }
 }
