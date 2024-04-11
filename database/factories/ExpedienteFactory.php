@@ -8,7 +8,7 @@ use App\Models\Voluntario;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Horario>
  */
-class HorarioFactory extends Factory
+class ExpedienteFactory extends Factory
 {
     /**
      * Define the model's default state.

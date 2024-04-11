@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('horarios', function (Blueprint $table) { //horários livres 
+        Schema::create('expedientes', function (Blueprint $table) { //horários livres 
             $table->id();
             $table->timestamps();
             $table->string('diaSemana'); 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('horarios');
+        Schema::dropIfExists('expedientes');
     }
 };

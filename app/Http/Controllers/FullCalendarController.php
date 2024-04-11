@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Models\Consulta;
+use App\Models\Expediente;
 
 class FullCalendarController extends Controller
 {
@@ -22,6 +23,11 @@ class FullCalendarController extends Controller
             'b'=>'qwerty',
             'c'=>1 ]
         ]);
+    }
+
+    public function expedientes($id){
+        $data = Expediente::where('id_voluntario', $id)->get(); 
+        return response()->json($data);
     }
 
     public function ajax(Request $request): JsonResponse

@@ -16,21 +16,42 @@
     </head>
     <body> 
       <div class="container">
+       
         <div id="calendar" class="p-10 m-10"> 
         </div> 
       </div>
-      {{-- <script src="sweetalert2.all.min.js"></script> --}}
+ 
+
       <script type="text/javascript">
+        var expedientes = []
+        function teste(){
+        var id = window.location.pathname.slice(-1)
+        //voluntarioHorarios/{id}
+            $.ajax({
+                url: "/expedientes/"+id,
+                method: 'GET', // ou 'POST', 'PUT', etc., dependendo do método que você precisa
+                dataType: 'json', // Especifique o tipo de dados que espera receber como resposta (JSON, neste caso)
+                success: function(response) {
+                    expedientes = response
+                },
+                error: function(xhr, status, error) {
+                    // Função a ser executada em caso de erro na requisição
+                    console.error('Erro na requisição:', error);
+                }
+            });
+       }
         $(document).ready(function () {
+            teste()
+        
     /*------------Get Site URL----*/
        var SITEURL = "{{ url('/') }}";
-       const teste = "teste global"
        /*-------------- CSRF Token------*/
        $.ajaxSetup({
            headers: {
            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
            }
        });
+     
        /*------FullCalendar JS Code------*/
        var calendar = $('#calendar').fullCalendar({
                        header: {
@@ -39,7 +60,6 @@
                            right: 'agendaWeek, agendaDay'
                        },
                        timezone: 'America/Sao_Paulo', 
-                       backgroundColor: '#f1f1f1',//não funciona
                        eventColor: '#db2777',
                        editable: true,
                        events: SITEURL + "/fullcalendar",
@@ -57,28 +77,27 @@
                        timeFormat: 'HH:mm', 
                        // allDay: false, 
                        allDayDefault: false,
-                       eventRender: function (event, element, view) {
-                           // if (event.allDay === 'true') {
-                           //         event.allDay = true;
-                           // } else {
-                           //         event.allDay = false;
-                           // }
+                       eventRender: function (event, element, view) { //por que event render só é executada ao clicar? 
                            event.allDay = false;
+                           horarios = [ {dow : [1, 2], start: '10:00', end: '12:00' }]; 
+                           calendar.fullCalendar('option', 'businessHours', horarios);
                        },
-                      
-                      
                        selectable: true,
                        selectHelper: true,
+                       businessHours: {
+                            start: null, 
+                            end: null, 
+                       },
                        select: function (start, end, allDay) { //função executada quando as datas são selecionadas
-                           var title = prompt('Event Title:');
+                        var title = prompt('Event Title:');
                            if (title) { //alterar posteriormente! 
-                              var hoje = moment().format('HH:00')
-                               var start = $.fullCalendar.formatDate(start, "Y-MM-DD H:mm");
-                               var end = $.fullCalendar.formatDate(end, "Y-MM-DD H:mm");
-                              // console.log(start)
-                               if(moment(start).format('HH:mm') < hoje){
-                                alert('Data anterior a hoje');
-                                calendar.fullCalendar('unselect'); 
+                                var hoje = moment().format('Y-MM-DD')
+                                var agora = moment().format('HH:mm')
+                                var start = $.fullCalendar.formatDate(start, "Y-MM-DD H:mm");
+                                var end = $.fullCalendar.formatDate(end, "Y-MM-DD H:mm");
+                               if((moment(start).format('Y-MM-DD')) < hoje && moment(start).format('H:mm') <= agora ){
+                                    alert('Selecione outro horário!')
+                                    calendar.fullCalendar('unselect');
                                }
                                else{
                                 $.ajax({
