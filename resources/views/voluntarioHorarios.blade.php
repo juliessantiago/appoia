@@ -25,11 +25,12 @@
 
       <script type="text/javascript">
         var expedientes = []
+        var idVoluntario = window.location.pathname.slice(-1)
         function getExpedientes(){
-        var id = window.location.pathname.slice(-1)
+        
         //voluntarioHorarios/{id}
             $.ajax({
-                url: "/expedientes/"+id,
+                url: "/expedientes/"+idVoluntario,
                 method: 'GET', 
                 dataType: 'json', 
                 success: function(response) {
@@ -64,7 +65,7 @@
                        timezone: 'America/Sao_Paulo', 
                        eventColor: '#db2777',
                        editable: true,
-                       events: SITEURL + "/fullcalendar",
+                       events: SITEURL + "/fullcalendar/" + idVoluntario,
                        displayEventTime: true,
                        editable: true,
                        defaultView: 'agendaWeek',
@@ -81,11 +82,11 @@
                        allDayDefault: false,
                        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
                        buttonText: {
-                            week:     'Semana',
-                            day:      'Dia',
+                            week: 'Semana',
+                            day:'Dia',
                         },
                         height: 'auto', 
-                       businessHours: [], 
+                       businessHours:true, 
                        eventRender: function (event, element, view) { //por que event render só é executada ao clicar? 
                            event.allDay = false;
                            calendar.fullCalendar('option', 'businessHours', expedientes);
@@ -99,6 +100,7 @@
                        selectHelper: true,
 
                        select: function (start, end, allDay) { //função executada quando as datas são selecionadas
+                        console.log(idVoluntario)
                         var title = 'Consulta agendada';
                         var start = $.fullCalendar.formatDate(start, "Y-MM-DD H:mm");
                         var end = $.fullCalendar.formatDate(end, "Y-MM-DD H:mm");
@@ -107,16 +109,18 @@
                             showDenyButton: false,
                             showCancelButton: true,
                             confirmButtonText: "Marcar",
-        
+                            cancelButtonText: "Cancelar"
                             }).then((result) => {
                             if (result.isConfirmed) {
+                                // $(".fc-business").css("background","#f00");
                                 $.ajax({
                                         url: SITEURL + "/fullcalendarAjax",
                                         data: {
                                             title: title,
                                             start: start,
                                             end: end,
-                                            type: 'add'
+                                            idVoluntario: idVoluntario,
+                                            type: 'add', 
                                         },
                                         type: "POST",
                                         success: function (data) {

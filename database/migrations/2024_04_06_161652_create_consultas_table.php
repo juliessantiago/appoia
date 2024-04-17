@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('title');
             $table->dateTime('start');
             $table->dateTime('end');
+            $table->unsignedBigInteger('id_voluntario');
+            $table->foreign('id_voluntario')->references('id')->on('voluntarios')->onDelete('cascade');
         });
     }
 
