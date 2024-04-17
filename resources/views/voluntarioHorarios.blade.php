@@ -7,6 +7,7 @@
         'resources/css/input.css', 
         'resources/js/app.js'
         ])
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -16,9 +17,12 @@
       <script src="{{ asset("https://cdn.jsdelivr.net/npm/sweetalert2@11") }}"></script>
     </head>
     <body> 
-      <div class="flex">
-       
-        <div id="calendar" class="p-10 bg-pink-100 "> 
+        <div class="py-2"> 
+            <h4 class="text-center text-purple-300 text-4xl p-1 font-bold">Marcar consulta</h4>
+        </div>
+      <div class="flex flex-row justify-center">
+        <div id="calendar" class="p-10"> 
+            
         </div> 
       </div>
  
@@ -58,12 +62,11 @@
        var calendar = $('#calendar').fullCalendar({
                        header: {
                            left: 'prev,next',
-                           center: 'title',
-                           right: 'agendaWeek, agendaDay', 
-                        
+                        //    center: 'title',
+                           right: 'agendaWeek', 
                        },
                        timezone: 'America/Sao_Paulo', 
-                       eventColor: '#db2777',
+                       eventColor: ' #d8b4fe',
                        editable: true,
                        events: SITEURL + "/fullcalendar/" + idVoluntario,
                        displayEventTime: true,
@@ -78,7 +81,6 @@
                            hours: 1, 
                        },
                        timeFormat: 'HH:mm', 
-                       // allDay: false, 
                        allDayDefault: false,
                        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
                        buttonText: {
@@ -90,11 +92,6 @@
                        eventRender: function (event, element, view) { //por que event render só é executada ao clicar? 
                            event.allDay = false;
                            calendar.fullCalendar('option', 'businessHours', expedientes);
-                        //     expedientes.forEach(expediente => {
-                        //         calendar.fullCalendar('option', 'businessHours', expediente);
-                        //         console.log(expediente)
-                        //    });
-                           //problema: só preenche o último horário de experiente
                        },
                        selectable: true,
                        selectHelper: true,

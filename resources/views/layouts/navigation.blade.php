@@ -66,9 +66,9 @@
                 </div>
             </div>
         </div>
-    @else 
+    @else <!--Não está logado--> 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between py-4">
+            <div class="flex justify-between py-1">
                 <a href="/"> <!--erro: está redirecionando para login--> 
                     <img src="{{ asset('images/logo_pequeno.png') }}" class="block h-12 text-gray-800 dark:text-gray-200"> 
                 
