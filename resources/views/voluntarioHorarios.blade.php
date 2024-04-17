@@ -86,7 +86,7 @@
                             day:'Dia',
                         },
                         height: 'auto', 
-                       businessHours:true, 
+                        hiddenDays: [0, 6], //domingo, sábado não são exibidos 
                        eventRender: function (event, element, view) { //por que event render só é executada ao clicar? 
                            event.allDay = false;
                            calendar.fullCalendar('option', 'businessHours', expedientes);
