@@ -1,17 +1,17 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Horario;
+use App\Models\Expediente;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class HorarioSeeder extends Seeder
+class ExpedienteSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Horario::factory()->count(8)->create(); 
+        Expediente::factory()->count(8)->create(); 
     }
 }

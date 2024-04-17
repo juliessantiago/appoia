@@ -154,7 +154,7 @@
 
 <!------------------------------------Escolha um voluntário--------------------------------->
 <div class="flex justify-center py-10 my-10">
-  <button type="button" class="text-white bg-sky-300 hover:bg-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-300 font-medium rounded-full text-sm px-10 py-4 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-sky-900"> <a href="{{route('allVoluntarios')}}" class="hover:text-slate-50 me-4 md:me-6">Ver voluntários</a></button>
+  <button type="button" class="text-white bg-sky-300 hover:bg-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-300 font-medium rounded-full text-sm px-10 py-4 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-sky-900"> <a href="{{route('allVoluntarios')}}">Ver voluntários</a></button>
 </div>
 <!--------------------------------------Footer------------------------------------------------------>
 <footer class="bg-purple-300  shadow dark:bg-gray-800">
