@@ -44,7 +44,7 @@ Route::get('/assuntoVoluntarios/{id}', [AssuntoController::class, 'showVoluntari
 
 /*----------------------------------------------Calendário---------------------------------------*/ 
 Route::controller(FullCalendarController::class)->group(function(){
-    Route::get('fullcalendar', 'index');
+    Route::get('fullcalendar/{id}', 'index');
     Route::post('fullcalendarAjax', 'ajax');
     Route::get('expedientes/{id}', 'expedientes');
 });

@@ -24,4 +24,8 @@ class Voluntario extends Model
     public function horarios(){
         return $this->hasMany(Expediente::class, 'id_voluntario'); 
     }
+ 
+    public function consultas(){
+        return $this->hasMany(Consulta::class, 'id_voluntario'); 
+    }
 }

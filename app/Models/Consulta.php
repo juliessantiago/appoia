@@ -9,6 +9,13 @@ class Consulta extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title', 'start', 'end'
+        'title', 
+        'start', 
+        'end', 
+        'id_voluntario'
     ];
+
+    public function voluntario(){//singular-> um horário pertence a um voluntário 
+        return $this->belongsTo(Voluntario::class);
+    }
 }
