@@ -88,17 +88,17 @@
                        businessHours: [], 
                        eventRender: function (event, element, view) { //por que event render só é executada ao clicar? 
                            event.allDay = false;
-                            expedientes.forEach(expediente => {
-                                calendar.fullCalendar('option', 'businessHours', expediente);
-                                console.log(expediente)
-                           });
+                           calendar.fullCalendar('option', 'businessHours', expedientes);
+                        //     expedientes.forEach(expediente => {
+                        //         calendar.fullCalendar('option', 'businessHours', expediente);
+                        //         console.log(expediente)
+                        //    });
                            //problema: só preenche o último horário de experiente
                        },
                        selectable: true,
                        selectHelper: true,
 
                        select: function (start, end, allDay) { //função executada quando as datas são selecionadas
-                        // var batata = false; 
                         var title = 'Consulta agendada';
                         var start = $.fullCalendar.formatDate(start, "Y-MM-DD H:mm");
                         var end = $.fullCalendar.formatDate(end, "Y-MM-DD H:mm");
@@ -107,7 +107,7 @@
                             showDenyButton: false,
                             showCancelButton: true,
                             confirmButtonText: "Marcar",
-                            denyButtonText: `Agora não`
+        
                             }).then((result) => {
                             if (result.isConfirmed) {
                                 $.ajax({
