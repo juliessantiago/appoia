@@ -13,6 +13,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+      <script src="{{ asset("https://cdn.jsdelivr.net/npm/sweetalert2@11") }}"></script>
     </head>
     <body> 
       <div class="flex">
@@ -92,49 +93,52 @@
                                 console.log(expediente)
                            });
                            //problema: só preenche o último horário de experiente
-                        
                        },
                        selectable: true,
                        selectHelper: true,
-                   
+
                        select: function (start, end, allDay) { //função executada quando as datas são selecionadas
-                        var title = prompt('Event Title:');
-                           if (title) { //alterar essa verificação posteriormente! 
-                                var hoje = moment().format('Y-MM-DD')
-                                var agora = moment().format('HH:mm')
-                                var start = $.fullCalendar.formatDate(start, "Y-MM-DD H:mm");
-                                var end = $.fullCalendar.formatDate(end, "Y-MM-DD H:mm");
-                               if((moment(start).format('Y-MM-DD')) < hoje && moment(start).format('H:mm') <= agora ){
-                                    alert('Selecione outro horário!')
-                                    calendar.fullCalendar('unselect');
-                               }
-                               else{
+                        // var batata = false; 
+                        var title = 'Consulta agendada';
+                        var start = $.fullCalendar.formatDate(start, "Y-MM-DD H:mm");
+                        var end = $.fullCalendar.formatDate(end, "Y-MM-DD H:mm");
+                        Swal.fire({
+                            title: "Gostaria de marcar consulta nesse horário?",
+                            showDenyButton: false,
+                            showCancelButton: true,
+                            confirmButtonText: "Marcar",
+                            denyButtonText: `Agora não`
+                            }).then((result) => {
+                            if (result.isConfirmed) {
                                 $.ajax({
-                                   url: SITEURL + "/fullcalendarAjax",
-                                   data: {
-                                       title: title,
-                                       start: start,
-                                       end: end,
-                                       type: 'add'
-                                   },
-                                   type: "POST",
-                                   success: function (data) {
-                                       //data: dados do evento
-                                       displayMessage("Evento criado com sucesso");
-                                       calendar.fullCalendar('renderEvent',
-                                           {
-                                               id: data.id,
-                                               title: title,
-                                               start: start,
-                                               end: end,
-                                               allDay: allDay
-                                           },true);
-                                       calendar.fullCalendar('unselect');
-                                   }
-                               });
-                               }
+                                        url: SITEURL + "/fullcalendarAjax",
+                                        data: {
+                                            title: title,
+                                            start: start,
+                                            end: end,
+                                            type: 'add'
+                                        },
+                                        type: "POST",
+                                        success: function (data) {
+                                            //data: dados do evento
+                                            Swal.fire("Consulta marcada!");
+                                            calendar.fullCalendar('renderEvent',
+                                                {
+                                                    id: data.id,
+                                                    title: title,
+                                                    start: start,
+                                                    end: end,
+                                                    allDay: allDay
+                                                },true);
+                                            calendar.fullCalendar('unselect');
+                                        }
+                                });
+                            } else {
+                                calendar.fullCalendar('unselect');
+                            }
+                        });
+                      
                               
-                           }
                        },
                        /*-------------------arrasta e solta --------------------------*/ 
                        eventDrop: function (event, delta) {
