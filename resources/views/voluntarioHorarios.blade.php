@@ -15,33 +15,33 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     </head>
     <body> 
-      <div class="container">
+      <div class="flex">
        
-        <div id="calendar" class="p-10 m-10"> 
+        <div id="calendar" class="p-10 bg-pink-100 "> 
         </div> 
       </div>
  
 
       <script type="text/javascript">
         var expedientes = []
-        function teste(){
+        function getExpedientes(){
         var id = window.location.pathname.slice(-1)
         //voluntarioHorarios/{id}
             $.ajax({
                 url: "/expedientes/"+id,
-                method: 'GET', // ou 'POST', 'PUT', etc., dependendo do método que você precisa
-                dataType: 'json', // Especifique o tipo de dados que espera receber como resposta (JSON, neste caso)
+                method: 'GET', 
+                dataType: 'json', 
                 success: function(response) {
                     expedientes = response
+                    // console.log(expedientes)
                 },
                 error: function(xhr, status, error) {
-                    // Função a ser executada em caso de erro na requisição
                     console.error('Erro na requisição:', error);
                 }
             });
        }
         $(document).ready(function () {
-            teste()
+            getExpedientes()
         
     /*------------Get Site URL----*/
        var SITEURL = "{{ url('/') }}";
@@ -57,7 +57,8 @@
                        header: {
                            left: 'prev,next',
                            center: 'title',
-                           right: 'agendaWeek, agendaDay'
+                           right: 'agendaWeek, agendaDay', 
+                        
                        },
                        timezone: 'America/Sao_Paulo', 
                        eventColor: '#db2777',
@@ -77,20 +78,28 @@
                        timeFormat: 'HH:mm', 
                        // allDay: false, 
                        allDayDefault: false,
+                       dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+                       buttonText: {
+                            week:     'Semana',
+                            day:      'Dia',
+                        },
+                        height: 'auto', 
+                       businessHours: [], 
                        eventRender: function (event, element, view) { //por que event render só é executada ao clicar? 
                            event.allDay = false;
-                           horarios = [ {dow : [1, 2], start: '10:00', end: '12:00' }]; 
-                           calendar.fullCalendar('option', 'businessHours', horarios);
+                            expedientes.forEach(expediente => {
+                                calendar.fullCalendar('option', 'businessHours', expediente);
+                                console.log(expediente)
+                           });
+                           //problema: só preenche o último horário de experiente
+                        
                        },
                        selectable: true,
                        selectHelper: true,
-                       businessHours: {
-                            start: null, 
-                            end: null, 
-                       },
+                   
                        select: function (start, end, allDay) { //função executada quando as datas são selecionadas
                         var title = prompt('Event Title:');
-                           if (title) { //alterar posteriormente! 
+                           if (title) { //alterar essa verificação posteriormente! 
                                 var hoje = moment().format('Y-MM-DD')
                                 var agora = moment().format('HH:mm')
                                 var start = $.fullCalendar.formatDate(start, "Y-MM-DD H:mm");

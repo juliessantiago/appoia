@@ -18,16 +18,37 @@ class FullCalendarController extends Controller
                        ->get(['id', 'title', 'start', 'end']);
              return response()->json($data);
         }
-        return view('fullcalender',[   'teste'=>[
-            'a'=>'dgsdfg',
-            'b'=>'qwerty',
-            'c'=>1 ]
-        ]);
+   
     }
 
     public function expedientes($id){
         $data = Expediente::where('id_voluntario', $id)->get(); 
-        return response()->json($data);
+        
+        $retorno = $data->map(function ($expediente){
+            switch ($expediente->diaSemana){
+                case $expediente->diaSemana == "Monday":
+                    $expediente->diaSemana = 1;
+                    break; 
+                case $expediente->diaSemana == "Tuesday":
+                    $expediente->diaSemana = 2;
+                    break; 
+                case $expediente->diaSemana == "Wednesday":
+                    $expediente->diaSemana = 3;
+                    break; 
+                case $expediente->diaSemana == "Thursday":
+                    $expediente->diaSemana = 4;
+                    break; 
+                case $expediente->diaSemana == "Friday":
+                    $expediente->diaSemana = 5;
+                    break; 
+            }
+            return  [
+                'dow' => [$expediente->diaSemana],
+                'start' => $expediente->inicioExpediente, 
+                'end' => $expediente->fimExpediente, 
+            ]; 
+        });  
+        return response()->json($retorno);
     }
 
     public function ajax(Request $request): JsonResponse
