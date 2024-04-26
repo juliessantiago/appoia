@@ -16,9 +16,9 @@ class AlunoSeeder extends Seeder
     {
         $alunos = [
             [
-                'nome' => 'Maria Clara Souza', 
+                'name' => 'Maria Clara Souza', 
                 'email' => 'mariaclara@gmail.com', 
-                'senha' => '1234', 
+                'password' => 'password', 
                 'data_nascimento' => '2010-03-29', 
                 'responsavel' => 'Rosângela Souza', 
                 'telefone' => '(85) 2365-3681', 
@@ -29,9 +29,9 @@ class AlunoSeeder extends Seeder
                 'sexo' => 'feminino'
             ], 
             [
-                'nome' => 'Roberto Amaral da Costa Silva', 
+                'name' => 'Roberto Amaral da Costa Silva', 
                 'email' => 'robertoamaral@gmail.com', 
-                'senha' => '1234', 
+                'password' => 'password', 
                 'data_nascimento' => '2010-04-11', 
                 'responsavel' => 'João Silva', 
                 'telefone' => '(22) 2128-3153', 
@@ -42,9 +42,9 @@ class AlunoSeeder extends Seeder
                 'sexo' => 'Masculino'
             ], 
             [
-                'nome' => 'Enzo Mathias da Silveira Hirsh', 
+                'name' => 'Enzo Mathias da Silveira Hirsh', 
                 'email' => 'enzomathias@gmail.com', 
-                'senha' => '1234', 
+                'password' => 'password', 
                 'data_nascimento' => '2008-10-20', 
                 'responsavel' => 'Maria Aparecida Silva', 
                 'telefone' => '(63) 2789-8341', 
