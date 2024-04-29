@@ -6,9 +6,18 @@ use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\AssuntoController;
 use App\Http\Controllers\ExpedienteController;
 use App\Http\Controllers\FullCalendarController;
-
-
 use Illuminate\Support\Facades\Route;
+
+/*----------------------------Aluno autenticação--------------------*/ 
+Route::prefix('aluno')->group(function () {
+    Route::get('/login', [AlunoController::class, 'showLogin'])->name('loginAlunoForm'); 
+    Route::post('/login/aluno', [AlunoController::class, 'loginAluno'])->name('loginAluno'); 
+    Route::get('/dashboard', [AlunoController::class, 'dashboard'])->name('dashboardAluno')->middleware('auth:aluno');
+});
+
+
+
+/*------------------------------------------------------------------------------*/ 
 
 Route::get('/', function () {
     return view('welcome');

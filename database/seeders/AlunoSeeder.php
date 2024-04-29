@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Aluno;
+use Illuminate\Support\Facades\Hash;
 
 
 class AlunoSeeder extends Seeder
@@ -18,7 +19,7 @@ class AlunoSeeder extends Seeder
             [
                 'name' => 'Maria Clara Souza', 
                 'email' => 'mariaclara@gmail.com', 
-                'password' => 'password', 
+                'password' => Hash::make('password'),
                 'data_nascimento' => '2010-03-29', 
                 'responsavel' => 'Rosângela Souza', 
                 'telefone' => '(85) 2365-3681', 
@@ -31,7 +32,7 @@ class AlunoSeeder extends Seeder
             [
                 'name' => 'Roberto Amaral da Costa Silva', 
                 'email' => 'robertoamaral@gmail.com', 
-                'password' => 'password', 
+                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
                 'data_nascimento' => '2010-04-11', 
                 'responsavel' => 'João Silva', 
                 'telefone' => '(22) 2128-3153', 
@@ -44,7 +45,7 @@ class AlunoSeeder extends Seeder
             [
                 'name' => 'Enzo Mathias da Silveira Hirsh', 
                 'email' => 'enzomathias@gmail.com', 
-                'password' => 'password', 
+                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
                 'data_nascimento' => '2008-10-20', 
                 'responsavel' => 'Maria Aparecida Silva', 
                 'telefone' => '(63) 2789-8341', 
