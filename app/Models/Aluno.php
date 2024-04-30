@@ -20,11 +20,6 @@ class Aluno extends Authenticatable
         'responsavel', 
         // 'escola_id', 
         'cidade',
-        'telefone', 
-        'rua', 
-        'numero', 
-        'bairro', 
-        'cidade', 
         'sexo'
     ];
     use HasFactory, HasApiTokens, Notifiable;

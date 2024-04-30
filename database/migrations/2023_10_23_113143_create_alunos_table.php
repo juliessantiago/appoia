@@ -18,10 +18,6 @@ return new class extends Migration
             $table->text('responsavel');    
             // $table->text('escola_id');
             $table->text('cidade');
-            $table->text('telefone');
-            $table->text('rua');
-            $table->text('numero');
-            $table->text('bairro');
             $table->text('sexo');
             $table->text('name');
             $table->string('email')->unique();

@@ -45,7 +45,7 @@
               <a href="{{ route('login') }}" class="text-lg font-bold block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Entrar</a>
           </li>
           <li>
-            <a href="{{ route('register') }}" class="text-lg font-bold block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Criar Conta</a>
+            <a href="{{ route('registerAlunoForm') }}" class="text-lg font-bold block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Criar Conta</a>
           </li>
         </ul>
       </div>

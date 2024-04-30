@@ -10,10 +10,13 @@ use Illuminate\Support\Facades\Route;
 
 /*----------------------------Aluno autenticação--------------------*/ 
 Route::prefix('aluno')->group(function () {
+    Route::get('register', [AlunoController::class, 'showRegister'])->name('registerAlunoForm'); 
+    Route::post('register', [AlunoController::class, 'registerAluno'])->name('registerAluno'); 
     Route::get('/login', [AlunoController::class, 'showLogin'])->name('loginAlunoForm'); 
     Route::post('/login/aluno', [AlunoController::class, 'loginAluno'])->name('loginAluno'); 
     Route::get('/dashboard', [AlunoController::class, 'dashboard'])->name('dashboardAluno')->middleware('auth:aluno');
-    Route::get('/logout', [AlunoController::class, 'logout'])->name('aluno.logout'); 
+    Route::get('/logout', [AlunoController::class, 'logout'])->name('aluno.logout')->middleware('auth:aluno');
+
 });
 
 

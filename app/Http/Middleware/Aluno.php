@@ -17,7 +17,7 @@ class Aluno
     public function handle(Request $request, Closure $next): Response
     {
         if(!Auth::guard('aluno')->check()){
-            return redirect()->route('loginAdminForm')->with('error', 'Faça login primeiro');
+            return redirect()->route('loginAdminForm')->with('error', 'Você precisa entrar em sua conta primeiro');
         }
         return $next($request);
     }

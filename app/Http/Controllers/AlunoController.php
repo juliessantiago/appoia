@@ -33,4 +33,15 @@ class AlunoController extends Controller
         Auth::guard('aluno')->logout(); 
         return redirect()->route('loginAlunoForm'); 
     }
+
+    public function showRegister(){
+        return view ('aluno/register'); 
+    }
+
+    public function registerAluno(Request $request){
+        // dd($request); 
+        Aluno::create([
+            'nome'
+        ]); 
+    }
 }

@@ -22,10 +22,6 @@ class AlunoSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'data_nascimento' => '2010-03-29', 
                 'responsavel' => 'Rosângela Souza', 
-                'telefone' => '(85) 2365-3681', 
-                'rua' => 'Marechal Deodoro', 
-                'numero' => '255', 
-                'bairro' => 'Centro', 
                 'cidade' => 'Pelotas', 
                 'sexo' => 'feminino'
             ], 
@@ -35,10 +31,6 @@ class AlunoSeeder extends Seeder
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
                 'data_nascimento' => '2010-04-11', 
                 'responsavel' => 'João Silva', 
-                'telefone' => '(22) 2128-3153', 
-                'rua' => 'Januário Coelho da Costa', 
-                'numero' => '1050', 
-                'bairro' => 'Fragata', 
                 'cidade' => 'Pelotas', 
                 'sexo' => 'Masculino'
             ], 
@@ -48,10 +40,6 @@ class AlunoSeeder extends Seeder
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
                 'data_nascimento' => '2008-10-20', 
                 'responsavel' => 'Maria Aparecida Silva', 
-                'telefone' => '(63) 2789-8341', 
-                'rua' => 'Idelfonso Simões Lopes', 
-                'numero' => '431', 
-                'bairro' => 'Três Vendas', 
                 'cidade' => 'Pelotas', 
                 'sexo' => 'Masculino'
             ]
