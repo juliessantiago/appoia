@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Aluno;
+use Illuminate\Support\Facades\Auth;
 
 class AlunoController extends Controller
 {
@@ -17,10 +18,19 @@ class AlunoController extends Controller
     public function loginAluno(Request $request){
         $dados = $request->all();
         if (auth()->guard('aluno')->attempt(['email' => $dados['email'], 'password' => $dados['password']])) {
-            // return redirect()->route('dashboardAdmin');
-            dd('dados corretos'); 
+            return redirect()->route('dashboardAluno');
+            // dd('dados corretos'); 
         }else{
-            return back()->withErrors(['email' => 'Email ou senha incorretos, tente novamente!']); 
+            return redirect()->route('loginAlunoForm')->withErrors(['email' => 'Email ou senha incorretos, tente novamente!']); 
         }
+    }
+
+    public function dashboard(){
+        return view('aluno/dashboard'); 
+    }
+    
+    public function logout(){
+        Auth::guard('aluno')->logout(); 
+        return redirect()->route('loginAlunoForm'); 
     }
 }

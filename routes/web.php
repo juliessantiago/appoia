@@ -13,6 +13,7 @@ Route::prefix('aluno')->group(function () {
     Route::get('/login', [AlunoController::class, 'showLogin'])->name('loginAlunoForm'); 
     Route::post('/login/aluno', [AlunoController::class, 'loginAluno'])->name('loginAluno'); 
     Route::get('/dashboard', [AlunoController::class, 'dashboard'])->name('dashboardAluno')->middleware('auth:aluno');
+    Route::get('/logout', [AlunoController::class, 'logout'])->name('aluno.logout'); 
 });
 
 
