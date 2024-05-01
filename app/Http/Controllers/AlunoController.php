@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Aluno;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
+use Illuminate\Auth\Events\Registered;
+
+
 
 
 class AlunoController extends Controller
@@ -40,15 +44,25 @@ class AlunoController extends Controller
         return view ('aluno/register'); 
     }
 
-    public function registerAluno(Request $request){
-        dd($request); 
-        // $aluno = Aluno::create([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'password' => Hash::make($request->password),
-        //     'responsavel' => $request->responsavel,
-        //     'escola_id' =>1, 
-        //     'sexo' => $request->sexo,
-        // ]);
+    public function registerAluno(Request $request){ //alterar nome para store
+        // dd($request); 
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.Aluno::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+        $aluno = Aluno::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'responsavel' => $request->responsavel,
+            'id_escola' => $request->escola,
+            'sexo' => $request->sexo,
+            'data_nascimento' => $request->data_nascimento,
+        ]);
+
+        event(new Registered($aluno));
+
+        return redirect()->route('loginAlunoForm'); 
     }
 }

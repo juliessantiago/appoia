@@ -17,7 +17,7 @@
         <!--Data de nascimento--> 
         <div>
             <x-input-label for="data_nascimento" :value="__('Data de nascimento')" />
-            <x-text-input id="data_nascimento" class="block mt-1 w-full text-purple-400" type="date" name="data de nascimento" :value="old('data_nascimento')" required autofocus autocomplete="Data de nascimento" />
+            <x-text-input id="data_nascimento" class="block mt-1 w-full text-purple-400" type="date" name="data_nascimento" :value="old('data_nascimento')" required autofocus autocomplete="Data de nascimento" />
             <x-input-error :messages="$errors->get('data_nascimento')" class="mt-2" />
         </div>
 
@@ -31,15 +31,16 @@
         <!--Sexo--> 
         <div>
             <x-input-label for="responsavel" :value="__('Sexo')" />
-            <select id="sexo" class="block mt-1 w-full text-purple-400" name="sexo" :value="old('sexo')">
-                <option value="volvo">Feminino</option>
-                <option value="saab">Masculino</option>
+            <select id="sexo" class="block mt-1 w-full text-purple-400 border-gray-300" name="sexo" :value="old('sexo')">
+                <option value="feminino">Feminino</option>
+                <option value="masculino">Masculino</option>
             </select>
             <x-input-error :messages="$errors->get('sexo')" class="mt-2" />
         </div>
 
         <!--Escola-->
         <div>
+            <x-input-label for="id_escola" :value="__('Escola')" />
             <livewire:escola-select />
         </div>
 

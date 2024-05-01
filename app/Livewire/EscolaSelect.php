@@ -7,11 +7,11 @@ use Livewire\Component;
 class EscolaSelect extends Component
 {
     public $escolas;
-    public function mount(){ //NÃO pode mudar nome do método! 
+    public function mount(){ //NÃO pode mudar nome do método!
         $this->escolas = Escola::all(); 
     }
     public function render()
     {
-        return view('livewire.escola-select', ['escolas' => $this->escolas]);
+        return view('livewire.escola-select');
     }
 }
