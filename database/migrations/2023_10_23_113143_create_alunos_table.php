@@ -16,14 +16,14 @@ return new class extends Migration
             $table->timestamps();
             $table->text('data_nascimento');
             $table->text('responsavel');    
-            // $table->text('escola_id');
-            $table->text('cidade');
             $table->text('sexo');
             $table->text('name');
             $table->string('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->tinyInteger('status')->default(0);
+            $table->unsignedBigInteger('id_escola');
+            $table->foreign('id_escola')->references('id')->on('escolas')->onDelete('cascade');
         });
     }
 

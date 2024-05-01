@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Aluno;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class AlunoController extends Controller
 {
@@ -39,9 +41,14 @@ class AlunoController extends Controller
     }
 
     public function registerAluno(Request $request){
-        // dd($request); 
-        Aluno::create([
-            'nome'
-        ]); 
+        dd($request); 
+        // $aluno = Aluno::create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+        //     'responsavel' => $request->responsavel,
+        //     'escola_id' =>1, 
+        //     'sexo' => $request->sexo,
+        // ]);
     }
 }

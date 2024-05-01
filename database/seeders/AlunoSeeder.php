@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Aluno;
+use App\Models\Escola;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -15,6 +16,8 @@ class AlunoSeeder extends Seeder
      */
     public function run(): void
     {
+        $escolas = Escola::all()->count(); 
+
         $alunos = [
             [
                 'name' => 'Maria Clara Souza', 
@@ -22,8 +25,8 @@ class AlunoSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'data_nascimento' => '2010-03-29', 
                 'responsavel' => 'Rosângela Souza', 
-                'cidade' => 'Pelotas', 
-                'sexo' => 'feminino'
+                'sexo' => 'feminino', 
+                'id_escola'=> rand(1, $escolas),
             ], 
             [
                 'name' => 'Roberto Amaral da Costa Silva', 
@@ -31,8 +34,8 @@ class AlunoSeeder extends Seeder
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
                 'data_nascimento' => '2010-04-11', 
                 'responsavel' => 'João Silva', 
-                'cidade' => 'Pelotas', 
-                'sexo' => 'Masculino'
+                'sexo' => 'Masculino', 
+                'id_escola'=> rand(1, $escolas),
             ], 
             [
                 'name' => 'Enzo Mathias da Silveira Hirsh', 
@@ -40,8 +43,8 @@ class AlunoSeeder extends Seeder
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
                 'data_nascimento' => '2008-10-20', 
                 'responsavel' => 'Maria Aparecida Silva', 
-                'cidade' => 'Pelotas', 
-                'sexo' => 'Masculino'
+                'sexo' => 'Masculino', 
+                'id_escola'=> rand(1, $escolas),
             ]
             ]; 
             Aluno::insert($alunos); 

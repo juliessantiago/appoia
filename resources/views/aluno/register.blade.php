@@ -9,18 +9,42 @@
 
         <!-- Nome -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Nome')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!--Data de nascimento--> 
         <div>
-            <x-input-label for="data_nascimento" :value="__('Data_nascimento')" />
+            <x-input-label for="data_nascimento" :value="__('Data de nascimento')" />
             <x-text-input id="data_nascimento" class="block mt-1 w-full text-purple-400" type="date" name="data de nascimento" :value="old('data_nascimento')" required autofocus autocomplete="Data de nascimento" />
             <x-input-error :messages="$errors->get('data_nascimento')" class="mt-2" />
         </div>
 
+        <!--Responsável--> 
+        <div>
+            <x-input-label for="responsavel" :value="__('Responsável')" />
+            <x-text-input id="responsavel" class="block mt-1 w-full text-purple-400" type="text" name="responsavel" :value="old('responsavel')" autofocus autocomplete="Responsável" />
+            <x-input-error :messages="$errors->get('responsavel')" class="mt-2" />
+        </div>
+
+        <!--Sexo--> 
+        <div>
+            <x-input-label for="responsavel" :value="__('Sexo')" />
+            <select id="sexo" class="block mt-1 w-full text-purple-400" name="sexo" :value="old('sexo')">
+                <option value="volvo">Feminino</option>
+                <option value="saab">Masculino</option>
+            </select>
+            <x-input-error :messages="$errors->get('sexo')" class="mt-2" />
+        </div>
+
+        <!--Escola-->
+        <div>
+            <livewire:escola-select />
+        </div>
+
+        
+        
 
 
         <!-- Emaill -->
