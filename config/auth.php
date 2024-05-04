@@ -44,6 +44,14 @@ return [
             'driver' => 'session',
             'provider' => 'alunos',
         ],
+        'voluntario' => [
+            'driver' => 'session',
+            'provider' => 'voluntarios',
+        ],
+        'supervisor' => [
+            'driver' => 'session',
+            'provider' => 'supervisores',
+        ],
     ],
 
     /*
@@ -71,6 +79,14 @@ return [
         'alunos' => [
             'driver' => 'eloquent',
             'model' => App\Models\Aluno::class,
+        ],
+        'voluntarios' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Voluntario::class,
+        ],
+        'supervisores' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Supervisor::class,
         ],
 
         // 'users' => [

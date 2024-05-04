@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{route('loginAluno')}}">
+    <form method="POST" action="{{route('multiAuth')}}">
         <div class="flex justify-center">
             <img class="" src="{{ asset('images/stickers/login_aluno.png')}}"/> 
             
