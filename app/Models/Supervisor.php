@@ -10,14 +10,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Supervisor extends Authenticatable
 {
     protected $fillable = [
-        'nome', 
+        'name', 
         'email', 
-        'senha', 
-        'cpf', 
-        'telefone', 
-        'tipo', 
-        'universidade_id',
-        'CRP'
+        'password', 
+        'crp'
     ]; 
     use HasFactory;
 }

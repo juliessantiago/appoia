@@ -48,7 +48,7 @@ return [
             'driver' => 'session',
             'provider' => 'voluntarios',
         ],
-        'supervisor' => [
+        'supervisor' => [ 
             'driver' => 'session',
             'provider' => 'supervisores',
         ],
