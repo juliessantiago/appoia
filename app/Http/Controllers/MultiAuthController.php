@@ -23,17 +23,14 @@ class MultiAuthController extends Controller
             }
         }elseif ($request->tipo_usuario == 'voluntario') {
             if (auth()->guard('voluntario')->attempt(['email' => $dados['email'], 'password' => $dados['password']])) {
-                // return redirect()->route('dashboardAluno');
-                dd('voluntario'); 
-                // dd('dados corretos'); 
+                return redirect()->route('dashboardVoluntario');
             }else{
                 return redirect()->route('multilogin')->withErrors(['email' => 'Email ou senha incorretos, tente novamente!']); 
             }
         } elseif($request->tipo_usuario == 'supervisor'){
             if (auth()->guard('supervisor')->attempt(['email' => $dados['email'], 'password' => $dados['password']])) {
-                // return redirect()->route('dashboardAluno');
-                dd('supervisor');
-                // dd('dados corretos'); 
+                return redirect()->route('dashboardSupervisor');
+               
             }else{
                 return redirect()->route('multilogin')->withErrors(['email' => 'Email ou senha incorretos, tente novamente!']); 
             }

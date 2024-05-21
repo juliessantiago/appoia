@@ -30,7 +30,8 @@
             <!-- Page Content -->
             <main>
                 <div class="p-10"> 
-                    <h3 class="text-center text-3xl font-bold  text-pink-300">Minhas Consultas</h3>  
+                    <h3 class="text-center text-3xl font-bold  text-pink-300">Supervisor</h3>  
+                    <h4>Minhas ações</h4>
                     <div class="flex align-bottom">
                         <a href="{{ route('aluno.logout') }}">Sair</a>
                     </div>

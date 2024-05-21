@@ -16,7 +16,7 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+            {{-- @include('layouts.navigation') --}}
 
             <!-- Page Heading -->
             @if (isset($header))
@@ -30,9 +30,10 @@
             <!-- Page Content -->
             <main>
                 <div class="p-10"> 
-                    <h3 class="text-center text-3xl font-bold  text-pink-300">Minhas Consultas</h3>  
+                    <h3 class="text-center text-3xl font-bold  text-pink-300">Minha ações</h3>  
                     <div class="flex align-bottom">
                         <p>Dashboard Voluntários </p>
+                        {{ Auth::user()}}
                         {{-- <a href="{{ route('aluno.logout') }}">Sair</a> --}}
                     </div>
                 </div>
