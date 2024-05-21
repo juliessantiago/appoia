@@ -42,10 +42,10 @@
               <a href="{{route('allAssuntos')}}" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Agende uma conversa</a>
           </li>
           <li>
-              <a href="{{ route('login') }}" class="text-lg font-bold block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Entrar</a>
+              <a href="{{ route('multilogin') }}" class="text-lg font-bold block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Entrar</a>
           </li>
           <li>
-            <a href="{{ route('register') }}" class="text-lg font-bold block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Criar Conta</a>
+            <a href="{{ route('registerAlunoForm') }}" class="text-lg font-bold block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Criar Conta</a>
           </li>
         </ul>
       </div>
@@ -159,7 +159,7 @@
 <!--------------------------------------Footer------------------------------------------------------>
 <footer class="bg-purple-300  shadow dark:bg-gray-800">
   <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#" class="hover:underline">Appoia</a>. Licença MIT.
+    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">Appoia</a>. Licença MIT.
   </span>
   <ul class="flex flex-wrap items-center mt-3 text-base font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
       <li>
@@ -176,7 +176,11 @@
       </li>
 
       <li>
-        <a href="#" class=" font-bold hover:text-slate-50 me-4 md:me-6">Sou voluntário</a>
+        <a href="{{route('multilogin')}}" class=" font-bold hover:text-slate-50 me-4 md:me-6">Sou voluntário</a>
+      </li>
+
+      <li>
+        <a href="{{route('multilogin')}}" class=" font-bold hover:text-slate-50 me-4 md:me-6">Sou supervisor</a>
       </li>
 
       <li>

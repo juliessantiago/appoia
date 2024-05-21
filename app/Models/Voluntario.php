@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Voluntario extends Model
+
+class Voluntario extends Authenticatable
 {
     protected $fillable = [
-        'nome', 
+        'name', 
         'email', 
-        'senha', 
+        'password', 
         'cpf', 
         'telefone', 
         // 'universidade_id',

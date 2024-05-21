@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('voluntarios', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->text('nome'); 
+            $table->text('name'); 
             $table->text('email'); 
-            $table->text('senha');
+            $table->text('password');
             $table->text('cpf'); 
             $table->text('telefone'); 
             // $table->text('dataNascimento'); 

@@ -18,7 +18,7 @@ class AssuntoVoluntarioSeeder extends Seeder
 
         $assuntos->each(function ($assunto) use($voluntarios){
             $assunto->voluntarios()->attach(
-                $voluntarios->random(rand(1,3))->pluck('id')->toArray()
+                $voluntarios->random(rand(1,$voluntarios->count()))->pluck('id')->toArray()
             );
         });
     }

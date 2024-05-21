@@ -26,5 +26,9 @@ class VoluntarioController extends Controller
         return(redirect('voluntarios')); 
     }
 
+    public function dashboard(){
+        return view('voluntario/dashboard'); 
+    }
+
    
 }

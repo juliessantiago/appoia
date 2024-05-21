@@ -14,18 +14,16 @@ return new class extends Migration
         Schema::create('alunos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->text('nome');
             $table->text('data_nascimento');
-            $table->text('email');
-            $table->text('senha'); 
             $table->text('responsavel');    
-            // $table->text('escola_id');
-            $table->text('cidade');
-            $table->text('telefone');
-            $table->text('rua');
-            $table->text('numero');
-            $table->text('bairro');
-            $table->text('sexo');    
+            $table->text('sexo');
+            $table->text('name');
+            $table->string('email')->unique();
+            // $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->tinyInteger('status')->default(0);
+            $table->unsignedBigInteger('id_escola');
+            $table->foreign('id_escola')->references('id')->on('escolas')->onDelete('cascade');
         });
     }
 
