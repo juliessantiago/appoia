@@ -62,7 +62,7 @@
 <!-----------------------Como podemos ajudar------------------------>
 <h4 class="text-center text-sky-300 text-4xl p-6 font-bold">Como podemos ajudar você</h4>
 
-<div class="flex flex-row p-6 align-middle justify-between">
+<div class="flex flex-row p-6 align-middle justify-around">
   <!-- <h3 class="text-purple-300 text-center text-3xl p-2">Cuide de sua mente</h3>
   <p class="text-fuchsia-200 text-center text-2xl p-2">Sua saúde mental é tão importante quanto sua saúde física</p> -->
 
@@ -152,10 +152,78 @@
 
 </div>
 
-<!------------------------------------Escolha um voluntário--------------------------------->
-<div class="flex justify-center py-10 my-10">
-  <button type="button" class="text-white bg-sky-300 hover:bg-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-300 font-medium rounded-full text-sm px-10 py-4 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-sky-900"> <a href="{{route('allVoluntarios')}}">Ver voluntários</a></button>
-</div>
+<!----------------------------------------blog------------------------------------------------------>
+<div class="m-4 p-6">
+  <div class="flex justify-around items-center"><!--flex superior-->
+    <img src="images/depressao_blog.png" class="w-2/4 p-2">
+    <!--card-->
+    <div class="max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+          <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+      </a>
+      <div class="p-5">
+          <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">Depressão na Adolescência: Você Não Está Sozinho</h5>
+          </a>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Dicas para entender e superar os momentos difíceis.</p>
+          <div class="flex mt-4 md:mt-6">
+            <a href="{{route('blog')}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
+          </div>
+      </div>
+    </div><!--card--> 
+    
+  </div><!--flex superior--> 
+
+  <div class="flex justify-around">
+    <!-----------------------------------card 1-----------------------------------------------------> 
+      <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+            <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+        </a>
+        <div class="p-5">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">Enchentes e Perdas: Superando o Trauma e Encontrando Força</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Como lidar com o impacto emocional de desastres naturais e reconstruir sua vida.</p>
+            <div class="flex mt-4 md:mt-6">
+              <a href="{{route('blog')}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
+            </div>
+        </div>
+      </div>
+    <!----------------------------------card 2 -----------------------------------------------------> 
+    
+      <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+            <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+        </a>
+        <div class="p-5">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">TDAH: Transforme Seu "Problema" em Superpoder</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Dicas e técnicas para aproveitar o máximo do seu potencial</p>
+            <div class="flex mt-4 md:mt-6">
+              <a href="{{route('blog')}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
+            </div>
+        </div>
+      </div>
+   <!----------------------------------card 3 -----------------------------------------------------> 
+      <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+            <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+        </a>
+        <div class="p-5">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">Ansiedade: Como Lidar com a Pressão da Escola e Redes Sociais</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Descubra estratégias para manter a calma e enfrentar os desafios do dia a dia.</p>
+            <div class="flex mt-4 md:mt-6">
+              <a href="{{route('blog')}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
+            </div>
+        </div>
+      </div>
+  </div>
+</div><!--final div blog--> 
+
 <!--------------------------------------Footer------------------------------------------------------>
 <footer class="bg-purple-300  shadow dark:bg-gray-800">
   <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
