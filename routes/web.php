@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*--------------------------------------Blog---------------------------------------------------------*/ 
+Route::get('/blog', function () {
+    return view('blog');
+});
 /*-------------------------------------MultiAuth------------------------------*/ 
 Route::get('/multilogin', [MultiAuthController::class, 'showLogin'])->name('multilogin'); 
 Route::post('/multiAuth', [MultiAuthController::class, 'multiAuth'])->name('multiAuth'); 
@@ -64,6 +69,7 @@ Route::controller(FullCalendarController::class)->group(function(){
     Route::post('fullcalendarAjax', 'ajax');
     Route::get('expedientes/{id}', 'expedientes');
 });
+
 
 Route::get('/alunos', [AlunoController::class, 'index']); 
 require __DIR__.'/auth.php';

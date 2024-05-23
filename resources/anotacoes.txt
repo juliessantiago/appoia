@@ -30,6 +30,9 @@ rosa: #f5d0fe - fuchsia-200
 #Sticker login/criar conta aluno 
 <a href="https://www.flaticon.com/br/stickers-gratis/estude" title="estude figurinhas">Estude figurinhas criadas por Stickers - Flaticon</a>
 títulos de seções: 3xl
+
+#Imagem depressão -> home (blog) 
+<a href="https://www.flaticon.com/free-icons/depression" title="depression icons">Depression icons created by max.icons - Flaticon</a>
 *-----------------------Espaçamento-------------------------* 
 padding entre seções: p-6 
 padding entre letreiros: p-2 
@@ -42,3 +45,13 @@ cards:
 
 *-----------------Imagens--------------------------------------*
 Todas as imagens precisam ser comprimidas, exceto a da seção "como funciona" 
+
+*------------------Texto-----------------------------------------*
+Títulos principais 
+text-4xl p-6 font-bold
+
+Subtítulos
+text-2xl p-6 font-bold
+
+Títulos dos cards 
+text-xl p-6 font-bold
