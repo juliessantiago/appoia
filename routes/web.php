@@ -17,7 +17,7 @@ Route::get('/', function () {
 /*--------------------------------------Blog---------------------------------------------------------*/ 
 Route::get('/blog', function () {
     return view('blog');
-});
+})->name('blog');
 /*-------------------------------------MultiAuth------------------------------*/ 
 Route::get('/multilogin', [MultiAuthController::class, 'showLogin'])->name('multilogin'); 
 Route::post('/multiAuth', [MultiAuthController::class, 'multiAuth'])->name('multiAuth'); 
