@@ -33,6 +33,13 @@ títulos de seções: 3xl
 
 #Imagem depressão -> home (blog) 
 <a href="https://www.flaticon.com/free-icons/depression" title="depression icons">Depression icons created by max.icons - Flaticon</a>
+
+#Ícone deletar 
+<a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by Kiranshastry - Flaticon</a>
+
+#icone editar 
+<a href="https://www.flaticon.com/br/icones-gratis/lapis" title="lápis ícones">Lápis ícones criados por Tanah Basah - Flaticon</a>
+#A591F6
 *-----------------------Espaçamento-------------------------* 
 padding entre seções: p-6 
 padding entre letreiros: p-2 

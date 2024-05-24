@@ -47,9 +47,11 @@ Route::get('/voluntarios', [VoluntarioController::class, 'index'])->name('allVol
 Route::get('/voluntario/{id}', [VoluntarioController::class, 'show'])->name('showVoluntario'); 
 Route::post('/voluntario/{id}/update', [VoluntarioController::class, 'update'])->name('updateVoluntario'); 
 Route::get('/dashboardVoluntario', [VoluntarioController::class, 'dashboard'])->name('dashboardVoluntario'); 
+Route::get('/logout', [VoluntarioController::class, 'logout'])->name('voluntario.logout')->middleware('auth:voluntario');
+
 //exibir todos os horários de expediente de determinado voluntário
 Route::get('/voluntarioHorarios/{id}', [ExpedienteController::class, 'showHorarios'])->name('voluntarioHorarios'); 
-
+Route::get('/voluntarioAssuntos/{id}', [VoluntarioController::class, 'showAssuntos'])->name('voluntarioAssuntos'); 
 
 /*-------------------------------------Supervisores---------------------------------------*/ 
 Route::get('/dashboardSupervisor', [SupervisorController::class, 'dashboard'])->name('dashboardSupervisor'); 

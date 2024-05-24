@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Voluntario;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 
 class VoluntarioController extends Controller
 {
@@ -28,6 +29,16 @@ class VoluntarioController extends Controller
 
     public function dashboard(){
         return view('voluntario/dashboard'); 
+    }
+
+    public function logout(){
+        Auth::guard('aluno')->logout(); 
+        return redirect()->route('multilogin'); 
+    }
+
+    public function showAssuntos($id){
+    
+
     }
 
    
