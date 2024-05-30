@@ -28,6 +28,7 @@ class VoluntarioController extends Controller
     }
 
     public function dashboard(){
+        // dd(Auth::user()); 
         return view('voluntario/dashboard'); 
     }
 
