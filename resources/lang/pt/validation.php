@@ -12,4 +12,5 @@ return [
     'required'             => 'O campo :attribute é obrigatório.',
     'unique'               => 'O :attribute já foi utilizado.',
     'email'                => 'O :attribute deve ser um endereço de e-mail válido.',
+    'calculoHorario' => 'O :attribute deve ser informado no formato 24h'
 ];
