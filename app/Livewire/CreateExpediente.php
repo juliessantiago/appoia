@@ -22,14 +22,17 @@ class CreateExpediente extends Component
     public function validateHorarios(){
         if(strtotime($this->fimExpediente) < strtotime($this->inicioExpediente)){
             $this->warning('Cuidado: o horário de fim de expediente deve ser maior do que o início');
-            return;
+            return false; 
         }
+        return true;
     }
         
     public function save()
     {
         $this->validate();
-        $this->validateHorarios();
+        if(!$this->validateHorarios()){
+            return;
+        };
         Expediente::create([
             'id_voluntario' => Auth::user()->id, 
             'diaSemana' => $this->diaSemana,

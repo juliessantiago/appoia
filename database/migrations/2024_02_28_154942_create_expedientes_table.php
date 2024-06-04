@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('expedientes', function (Blueprint $table) { //horários livres 
             $table->id();
             $table->timestamps();
-            $table->string('diaSemana'); 
+            $table->enum('diaSemana', ['segunda', 'terca', 'quarta', 'quinta', 'sexta']); 
             $table->time('inicioExpediente'); 
             $table->time('fimExpediente'); 
             $table->unsignedBigInteger('id_voluntario');
