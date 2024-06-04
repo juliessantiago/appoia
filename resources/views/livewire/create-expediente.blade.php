@@ -10,8 +10,10 @@
             <select wire:model="diaSemana" class="max-w-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400" name="escola" :value="old('escola')">
                 <option value="" class=" font-md">Selecione um dia da semana</option>
                     <option value="segunda" class="rounded-lg">Segunda-feira</option>
-                    <option value="terca" class="rounded-lg">Terça-feira</option>
+                    <option value="terça" class="rounded-lg">Terça-feira</option>
                     <option value="quarta" class="rounded-lg">Quarta-feira</option>
+                    <option value="quinta" class="rounded-lg">Quinta-feira</option>
+                    <option value="sexta" class="rounded-lg">Sexta-feira</option>
             </select>
 
         <div class="w-full my-2"> 

@@ -39,8 +39,9 @@ class CreateExpediente extends Component
             'inicioExpediente' => $this->inicioExpediente,
             'fimExpediente' => $this->fimExpediente,
         ]);
-        
+
         return redirect()->route('dashboardVoluntario')->success('Novo horário de expediente criado! ');
+        //ajustar para dar refresh automaticamente após criação de novo expediente
 
     }
     public function render()
