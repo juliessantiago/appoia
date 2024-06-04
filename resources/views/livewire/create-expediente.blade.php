@@ -3,7 +3,7 @@
         <p class="text-center my-10 text-purple-400">Adicionar novo horário de expediente</p>
         <!-- largura com problema --> 
         <div class="w-full my-2">
-            <label for="diaSemana" class="block mx-2 text-sm font-medium text-gray-500 dark:text-white">Dia da Semana</label>
+            <label for="diaSemana" class="block mx-2 mb-2 text-sm font-medium text-gray-500 dark:text-white">Dia da Semana</label>
             <input type="text" wire:model="diaSemana" class="max-w-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400" placeholder="Segunda">
             @error('diaSemana') <span class="error text-red-500 text-center">{{ $message }}</span> @enderror
         <div>

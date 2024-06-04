@@ -16,8 +16,9 @@
    </div>
 
    <div class="m-5">
-    @livewire('create-expediente')
-</div>
+        <x-toaster-hub />
+        @livewire('create-expediente')
+    </div>
 {{-- css do create-expediente (max-w-sm) está afetando o resto dos elementos da página  --}}
 {{-- botão de sair some de vista quando há erros no formulário --}}
 

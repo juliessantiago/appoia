@@ -4,9 +4,11 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Expediente;
 use Illuminate\Support\Facades\Auth;
-
+use Masmerise\Toaster\Toaster;
+use Masmerise\Toaster\Toastable;
 class CreateExpediente extends Component
 {
+    use Toastable; 
     public $diaSemana; 
     public $inicioExpediente; 
     public $fimExpediente; 
@@ -19,7 +21,8 @@ class CreateExpediente extends Component
 
     public function validateHorarios(){
         if(strtotime($this->fimExpediente) < strtotime($this->inicioExpediente)){
-            $this->addError('fimExpediente', 'O horário de fim do expediente deve ser posterior ao início do expediente.');
+            $this->warning('Cuidado: o horário de fim de expediente deve ser maior do que o início');
+            return;
         }
     }
         
@@ -34,7 +37,7 @@ class CreateExpediente extends Component
             'fimExpediente' => $this->fimExpediente,
         ]);
         
-        return redirect()->route('dashboardVoluntario')->with('success', 'Novo horário de expediente criado! ');
+        return redirect()->route('dashboardVoluntario')->success('Novo horário de expediente criado! ');
 
     }
     public function render()
