@@ -39,7 +39,12 @@
                             {{$expediente->fimExpediente}}
                         </td>
                         <td class="px-6 py-4 text-right">
-                            <a href="#" class="font-medium text-pink-500 dark:text-blue-500 hover:underline">Editar</a>
+                            {{-- <a href="#" class="font-medium text-pink-500 dark:text-blue-500 hover:underline">Editar</a> --}}
+                            <button wire:click="$dispatch('abreModalEdicao', { data: {{ $expediente }} })" class="text-lg hover:text-pink-500">
+                                Editar
+                            </button>
+                            <!-- dispatch: dispara evento, com o nome fornecido 'abreModalEdicao' que será
+                                escutado dentro do js no dashboard com os dados desse expediente específico--> 
                         </td>
                     </tr>
                 @endforeach
@@ -49,3 +54,4 @@
     </div>
 
 </div>
+

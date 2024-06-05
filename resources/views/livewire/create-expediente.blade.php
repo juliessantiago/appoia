@@ -6,25 +6,26 @@
             <input type="text" wire:model="diaSemana" class="max-w-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400" placeholder="Segunda">
             @error('diaSemana') <span class="error text-red-500 text-center">{{ $message }}</span> @enderror
         <div> --}}
-
-            <select wire:model="diaSemana" class="max-w-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400" name="escola" :value="old('escola')">
-                <option value="" class=" font-md">Selecione um dia da semana</option>
-                    <option value="segunda" class="rounded-lg">Segunda-feira</option>
-                    <option value="terça" class="rounded-lg">Terça-feira</option>
-                    <option value="quarta" class="rounded-lg">Quarta-feira</option>
-                    <option value="quinta" class="rounded-lg">Quinta-feira</option>
-                    <option value="sexta" class="rounded-lg">Sexta-feira</option>
-            </select>
-
+            <div class="w-full my-2">
+                <select wire:model="diaSemana" class="max-w-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400" name="escola">
+                    <option value="" class=" font-md">Selecione um dia da semana</option>
+                        <option value="segunda" class="rounded-lg">Segunda-feira</option>
+                        <option value="terça" class="rounded-lg">Terça-feira</option>
+                        <option value="quarta" class="rounded-lg">Quarta-feira</option>
+                        <option value="quinta" class="rounded-lg">Quinta-feira</option>
+                        <option value="sexta" class="rounded-lg">Sexta-feira</option>
+                </select>
+                @error('diaSemana') <span class="error text-red-500 text-center">{{ $message }}</span> @enderror
+            </div>
         <div class="w-full my-2"> 
             <label for="inicioExpediente" class="block mx-2 mb-2  text-sm font-medium text-gray-500 dark:text-white">Início do Expediente</label>
-            <input type="time" wire:model="inicioExpediente" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400" placeholder="09:00"></input>
+            <input type="time" wire:model="inicioExpediente" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400" min="08:00" max="21:00"></input>
             @error('inicioExpediente') <span class="error text-red-500 text-center">{{ $message }}</span> @enderror
         </div>
         
         <div class="w-full my-2">
             <label for="fimExpediente" class="block mx-2 mb-2 text-sm font-medium text-gray-500 dark:text-white">Fim do Expediente</label>
-            <input type="time" wire:model="fimExpediente" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400" placeholder="09:00"></input>
+            <input type="time" wire:model="fimExpediente" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400" min="08:00" max="21:00"></input>
             @error('fimExpediente') <span class="error text-red-500 text-center">{{ $message }}</span> @enderror
         </div>
 

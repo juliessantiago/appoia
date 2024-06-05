@@ -40,6 +40,13 @@
             "Tests\\": "tests/"
         }
     },
+        "repositories": [
+          {
+            "type": "composer",
+            "url": "https://wire-elements-pro.composer.sh"
+          }
+        ],
+      
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
