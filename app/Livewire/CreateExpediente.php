@@ -74,9 +74,11 @@ class CreateExpediente extends Component
     #[On('enviaDadosEdicao')] //escuta do evento 'enviaDadosEdicao' disparado no dashboard 
     //método imediatamente abaixo é o que lida com os dados recebidos
     public function recebeDadosSwal($dados){
+
         $obj = (object)$dados; 
         Expediente::where('id_voluntario', Auth::user()->id)->where( 'id', $obj->id)->update([
-            'inicioExpediente' => $obj->inicioExpediente
+            'inicioExpediente' => $obj->inicioExpediente,
+            'fimExpediente' => $obj->fimExpediente
         ]); 
         // dd($expediente); 
         $this->dispatch('atualiza-expedientes')->to(GetExpediente::class);
