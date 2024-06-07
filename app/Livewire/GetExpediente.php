@@ -4,11 +4,13 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Expediente;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On; 
 
 
 class GetExpediente extends Component
 {
     public $expedientes; 
+   
     public function mount(){ 
         $this->expedientes = Expediente::where('id_voluntario', Auth::user()->id )->get(); 
     }
@@ -18,5 +20,9 @@ class GetExpediente extends Component
     public function render()
     {
         return view('livewire.get-expediente');
+    }
+    #[On('atualiza-expedientes')] 
+    public function refreshComponent(){
+        $this->dispatch('$refresh'); 
     }
 }

@@ -3,7 +3,7 @@
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <thead class="text-gray-600 capitalize text-md bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         Id
@@ -23,6 +23,7 @@
                 </tr>
             </thead>
             <tbody>
+                {{-- {{count($expedientes)}} --}}
                 @foreach ($expedientes as $expediente)
                 {{-- <p>{{$expediente}}</p> --}}
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -40,11 +41,16 @@
                         </td>
                         <td class="px-6 py-4 text-right">
                             {{-- <a href="#" class="font-medium text-pink-500 dark:text-blue-500 hover:underline">Editar</a> --}}
-                            <button wire:click="$dispatch('abreModalEdicao', { data: {{ $expediente }} })" class="text-lg hover:text-pink-500">
+                            <button wire:click="$dispatch('abreModalEdicao', { data: {{ $expediente }} })" class="text-md hover:text-pink-500">
                                 Editar
                             </button>
                             <!-- dispatch: dispara evento, com o nome fornecido 'abreModalEdicao' que será
                                 escutado dentro do js no dashboard com os dados desse expediente específico--> 
+                        </td>
+                        <td> 
+                            <button class="text-md hover:text-pink-500">
+                                Excluir
+                            </button>
                         </td>
                     </tr>
                 @endforeach

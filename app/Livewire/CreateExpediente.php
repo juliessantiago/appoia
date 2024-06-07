@@ -7,6 +7,7 @@ use App\Models\Expediente;
 use Illuminate\Support\Facades\Auth;
 use Masmerise\Toaster\Toaster;
 use Masmerise\Toaster\Toastable;
+use Carbon\Carbon; 
 class CreateExpediente extends Component
 {
 
@@ -23,20 +24,8 @@ class CreateExpediente extends Component
         'fimExpediente' => 'required|date_format:H:i',
     ];
 
-    #[On('enviaDadosEdicao')] //escuta do evento 'enviaDadosEdicao' disparado no dashboard 
-    //método imediatamente abaixo é o que lida com os dados recebidos
-    public function recebeDadosSwal($dados){
-        dd($dados); 
-    }
-
     public function validateHours(){
         
-        $this->dispatch('swal', [
-            'type' => 'success', 
-            'title' => 'Novo expediente adicionado', 
-            'text' => $this->diaSemana,
-        ]);
-
         if(strtotime($this->fimExpediente) <= strtotime($this->inicioExpediente)){
             $this->error('O horário de fim de expediente deve ser maior do que o início');
             return false; 
@@ -53,20 +42,22 @@ class CreateExpediente extends Component
                 $this->warning('Expediente para ' .$this->diaSemana. ' já foi definido. Você pode editá-lo na tabela'); 
                 return false;
             }
+            return true; 
     }
         
     public function save()
     {
-        
         $this->validate();
         if(!$this->validateHours() || !$this->validateDayAvailability()){
-            return false; 
+            return; 
         };
         
+        // dd('recebeu dados save'); 
+
         Expediente::create([
             'id_voluntario' => Auth::user()->id, 
             'diaSemana' => $this->diaSemana,
-            'inicioExpediente' => $this->inicioExpediente,
+            'inicioExpediente' =>Carbon::parse($this->inicioExpediente)->format('H:i'),
             'fimExpediente' => $this->fimExpediente,
         ]);
        
@@ -78,4 +69,17 @@ class CreateExpediente extends Component
     {
         return view('livewire.create-expediente');
     }
+
+    
+    #[On('enviaDadosEdicao')] //escuta do evento 'enviaDadosEdicao' disparado no dashboard 
+    //método imediatamente abaixo é o que lida com os dados recebidos
+    public function recebeDadosSwal($dados){
+        $obj = (object)$dados; 
+        Expediente::where('id_voluntario', Auth::user()->id)->where( 'id', $obj->id)->update([
+            'inicioExpediente' => $obj->inicioExpediente
+        ]); 
+        // dd($expediente); 
+        $this->dispatch('atualiza-expedientes')->to(GetExpediente::class);
+    }
+
 }

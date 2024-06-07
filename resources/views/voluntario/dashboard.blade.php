@@ -23,7 +23,8 @@
         @livewire('create-expediente')
     </div>
     <script> 
-        window.addEventListener('abreModalEdicao', event => {
+        window.addEventListener('abreModalEdicao', event => {   
+            let id = event.detail.data.id
             let diaSemana = event.detail.data.diaSemana
             let inicioExpediente = event.detail.data.inicioExpediente
             let fimExpediente = event.detail.data.fimExpediente
@@ -32,22 +33,27 @@
                 html: `
                     <div class="flex-column">
                     <input type="text" id="" aria-label="disabled input" class="swal2-input w-2/3 border-purple-200 rounded-lg focus:ring-purple-300 focus:border-purple-400 ring:purple-500 cursor-not-allowed" placeholder="dia da Semana" value=${diaSemana} disabled>
-                    <input type="time" id="batata" class="swal2-input w-2/3 border-purple-200 rounded-lg focus:ring-purple-300 focus:border-purple-400 ring:purple-500" placeholder="início do expediente" value=${inicioExpediente}>
+                    <input type="time" id="inicio" class="swal2-input w-2/3 border-purple-200 rounded-lg focus:ring-purple-300 focus:border-purple-400 ring:purple-500" placeholder="início do expediente" value=${inicioExpediente}>
                     <input type="time" id="fim" class="swal2-input w-2/3 border-purple-200 rounded-lg focus:ring-purple-300 focus:border-purple-400 ring:purple-500 " placeholder="início do expediente" value=${fimExpediente}>
                     </div>
                     `,
                 confirmButtonText: 'Editar',
                 focusConfirm: false,
                 preConfirm: () => {
-                    const novoInicio = document.getElementById('batata').value
+                 
+                    const novoInicio = document.getElementById('inicio').value
                     const novoFim = document.getElementById('fim').value 
+                    if(novoFim <= novoInicio){
+                        Swal.showValidationMessage('<i class="fa fa-info-circle m-2"></i> Horário final de expediente deve ser maior do que o início do expediente')
+                    }
                     return {
+                        id: id, 
                         inicioExpediente: novoInicio, 
-                        fimExpediente: novoFim
+                        fimExpediente: novoFim 
                     }
                 }
             }).then((result) => {
-                Livewire.dispatch('enviaDadosEdicao', {dados: result.value}) //envia dados para método no componente que escuta esse evento por nome
+                Livewire.dispatch('enviaDadosEdicao',  {dados: result.value}) //envia dados para método no componente que escuta esse evento por nome
             })
         })
     </script>
