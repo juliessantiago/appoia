@@ -19,6 +19,11 @@ class Voluntario extends Authenticatable
         'matricula', 
         // 'supervisor_id'
     ];
+
+    protected $hidden = [
+        'password',
+    ];
+
     use HasFactory;
     public function assuntos(){
         return $this->belongsToMany(Assunto::class);

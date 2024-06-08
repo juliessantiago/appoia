@@ -13,7 +13,7 @@
         
             <div class="flex flex-col items-center pt-10 pb-10">
                 <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ asset('images/voluntario.png')}}" alt="foto voluntário"/>
-                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{$voluntario->nome}}</h5>  
+                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{$voluntario->name}}</h5>  
                 {{-- <span class="text-sm text-gray-500 dark:text-gray-400">Universidade: instituição</span> --}}
   
                 <div class="flex mt-4 md:mt-6">

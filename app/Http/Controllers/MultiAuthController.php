@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Voluntario;
 
 class MultiAuthController extends Controller
 {
@@ -12,7 +14,7 @@ class MultiAuthController extends Controller
     }
 
     public function multiAuth(Request $request){ //precisa de refatoração
-        // dd($request); 
+        // dd(Auth::user()); 
         $dados = $request->all();
         if($request->tipo_usuario == 'aluno'){
             if (auth()->guard('aluno')->attempt(['email' => $dados['email'], 'password' => $dados['password']])) {
@@ -23,7 +25,10 @@ class MultiAuthController extends Controller
             }
         }elseif ($request->tipo_usuario == 'voluntario') {
             if (auth()->guard('voluntario')->attempt(['email' => $dados['email'], 'password' => $dados['password']])) {
-                return redirect()->route('dashboardVoluntario');
+                // auth()->guard('voluntario')->login(Voluntario::where('email', $dados['email'])->get()->first());
+                $request->session()->regenerate(); 
+                
+                return redirect()->intended('dashboardVoluntario');
             }else{
                 return redirect()->route('multilogin')->withErrors(['email' => 'Email ou senha incorretos, tente novamente!']); 
             }
