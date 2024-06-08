@@ -10,7 +10,7 @@ use Livewire\Attributes\On;
 class GetExpediente extends Component
 {
     public $expedientes; 
-   
+   //descobrir forma de exibir na ordem dos dias da semana
     public function mount(){ 
         $this->expedientes = Expediente::where('id_voluntario', Auth::user()->id )->get(); 
     }

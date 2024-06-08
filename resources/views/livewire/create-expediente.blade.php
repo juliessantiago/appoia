@@ -1,13 +1,8 @@
-
-    <form wire:submit.prevent="save" class="max-w-md mx-auto"> 
-        <p class="text-center my-10 text-purple-400 text-lg">Adicionar novo horário de expediente</p>
-        {{-- <span>Você deve </span> --}}
-        {{-- <div class="w-full my-2">
-            <label for="diaSemana" class="block mx-2 mb-2 text-sm font-medium text-gray-500 dark:text-white">Dia da Semana</label>
-            <input type="text" wire:model="diaSemana" class="max-w-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400" placeholder="Segunda">
-            @error('diaSemana') <span class="error text-red-500 text-center">{{ $message }}</span> @enderror
-        <div> --}}
-            <div class="w-full my-2">
+    
+    <form wire:submit.prevent="save" class="flex items-center space-x-4"> 
+      
+            <div class="px-4 py-2">
+                <label for="diaSemana" class="block mx-2 mb-2 text-sm font-medium text-gray-500 dark:text-white">Dia da Semana</label>
                 <select wire:model="diaSemana" class="max-w-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400" name="escola">
                     <option value="" class=" font-md">Selecione um dia da semana</option>
                         <option value="segunda" class="rounded-lg">Segunda-feira</option>
@@ -18,19 +13,20 @@
                 </select>
                 @error('diaSemana') <span class="error text-red-500 text-center">{{ $message }}</span> @enderror
             </div>
-        <div class="w-full my-2"> 
+
+        <div class="px-4 py-2"> 
             <label for="inicioExpediente" class="block mx-2 mb-2  text-sm font-medium text-gray-500 dark:text-white">Início do Expediente</label>
             <input type="time" wire:model="inicioExpediente" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400 invalid:border-red-700" min="08:00" max="21:00" step="3600"></input>
             @error('inicioExpediente') <span class="error text-red-500 text-center">{{ $message }}</span> @enderror
         </div>
         
-        <div class="w-full my-2">
+        <div class="px-4 py-2">
             <label for="fimExpediente" class="block mx-2 mb-2 text-sm font-medium text-gray-500 dark:text-white">Fim do Expediente</label>
             <input type="time" wire:model="fimExpediente" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400 invalid:border-red-700" min="08:00" max="21:00" step="3600"></input>
             @error('fimExpediente') <span class="error text-red-500 text-center">{{ $message }}</span> @enderror
         </div>
 
-        <div class="flex justify-center m-5">
+        <div class="mt-4">
             <button  type="submit" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Adicionar horário
                 <div wire:loading class="">
                     <svg aria-hidden="true" class="w-8 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-white" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
