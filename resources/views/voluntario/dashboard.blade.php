@@ -10,10 +10,10 @@
         @endif
     </div> 
       
-
+<!--------------------------componentes------------------------------------> 
     <div class="mb-10">
             <x-toaster-hub />
-            <div class="text-center">
+            <div class="text-center my-5">
                 <p class="text-center my-10 text-purple-400 text-lg">Adicionar novo horário de expediente</p>
                 <p class="text-gray-400 text-sm">Você pode criar apenas um horário de expediente para cada dia da semana</p>
                 <p class="text-gray-400 text-sm">Se você já adicionou seu expediente de um dia, você pode editá-lo</p>
@@ -26,6 +26,7 @@
         <div class="m-5">
             @livewire('get-expediente')
     </div>
+<!-------------------------------------------------------------------------------->
     <script> 
         Livewire.on('abreModalEdicao', () => {
             let id = event.detail.data.id
