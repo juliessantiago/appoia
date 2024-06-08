@@ -15,8 +15,9 @@
             <x-toaster-hub />
             <div class="text-center my-5">
                 <p class="text-center my-10 text-purple-400 text-lg">Adicionar novo horário de expediente</p>
-                <p class="text-gray-400 text-sm">Você pode criar apenas um horário de expediente para cada dia da semana</p>
-                <p class="text-gray-400 text-sm">Se você já adicionou seu expediente de um dia, você pode editá-lo</p>
+                <p class="text-gray-400 text-sm">1. Você pode criar apenas um horário de expediente para cada dia da semana</p>
+                <p class="text-gray-400 text-sm">2. Se você já adicionou seu expediente de um dia, você pode editá-lo</p>
+                <p class="text-gray-400 text-sm">3. É necessário informar as horas completas, sem minutos. Exemplo: 12:00</p>
             </div>
         
             <div class="flex items-center justify-center">
@@ -63,6 +64,21 @@
             }).catch($error=>{
                 console.log($error)
             })
+        })
+        Livewire.on('abreModalExclusao', ()=> {
+            let id = event.detail.data.id
+            let diaSemana = event.detail.data.diaSemana
+            Swal.fire({
+                title: "Excluir o expediente de "+diaSemana+"?",
+                showCancelButton: true,
+                confirmButtonColor: "#F0ABFC", //botão de confirmação aqui é para exclusão
+                confirmButtonText: "Excluir",
+                cancelButtonText: `Cancelar`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('enviaDadosExclusao',  {id: id }) //envia dados para método no componente que escuta esse evento por nome
+                }
+            });
         })
       
     </script>

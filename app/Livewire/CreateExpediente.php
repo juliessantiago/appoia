@@ -39,6 +39,7 @@ class CreateExpediente extends Component
         // column_key -> diaSemana
         $this->dias = Expediente::where('id_voluntario', Auth::user()->id )->get('diaSemana')->toArray(); 
           if(in_array($this->diaSemana, (array_column($this->dias, 'diaSemana')))){
+                 //notificação do Toaster: 
                 $this->warning('Expediente para ' .$this->diaSemana. ' já foi definido. Você pode editá-lo na tabela'); 
                 return false;
             }
@@ -60,10 +61,11 @@ class CreateExpediente extends Component
             'inicioExpediente' =>Carbon::parse($this->inicioExpediente)->format('H:i'),
             'fimExpediente' => $this->fimExpediente,
         ]);
+         //notificação pelo Toaster
+        $this->success('Novo expediente criado com sucesso'); 
+        //dispara evento pelo Livewire
+        $this->dispatch('atualiza-expedientes')->to(GetExpediente::class);  //NÃO ESTÁ FUNCIONANDO
        
-        return redirect()->route('dashboardVoluntario')->success('Novo horário de expediente criado! ');
-        //ajustar para dar refresh automaticamente após criação de novo expediente
-
     }
     public function render()
     {
@@ -73,8 +75,7 @@ class CreateExpediente extends Component
     
     #[On('enviaDadosEdicao')] //escuta do evento 'enviaDadosEdicao' disparado no dashboard 
     //método imediatamente abaixo é o que lida com os dados recebidos
-    public function recebeDadosSwal($dados){
-
+    public function updateExpediente($dados){
         $obj = (object)$dados; 
         Expediente::where('id_voluntario', Auth::user()->id)->where( 'id', $obj->id)->update([
             'inicioExpediente' => $obj->inicioExpediente,
@@ -83,5 +84,14 @@ class CreateExpediente extends Component
         // dd($expediente); 
         $this->dispatch('atualiza-expedientes')->to(GetExpediente::class);
     }
+
+    #[On('enviaDadosExclusao')]
+    public function deleteExpediente($id){
+        Expediente::where('id_voluntario', Auth::user()->id)->where( 'id', $id)->delete(); 
+        // //notificação pelo Toaster
+        $this->success('Expediente excluído com sucesso'); 
+         //dispatch: dispara evento pelo Livewire
+         $this->dispatch('atualiza-expedientes')->to(GetExpediente::class); //Após primeira exclusão, não abre mais modal 
+    } 
 
 }

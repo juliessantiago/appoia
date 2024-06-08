@@ -17,8 +17,11 @@
                     <th scope="col" class="px-6 py-3">
                         Fim expediente
                     </th>
-                    <th scope="col" class="px-6 py-3">
-                        <span class="sr-only">Edit</span>
+                    <th scope="col" class="">
+                       
+                    </th>
+                    <th scope="col" class="">
+                       
                     </th>
                 </tr>
             </thead>
@@ -47,8 +50,8 @@
                             <!-- dispatch: dispara evento, com o nome fornecido 'abreModalEdicao' que será
                                 escutado dentro do js no dashboard com os dados desse expediente específico--> 
                         </td>
-                        <td> 
-                            <button class="text-md hover:text-pink-500">
+                        <td  class="px-6 py-4 text-right"> 
+                            <button wire:click="$dispatch('abreModalExclusao', { data: {{ $expediente }} })" class="text-md hover:text-pink-500">
                                 Excluir
                             </button>
                         </td>
