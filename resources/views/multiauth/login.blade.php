@@ -29,12 +29,11 @@
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
-        <x-input-label class="mt-4" for="tipo_usuario" :value="__('Escolha uma opção: ')" />
+        <x-input-label class="mt-4" for="tipo_usuario" :value="__('Escolha uma opção: ')"/>
         <div class="flex justify-between">
-         
           <div class="m-1">
-            <input type="radio" id="aluno" name="tipo_usuario" value="aluno" class=" text-purple-400 border-gray-300 checked:bg-purple-500">
-            <label for="aluno" class=" text-purple-400">Sou paciente</label><br>
+            <input checked type="radio" id="aluno" name="tipo_usuario" value="aluno" class=" text-purple-400 border-gray-300 checked:bg-purple-500">
+            <label for="aluno" class=" text-purple-400" che>Sou paciente</label><br>
           </div>
 
           <div class="m-1"> 
