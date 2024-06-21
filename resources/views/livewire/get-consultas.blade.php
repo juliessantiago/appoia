@@ -15,6 +15,10 @@
                         <th scope="col" class="px-6 py-3">
                             Final da consulta
                         </th>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +41,8 @@
                                         <button class="text-md hover:text-pink-500">
                                             Editar
                                         </button>
-                                    
+                                    </td>
+                                    <td>
                                         <button class="text-md hover:text-pink-500">
                                             Excluir
                                         </button>

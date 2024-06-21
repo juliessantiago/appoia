@@ -21,7 +21,9 @@ class GetExpediente extends Component
     #[On('atualiza-expedientes')] 
     public function refreshComponent(){
         // dd('atualizou');
-        $this->dispatch('$refresh'); 
+        // $this->dispatch('$refresh'); 
+        $this->mount(); 
+        $this->render(); 
     }
     public function render()
     {

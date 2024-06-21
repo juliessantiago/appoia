@@ -47,7 +47,8 @@
                                     <button wire:click="$dispatch('abreModalEdicao', { data: {{ $expediente }} })" class="text-md hover:text-pink-500">
                                         Editar
                                     </button>
-                                
+                                </td>
+                                <td>
                                     <button wire:click="$dispatch('abreModalExclusao', { data: {{ $expediente }} })" class="text-md hover:text-pink-500">
                                         Excluir
                                     </button>

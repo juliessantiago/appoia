@@ -38,6 +38,7 @@
 
 <!-------------------------------------------------------------------------------->
     <script> 
+    document.addEventListener('livewire:init', () => {
         Livewire.on('abreModalEdicao', () => {
             let id = event.detail.data.id
             let diaSemana = event.detail.data.diaSemana
@@ -89,6 +90,10 @@
                 }
             });
         })
+
+    });//init
+
+     
       
     </script>
 
