@@ -33,7 +33,7 @@ class VoluntarioController extends Controller
     }
 
     public function logout(){
-        Auth::guard('aluno')->logout(); 
+        Auth::guard('voluntario')->logout(); 
         return redirect()->route('multilogin'); 
     }
 

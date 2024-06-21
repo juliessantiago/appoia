@@ -28,7 +28,7 @@ class MultiAuthController extends Controller
                 // auth()->guard('voluntario')->login(Voluntario::where('email', $dados['email'])->get()->first());
                 $request->session()->regenerate(); 
                 
-                return redirect()->intended('dashboardVoluntario');
+                return redirect()->route('dashboardVoluntario');
             }else{
                 return redirect()->route('multilogin')->withErrors(['email' => 'Email ou senha incorretos, tente novamente!']); 
             }
