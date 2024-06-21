@@ -18,12 +18,17 @@ class GetExpediente extends Component
     //Consigo acessar Auth:user() dentro do componente Livewire
     //porque ele é uma extensão do Laravel e compartilha o mesmo ciclo de vida
 
-    public function render()
-    {
-        return view('livewire.get-expediente');
-    }
     #[On('atualiza-expedientes')] 
     public function refreshComponent(){
-        $this->dispatch('$refresh'); 
+        // dd('atualizou');
+        // $this->dispatch('$refresh'); 
+        $this->mount(); 
+        $this->render(); 
     }
+    public function render()
+    {
+        // dd($this->expedientes); 
+        return view('livewire.get-expediente');
+    }
+   
 }

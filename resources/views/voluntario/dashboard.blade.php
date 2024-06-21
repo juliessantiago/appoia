@@ -11,24 +11,34 @@
     </div> 
       
 <!--------------------------componentes------------------------------------> 
-    <div class="mb-10">
-            <x-toaster-hub />
-            <div class="text-center my-5">
-                <p class="text-center my-10 text-purple-400 text-lg">Adicionar novo horário de expediente</p>
-                <p class="text-gray-400 text-sm">1. Você pode criar apenas um horário de expediente para cada dia da semana</p>
-                <p class="text-gray-400 text-sm">2. Se você já adicionou seu expediente de um dia, você pode editá-lo</p>
-                <p class="text-gray-400 text-sm">3. É necessário informar as horas completas, sem minutos. Exemplo: 12:00</p>
-            </div>
-        
-            <div class="flex items-center justify-center">
-                @livewire('create-expediente')
-            </div>
+    <div class="m-10">
+        <x-toaster-hub />
+        <p class="text-purple-400 text-xl font-bold text-center">Meus Expedientes</p>
+        <div class="text-center my-5">
+            {{-- <p class="text-center my-10 text-purple-400 text-lg">Adicionar novo horário de expediente</p> --}}
+            <p class="text-gray-400 text-sm">1. Você pode criar apenas um horário de expediente para cada dia da semana</p>
+            <p class="text-gray-400 text-sm">2. Se você já adicionou seu expediente de um dia, você pode editá-lo</p>
+            <p class="text-gray-400 text-sm">3. É necessário informar as horas completas, sem minutos. Exemplo: 12:00</p>
+        </div>
+        <div class="flex items-center justify-center">
+            @livewire('create-expediente')
         </div>
         <div class="m-5">
             @livewire('get-expediente')
+        </div>
+        <div class="m-5">
+        </div>
     </div>
+    <div class="m-10">
+        <p class="text-purple-400 text-xl font-bold text-center">Minhas Consultas</p>
+        @livewire('get-consultas')
+    </div>
+
+          
+
 <!-------------------------------------------------------------------------------->
     <script> 
+    document.addEventListener('livewire:init', () => {
         Livewire.on('abreModalEdicao', () => {
             let id = event.detail.data.id
             let diaSemana = event.detail.data.diaSemana
@@ -80,6 +90,10 @@
                 }
             });
         })
+
+    });//init
+
+     
       
     </script>
 

@@ -79,10 +79,11 @@ class CreateExpediente extends Component
         $obj = (object)$dados; 
         Expediente::where('id_voluntario', Auth::user()->id)->where( 'id', $obj->id)->update([
             'inicioExpediente' => $obj->inicioExpediente,
-            'fimExpediente' => $obj->fimExpediente
+            'fimExpediente' => $obj->fimExpediente, 
         ]); 
         // dd($expediente); 
-        $this->dispatch('atualiza-expedientes')->to(GetExpediente::class);
+        $this->success('Expediente atualizado com sucesso'); 
+        $this->dispatch('atualiza-expedientes');//é ouvido no GetExpediente, aciona método refreshComponent
     }
 
     #[On('enviaDadosExclusao')]
