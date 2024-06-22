@@ -113,6 +113,7 @@
                                 $.ajax({
                                         url: SITEURL + "/fullcalendarAjax",
                                         data: {
+                                            status: 'agendada', 
                                             title: title,
                                             start: start,
                                             end: end,

@@ -92,7 +92,7 @@ class CreateExpediente extends Component
         // //notificação pelo Toaster
         $this->success('Expediente excluído com sucesso'); 
          //dispatch: dispara evento pelo Livewire
-         $this->dispatch('atualiza-expedientes')->to(GetExpediente::class); //Após primeira exclusão, não abre mais modal 
+         $this->dispatch('atualiza-expedientes')->to(GetExpediente::class); 
     } 
 
 }

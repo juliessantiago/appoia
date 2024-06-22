@@ -10,7 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Aluno extends Authenticatable
 {
+    use HasFactory, HasApiTokens, Notifiable;
     protected $guard = 'aluno'; 
+ 
     protected $fillable = [
         'name', 
         'email', 
@@ -21,5 +23,9 @@ class Aluno extends Authenticatable
         'id_escola', 
         'sexo'
     ];
-    use HasFactory, HasApiTokens, Notifiable;
+
+    public function consultas(){ //aluno pode ter várias consultas
+        return $this->hasMany(Consulta::class, 'id_aluno'); 
+    }
+    
 }
