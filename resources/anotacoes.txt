@@ -47,6 +47,8 @@ títulos de seções: 3xl
 #sticker dúvida sobre como marcar consulta (dashboard aluno)
 <a href="https://www.flaticon.com/free-stickers/question" title="question stickers">Question stickers created by Stickers - Flaticon</a>
 
+#ícone retornar 
+<a href="https://www.flaticon.com/free-icons/arrows" title="arrows icons">Arrows icons created by Creative Stall Premium - Flaticon</a>
 *-----------------------Espaçamento-------------------------* 
 padding entre seções: p-6 
 padding entre letreiros: p-2 

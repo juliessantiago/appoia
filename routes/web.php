@@ -22,12 +22,16 @@ Route::get('/blog', function () {
 Route::get('/multilogin', [MultiAuthController::class, 'showLogin'])->name('multilogin'); 
 Route::post('/multiAuth', [MultiAuthController::class, 'multiAuth'])->name('multiAuth'); 
 
-/*-----------------------------------------Aluno - todas as rotas acessíveis por aluno -------------------------------*/ 
+/*-----------------------Aluno - todas as rotas acessíveis por aluno -----------*/ 
 Route::prefix('aluno')->middleware('auth:aluno')->group(function () {
     Route::get('register', [AlunoController::class, 'showRegister'])->name('registerAlunoForm'); 
     Route::post('register', [AlunoController::class, 'registerAluno'])->name('registerAluno'); 
     Route::get('/dashboard', [AlunoController::class, 'dashboard'])->name('dashboardAluno');
     Route::get('/assuntos',[AssuntoController::class, 'index'])->name('allAssuntos'); 
+    Route::get('/assuntoVoluntarios/{id}', [AssuntoController::class, 'showVoluntarios'])->name('assuntoVoluntarios');
+    Route::get('/voluntarioHorarios/{id}', [ExpedienteController::class, 'showHorarios'])->name('voluntarioHorarios'); 
+    Route::get('/voluntarios', [VoluntarioController::class, 'index'])->name('allVoluntarios'); 
+
     Route::get('/logout', [AlunoController::class, 'logout'])->name('aluno.logout');
 });
 
@@ -44,14 +48,11 @@ Route::get('/dashboard', function () {
 
 /*-------------------------------------Voluntários------------------------------------------*/
 //adicionar prefix! 
-Route::get('/voluntarios', [VoluntarioController::class, 'index'])->name('allVoluntarios'); 
 Route::get('/voluntario/{id}', [VoluntarioController::class, 'show'])->name('showVoluntario'); 
 Route::post('/voluntario/{id}/update', [VoluntarioController::class, 'update'])->name('updateVoluntario'); 
 Route::get('/dashboardVoluntario', [VoluntarioController::class, 'dashboard'])->name('dashboardVoluntario')->middleware('auth:voluntario'); 
 Route::get('/logout', [VoluntarioController::class, 'logout'])->name('voluntario.logout')->middleware('auth:voluntario');
 
-//exibir todos os horários de expediente de determinado voluntário
-Route::get('/voluntarioHorarios/{id}', [ExpedienteController::class, 'showHorarios'])->name('voluntarioHorarios'); 
 Route::get('/voluntarioAssuntos/{id}', [VoluntarioController::class, 'showAssuntos'])->name('voluntarioAssuntos'); 
 
 /*-------------------------------------Supervisores---------------------------------------*/ 
@@ -63,7 +64,6 @@ Route::get('/dashboardSupervisor', [SupervisorController::class, 'dashboard'])->
 
 Route::get('/assunto/{id}', [AssuntoController::class, 'show'])->name('showAssunto'); 
 //exibir todos os voluntários que atendem determinado assunto
-Route::get('/assuntoVoluntarios/{id}', [AssuntoController::class, 'showVoluntarios'])->name('assuntoVoluntarios');
 
 
 /*----------------------------------------Calendário---------------------------------------------*/ 
