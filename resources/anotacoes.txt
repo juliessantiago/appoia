@@ -43,6 +43,10 @@ títulos de seções: 3xl
 
 #sticker marcar consulta (dashboard aluno)
 <a href="https://www.flaticon.com/free-stickers/report" title="report stickers">Report stickers created by kerismaker - Flaticon</a>
+
+#sticker dúvida sobre como marcar consulta (dashboard aluno)
+<a href="https://www.flaticon.com/free-stickers/question" title="question stickers">Question stickers created by Stickers - Flaticon</a>
+
 *-----------------------Espaçamento-------------------------* 
 padding entre seções: p-6 
 padding entre letreiros: p-2 

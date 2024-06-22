@@ -4,9 +4,20 @@
           <h4 class="text-center text-sky-300 text-4xl p-6 font-bold">Nossos voluntários</h4>
         </h2>
     </x-slot> --}}
+    <div class="flex justify--end m-8">
+     
+      <img src="{{ asset('images/stickers/duvida.png')}}" width="150" /> <!--MUDAR-->
+      <div class="flex-column max-w-md p-4 m-4">
+        <h4 class="text-fuchsia-300">Não sabe o que fazer agora? Tudo bem, vamos te ajudar!</h4>
+        <span class="text-gray-400 text-sm">Você pode começar escolhendo um assunto que gostaria de falar ou ir direto para a </span>
+        <span class="text-sky-300"><a href="#">lista de voluntários</a></span>
+      </div>
+     
+    </div>
+   
   
     <div class="">
-      <h4 class="text-center text-purple-300 text-4xl p-6 font-bold">Escolha um tema para a conversa</h4>
+      <h4 class="text-center text-purple-300 text-2xl p-6 font-bold">Escolha um tema para a conversa</h4>
       <div class="flex flex-wrap justify-center">
         @foreach($assuntos as $assunto)
           <a href="{{route('assuntoVoluntarios', $assunto->id)}}" class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
@@ -20,6 +31,7 @@
         @endforeach
         
       </div>
+
     </div>
   
     <!--<div class="py-12">

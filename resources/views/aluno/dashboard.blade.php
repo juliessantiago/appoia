@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">Minhas Consultas</p>
+        <p class="text-purple-400 text-xl font-bold text-center">Meu histórico de consultas</p>
         @livewire('aluno-get-consultas')
     </div>
 
