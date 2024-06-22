@@ -14,7 +14,11 @@
     <div class="m-10">
         <x-toaster-hub />
      
-        <div class="m-5">
+        <div class="flex justify-center">
+            <img src="{{ asset('images/stickers/nova-consulta.png')}}" class="max-w-2/3">
+            <div class="self-center"> 
+                <p class="text-center text-sky-300 text-4xl p-6 font-bold"><a href="{{route('allAssuntos')}}">Quero marcar uma conversa</a></p>
+            </div>
         </div>
     </div>
     <div class="m-10">

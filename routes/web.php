@@ -22,12 +22,13 @@ Route::get('/blog', function () {
 Route::get('/multilogin', [MultiAuthController::class, 'showLogin'])->name('multilogin'); 
 Route::post('/multiAuth', [MultiAuthController::class, 'multiAuth'])->name('multiAuth'); 
 
-/*-----------------------------------------Aluno-------------------------------*/ 
-Route::prefix('aluno')->group(function () {
+/*-----------------------------------------Aluno - todas as rotas acessíveis por aluno -------------------------------*/ 
+Route::prefix('aluno')->middleware('auth:aluno')->group(function () {
     Route::get('register', [AlunoController::class, 'showRegister'])->name('registerAlunoForm'); 
     Route::post('register', [AlunoController::class, 'registerAluno'])->name('registerAluno'); 
-    Route::get('/dashboard', [AlunoController::class, 'dashboard'])->name('dashboardAluno')->middleware('auth:aluno');
-    Route::get('/logout', [AlunoController::class, 'logout'])->name('aluno.logout')->middleware('auth:aluno');
+    Route::get('/dashboard', [AlunoController::class, 'dashboard'])->name('dashboardAluno');
+    Route::get('/assuntos',[AssuntoController::class, 'index'])->name('allAssuntos'); 
+    Route::get('/logout', [AlunoController::class, 'logout'])->name('aluno.logout');
 });
 
 Route::get('/dashboard', function () {
@@ -59,7 +60,7 @@ Route::get('/dashboardSupervisor', [SupervisorController::class, 'dashboard'])->
 
 
 /*----------------------------------------Assuntos--------------------------------------------*/ 
-Route::get('/assuntos',[AssuntoController::class, 'index'])->name('allAssuntos'); 
+
 Route::get('/assunto/{id}', [AssuntoController::class, 'show'])->name('showAssunto'); 
 //exibir todos os voluntários que atendem determinado assunto
 Route::get('/assuntoVoluntarios/{id}', [AssuntoController::class, 'showVoluntarios'])->name('assuntoVoluntarios');

@@ -40,6 +40,9 @@ títulos de seções: 3xl
 #icone editar 
 <a href="https://www.flaticon.com/br/icones-gratis/lapis" title="lápis ícones">Lápis ícones criados por Tanah Basah - Flaticon</a>
 #A591F6
+
+#sticker marcar consulta (dashboard aluno)
+<a href="https://www.flaticon.com/free-stickers/report" title="report stickers">Report stickers created by kerismaker - Flaticon</a>
 *-----------------------Espaçamento-------------------------* 
 padding entre seções: p-6 
 padding entre letreiros: p-2 
