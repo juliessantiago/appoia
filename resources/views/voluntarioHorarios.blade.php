@@ -40,7 +40,7 @@
                         dataType: 'json', 
                         success: function(response) {
                             expedientes = response
-                            // console.log(expedientes)
+                            // console.log(expedientes[0])
                         },
                         error: function(xhr, status, error) {
                             console.error('Erro na requisição:', error);
@@ -93,12 +93,19 @@
                             eventRender: function (event, element, view) { //por que event render só é executada ao clicar? 
                                 event.allDay = false;
                                 calendar.fullCalendar('option', 'businessHours', expedientes);
+                                calendar.fullCalendar('addEventSource', { events: [ 
+                                    {title: 'teste indisponível', start: '2024-06-28T10:00', end: '2024-06-28T11:00' }
+                                ],
+                                color: 'pink', 
+                                textColor: 'yellow'
+                                })
                                    
                             },
                             selectable: true,
                             selectHelper: true,
                             eventStartEditable: false,
                             eventDurationEditable: false,
+                            displayEventEnd: true,
                             select: function (start, end, allDay) { //função executada quando as datas são selecionadas
                                 var title = 'consulta';
                                 var start = $.fullCalendar.formatDate(start, "Y-MM-DD H:mm");
