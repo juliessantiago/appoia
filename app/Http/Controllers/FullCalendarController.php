@@ -7,12 +7,15 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Models\Consulta;
 use App\Models\Expediente;
+use Illuminate\Support\Facades\Auth;
 
 class FullCalendarController extends Controller
 {
+    public $div;
+
     public function index(Request $request, $id)
     {
-        // dd($id);
+       
         if($request->ajax()) {
              $data = Consulta::where('id_voluntario', $id)
                         ->whereDate('start', '>=', $request->start)
@@ -26,21 +29,21 @@ class FullCalendarController extends Controller
     public function expedientes($id){
         $data = Expediente::where('id_voluntario', $id)->get(); 
         
-        $retorno = $data->map(function ($expediente){
+        $retorno = $data->map(function ($expediente){//alteração por causa do formato aceito no fullcalendar
             switch ($expediente->diaSemana){
-                case $expediente->diaSemana == "Monday":
+                case $expediente->diaSemana == "segunda":
                     $expediente->diaSemana = 1;
                     break; 
-                case $expediente->diaSemana == "Tuesday":
+                case $expediente->diaSemana == "terca":
                     $expediente->diaSemana = 2;
                     break; 
-                case $expediente->diaSemana == "Wednesday":
+                case $expediente->diaSemana == "quarta":
                     $expediente->diaSemana = 3;
                     break; 
-                case $expediente->diaSemana == "Thursday":
+                case $expediente->diaSemana == "quinta":
                     $expediente->diaSemana = 4;
                     break; 
-                case $expediente->diaSemana == "Friday":
+                case $expediente->diaSemana == "sexta":
                     $expediente->diaSemana = 5;
                     break; 
             }
@@ -53,15 +56,44 @@ class FullCalendarController extends Controller
         return response()->json($retorno);
     }
 
-    public function ajax(Request $request): JsonResponse
+    //TODO:
+    public function ajax(Request $request): JsonResponse //criação de consulta 
     {
-        switch ($request->type) {
+        $checkDiaExpediente = false; 
+        $ckeckHoraExpediente = false; 
+        $div = explode(" ", $request->start); //$div[0] = dia, $div[1] = hora
+        
+        foreach ($request->expedientes as $expediente){
+            foreach($expediente['dow'] as $dia){
+                // dd($expediente);
+                if($dia === $request->diaSemana){ //dia escolhido está dentro do expediente
+                    // dd($request->start);
+                    $checkDiaExpediente = true;
+                    $end = (explode(':',$expediente['end']));
+                    //$end = hora final formatada sem os minutos e segundos
+                    //preciso diminuir 1h do horário final porque não posso marcar consulta no horário de fechamento do expediente
+                   if( $div[1] >= $expediente['start'] && ($div[1] < ($end[0]) - 1)){
+                        $ckeckHoraExpediente = true; 
+                   }
+                    break; 
+                }
+            }
+        }
+        
+        if(!$checkDiaExpediente || ! $ckeckHoraExpediente){
+            dd('Não pode marcar'); //criar notificação
+            exit();
+        }
+        switch ($request->type) { 
            case 'add':
+            //FIXME:
               $event = Consulta::create([
-                  'title' => $request->title,
-                  'start' => $request->start,
-                  'end' => $request->end,
-                  'id_voluntario' => $request->idVoluntario
+                'id_aluno'=> 1, //não estou conseguindo pegar o id do aluno! 
+                'status' => 'agendada',
+                'title' => $request->title,
+                'start' => $request->start,
+                'end' => $request->end,
+                'id_voluntario' => $request->idVoluntario
               ]);
             //   dd($request); 
 

@@ -16,12 +16,15 @@ class Aluno extends Authenticatable
     protected $fillable = [
         'name', 
         'email', 
-        'password', 
         'status',
         'data_nascimento', 
         'responsavel', 
         'id_escola', 
         'sexo'
+    ];
+
+    protected $hidden = [
+        'password'
     ];
 
     public function consultas(){ //aluno pode ter várias consultas

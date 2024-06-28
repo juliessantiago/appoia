@@ -11,7 +11,7 @@ class AlunoGetConsultas extends Component
     public $consultas; 
 
     public function mount(){
-        $this->consultas = Consulta::where('id_aluno', 1)->get(); 
+        $this->consultas = Consulta::where('id_aluno', Auth::user()->id)->get(); 
     }
     public function render()
     {
