@@ -18,6 +18,7 @@ class FullCalendarController extends Controller
        
         if($request->ajax()) {
              $data = Consulta::where('id_voluntario', $id)
+                        ->where('id_aluno', 1)
                         ->whereDate('start', '>=', $request->start)
                        ->whereDate('end',   '<=', $request->end)
                        ->get(['id', 'title', 'start', 'end', 'id_voluntario']);
@@ -81,7 +82,6 @@ class FullCalendarController extends Controller
         }
         
         if(!$checkDiaExpediente || ! $ckeckHoraExpediente){
-            dd('Não pode marcar'); //criar notificação
             exit();
         }
         switch ($request->type) { 

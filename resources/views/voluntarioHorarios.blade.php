@@ -69,10 +69,9 @@
                             },
                             timezone: 'America/Sao_Paulo', 
                             eventColor: ' #d8b4fe',
-                            editable: true,
                             events: SITEURL + "/fullcalendar/" + idVoluntario,
                             displayEventTime: true,
-                            editable: true,
+                            editable: false,
                             defaultView: 'agendaWeek',
                             timeFormat: 'H:mm',
                             slotDuration: "01:00:00",
@@ -94,11 +93,12 @@
                             eventRender: function (event, element, view) { //por que event render só é executada ao clicar? 
                                 event.allDay = false;
                                 calendar.fullCalendar('option', 'businessHours', expedientes);
-                                //    console.log(expedientes);
+                                   
                             },
                             selectable: true,
                             selectHelper: true,
-
+                            eventStartEditable: false,
+                            eventDurationEditable: false,
                             select: function (start, end, allDay) { //função executada quando as datas são selecionadas
                                 var title = 'consulta';
                                 var start = $.fullCalendar.formatDate(start, "Y-MM-DD H:mm");
