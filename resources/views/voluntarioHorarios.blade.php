@@ -29,11 +29,10 @@
  
 
             <script type="text/javascript">
-                var expedientes = []
-                var idVoluntario = window.location.pathname.slice(-1)
+                let expedientes = []
+                let idVoluntario = window.location.pathname.slice(-1)
+                let idAluno = {{Auth::user()->id}}
                 function getExpedientes(){
-                
-                //voluntarioHorarios/{id}
                     $.ajax({
                         url: "/expedientes/"+idVoluntario,
                         method: 'GET', 
@@ -91,16 +90,21 @@
                                 height: 'auto', 
                                 hiddenDays: [0, 6], //domingo, sábado não são exibidos 
                             eventRender: function (event, element, view) { //por que event render só é executada ao clicar? 
+                                // console.log(event)
                                 event.allDay = false;
                                 calendar.fullCalendar('option', 'businessHours', expedientes);
-                                calendar.fullCalendar('addEventSource', { events: [ 
-                                    {title: 'teste indisponível', start: '2024-06-28T10:00', end: '2024-06-28T11:00' }
-                                ],
-                                color: 'pink', 
-                                textColor: 'yellow'
-                                })
-                                   
                             },
+                            eventAfterRender(event, element, view){
+                                // element -> evento no html 
+                                // view -> tipo de view utilizada (semana, mês)
+                                if(event.id_aluno != idAluno ){
+                                    // console.log(event.title)
+                                    console.log(element[0].innerText)
+                                    element[0].innerText = 'indisponível'
+                                    element.css('background-color', '#A9A9A9')
+                                    element.css('border-color', '#A9A9A9')
+                                }
+                           },
                             selectable: true,
                             selectHelper: true,
                             eventStartEditable: false,
@@ -156,6 +160,7 @@
                                                     start: start,
                                                     end: end,
                                                     idVoluntario: idVoluntario,
+                                                    idAluno: idAluno, 
                                                     type: 'add', 
                                                 },
                                                 type: "POST",
@@ -164,7 +169,7 @@
                                                     Swal.fire("Consulta marcada!");
                                                     calendar.fullCalendar('renderEvent',
                                                         {
-                                                            status : 'agendado',
+                                                            id_aluno: idAluno, 
                                                             id: data.id,
                                                             title: title,
                                                             start: start,
@@ -202,22 +207,25 @@
                             },
 
                             eventClick: function (event) { //evento quando é clicado é excluído
-                                var deleteMsg = confirm("Você realmente gostaria de excluir?");
-                                if (deleteMsg) {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: SITEURL + '/fullcalendarAjax',
-                                        data: {
-                                                id: event.id,
-                                                type: 'delete'
-                                        },
+                                if(event.id_aluno == idAluno){
+                                    var deleteMsg = confirm("Você realmente gostaria de excluir?");
+                                    if (deleteMsg) {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: SITEURL + '/fullcalendarAjax',
+                                            data: {
+                                                    id: event.id,
+                                                    type: 'delete'
+                                            },
 
-                                        success: function (response) {
-                                            calendar.fullCalendar('removeEvents', event.id);
-                                            displayMessage("Evento excluído com sucesso");
-                                        }
-                                    });
+                                            success: function (response) {
+                                                calendar.fullCalendar('removeEvents', event.id);
+                                                displayMessage("Evento excluído com sucesso");
+                                            }
+                                        });
+                                    }
                                 }
+                                
                             }
                         });
             });

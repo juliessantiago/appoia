@@ -68,9 +68,9 @@ Route::get('/assunto/{id}', [AssuntoController::class, 'show'])->name('showAssun
 
 /*----------------------------------------Calendário---------------------------------------------*/ 
 Route::controller(FullCalendarController::class)->group(function(){
-    Route::get('fullcalendar/{id}', 'index');
-    Route::post('fullcalendarAjax', 'ajax');
-    Route::get('expedientes/{id}', 'expedientes');
+    Route::get('fullcalendar/{id}', 'index')->middleware('auth:aluno');
+    Route::post('fullcalendarAjax', 'ajax')->middleware('auth:aluno');
+    Route::get('expedientes/{id}', 'expedientes')->middleware('auth:aluno');
 });
 
 

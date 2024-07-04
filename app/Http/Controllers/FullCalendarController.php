@@ -18,16 +18,16 @@ class FullCalendarController extends Controller
        
         if($request->ajax()) {
              $data = Consulta::where('id_voluntario', $id)
-                        ->where('id_aluno', 1)
                         ->whereDate('start', '>=', $request->start)
                        ->whereDate('end',   '<=', $request->end)
-                       ->get(['id', 'title', 'start', 'end', 'id_voluntario']);
+                       ->get(['id', 'title', 'start', 'end', 'id_voluntario', 'id_aluno']);
              return response()->json($data);
         }
    
     }
 
     public function expedientes($id){
+        // dd(Auth::user()->id);
         $data = Expediente::where('id_voluntario', $id)->get(); 
         
         $retorno = $data->map(function ($expediente){//alteração por causa do formato aceito no fullcalendar
@@ -64,31 +64,31 @@ class FullCalendarController extends Controller
         $ckeckHoraExpediente = false; 
         $div = explode(" ", $request->start); //$div[0] = dia, $div[1] = hora
         
-        foreach ($request->expedientes as $expediente){
-            foreach($expediente['dow'] as $dia){
-                // dd($expediente);
-                if($dia === $request->diaSemana){ //dia escolhido está dentro do expediente
-                    // dd($request->start);
-                    $checkDiaExpediente = true;
-                    $end = (explode(':',$expediente['end']));
-                    //$end = hora final formatada sem os minutos e segundos
-                    //preciso diminuir 1h do horário final porque não posso marcar consulta no horário de fechamento do expediente
-                   if( $div[1] >= $expediente['start'] && ($div[1] < ($end[0]) - 1)){
-                        $ckeckHoraExpediente = true; 
-                   }
-                    break; 
-                }
-            }
-        }
+        // foreach ($request->expedientes as $expediente){
+        //     foreach($expediente['dow'] as $dia){
+        //         // dd($expediente);
+        //         if($dia === $request->diaSemana){ //dia escolhido está dentro do expediente
+        //             // dd($request->start);
+        //             $checkDiaExpediente = true;
+        //             $end = (explode(':',$expediente['end']));
+        //             //$end = hora final formatada sem os minutos e segundos
+        //             //preciso diminuir 1h do horário final porque não posso marcar consulta no horário de fechamento do expediente
+        //            if( $div[1] >= $expediente['start'] && ($div[1] < ($end[0]) - 1)){
+        //                 $ckeckHoraExpediente = true; 
+        //            }
+        //             break; 
+        //         }
+        //     }
+        // }
         
-        if(!$checkDiaExpediente || ! $ckeckHoraExpediente){
-            exit();
-        }
+        // if(!$checkDiaExpediente || ! $ckeckHoraExpediente){
+        //     exit();
+        // }
         switch ($request->type) { 
            case 'add':
             //FIXME:
               $event = Consulta::create([
-                'id_aluno'=> 1, //não estou conseguindo pegar o id do aluno! 
+                'id_aluno'=> Auth::user()->id, 
                 'status' => 'agendada',
                 'title' => $request->title,
                 'start' => $request->start,
