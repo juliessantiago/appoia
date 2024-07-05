@@ -14,7 +14,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*--------------------------------------Blog---------------------------------------------------------*/ 
+/*--------------------------------------Blog-------------------------------------*/ 
 Route::get('/blog', function () {
     return view('blog');
 })->name('blog');
@@ -22,7 +22,7 @@ Route::get('/blog', function () {
 Route::get('/multilogin', [MultiAuthController::class, 'showLogin'])->name('multilogin'); 
 Route::post('/multiAuth', [MultiAuthController::class, 'multiAuth'])->name('multiAuth'); 
 
-/*-----------------------Aluno - todas as rotas acessíveis por aluno -----------*/ 
+/*--------------------Aluno - todas as rotas acessíveis por aluno -----------*/ 
 Route::prefix('aluno')->middleware('auth:aluno')->group(function () {
     Route::get('register', [AlunoController::class, 'showRegister'])->name('registerAlunoForm'); 
     Route::post('register', [AlunoController::class, 'registerAluno'])->name('registerAluno'); 
@@ -35,9 +35,16 @@ Route::prefix('aluno')->middleware('auth:aluno')->group(function () {
     Route::get('/logout', [AlunoController::class, 'logout'])->name('aluno.logout');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+/*---------------------Calendário para marcação de consultas------------------------*/ 
+Route::controller(FullCalendarController::class)->group(function(){
+    Route::get('fullcalendar/{id}', 'index')->middleware('auth:aluno');
+    Route::post('fullcalendarAjax', 'ajax')->middleware('auth:aluno');
+    Route::get('expedientes/{id}', 'expedientes')->middleware('auth:aluno');
+});
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 // Route::middleware('auth')->group(function () {
@@ -48,31 +55,23 @@ Route::get('/dashboard', function () {
 
 /*-------------------------------------Voluntários------------------------------------------*/
 //adicionar prefix! 
-Route::get('/voluntario/{id}', [VoluntarioController::class, 'show'])->name('showVoluntario'); 
-Route::post('/voluntario/{id}/update', [VoluntarioController::class, 'update'])->name('updateVoluntario'); 
-Route::get('/dashboardVoluntario', [VoluntarioController::class, 'dashboard'])->name('dashboardVoluntario')->middleware('auth:voluntario'); 
-Route::get('/logout', [VoluntarioController::class, 'logout'])->name('voluntario.logout')->middleware('auth:voluntario');
-
-Route::get('/voluntarioAssuntos/{id}', [VoluntarioController::class, 'showAssuntos'])->name('voluntarioAssuntos'); 
+Route::prefix('voluntario')->middleware('auth:voluntario')->group(function () {
+    Route::post('/voluntario/{id}/update', [VoluntarioController::class, 'update'])->name('updateVoluntario'); 
+    Route::get('/voluntario/{id}', [VoluntarioController::class, 'show'])->name('showVoluntario'); 
+    Route::get('/dashboardVoluntario', [VoluntarioController::class, 'dashboard'])->name('dashboardVoluntario')->middleware('auth:voluntario'); 
+    Route::get('/logout', [VoluntarioController::class, 'logout'])->name('voluntario.logout')->middleware('auth:voluntario');
+    Route::get('/voluntarioAssuntos/{id}', [VoluntarioController::class, 'showAssuntos'])->name('voluntarioAssuntos'); 
+});
 
 /*-------------------------------------Supervisores---------------------------------------*/ 
-Route::get('/dashboardSupervisor', [SupervisorController::class, 'dashboard'])->name('dashboardSupervisor'); 
-
+Route::prefix('supervisor')->middleware('auth:supervisor')->group(function () {
+    Route::get('/dashboardSupervisor', [SupervisorController::class, 'dashboard'])->name('dashboardSupervisor'); 
+});
 
 
 /*----------------------------------------Assuntos--------------------------------------------*/ 
-
 Route::get('/assunto/{id}', [AssuntoController::class, 'show'])->name('showAssunto'); 
 //exibir todos os voluntários que atendem determinado assunto
-
-
-/*----------------------------------------Calendário---------------------------------------------*/ 
-Route::controller(FullCalendarController::class)->group(function(){
-    Route::get('fullcalendar/{id}', 'index')->middleware('auth:aluno');
-    Route::post('fullcalendarAjax', 'ajax')->middleware('auth:aluno');
-    Route::get('expedientes/{id}', 'expedientes')->middleware('auth:aluno');
-});
-
 
 Route::get('/alunos', [AlunoController::class, 'index']); 
 require __DIR__.'/auth.php';
