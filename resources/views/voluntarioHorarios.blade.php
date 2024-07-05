@@ -62,17 +62,20 @@
             /*------FullCalendar JS Code------*/
             var calendar = $('#calendar').fullCalendar({
                             header: {
-                                left: 'prev,next',
-                                //    center: 'title',
-                                right: 'agendaWeek', 
+                               
+                            
                             },
                             timezone: 'America/Sao_Paulo', 
-                            eventColor: ' #d8b4fe',
+                            eventColor: ' #D8B4FE',
                             events: SITEURL + "/fullcalendar/" + idVoluntario,
                             displayEventTime: true,
                             editable: false,
                             defaultView: 'agendaWeek',
-                            timeFormat: 'H:mm',
+                            views: {
+                                agendaWeek: {
+                                    titleFormat: 'DD-MM'
+                                }
+                            },
                             slotDuration: "01:00:00",
                             allDaySlot: false, 
                             slotLabelFormat: 'H:mm', 
@@ -85,7 +88,7 @@
                             dayNamesShort: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
                             buttonText: {
                                     week: 'Semana',
-                                    day:'Dia',
+                                    today:'Ir para hoje',
                                 },
                                 height: 'auto', 
                                 hiddenDays: [0, 6], //domingo, sábado não são exibidos 
@@ -115,12 +118,25 @@
                                 var end = $.fullCalendar.formatDate(end, "Y-MM-DD H:mm");
                                 var checkDiaExpediente = false
                                 var checkHoraExpediente = false
+                            
                                 var diaSemana = (new Date(start)).getDay() 
                                 // new Date(start) -> obter data com dia da semana
                                 // getDay() -> separa apenas o dia da semana em formato de número 
                                 // console.log(diaSemana);
+                                var daySelected = (start.split(" ")[0])
+                                let today = new moment().format('YYYY-MM-DD')
+                                if(daySelected < today){
+                                    calendar.fullCalendar('unselect')
+                                    toastr.error('Opa, você selecionou uma data que já passou!')
+                                    return;
+                                }
+                                if(daySelected == today){
+                                    calendar.fullCalendar('unselect')
+                                    toastr.warning('A data selecionada é hoje. Você poderia escolher outro dia?')
+                                    return;
+                                }
                                 expedientes.forEach(expediente => {
-                                    var startEvent = parseInt(start.split(" ")[1].split(":")[0])
+                                   var startEvent = parseInt(start.split(" ")[1].split(":")[0])
                                    var startExpediente = parseInt(expediente.start.split(":")[0])
                                    var endExpediente = parseInt(expediente.end.split(":")[0])
                                    if(expediente.dow[0] == diaSemana){//dia selecionado é um dos dias de expediente
@@ -131,6 +147,7 @@
                                    }
                                 });
                                 
+                             
                                 if(!checkDiaExpediente){
                                     calendar.fullCalendar('unselect');
                                     toastr.error('Opa! Você pode marcar consulta apenas nos dias disponíveis do voluntário')
@@ -185,23 +202,23 @@
                                     
                             },
                             /*-------------------arrasta e solta --------------------------*/ 
-                            eventDrop: function (event, delta) {
-                                var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD");
-                                var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD");
-                                $.ajax({
-                                    url: SITEURL + '/fullcalendarAjax',
-                                    data: {
-                                        start: start,
-                                        end: end,
-                                        id: event.id,
-                                        type: 'update'
-                                    },
-                                    type: "POST",
-                                    success: function (response) {
-                                        displayMessage("Evento atualizado com sucesso");
-                                    }
-                                });
-                            },
+                            // eventDrop: function (event, delta) {
+                            //     var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD");
+                            //     var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD");
+                            //     $.ajax({
+                            //         url: SITEURL + '/fullcalendarAjax',
+                            //         data: {
+                            //             start: start,
+                            //             end: end,
+                            //             id: event.id,
+                            //             type: 'update'
+                            //         },
+                            //         type: "POST",
+                            //         success: function (response) {
+                            //             displayMessage("Evento atualizado com sucesso");
+                            //         }
+                            //     });
+                            // },
 
                             eventClick: function (event) { //evento quando é clicado é excluído
                                 if(event.id_aluno == idAluno){
