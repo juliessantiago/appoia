@@ -20,7 +20,7 @@ class FullCalendarController extends Controller
              $data = Consulta::where('id_voluntario', $id)
                         ->whereDate('start', '>=', $request->start)
                        ->whereDate('end',   '<=', $request->end)
-                       ->get(['id', 'title', 'start', 'end', 'id_voluntario', 'id_aluno']);
+                       ->get(['id', 'start', 'end', 'id_voluntario', 'id_aluno']);
              return response()->json($data);
         }
    
@@ -89,8 +89,7 @@ class FullCalendarController extends Controller
             //FIXME:
               $event = Consulta::create([
                 'id_aluno'=> Auth::user()->id, 
-                'status' => 'agendada',
-                'title' => $request->title,
+                'status' => $request->status,
                 'start' => $request->start,
                 'end' => $request->end,
                 'id_voluntario' => $request->idVoluntario
@@ -102,7 +101,6 @@ class FullCalendarController extends Controller
 
            case 'update':
               $event = Consulta::find($request->id)->update([
-                  'title' => $request->title,
                   'start' => $request->start,
                   'end' => $request->end,
               ]);

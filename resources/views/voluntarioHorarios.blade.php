@@ -29,7 +29,7 @@
  
 
             <script type="text/javascript">
-                let expedientes = []
+                var expedientes = []
                 let idVoluntario = window.location.pathname.slice(-1)
                 let idAluno = {{Auth::user()->id}}
                 function getExpedientes(){
@@ -111,7 +111,6 @@
                             eventDurationEditable: false,
                             displayEventEnd: true,
                             select: function (start, end, allDay) { //função executada quando as datas são selecionadas
-                                var title = 'consulta';
                                 var start = $.fullCalendar.formatDate(start, "Y-MM-DD H:mm");
                                 var end = $.fullCalendar.formatDate(end, "Y-MM-DD H:mm");
                                 var checkDiaExpediente = false
@@ -156,9 +155,9 @@
                                                 data: {
                                                     expedientes: expedientes,
                                                     diaSemana: diaSemana,
-                                                    title: title,
                                                     start: start,
                                                     end: end,
+                                                    status: 'pendente',
                                                     idVoluntario: idVoluntario,
                                                     idAluno: idAluno, 
                                                     type: 'add', 
@@ -171,7 +170,6 @@
                                                         {
                                                             id_aluno: idAluno, 
                                                             id: data.id,
-                                                            title: title,
                                                             start: start,
                                                             end: end,
                                                             allDay: allDay
@@ -193,7 +191,6 @@
                                 $.ajax({
                                     url: SITEURL + '/fullcalendarAjax',
                                     data: {
-                                        title: event.title,
                                         start: start,
                                         end: end,
                                         id: event.id,
