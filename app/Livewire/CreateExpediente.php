@@ -82,8 +82,8 @@ class CreateExpediente extends Component
             'fimExpediente' => $obj->fimExpediente, 
         ]); 
         // dd($expediente); 
-        $this->success('Expediente atualizado com sucesso'); 
-        $this->dispatch('atualiza-expedientes');//é ouvido no GetExpediente, aciona método refreshComponent
+        $this->success('Expediente atualizado com sucesso'); //toaster 
+        $this->dispatch('atualiza-expedientes');//é ouvido no GetExpediente, aciona método refreshComponent -> evento livewire
     }
 
     #[On('enviaDadosExclusao')]
@@ -92,7 +92,7 @@ class CreateExpediente extends Component
         // //notificação pelo Toaster
         $this->success('Expediente excluído com sucesso'); 
          //dispatch: dispara evento pelo Livewire
-         $this->dispatch('atualiza-expedientes')->to(GetExpediente::class); //Após primeira exclusão, não abre mais modal 
+         $this->dispatch('atualiza-expedientes')->to(GetExpediente::class); 
     } 
 
 }

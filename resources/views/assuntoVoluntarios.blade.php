@@ -6,7 +6,7 @@
     </x-slot> --}}
   
     <div class="">
-      <h4 class="text-center text-purple-300 text-4xl p-6 font-bold">Voluntários que podem ajudá-lo</h4>
+      <h4 class="text-center text-purple-300 text-2xl p-6 font-bold">Voluntários que abordam esse assunto</h4>
       <div class="flex justify-center">
         @foreach($assuntoVoluntarios as $voluntario)
           <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
@@ -17,7 +17,7 @@
                 {{-- <span class="text-sm text-gray-500 dark:text-gray-400">Universidade: instituição</span> --}}
   
                 <div class="flex mt-4 md:mt-6">
-                    <a href="{{route('voluntarioHorarios', $voluntario->id)}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ver horários</a>
+                    <a href="{{route('voluntarioHorarios', $voluntario->id)}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Ver horários</a>
                 </div>
             </div>
           </div>
@@ -34,5 +34,15 @@
             </div>
         </div>
     </div>-->
+      <div class="flex justify-between px-14 py-6"> 
+        <div class="flex mt-4 md:mt-6">
+          <a href="{{url()->previous()}}"><img src="{{ asset('images/icons/voltar.png')}}" /></a>
+          {{-- <a href="{{back()}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Sair </a> --}}
+        </div>
+        <div class="flex mt-4 md:mt-6">
+            <a href="{{route('voluntario.logout')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Sair </a>
+        </div>
+    </div>
+  
   </x-app-layout>
   

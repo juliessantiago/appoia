@@ -115,7 +115,7 @@
 
 <!-----------------------------------Como funciona-------------------------------------------->
 <div class="flex justify-center">
-  <img src="{{ asset('images/funciona.png')}}"">
+  <img src="{{ asset('images/funciona.png')}}">
 </div>
 
 <!----------------------------------Depoimentos------------------------------------------------->

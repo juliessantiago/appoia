@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('consultas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('title');
+            $table->string('status');
             $table->dateTime('start');
             $table->dateTime('end');
             $table->unsignedBigInteger('id_voluntario');
+            $table->unsignedBigInteger('id_aluno');
             $table->foreign('id_voluntario')->references('id')->on('voluntarios')->onDelete('cascade');
+            $table->foreign('id_aluno')->references('id')->on('alunos')->onDelete('cascade');
         });
     }
 

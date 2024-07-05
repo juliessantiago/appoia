@@ -1,6 +1,6 @@
 <x-app-layout>
   <div class="p-10">
-    <h4 class="text-center text-purple-300 text-4xl p-6 font-bold">Nossos voluntários</h4>
+    <h4 class="text-center text-purple-300 text-2xl p-6 font-bold">Nossos voluntários</h4>
     <div class="w-full flex justify-center items-center flex-wrap">
       @foreach($voluntarios as $voluntario)
         <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
@@ -17,6 +17,15 @@
         </div>
       @endforeach
     </div>
+  </div>
+    <div class="flex justify-between px-14 py-6"> 
+      <div class="flex mt-4 md:mt-6">
+        <a href="{{url()->previous()}}"><img src="{{ asset('images/icons/voltar.png')}}" /></a>
+        {{-- <a href="{{back()}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Sair </a> --}}
+      </div>
+      <div class="flex mt-4 md:mt-6">
+          <a href="{{route('voluntario.logout')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Sair </a>
+      </div>
   </div>
 </x-app-layout>
 

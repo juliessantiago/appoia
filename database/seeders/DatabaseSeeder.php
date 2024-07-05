@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             VoluntarioSeeder::class, 
             AssuntoSeeder::class, 
             AssuntoVoluntarioSeeder::class, 
-            ExpedienteSeeder::class,
+            // ExpedienteSeeder::class,
 
         ]);
     }
