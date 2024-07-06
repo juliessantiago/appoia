@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body class="scroll-smooth">
-  <nav class="bg-violet-400 dark:bg-gray-900">
+  <nav class="bg-violet-300 dark:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
           {{-- <img  src="{{ asset('images/logo_pequeno.png')}}" class="h-8" alt="Appoia logo" /> --}}
@@ -66,48 +66,48 @@
   <!-- <h3 class="text-purple-300 text-center text-3xl p-2">Cuide de sua mente</h3>
   <p class="text-fuchsia-200 text-center text-2xl p-2">Sua saúde mental é tão importante quanto sua saúde física</p> -->
 
-  <div class="flex flex-col flex-1 items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6 max-w-md">
+  <div class="flex flex-col flex-1 items-center md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6 max-w-md">
       <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/sentimentos_confusos.png')}}" alt="sentimentos confusos">
       <div class="flex flex-col justify-between p-4 leading-normal">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Lidar com sentimentos confusos</h5>
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-purple-300 dark:text-white">Lidar com sentimentos confusos</h5>
       </div>
   </div>
 
-  <div href="#" class="flex flex-col flex-1 items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
+  <div href="#" class="flex flex-col flex-1 items-center  md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
       <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/habitos.png')}}" alt="habitos">
       <div class="flex flex-col justify-between p-4 leading-normal">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Adquirir bons hábitos</h5>
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-purple-300 dark:text-white">Adquirir bons hábitos</h5>
       </div>
   </div>
 
-  <div href="#" class="flex flex-col flex-1 items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
+  <div href="#" class="flex flex-col flex-1 items-center md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
     <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/escola.png')}}" alt="habitos">
     <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Orientação vocacional</h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-purple-300 dark:text-white">Orientação vocacional</h5>
     </div>
   </div>
 
 </div>
 
 <div class="flex flex-row p-6 align-middle justify-between">
-  <div href="#" class="flex flex-col flex-1 items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
+  <div href="#" class="flex flex-col flex-1 items-center md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
       <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/relacionamentos.png')}}" alt="sentimentos confusos">
       <div class="flex flex-col justify-between p-4 leading-normal">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Ter relacionamentos saudáveis</h5>
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-purple-300 dark:text-white">Ter relacionamentos saudáveis</h5>
       </div>
   </div>
 
-  <div href="#" class="flex flex-col flex-1 items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
+  <div href="#" class="flex flex-col flex-1 items-center  md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
       <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/luto.png')}}" alt="habitos">
       <div class="flex flex-col justify-between p-4 leading-normal">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Lidar com o luto</h5>
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-purple-300 dark:text-white">Lidar com o luto</h5>
       </div>
   </div>
 
-  <div href="#" class="flex flex-col flex-1 items-center bg-fuchsia-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
+  <div href="#" class="flex flex-col flex-1 items-center md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
     <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/autoconhecimento.png')}}" alt="habitos">
     <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-50 dark:text-white">Autoconhecimento</h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-purple-300 dark:text-white">Autoconhecimento</h5>
     </div>
   </div>
 
@@ -119,7 +119,7 @@
 </div>
 
 <!----------------------------------Depoimentos------------------------------------------------->
-<div class="flex justify-around align-middle mt-5 mb-10 ">
+{{-- <div class="flex justify-around align-middle mt-5 mb-10 ">
     
     <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
@@ -150,20 +150,20 @@
     
     
 
-</div>
+</div> --}}
 
 <!----------------------------------------blog------------------------------------------------------>
 <div class="m-4 p-6">
   <div class="flex justify-around items-center"><!--flex superior-->
-    <img src="images/depressao_blog.png" class="w-2/4 p-2">
+    <img src="images/depressao_blog.png" class="w-2/6 p-2">
     <!--card-->
-    <div class="max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+  <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
-          <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+          <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt=""/>
       </a>
       <div class="p-5">
           <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">Depressão na Adolescência: Você Não Está Sozinho</h5>
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-sky-300 dark:text-white">Depressão na Adolescência: Você Não Está Sozinho</h5>
           </a>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Dicas para entender e superar os momentos difíceis.</p>
           <div class="flex mt-4 md:mt-6">
@@ -213,7 +213,7 @@
         </a>
         <div class="p-5">
             <a href="#">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">Ansiedade: Como Lidar com a Pressão da Escola e Redes Sociais</h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">Ansiedade: Como Lidar com a Pressão da Escola</h5>
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Descubra estratégias para manter a calma e enfrentar os desafios do dia a dia.</p>
             <div class="flex mt-4 md:mt-6">
@@ -225,13 +225,13 @@
 </div><!--final div blog--> 
 
 <!--------------------------------------Footer------------------------------------------------------>
-<footer class="bg-purple-300  shadow dark:bg-gray-800">
+<footer class="bg-violet-400  shadow dark:bg-gray-800">
   <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
     <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">Appoia</a>. Licença MIT.
   </span>
-  <ul class="flex flex-wrap items-center mt-3 text-base font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+  <ul class="flex flex-wrap items-center mt-3 text-base font-medium text-slate-50 dark:text-gray-400 sm:mt-0">
       <li>
-          <a href="#" class="hover:text-slate-50 me-4 md:me-6">Como podemos ajudar</a>
+          <a href="#" class="hover:text-white me-4 md:me-6">Como podemos ajudar</a>
       </li>
       <li>
           <a href="#" class="hover:text-slate-50 me-4 md:me-6">Como funciona</a>
@@ -239,9 +239,7 @@
       <li>
           <a href="{{route('allAssuntos')}}" class="hover:text-slate-50 me-4 md:me-6">Agende uma conversa</a>
       </li>
-      <li>
-        <a href="#" class="hover:text-slate-50 me-4 md:me-6">Depoimentos</a>
-      </li>
+   
 
       <li>
         <a href="{{route('multilogin')}}" class=" font-bold hover:text-slate-50 me-4 md:me-6">Sou voluntário</a>

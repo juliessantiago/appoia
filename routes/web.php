@@ -58,14 +58,14 @@ Route::controller(FullCalendarController::class)->group(function(){
 Route::prefix('voluntario')->middleware('auth:voluntario')->group(function () {
     Route::post('/voluntario/{id}/update', [VoluntarioController::class, 'update'])->name('updateVoluntario'); 
     Route::get('/voluntario/{id}', [VoluntarioController::class, 'show'])->name('showVoluntario'); 
-    Route::get('/dashboardVoluntario', [VoluntarioController::class, 'dashboard'])->name('dashboardVoluntario')->middleware('auth:voluntario'); 
-    Route::get('/logout', [VoluntarioController::class, 'logout'])->name('voluntario.logout')->middleware('auth:voluntario');
+    Route::get('/dashboard', [VoluntarioController::class, 'dashboard'])->name('dashboardVoluntario');
+    Route::get('/logout', [VoluntarioController::class, 'logout'])->name('voluntario.logout');
     Route::get('/voluntarioAssuntos/{id}', [VoluntarioController::class, 'showAssuntos'])->name('voluntarioAssuntos'); 
 });
 
 /*-------------------------------------Supervisores---------------------------------------*/ 
 Route::prefix('supervisor')->middleware('auth:supervisor')->group(function () {
-    Route::get('/dashboardSupervisor', [SupervisorController::class, 'dashboard'])->name('dashboardSupervisor'); 
+    Route::get('/dashboard', [SupervisorController::class, 'dashboard'])->name('dashboardSupervisor'); 
 });
 
 
