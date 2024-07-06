@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body class="scroll-smooth">
-  <nav class="bg-violet-300 dark:bg-gray-900">
+  <nav class="bg-purple-400 dark:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
           {{-- <img  src="{{ asset('images/logo_pequeno.png')}}" class="h-8" alt="Appoia logo" /> --}}
@@ -33,33 +33,34 @@
             {{-- <a href="#" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Dashboard</a> --}}
           </li>
           <li>
-            <a href="#" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Como podemos ajudar</a>
+            <a href="#" class="text-lg block py-2 px-3  bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  text-white font-bold" aria-current="page">Como podemos ajudar</a>
           </li>
           <li>
-              <a href="#" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Como funciona</a>
+              <a href="#" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500 text-white font-bold" aria-current="page">Como funciona</a>
           </li>
           <li>
-              <a href="{{route('allAssuntos')}}" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Agende uma conversa</a>
+              <a href="{{route('allAssuntos')}}" class="text-lg block py-2 px-3 bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  text-white font-bold" aria-current="page">Agende uma conversa</a>
           </li>
           <li>
-              <a href="{{ route('multilogin') }}" class="text-lg font-bold block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Entrar</a>
+              <a href="{{ route('multilogin') }}" class="text-lg block py-2 px-3 bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  text-white font-bold" aria-current="page">Entrar</a>
           </li>
           <li>
-            <a href="{{ route('registerAlunoForm') }}" class="text-lg font-bold block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  md:hover:text-sky-400 " aria-current="page">Criar Conta</a>
+            <a href="{{ route('registerAlunoForm') }}" class="text-lg block py-2 px-3 bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  text-white font-bold" aria-current="page">Criar Conta</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 <!------------------------------header--------------------------------> 
-<div class="flex">
-  <img class="max-w-screen-lg" src="{{ asset('images/imagem_header.jpg')}}"> 
+<div class="flex justify-around">
+  <img class="max-w-screen-md" src="{{ asset('images/imagem_header.jpg')}}"> 
   <div class="flex flex-col justify-center align-middle">
-    <h1 class="text-violet-300 text-5xl">Você não esta</h1>
-    <h2 class="text-violet-400 text-6xl">sozinho</h2>
+    <h1 class="text-fuchsia-300 text-5xl">Você não está</h1>
+    <h2 class="text-fuchsia-400 text-6xl">sozinho</h2>
   </div>
 </div>
 <!-----------------------Como podemos ajudar------------------------>
+<div class="font-bold text-center text-4xl text-pink-400"> ... </div>
 <h4 class="text-center text-sky-300 text-4xl p-6 font-bold">Como podemos ajudar você</h4>
 
 <div class="flex flex-row p-6 align-middle justify-around">
@@ -67,9 +68,9 @@
   <p class="text-fuchsia-200 text-center text-2xl p-2">Sua saúde mental é tão importante quanto sua saúde física</p> -->
 
   <div class="flex flex-col flex-1 items-center md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6 max-w-md">
-      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/sentimentos_confusos.png')}}" alt="sentimentos confusos">
+      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/raiva.png')}}" alt="sentimentos confusos">
       <div class="flex flex-col justify-between p-4 leading-normal">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-purple-300 dark:text-white">Lidar com sentimentos confusos</h5>
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-purple-300 dark:text-white">Lidar com emoções</h5>
       </div>
   </div>
 
@@ -89,7 +90,7 @@
 
 </div>
 
-<div class="flex flex-row p-6 align-middle justify-between">
+<div class="flex flex-row p-6 align-middle justify-around">
   <div href="#" class="flex flex-col flex-1 items-center md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
       <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/relacionamentos.png')}}" alt="sentimentos confusos">
       <div class="flex flex-col justify-between p-4 leading-normal">
@@ -114,6 +115,7 @@
 </div>
 
 <!-----------------------------------Como funciona-------------------------------------------->
+<div class="font-bold text-center text-4xl text-pink-400"> ... </div>
 <div class="flex justify-center">
   <img src="{{ asset('images/funciona.png')}}">
 </div>
@@ -153,17 +155,18 @@
 </div> --}}
 
 <!----------------------------------------blog------------------------------------------------------>
+<div class="font-bold text-center text-4xl text-pink-400"> ... </div>
 <div class="m-4 p-6">
-  <div class="flex justify-around items-center"><!--flex superior-->
-    <img src="images/depressao_blog.png" class="w-2/6 p-2">
+  <div class="flex justify-around items-center mb-10"><!--flex superior-->
+    <img src="images/depressao_blog.png" class="w-2/8 p-2">
     <!--card-->
-  <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+  <div class="max-w-md bg-white dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
           <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt=""/>
       </a>
       <div class="p-5">
           <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-sky-300 dark:text-white">Depressão na Adolescência: Você Não Está Sozinho</h5>
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">Depressão na Adolescência: Você Não Está Sozinho</h5>
           </a>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Dicas para entender e superar os momentos difíceis.</p>
           <div class="flex mt-4 md:mt-6">
@@ -225,9 +228,9 @@
 </div><!--final div blog--> 
 
 <!--------------------------------------Footer------------------------------------------------------>
-<footer class="bg-violet-400  shadow dark:bg-gray-800">
+<footer class="bg-purple-400  shadow dark:bg-gray-800">
   <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">Appoia</a>. Licença MIT.
+    <span class="text-sm text-slate-50 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">Appoia</a>. Licença MIT.
   </span>
   <ul class="flex flex-wrap items-center mt-3 text-base font-medium text-slate-50 dark:text-gray-400 sm:mt-0">
       <li>
