@@ -36,7 +36,7 @@
             <a href="#" class="text-lg block py-2 px-3  bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  text-white font-bold" aria-current="page">Como podemos ajudar</a>
           </li>
           <li>
-              <a href="#" class="text-lg block py-2 px-3 text-white bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500 text-white font-bold" aria-current="page">Como funciona</a>
+              <a href="#" class="text-lg block py-2 px-3 bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500 text-white font-bold" aria-current="page">Como funciona</a>
           </li>
           <li>
               <a href="{{route('allAssuntos')}}" class="text-lg block py-2 px-3 bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  text-white font-bold" aria-current="page">Agende uma conversa</a>
@@ -55,8 +55,8 @@
 <div class="flex justify-around">
   <img class="max-w-screen-md" src="{{ asset('images/imagem_header.jpg')}}"> 
   <div class="flex flex-col justify-center align-middle">
-    <h1 class="text-fuchsia-300 text-5xl">Você não está</h1>
-    <h2 class="text-fuchsia-400 text-6xl">sozinho</h2>
+    <h1 class="text-fuchsia-300 text-6xl">Você não está</h1>
+    <h2 class="text-fuchsia-400 text-7xl ml-6">sozinho</h2>
   </div>
 </div>
 <!-----------------------Como podemos ajudar------------------------>

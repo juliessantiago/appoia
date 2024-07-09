@@ -1,43 +1,55 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            {{-- @include('layouts.navigation') --}}
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                <div class="p-10"> 
-                    <h3 class="text-center text-3xl font-bold  text-pink-300">Supervisor</h3>  
-                    <h4>Minhas ações</h4>
-                    <div class="flex align-bottom">
-                        <a href="{{ route('aluno.logout') }}">Sair</a>
-                    </div>
-                </div>
-               
-            </main>
+<x-app-layout>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+    {{-- <script src="sweetalert2.all.min.js"></script> --}}
+    <div class="flex justify-center">      
+        
+        @if(session('success'))
+        <div class="flex bg-green-300 p-10 border-green-400 rounded-lg">
+              <p class="text-white">  {{session('success')}}  </p>  
         </div>
-    </body>
-</html>
+        @endif
+    </div> 
+      
+<!--------------------------componentes------------------------------------> 
+    <div class="m-10">
+        <x-toaster-hub />
+    </div>
+    
+    <div class="p-10"> 
+        <p class="text-purple-400 text-xl font-bold text-center">Gerenciar Assuntos</p>
+        @livewire('create-assunto')
+    </div>
+
+    <div class="p-10"> 
+        <p class="text-purple-400 text-xl font-bold text-center">Assuntos</p>
+        @livewire('get-assunto') 
+    </div>
+<!----------------------------------------------------------------------------------------------------------->
+<script>
+    document.addEventListener('livewire:init', () => {
+        Livewire.on('abreModalExclusao', ()=> {
+            let id = event.detail.data.id
+            let descricao = event.detail.data.descricao
+            Swal.fire({
+                title: "Excluir o assunto "+descricao+"?",
+                showCancelButton: true,
+                confirmButtonColor: "#F0ABFC", //botão de confirmação aqui é para exclusão
+                cancelButtonColor: "#9CA3AF",
+                confirmButtonText: "Excluir",
+                cancelButtonText: `Cancelar`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('enviaDadosExclusao',  {id: id }) //envia dados para método no componente que escuta esse evento por nome
+                }
+            });
+        })
+    });
+</script>
+    <div class="flex justify-end px-14 py-6"> 
+        <div class="flex mt-4 md:mt-6">
+            <a href="{{route('supervisor.logout')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-400 rounded-lg hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-purple-400">Sair </a>
+        </div>
+    </div>
+    
+ 
+</x-app-layout>

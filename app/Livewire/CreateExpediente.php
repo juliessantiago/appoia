@@ -64,7 +64,7 @@ class CreateExpediente extends Component
          //notificação pelo Toaster
         $this->success('Novo expediente criado com sucesso'); 
         //dispara evento pelo Livewire
-        $this->dispatch('atualiza-expedientes')->to(GetExpediente::class);  //NÃO ESTÁ FUNCIONANDO
+        $this->dispatch('atualiza-expedientes')->to(GetExpediente::class);  
        
     }
     public function render()

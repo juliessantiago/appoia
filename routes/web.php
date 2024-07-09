@@ -24,8 +24,8 @@ Route::post('/multiAuth', [MultiAuthController::class, 'multiAuth'])->name('mult
 
 /*--------------------Aluno - todas as rotas acessíveis por aluno -----------*/ 
 Route::prefix('aluno')->middleware('auth:aluno')->group(function () {
-    Route::get('register', [AlunoController::class, 'showRegister'])->name('registerAlunoForm'); 
-    Route::post('register', [AlunoController::class, 'registerAluno'])->name('registerAluno'); 
+    
+   
     Route::get('/dashboard', [AlunoController::class, 'dashboard'])->name('dashboardAluno');
     Route::get('/assuntos',[AssuntoController::class, 'index'])->name('allAssuntos'); 
     Route::get('/assuntoVoluntarios/{id}', [AssuntoController::class, 'showVoluntarios'])->name('assuntoVoluntarios');
@@ -34,7 +34,8 @@ Route::prefix('aluno')->middleware('auth:aluno')->group(function () {
 
     Route::get('/logout', [AlunoController::class, 'logout'])->name('aluno.logout');
 });
-
+Route::get('aluno/register', [AlunoController::class, 'showRegister'])->name('registerAlunoForm'); 
+Route::post('aluno/register', [AlunoController::class, 'registerAluno'])->name('registerAluno'); 
 /*---------------------Calendário para marcação de consultas------------------------*/ 
 Route::controller(FullCalendarController::class)->group(function(){
     Route::get('fullcalendar/{id}', 'index')->middleware('auth:aluno');
@@ -66,6 +67,7 @@ Route::prefix('voluntario')->middleware('auth:voluntario')->group(function () {
 /*-------------------------------------Supervisores---------------------------------------*/ 
 Route::prefix('supervisor')->middleware('auth:supervisor')->group(function () {
     Route::get('/dashboard', [SupervisorController::class, 'dashboard'])->name('dashboardSupervisor'); 
+    Route::get('/logout', [SupervisorController::class, 'logout'])->name('supervisor.logout');
 });
 
 

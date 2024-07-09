@@ -37,7 +37,7 @@
           
 
 <!-------------------------------------------------------------------------------->
-    <script> 
+<script> 
     document.addEventListener('livewire:init', () => {
         Livewire.on('abreModalEdicao', () => {
             let id = event.detail.data.id
@@ -82,6 +82,7 @@
                 title: "Excluir o expediente de "+diaSemana+"?",
                 showCancelButton: true,
                 confirmButtonColor: "#F0ABFC", //botão de confirmação aqui é para exclusão
+                cancelButtonColor: "#9CA3AF",
                 confirmButtonText: "Excluir",
                 cancelButtonText: `Cancelar`
             }).then((result) => {
@@ -95,7 +96,7 @@
 
      
       
-    </script>
+</script>
 
     <div class="flex justify-end px-14 py-6"> 
         <div class="flex mt-4 md:mt-6">
