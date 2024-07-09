@@ -14,20 +14,35 @@ class CreateAssunto extends Component
     // public function mount(){
 
     // }
+    public $descricao;
+    protected $rules = [
+
+        'descricao' => 'required',
+    ];
     use Toastable; 
-    public $descricao;  
     public function save(){
-        
-        $created = Assunto::create([
-          'descricao' => $this->descricao
-        ]);
-        // $created = false;
-        if($created){
-            $this->success('Novo assunto criado com sucesso'); 
-            $this->dispatch('atualiza-assuntos')->to(GetAssunto::class);  
+        $this->validate();
+        $desc = trim(strtolower($this->descricao)); 
+        // dd($desc);
+        $count = Assunto::where('descricao', $desc)->get()->count();
+         //existe forma de verificar através da validação, mas exibição de erro não ficou boa
+        if($count > 0){
+            $this->warning('Assunto já existe'); 
         }else{
-            $this->error('Desculpe, ocorreu um erro.');
+            $created = Assunto::create([
+                'descricao' => $desc
+              ]);
+              // $created = false;
+              if($created){
+                  $this->success('Novo assunto criado com sucesso'); 
+                  $this->dispatch('atualiza-assuntos')->to(GetAssunto::class);  
+              }else{
+                  $this->error('Desculpe, ocorreu um erro.');
+              }
         }
+       
+       
+      
         
     }
 
