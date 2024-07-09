@@ -14,13 +14,16 @@
     <div class="m-10">
         <x-toaster-hub />
     </div>
-    
-    <div class="p-10"> 
-        <p class="text-purple-400 text-xl font-bold text-center">Gerenciar Assuntos</p>
-        @livewire('create-assunto')
+    <p class="text-purple-400 text-3xl font-bold text-center">Assuntos</p>
+    <div class="m-10">
+        <p class="text-purple-400 text-xl font-bold text-center">Criar novo assunto</p>
+        <div class="flex items-center justify-center"> 
+            @livewire('create-assunto')
+        </div>
     </div>
+   
 
-    <div class="p-10"> 
+    <div class="m-10"> 
         <p class="text-purple-400 text-xl font-bold text-center">Assuntos</p>
         @livewire('get-assunto') 
     </div>

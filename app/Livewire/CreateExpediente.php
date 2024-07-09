@@ -52,20 +52,22 @@ class CreateExpediente extends Component
         if(!$this->validateHours() || !$this->validateDayAvailability()){
             return; 
         };
-        
-        // dd('recebeu dados save'); 
-
-        Expediente::create([
+    
+        $created = Expediente::create([
             'id_voluntario' => Auth::user()->id, 
             'diaSemana' => $this->diaSemana,
             'inicioExpediente' =>Carbon::parse($this->inicioExpediente)->format('H:i'),
             'fimExpediente' => $this->fimExpediente,
         ]);
-         //notificação pelo Toaster
-        $this->success('Novo expediente criado com sucesso'); 
-        //dispara evento pelo Livewire
-        $this->dispatch('atualiza-expedientes')->to(GetExpediente::class);  
-       
+        if($created){
+            //notificação pelo Toaster
+            $this->success('Novo expediente criado com sucesso'); 
+            //dispara evento pelo Livewire
+            $this->dispatch('atualiza-expedientes')->to(GetExpediente::class);  
+        }else{
+            $this->error('Desculpe, ocorreu um erro.');
+        }
+        
     }
     public function render()
     {
@@ -77,22 +79,32 @@ class CreateExpediente extends Component
     //método imediatamente abaixo é o que lida com os dados recebidos
     public function updateExpediente($dados){
         $obj = (object)$dados; 
-        Expediente::where('id_voluntario', Auth::user()->id)->where( 'id', $obj->id)->update([
+        $updated = Expediente::where('id_voluntario', Auth::user()->id)->where( 'id', $obj->id)->update([
             'inicioExpediente' => $obj->inicioExpediente,
             'fimExpediente' => $obj->fimExpediente, 
         ]); 
+        if($updated){
+            $this->success('Expediente atualizado com sucesso'); //toaster 
+            $this->dispatch('atualiza-expedientes');//é ouvido no GetExpediente, aciona método refreshComponent -> evento livewire
+        }else{
+            $this->error('Desculpe, ocorreu um erro.');
+        }
         // dd($expediente); 
-        $this->success('Expediente atualizado com sucesso'); //toaster 
-        $this->dispatch('atualiza-expedientes');//é ouvido no GetExpediente, aciona método refreshComponent -> evento livewire
+       
     }
 
     #[On('enviaDadosExclusao')]
     public function deleteExpediente($id){
-        Expediente::where('id_voluntario', Auth::user()->id)->where( 'id', $id)->delete(); 
-        // //notificação pelo Toaster
-        $this->success('Expediente excluído com sucesso'); 
-         //dispatch: dispara evento pelo Livewire
-         $this->dispatch('atualiza-expedientes')->to(GetExpediente::class); 
+
+        if(Expediente::where('id_voluntario', Auth::user()->id)->where( 'id', $id)->delete()){
+            // //notificação pelo Toaster
+            $this->success('Expediente excluído com sucesso'); 
+            //dispatch: dispara evento pelo Livewire
+            $this->dispatch('atualiza-expedientes')->to(GetExpediente::class); 
+        }else{
+            $this->error('Desculpe, ocorreu um erro.');
+        }
+        
     } 
 
 }
