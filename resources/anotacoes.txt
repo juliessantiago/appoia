@@ -34,6 +34,7 @@ títulos de seções: 3xl
 #Imagem depressão -> home (blog) 
 <a href="https://www.flaticon.com/free-icons/depression" title="depression icons">Depression icons created by max.icons - Flaticon</a>
 
+
 #Ícone deletar 
 <a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by Kiranshastry - Flaticon</a>
 
