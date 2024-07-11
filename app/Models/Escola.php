@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Escola extends Model
 {
     use HasFactory;
+    
+    protected $illable = [
+        'nome', 
+        'cidade'
+    ];
+    public function alunos(){
+        return $this->hasMany(Aluno::class, 'id_escola'); 
+    }
 }

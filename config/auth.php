@@ -40,6 +40,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'aluno' => [
+            'driver' => 'session',
+            'provider' => 'alunos',
+        ],
+        'voluntario' => [
+            'driver' => 'session',
+            'provider' => 'voluntarios',
+        ],
+        'supervisor' => [ 
+            'driver' => 'session',
+            'provider' => 'supervisores',
+        ],
     ],
 
     /*
@@ -63,6 +75,18 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'alunos' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Aluno::class,
+        ],
+        'voluntarios' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Voluntario::class,
+        ],
+        'supervisores' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Supervisor::class,
         ],
 
         // 'users' => [

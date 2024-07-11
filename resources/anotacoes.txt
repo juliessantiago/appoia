@@ -8,11 +8,11 @@ LeagueSpartan
 
 
 *---------------------------Cores--------------------------------*
-azul-escuro: #38bdf8
-azul-escuro: #7dd3fc
-roxo: #c4b5fd
-lilás: #d8b4fe
-rosa: #f5d0fe
+azul-escuro: #38bdf8 - sky-400
+azul-escuro: #7dd3fc - sky-300
+roxo: #c4b5fd - violet-300
+lilás: #d8b4fe - purple-300
+rosa: #f5d0fe - fuchsia-200
 
 *--------------------------Atribuições--------------------------* 
 <a href="https://br.freepik.com/vetores-gratis/conceito-plano-de-saude-mental-com-pessoas-que-lidam-com-ilustracao-vetorial-de-problemas-psicologicos_38754391.htm#page=2&query=sa%C3%BAde%20mental&position=15&from_view=search&track=ais&uuid=2a03b149-7b8a-4795-a3f1-a7342b07835f">Imagem de macrovector</a> no Freepik
@@ -26,7 +26,30 @@ rosa: #f5d0fe
 #ícone de usuário genérico
 <a href="https://www.flaticon.com/br/icones-gratis/persona" title="persona ícones">Persona ícones criados por amoghdesign - Flaticon</a>
 
+
+#Sticker login/criar conta aluno 
+<a href="https://www.flaticon.com/br/stickers-gratis/estude" title="estude figurinhas">Estude figurinhas criadas por Stickers - Flaticon</a>
 títulos de seções: 3xl
+
+#Imagem depressão -> home (blog) 
+<a href="https://www.flaticon.com/free-icons/depression" title="depression icons">Depression icons created by max.icons - Flaticon</a>
+
+
+#Ícone deletar 
+<a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by Kiranshastry - Flaticon</a>
+
+#icone editar 
+<a href="https://www.flaticon.com/br/icones-gratis/lapis" title="lápis ícones">Lápis ícones criados por Tanah Basah - Flaticon</a>
+#A591F6
+
+#sticker marcar consulta (dashboard aluno)
+<a href="https://www.flaticon.com/free-stickers/report" title="report stickers">Report stickers created by kerismaker - Flaticon</a>
+
+#sticker dúvida sobre como marcar consulta (dashboard aluno)
+<a href="https://www.flaticon.com/free-stickers/question" title="question stickers">Question stickers created by Stickers - Flaticon</a>
+
+#ícone retornar 
+<a href="https://www.flaticon.com/free-icons/arrows" title="arrows icons">Arrows icons created by Creative Stall Premium - Flaticon</a>
 *-----------------------Espaçamento-------------------------* 
 padding entre seções: p-6 
 padding entre letreiros: p-2 
@@ -39,3 +62,13 @@ cards:
 
 *-----------------Imagens--------------------------------------*
 Todas as imagens precisam ser comprimidas, exceto a da seção "como funciona" 
+
+*------------------Texto-----------------------------------------*
+Títulos principais 
+text-4xl p-6 font-bold
+
+Subtítulos
+text-2xl p-6 font-bold
+
+Títulos dos cards 
+text-xl p-6 font-bold

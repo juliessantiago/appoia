@@ -84,7 +84,7 @@ return [
     |
     */
 
-    'locale' => 'pt_BR',
+    'locale' => 'pt',
 
     /*
     |--------------------------------------------------------------------------
@@ -186,5 +186,6 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
+
 
 ];
