@@ -25,7 +25,7 @@
 
     <div class="m-10"> 
         <p class="text-purple-400 text-xl font-bold text-center">Assuntos</p>
-        @livewire('get-assunto') 
+        @livewire('search-assunto') 
     </div>
 <!----------------------------------------------------------------------------------------------------------->
 <script>

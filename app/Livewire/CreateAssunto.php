@@ -35,24 +35,20 @@ class CreateAssunto extends Component
               // $created = false;
               if($created){
                   $this->success('Novo assunto criado com sucesso'); 
-                  $this->dispatch('atualiza-assuntos')->to(GetAssunto::class);  
+                  $this->dispatch('atualiza-assuntos')->to(SearchAssunto::class);  
               }else{
                   $this->error('Desculpe, ocorreu um erro.');
               }
         }
        
-       
-      
-        
     }
-
     #[On('enviaDadosExclusao')]
     public function deleteAssunto($id){
         if(Assunto::where( 'id', $id)->delete()){
              // //notificação pelo Toaster
             $this->success('Assunto excluído com sucesso'); 
             //dispatch: dispara evento pelo Livewire
-            $this->dispatch('atualiza-assuntos')->to(GetAssunto::class); 
+            $this->dispatch('atualiza-assuntos')->to(SearchAssunto::class); 
         }else{
             $this->error('Não foi possível excluir o assunto');
         }
