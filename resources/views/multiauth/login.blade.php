@@ -59,9 +59,9 @@
 
         <div class="flex items-center justify-end mt-4">
            
-            <x-secondary-button name="signUp"> 
+            <x-primary-button name="signUp"> 
                 {{ __('Não tenho uma conta') }}
-            </x-secondary-button>
+            </x-primary-button>
             <x-primary-button class="ms-3" name="signIn">
                 {{ __('Entrar') }}
             </x-primary-button>
