@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/preSignUp', [MultiAuthController::class, 'showPreSignUp'])->name('preSignUp'); 
 
 /*--------------------------------------Blog-------------------------------------*/ 
 Route::get('/blog', function () {
@@ -36,6 +37,8 @@ Route::prefix('aluno')->middleware('auth:aluno')->group(function () {
 });
 Route::get('aluno/register', [AlunoController::class, 'showRegister'])->name('registerAlunoForm'); 
 Route::post('aluno/register', [AlunoController::class, 'registerAluno'])->name('registerAluno'); 
+
+
 /*---------------------Calendário para marcação de consultas------------------------*/ 
 Route::controller(FullCalendarController::class)->group(function(){
     Route::get('fullcalendar/{id}', 'index')->middleware('auth:aluno');
@@ -55,7 +58,7 @@ Route::controller(FullCalendarController::class)->group(function(){
 // });
 
 /*-------------------------------------Voluntários------------------------------------------*/
-//adicionar prefix! 
+
 Route::prefix('voluntario')->middleware('auth:voluntario')->group(function () {
     Route::post('/voluntario/{id}/update', [VoluntarioController::class, 'update'])->name('updateVoluntario'); 
     Route::get('/voluntario/{id}', [VoluntarioController::class, 'show'])->name('showVoluntario'); 
@@ -63,6 +66,11 @@ Route::prefix('voluntario')->middleware('auth:voluntario')->group(function () {
     Route::get('/logout', [VoluntarioController::class, 'logout'])->name('voluntario.logout');
     Route::get('/voluntarioAssuntos/{id}', [VoluntarioController::class, 'showAssuntos'])->name('voluntarioAssuntos'); 
 });
+
+Route::get('voluntario/register', [VoluntarioController::class, 'showRegister'])->name('registerVoluntarioForm'); 
+Route::post('voluntario/register', [VoluntarioController::class, 'registerVoluntario'])->name('registerVoluntario'); 
+
+
 
 /*-------------------------------------Supervisores---------------------------------------*/ 
 Route::prefix('supervisor')->middleware('auth:supervisor')->group(function () {

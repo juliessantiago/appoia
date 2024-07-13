@@ -1,4 +1,6 @@
 <x-guest-layout>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -19,7 +21,7 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Senha')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -59,12 +61,18 @@
 
         <div class="flex items-center justify-end mt-4">
            
-            <x-secondary-button name="signUp"> 
-                {{ __('Não tenho uma conta') }}
-            </x-secondary-button>
+                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('preSinUp') }}">
+                    {{ __('Criar nova conta') }}
+                </a>
+
             <x-primary-button class="ms-3" name="signIn">
                 {{ __('Entrar') }}
             </x-primary-button>
         </div>
     </form>
+    <script>
+        document.addEventListener('notificaNovaConta', () => {
+            console.log('chamou evento');
+        });
+   </script>
 </x-guest-layout>
