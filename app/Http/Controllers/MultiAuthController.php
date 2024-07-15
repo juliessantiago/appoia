@@ -12,7 +12,9 @@ class MultiAuthController extends Controller
     public function showLogin(){
         return view('multiauth/login'); 
     }
-
+    public function showPreSignUp(){
+        return view('multiauth/preSignUp');
+    }
     public function multiAuth(Request $request){ //precisa de refatoração
         $dados = $request->all();
         // dd($dados); 
