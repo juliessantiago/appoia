@@ -25,14 +25,11 @@ Route::post('/multiAuth', [MultiAuthController::class, 'multiAuth'])->name('mult
 
 /*--------------------Aluno - todas as rotas acessíveis por aluno -----------*/ 
 Route::prefix('aluno')->middleware('auth:aluno')->group(function () {
-    
-   
     Route::get('/dashboard', [AlunoController::class, 'dashboard'])->name('dashboardAluno');
     Route::get('/assuntos',[AssuntoController::class, 'index'])->name('allAssuntos'); 
     Route::get('/assuntoVoluntarios/{id}', [AssuntoController::class, 'showVoluntarios'])->name('assuntoVoluntarios');
     Route::get('/voluntarioHorarios/{id}', [ExpedienteController::class, 'showHorarios'])->name('voluntarioHorarios'); 
     Route::get('/voluntarios', [VoluntarioController::class, 'index'])->name('allVoluntarios'); 
-
     Route::get('/logout', [AlunoController::class, 'logout'])->name('aluno.logout');
 });
 Route::get('aluno/register', [AlunoController::class, 'showRegister'])->name('registerAlunoForm'); 
@@ -77,7 +74,8 @@ Route::prefix('supervisor')->middleware('auth:supervisor')->group(function () {
     Route::get('/dashboard', [SupervisorController::class, 'dashboard'])->name('dashboardSupervisor'); 
     Route::get('/logout', [SupervisorController::class, 'logout'])->name('supervisor.logout');
 });
-
+Route::get('supervisor/register', [SupervisorController::class, 'showRegister'])->name('registerSupervisorForm'); 
+Route::post('supervisor/register', [SupervisorController::class, 'registerSupervisor'])->name('registerSupervisor'); 
 
 /*----------------------------------------Assuntos--------------------------------------------*/ 
 Route::get('/assunto/{id}', [AssuntoController::class, 'show'])->name('showAssunto'); 

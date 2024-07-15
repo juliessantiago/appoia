@@ -1,13 +1,23 @@
 <x-guest-layout>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{route('multiAuth')}}">
         <div class="flex justify-center">
             <img class="" src="{{ asset('images/stickers/login_aluno.png')}}"/> 
+            @if(session('evento'))
+        <script>
+            console.log('BATATA');
+            document.addEventListener('DOMContentLoaded', function () {
             
+
+                // Disparar o evento JavaScript
+                const event = new Event('{{ session('evento') }}');
+                window.dispatchEvent(event);
+            });
+        </script>
+    @endif
+
         </div> 
         <h3 class="text-center text-3xl font-bold  text-pink-300">Entrar</h3>
         @csrf
@@ -61,7 +71,7 @@
 
         <div class="flex items-center justify-end mt-4">
            
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('preSinUp') }}">
+                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('preSignUp') }}">
                     {{ __('Criar nova conta') }}
                 </a>
 
@@ -71,8 +81,11 @@
         </div>
     </form>
     <script>
-        document.addEventListener('notificaNovaConta', () => {
-            console.log('chamou evento');
+        window.addEventListener('notificaNovaConta', function () {
+            // Lógica do evento
+            toastr.error('oi oi oi ');
+            
         });
-   </script>
+    </script>
+    </script>
 </x-guest-layout>

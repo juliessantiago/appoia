@@ -43,7 +43,8 @@ class VoluntarioController extends Controller
 
         event(new Registered($voluntario));
 
-        $this->dispatchBrowserEvent('notificaNovaConta');
+        // $this->dispatchBrowserEvent('notificaNovaConta');
+        session()->flash('evento', 'notificaNovaConta');
         return redirect()->route('multilogin');  
         //Enviar mensagem de sucesso de conta criada!! 
     }
