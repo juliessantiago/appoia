@@ -37,6 +37,11 @@
         <p class="text-purple-400 text-xl font-bold text-center">Minhas Consultas</p>
         @livewire('get-consultas')
     </div>
+    <div class="bg-pink-400"> 
+        {{-- <form method="POST" action="{{route('preMeetingVoluntario')}}">
+            <input hidden type="text" value=""/> 
+        </form> --}}
+    </div>
 
           
 

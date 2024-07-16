@@ -19,16 +19,17 @@ class GetConsultasPendentes extends Component
     {
         return view('livewire.get-consultas-pendentes');
     }
-    #[On('enviaStringLink')] //escuta do evento 'enviaDadosEdicao' disparado no dashboard 
+    #[On('enviaStringLink')] //escuta do evento 'enviaStringLink' disparado no dashboard 
     //método imediatamente abaixo é responsável por lidar com o evento 
     public function setLinkConsulta($string, $id){
-        // dd($id);
+        $linkReuniao = 'vpaas-magic-cookie-ce4ec617270641c8a072e2e3265ca160/'.$string;
         $updated = Consulta::where('id_voluntario', Auth::user()->id)->where( 'id', $id)->update([
-           'link' => $string
+           'link' => $linkReuniao
         ]); 
         if($updated){
             $this->success('Link criado e salvo com sucesso!'); //toaster 
-            
+        }else{
+            $this->error('Desculpe, ocorreu um erro.');
         }
     }
 

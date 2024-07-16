@@ -64,7 +64,10 @@ class VoluntarioController extends Controller
         // dd(Auth::user()); 
         return view('voluntario/dashboard'); 
     }
-
+    public function showPreMeeting(){
+        return view ('voluntario/preMeeting'); 
+    }
+    
     public function logout(){
         Auth::guard('voluntario')->logout(); 
         return redirect()->route('multilogin'); 

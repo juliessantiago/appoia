@@ -22,6 +22,10 @@ class AlunoController extends Controller
     public function dashboard(){
         return view('aluno/dashboard'); 
     }
+
+    public function showPreMeeting(){
+        return view('aluno/pre-meeting'); 
+    }
     
     public function logout(){
         Auth::guard('aluno')->logout(); 

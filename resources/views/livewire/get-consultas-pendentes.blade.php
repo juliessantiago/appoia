@@ -30,7 +30,7 @@
                     {{-- {{count($expedientes)}} --}}
                     @foreach ($consultasPend as $consulta)
                     {{-- {{$expediente->id}} --}}
-                        <div>
+                        <div wire:key={{ $consulta->id}}>
                             <tr  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"  >
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{$consulta->id}}
@@ -50,12 +50,15 @@
                                         Gerar link
                                     </button>
                                 </td>
-                              
+                                <!--para teste por enquanto-->
+                              <td>
+                                <a href="{{route('preMeetingVoluntario', [$consulta->link])}}">Acessar Reunião</a>
+                                </td>
                                
                                     <td>
-                                        <button class="text-md hover:text-pink-500">
+                                        {{-- <button class="text-md hover:text-pink-500">
                                             Excluir
-                                        </button>
+                                        </button> --}}
                                     </td>
                                         
                             </tr>

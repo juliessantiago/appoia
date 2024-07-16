@@ -7,11 +7,7 @@
             <img class="" src="{{ asset('images/stickers/login_aluno.png')}}"/> 
             @if(session('evento'))
         <script>
-            console.log('BATATA');
             document.addEventListener('DOMContentLoaded', function () {
-            
-
-                // Disparar o evento JavaScript
                 const event = new Event('{{ session('evento') }}');
                 window.dispatchEvent(event);
             });
