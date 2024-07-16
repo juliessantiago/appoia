@@ -160,7 +160,9 @@
                                 showDenyButton: false,
                                 showCancelButton: true,
                                 confirmButtonText: "Marcar",
-                                cancelButtonText: "Cancelar"
+                                confirmButtonColor: '#f472b6',
+                                cancelButtonText: "Cancelar", 
+                                cancelButtonColor: '#9ca3af'
                                 }).then((result) => {
                                 if (result.isConfirmed) {
                                     $.ajax({
@@ -171,6 +173,7 @@
                                                 start: start,
                                                 end: end,
                                                 status: 'pendente',
+                                                link: '', 
                                                 idVoluntario: idVoluntario,
                                                 idAluno: idAluno, 
                                                 type: 'add', 

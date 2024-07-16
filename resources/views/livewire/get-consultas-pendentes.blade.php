@@ -1,6 +1,6 @@
 <div class="p-4">
     
-    @if($consultas->count() > 0)
+    @if($consultasPend->count() > 0)
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 
@@ -18,15 +18,17 @@
                         <th scope="col" class="px-6 py-3"> 
                             Status
                         </th>
-                        <th>
+                        <th scope="col" class="px-6 py-3"> 
+                       
                         </th>
                         <th>
                         </th>
+                      
                     </tr>
                 </thead>
                 <tbody>
                     {{-- {{count($expedientes)}} --}}
-                    @foreach ($consultas as $consulta)
+                    @foreach ($consultasPend as $consulta)
                     {{-- {{$expediente->id}} --}}
                         <div>
                             <tr  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"  >
@@ -39,15 +41,17 @@
                                 <td class="px-6 py-4">
                                     {{$consulta->end}}
                                 </td>
-                                <td  class="px-6 py-4">
+                                <td  class="px-6 py-4 text-lime-500">
                                     {{$consulta->status}}
                                 </td>
+                                <td>
+                                    <!--evento disparado aqui será escutado no dashboard-->
+                                    <button wire:click="$dispatch('gerarLink', { data: {{ $consulta }} })" class="text-md hover:text-pink-500">
+                                        Gerar link
+                                    </button>
+                                </td>
+                              
                                
-                                    <td>
-                                        <button class="text-md hover:text-pink-500">
-                                            Editar
-                                        </button>
-                                    </td>
                                     <td>
                                         <button class="text-md hover:text-pink-500">
                                             Excluir

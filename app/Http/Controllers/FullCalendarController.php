@@ -90,6 +90,7 @@ class FullCalendarController extends Controller
               $event = Consulta::create([
                 'id_aluno'=> Auth::user()->id, 
                 'status' => $request->status,
+                'link' => $request->link,
                 'start' => $request->start,
                 'end' => $request->end,
                 'id_voluntario' => $request->idVoluntario

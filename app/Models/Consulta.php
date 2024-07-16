@@ -12,6 +12,7 @@ class Consulta extends Model
         'status', 
         'start', 
         'end', 
+        'link',
         'id_voluntario', 
         'id_aluno',
     ];
