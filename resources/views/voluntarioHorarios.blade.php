@@ -188,7 +188,8 @@
                                                         id: data.id,
                                                         start: start,
                                                         end: end,
-                                                        allDay: allDay
+                                                        allDay: allDay,
+                                                        // title: data.status
                                                     },true);
                                                 calendar.fullCalendar('unselect');
                                             }

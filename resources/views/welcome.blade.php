@@ -94,8 +94,10 @@
   <div href="#" class="flex flex-col flex-1 items-center md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
       <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/relacionamentos.png')}}" alt="sentimentos confusos">
       <div class="flex flex-col justify-between p-4 leading-normal">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-purple-300 dark:text-white">Ter relacionamentos saudáveis</h5>
-      </div>
+          <h5 class="text-2xl font-bold tracking-tight text-purple-300 dark:text-white">Melhorar</h5>
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-purple-300 dark:text-white">relacionamentos </h5>
+
+        </div>
   </div>
 
   <div href="#" class="flex flex-col flex-1 items-center  md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
@@ -108,7 +110,9 @@
   <div href="#" class="flex flex-col flex-1 items-center md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 py-4 px-2 m-6">
     <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="{{ asset('images/stickers/autoconhecimento.png')}}" alt="habitos">
     <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-purple-300 dark:text-white">Autoconhecimento</h5>
+        <h5 class=" text-2xl font-bold tracking-tight text-purple-300 dark:text-white">Melhorar</h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-purple-300 dark:text-white">foco</h5>
+
     </div>
   </div>
 
@@ -170,7 +174,7 @@
           </a>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Dicas para entender e superar os momentos difíceis.</p>
           <div class="flex mt-4 md:mt-6">
-            <a href="{{route('blog')}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
+            <a href="{{route('blog')}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" target="_blank">Leia mais</a>
           </div>
       </div>
     </div><!--card--> 
@@ -189,7 +193,7 @@
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Como lidar com o impacto emocional de desastres naturais e reconstruir sua vida.</p>
             <div class="flex mt-4 md:mt-6">
-              <a href="{{route('blog')}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
+              <a href="{{route('blog')}}" target="_blank" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
             </div>
         </div>
       </div>
@@ -205,7 +209,7 @@
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Dicas e técnicas para aproveitar o máximo do seu potencial</p>
             <div class="flex mt-4 md:mt-6">
-              <a href="{{route('blog')}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
+              <a href="{{route('blog')}}" target="_blank" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
             </div>
         </div>
       </div>
@@ -220,7 +224,7 @@
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Descubra estratégias para manter a calma e enfrentar os desafios do dia a dia.</p>
             <div class="flex mt-4 md:mt-6">
-              <a href="{{route('blog')}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
+              <a href="{{route('blog')}}" target="_blank" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
             </div>
         </div>
       </div>
@@ -239,17 +243,13 @@
       <li>
           <a href="#" class="hover:text-slate-50 me-4 md:me-6">Como funciona</a>
       </li>
-      <li>
-          <a href="{{route('allAssuntos')}}" class="hover:text-slate-50 me-4 md:me-6">Agende uma conversa</a>
-      </li>
    
-
       <li>
-        <a href="{{route('multilogin')}}" class=" font-bold hover:text-slate-50 me-4 md:me-6">Sou voluntário</a>
+        <a href="{{route('registerVoluntarioForm')}}" class=" font-bold hover:text-slate-50 me-4 md:me-6">Cadastro voluntário</a>
       </li>
 
       <li>
-        <a href="{{route('multilogin')}}" class=" font-bold hover:text-slate-50 me-4 md:me-6">Sou supervisor</a>
+        <a href="{{route('registerSupervisorForm')}}" class=" font-bold hover:text-slate-50 me-4 md:me-6">Cadastro supervisor</a>
       </li>
 
       <li>
