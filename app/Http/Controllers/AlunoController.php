@@ -41,8 +41,9 @@ class AlunoController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.Aluno::class],
+            'data_nascimento' => ['required'.Aluno::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        ]); 
         $aluno = Aluno::create([
             'name' => $request->name,
             'email' => $request->email,

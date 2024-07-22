@@ -30,6 +30,7 @@
             var expedientes = []
             let idVoluntario = window.location.pathname.slice(-1)
             let idAluno = {{Auth::user()->id}}
+            let string = ''
             function getExpedientes(){
                 $.ajax({
                     url: "/expedientes/"+idVoluntario,
@@ -59,10 +60,6 @@
         
         /*------FullCalendar JS Code------*/
         var calendar = $('#calendar').fullCalendar({
-                        header: {
-                            
-                        
-                        },
                         timezone: 'America/Sao_Paulo', 
                         eventColor: ' #D8B4FE',
                         events: SITEURL + "/fullcalendar/" + idVoluntario,
@@ -165,6 +162,8 @@
                                 cancelButtonColor: '#9ca3af'
                                 }).then((result) => {
                                 if (result.isConfirmed) {
+                                //criação de string aleatória
+                                string = Math.random()+Date.now()
                                     $.ajax({
                                             url: SITEURL + "/fullcalendarAjax",
                                             data: {
@@ -173,7 +172,7 @@
                                                 start: start,
                                                 end: end,
                                                 status: 'pendente',
-                                                link: '', 
+                                                link: string, 
                                                 idVoluntario: idVoluntario,
                                                 idAluno: idAluno, 
                                                 type: 'add', 
@@ -181,6 +180,7 @@
                                             type: "POST",
                                             success: function (data) {
                                                 //data: dados do evento
+                                               
                                                 Swal.fire("Consulta marcada!");
                                                 calendar.fullCalendar('renderEvent',
                                                     {

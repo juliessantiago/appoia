@@ -7,16 +7,20 @@
         <h3 class="text-center text-2xl font-bold mb-4 text-pink-300">Crie sua conta como paciente</h3>
         @csrf
 
+        <div class="justify-center mb-4">
+            <p class="text-gray-400 text-sm">* campo obrigatório</p>
+            {{-- <p class="text-gray-400 text-sm">Se você é menor de idade, precisa informar o nome de seu responsável</p> --}}
+        </div>
         <!-- Nome -->
         <div>
-            <x-input-label for="name" :value="__('Nome')" />
+            <x-input-label for="name" :value="__('Nome *')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!--Data de nascimento--> 
         <div>
-            <x-input-label for="data_nascimento" :value="__('Data de nascimento')" />
+            <x-input-label for="data_nascimento" :value="__('Data de nascimento *')" />
             <x-text-input id="data_nascimento" class="block mt-1 w-full text-purple-400" type="date" name="data_nascimento" :value="old('data_nascimento')" required autofocus autocomplete="Data de nascimento" />
             <x-input-error :messages="$errors->get('data_nascimento')" class="mt-2" />
         </div>
@@ -40,7 +44,7 @@
 
         <!--Escola-->
         <div>
-            <x-input-label for="id_escola" :value="__('Escola')" />
+            <x-input-label for="id_escola" :value="__('Escola ')" />
             <livewire:escola-select />
         </div>
 
@@ -50,14 +54,14 @@
 
         <!-- Emaill -->
         <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('Email *')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Senha -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Senha')" />
+            <x-input-label for="password" :value="__('Senha *')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"

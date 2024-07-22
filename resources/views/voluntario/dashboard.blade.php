@@ -30,8 +30,15 @@
         </div>
     </div>
     <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">Consultas Pendentes</p>
-        @livewire('get-consultas-pendentes')
+        <p class="text-purple-400 text-xl font-bold text-center">Consultas Autorizadas</p>
+        <ol class="text-gray-400 p-4">
+            <li>1. Clique em Criar reunião</li>
+            <li>2. Uma nova aba será aberta. Habilite câmera e microfone. Verifique seu nome e clique em Entrar na reunião</li>
+            <li>3. Após a reunião estar aberta, clique em Participantes > Convidar alguém</li>
+            <li>4. Clique no botão para copiar o link </li>
+            <li>5. No seu dashboard, clique em enviar link</li>
+        </ol>
+        @livewire('get-consultas-autorizadas')
     </div>
     <div class="m-10">
         <p class="text-purple-400 text-xl font-bold text-center">Minhas Consultas</p>
@@ -100,27 +107,6 @@
                 }
             });
         })
-        Livewire.on('gerarLink', () => {
-            let idConsulta = event.detail.data.id
-            let string = ''
-            Swal.fire({
-                title: 'Gerar link para a consulta',
-                
-                confirmButtonText: 'Editar',
-                focusConfirm: false,
-                preConfirm: () => {
-                    string = Math.random()+Date.now()
-                }
-            }).then((result) => {
-                // console.log(idConsulta)
-                if (result.isConfirmed) {
-                    Livewire.dispatch('enviaStringLink',  {string: string, id:idConsulta }) //envia dados para método no componente que escuta esse evento por nome
-                }
-            }).catch($error=>{
-                console.log($error)
-            })
-        })
-
 
     });//init
 

@@ -72,3 +72,6 @@ text-2xl p-6 font-bold
 
 Títulos dos cards 
 text-xl p-6 font-bold
+
+/*------------------------------Botões----------------------------*/ 
+'#38bdf8', //cor padrão botão confirmar sweet alert
