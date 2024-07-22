@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use App\Models\Consulta;
 use App\Models\Expediente;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class FullCalendarController extends Controller
 {
@@ -86,16 +87,22 @@ class FullCalendarController extends Controller
         // }
         switch ($request->type) { 
            case 'add':
+            
             //FIXME:
+            $data = Carbon::createFromFormat('Y-m-d', $request->dia)->format('Y-m-d');
+            // dd($data);
+            // $inicio = Carbon::createFromFormat('H:i', $request->inicio); 
+            // $inicioFormat = $inicio->format('H:i'); 
+            // $final  = $inicio->addHour()->format('H:i');
               $event = Consulta::create([
                 'id_aluno'=> Auth::user()->id, 
                 'status' => $request->status,
                 'link' => $request->link,
-                'start' => $request->start,
+                'dia' => $data,
+                'start' => $request->start, 
                 'end' => $request->end,
                 'id_voluntario' => $request->idVoluntario
               ]);
-            //   dd($request); 
 
               return response()->json($event);
              break;

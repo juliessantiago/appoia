@@ -30,7 +30,6 @@
             var expedientes = []
             let idVoluntario = window.location.pathname.slice(-1)
             let idAluno = {{Auth::user()->id}}
-            let string = ''
             function getExpedientes(){
                 $.ajax({
                     url: "/expedientes/"+idVoluntario,
@@ -162,15 +161,20 @@
                                 cancelButtonColor: '#9ca3af'
                                 }).then((result) => {
                                 if (result.isConfirmed) {
+                                let dia = start.substring(0, 10)
+                                // let inicio = start.substring(11, 16)
+                                // let final = end.substring(11, 16)
+                                let  string = Math.random()+Date.now()
+                                console.log(start)
                                 //criação de string aleatória
-                                string = Math.random()+Date.now()
+                              
                                     $.ajax({
                                             url: SITEURL + "/fullcalendarAjax",
                                             data: {
                                                 expedientes: expedientes,
-                                                diaSemana: diaSemana,
+                                                dia: dia, 
                                                 start: start,
-                                                end: end,
+                                                end: end, 
                                                 status: 'pendente',
                                                 link: string, 
                                                 idVoluntario: idVoluntario,
@@ -181,7 +185,10 @@
                                             success: function (data) {
                                                 //data: dados do evento
                                                
-                                                Swal.fire("Consulta marcada!");
+                                                Swal.fire({
+                                                    title: "Consulta marcada!", 
+                                                    confirmButtonColor: '#f472b6'
+                                                });
                                                 calendar.fullCalendar('renderEvent',
                                                     {
                                                         id_aluno: idAluno, 
@@ -189,7 +196,7 @@
                                                         start: start,
                                                         end: end,
                                                         allDay: allDay,
-                                                        // title: data.status
+                                                        title: data.status
                                                     },true);
                                                 calendar.fullCalendar('unselect');
                                             }
