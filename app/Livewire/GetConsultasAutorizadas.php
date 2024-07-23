@@ -34,8 +34,20 @@ class GetConsultasAutorizadas extends Component
             $this->success('Link salvo com sucesso'); //toaster 
             $this->mount(); 
         }
-
+       
     }
+    #[On('alteraStatusAusente')] 
+    public function salvaStatusAusente($id){
+        $updated = Consulta::where('id_voluntario', Auth::user()->id)->where( 'id', $id)->update([
+            'status' => 'ausente'
+        ]); 
+        if($updated){
+            $this->success('Status alterado para Ausente'); //toaster 
+            $this->mount(); 
+        }
+    }
+    
+
     //#[On('enviaStringLink')] //escuta do evento 'enviaStringLink' disparado no dashboard 
     //método imediatamente abaixo é responsável por lidar com o evento 
     // public function setLinkConsulta($string, $id){
