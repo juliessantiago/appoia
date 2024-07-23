@@ -10,11 +10,9 @@
                             Id
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Início da consulta
+                          Horário
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Final da consulta
-                        </th>
+                   
                         <th scope="col" class="px-6 py-3"> 
                             Status
                         </th>
@@ -34,11 +32,9 @@
                                     {{$consulta->id}}
                                 </th>
                                 <td class="px-6 py-4 capitalize">
-                                    {{$consulta->start}}
+                                    {{\Carbon\Carbon::create($consulta->start)->format('H:i:s')}}
                                 </td>
-                                <td class="px-6 py-4">
-                                    {{$consulta->end}}
-                                </td>
+                               
                                 <td  class="px-6 py-4">
                                     {{$consulta->status}}
                                 </td>

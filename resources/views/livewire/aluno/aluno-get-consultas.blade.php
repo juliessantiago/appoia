@@ -11,11 +11,12 @@
                                 Id
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Início da consulta
+                                Dia 
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Final da consulta
+                                Horário
                             </th>
+                           
                             <th>
                             </th>
                             <th>
@@ -32,17 +33,13 @@
                                         {{$consulta->id}}
                                     </th>
                                     <td class="px-6 py-4 capitalize">
-                                        {{$consulta->start}}
+                                        {{\Carbon\Carbon::create($consulta->dia)->format('d/m/y')}}
+                                        {{\Carbon\Carbon::create($consulta->dia)->dayName}}
                                     </td>
-                                    <td class="px-6 py-4">
-                                        {{$consulta->end}}
+                                    <td class="px-6 py-4 capitalize">
+                                        {{\Carbon\Carbon::create($consulta->start)->format('H:i:s')}}
                                     </td>
-                                   
-                                        <td>
-                                            <button class="text-md hover:text-pink-500">
-                                                Editar
-                                            </button>
-                                        </td>
+                                  
                                         <td>
                                             <button class="text-md hover:text-pink-500">
                                                 Excluir

@@ -2,7 +2,7 @@
 <script>
     let link = ''
 </script>    
-    @if($consultasAut->count() > 0)
+    @if($consultasHoje->count() > 0)
 
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -35,7 +35,7 @@
                 </thead>
                 <tbody>
                     {{-- {{count($expedientes)}} --}}
-                    @foreach ($consultasAut as $consulta)
+                    @foreach ($consultasHoje as $consulta)
                     {{-- {{$expediente->id}} --}}
                   
                         <div wire:key={{ $consulta->id}}>
@@ -50,7 +50,6 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     {{\Carbon\Carbon::create($consulta->start)->format('H:i:s')}}
-                                 
                                 </td>
                           
                                 <td  class="px-6 py-4">

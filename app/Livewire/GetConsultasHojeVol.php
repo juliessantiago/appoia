@@ -8,19 +8,19 @@ use Livewire\Attributes\On;
 use Masmerise\Toaster\Toastable;
 use Carbon\Carbon; 
 
-class GetConsultasAutorizadas extends Component
+class GetConsultasHojeVol extends Component
 {
     use Toastable; 
 
-    public $consultasAut;
+    public $consultasHoje;
     public function mount(){
         $today = Carbon::now()->format('Y-m-d'); 
-        $this->consultasAut = Consulta::where('id_voluntario', Auth::user()->id)
+        $this->consultasHoje = Consulta::where('id_voluntario', Auth::user()->id)
         ->where('dia', $today)->get(); 
     }
     public function render()
     {
-        return view('livewire.get-consultas-autorizadas');
+        return view('livewire.get-consultas-hoje-vol');
     }
 
     #[On('salvaLinkReuniaoAberta')] //escuta do evento 'enviaStringLink' disparado no dashboard 
