@@ -109,19 +109,26 @@
             let link = ''
             link = event.link
             idConsulta = event.id
-            // console.log(link)
-            // if(link == null || link == '' || link == "" ){
-            //     console.log('tá vazia')
-            //     toastr.error('Voce precisa colar o link da reunião antes')
-            // }
-            Livewire.dispatch('salvaLinkReuniaoAberta',  {link: link, id: idConsulta }) //envia dados para método no componente que escuta esse evento por nome
+            console.log(link)
+            if(link == null || link == '' || link == "" ){
+                console.log('tá vazia')
+                toastr.error('Você precisa colar o link da reunião antes')
+            }else{
+                Livewire.dispatch('salvaLinkReuniaoAberta',  {link: link, id: idConsulta }) //envia dados para método no componente que escuta esse evento por nome
+            }
         })
         Livewire.on('marcaAusente', (event ) => {
-            let hoje = moment()
-            // diaConsulta = event.detail.dia
-            // console.log(event.detail.id)
-            console.log(event.id)
-            console.log(hoje)
+            let finalConsulta = moment(event.consulta.end)
+            //para marcar que aluno não compareceu à reunião 
+            //é necessário que o horário da consulta já tenha passado 
+            //lembrando que as consultas exibidas nessa chamada de evento são do dia corrente
+            // console.log(moment().hours())
+            // console.log(finalConsulta.hours())
+            if((moment().hours()) < finalConsulta.hours()){
+                toastr.error('Voce só pode marcar como ausente após o horário de término da consulta')
+            }else{
+                Livewire.dispatch('alteraStatusAusente',  {id: event.consulta.id })
+            }
         })
 
     });//init
