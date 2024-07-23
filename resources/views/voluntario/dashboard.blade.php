@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">Próximas consultas</p>
+        <p class="text-purple-400 text-xl font-bold text-center">Consultas de Hoje</p>
         <ol class="text-gray-400 p-4 m-3 bg-slate-50 shadow-md sm:rounded-lg">
             <li>1. Clique em Criar reunião</li>
             <li>2. Uma nova aba será aberta. Habilite câmera e microfone. Verifique seu nome e clique em Entrar na reunião</li>
@@ -36,7 +36,7 @@
             <li>4. Clique no botão para copiar o link </li>
             <li>5. No seu dashboard, clique em enviar link</li>
         </ol>
-        @livewire('get-consultas-autorizadas')
+        @livewire('get-consultas-hoje-vol')
     </div>
     <div class="m-10">
         <p class="text-purple-400 text-xl font-bold text-center">Minhas Consultas</p>
