@@ -19,6 +19,7 @@
         "moment-timezone": "^0.5.45",
         "scrollreveal": "^4.0.9",
         "sweetalert2": "^11.10.8",
-        "swiper": "^11.0.4"
+        "swiper": "^11.0.4",
+        "toastr": "^2.1.4"
     }
 }

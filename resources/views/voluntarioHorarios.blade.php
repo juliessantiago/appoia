@@ -165,7 +165,7 @@
                                 // let inicio = start.substring(11, 16)
                                 // let final = end.substring(11, 16)
                                 let  string = Math.random()+Date.now()
-                                console.log(start)
+                                // console.log(start)
                                 //criação de string aleatória
                               
                                     $.ajax({

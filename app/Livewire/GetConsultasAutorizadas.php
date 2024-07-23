@@ -19,6 +19,17 @@ class GetConsultasAutorizadas extends Component
     {
         return view('livewire.get-consultas-autorizadas');
     }
+
+    #[On('salvaLinkReuniaoAberta')] //escuta do evento 'enviaStringLink' disparado no dashboard 
+    public function salvaLink($link, $id){
+        // dd($id); 
+        $updated = Consulta::where('id_voluntario', Auth::user()->id)->where( 'id', $id)->update([
+            'link' => $link,
+        ]); 
+        if($updated){
+            $this->success('Link salvo com sucesso'); //toaster 
+        }
+    }
     //#[On('enviaStringLink')] //escuta do evento 'enviaStringLink' disparado no dashboard 
     //método imediatamente abaixo é responsável por lidar com o evento 
     // public function setLinkConsulta($string, $id){

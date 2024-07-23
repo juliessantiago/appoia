@@ -1,6 +1,4 @@
 <x-app-layout>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
-    {{-- <script src="sweetalert2.all.min.js"></script> --}}
     <div class="flex justify-center">      
         
         @if(session('success'))
@@ -31,7 +29,7 @@
     </div>
     <div class="m-10">
         <p class="text-purple-400 text-xl font-bold text-center">Consultas Autorizadas</p>
-        <ol class="text-gray-400 p-4">
+        <ol class="text-gray-400 p-4 bg-slate-50 shadow-md sm:rounded-lg">
             <li>1. Clique em Criar reunião</li>
             <li>2. Uma nova aba será aberta. Habilite câmera e microfone. Verifique seu nome e clique em Entrar na reunião</li>
             <li>3. Após a reunião estar aberta, clique em Participantes > Convidar alguém</li>
@@ -106,6 +104,17 @@
                     Livewire.dispatch('enviaDadosExclusao',  {id: id }) //envia dados para método no componente que escuta esse evento por nome
                 }
             });
+        })
+        Livewire.on('enviaLink', ()=> {
+            let link = ''
+            link = event.detail.link
+            idConsulta = event.detail.id
+            // console.log(link)
+            // if(link == null || link == '' || link == "" ){
+            //     console.log('tá vazia')
+            //     toastr.error('Voce precisa colar o link da reunião antes')
+            // }
+            Livewire.dispatch('salvaLinkReuniaoAberta',  {link: link, id: idConsulta }) //envia dados para método no componente que escuta esse evento por nome
         })
 
     });//init
