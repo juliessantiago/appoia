@@ -9,9 +9,11 @@ class Consulta extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'status', 
+        'status',
+        'dia', 
         'start', 
         'end', 
+        'link',
         'id_voluntario', 
         'id_aluno',
     ];

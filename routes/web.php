@@ -30,6 +30,7 @@ Route::prefix('aluno')->middleware('auth:aluno')->group(function () {
     Route::get('/assuntoVoluntarios/{id}', [AssuntoController::class, 'showVoluntarios'])->name('assuntoVoluntarios');
     Route::get('/voluntarioHorarios/{id}', [ExpedienteController::class, 'showHorarios'])->name('voluntarioHorarios'); 
     Route::get('/voluntarios', [VoluntarioController::class, 'index'])->name('allVoluntarios'); 
+    Route::get('/preMeeting', [AlunoController::class, 'showPreMeeting'])->name('preMeeting'); 
     Route::get('/logout', [AlunoController::class, 'logout'])->name('aluno.logout');
 });
 Route::get('aluno/register', [AlunoController::class, 'showRegister'])->name('registerAlunoForm'); 
@@ -62,6 +63,8 @@ Route::prefix('voluntario')->middleware('auth:voluntario')->group(function () {
     Route::get('/dashboard', [VoluntarioController::class, 'dashboard'])->name('dashboardVoluntario');
     Route::get('/logout', [VoluntarioController::class, 'logout'])->name('voluntario.logout');
     Route::get('/voluntarioAssuntos/{id}', [VoluntarioController::class, 'showAssuntos'])->name('voluntarioAssuntos'); 
+    Route::get('/preMeetingVoluntario/{id}', [VoluntarioController::class, 'showPreMeeting'])->name('preMeetingVoluntario'); 
+
 });
 
 Route::get('voluntario/register', [VoluntarioController::class, 'showRegister'])->name('registerVoluntarioForm'); 

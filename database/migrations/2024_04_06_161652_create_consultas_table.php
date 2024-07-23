@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('status');
+            $table->date('dia');
             $table->dateTime('start');
             $table->dateTime('end');
+            $table->text('link')->nullable();
             $table->unsignedBigInteger('id_voluntario');
             $table->unsignedBigInteger('id_aluno');
             $table->foreign('id_voluntario')->references('id')->on('voluntarios')->onDelete('cascade');

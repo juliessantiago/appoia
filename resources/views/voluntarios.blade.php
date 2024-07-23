@@ -10,7 +10,7 @@
             <div class="flex flex-col justify-center items-center p-10 duration-300 transform hover:scale-110">
                 <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ asset('images/voluntario.png')}}" alt="foto voluntário"/>
                 <h5 class=" text-center text-xl font-medium text-gray-500 dark:text-white">{{$voluntario->name}}</h5>
-                <span class="text-sm text-gray-600 dark:text-gray-400">Entrada: {{$voluntario->created_at->format('d-m-y')}}</span>
+                {{-- <span class="text-sm text-gray-600 dark:text-gray-400">Entrada: {{$voluntario->created_at->format('d-m-y')}}</span> --}}
                 {{-- <span class="text-sm text-gray-500 dark:text-gray-400">Universidade: instituição</span> --}}
             </div>
           </a>

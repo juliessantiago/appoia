@@ -15,6 +15,9 @@
                         <th scope="col" class="px-6 py-3">
                             Final da consulta
                         </th>
+                        <th scope="col" class="px-6 py-3"> 
+                            Status
+                        </th>
                         <th>
                         </th>
                         <th>
@@ -35,6 +38,9 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     {{$consulta->end}}
+                                </td>
+                                <td  class="px-6 py-4">
+                                    {{$consulta->status}}
                                 </td>
                                
                                     <td>

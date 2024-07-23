@@ -7,11 +7,7 @@
             <img class="" src="{{ asset('images/stickers/login_aluno.png')}}"/> 
             @if(session('evento'))
         <script>
-            console.log('BATATA');
             document.addEventListener('DOMContentLoaded', function () {
-            
-
-                // Disparar o evento JavaScript
                 const event = new Event('{{ session('evento') }}');
                 window.dispatchEvent(event);
             });
@@ -45,17 +41,17 @@
         <div class="flex justify-between">
           <div class="m-1">
             <input checked type="radio" id="aluno" name="tipo_usuario" value="aluno" class=" text-purple-400 border-gray-300 checked:bg-purple-500">
-            <label for="aluno" class=" text-purple-400" che>Sou paciente</label><br>
+            <label for="aluno" class=" text-gray-500" che>Sou paciente</label><br>
           </div>
 
           <div class="m-1"> 
             <input type="radio" id="voluntario" name="tipo_usuario" value="voluntario" class=" text-purple-400 border-gray-300 checked:bg-purple-500">
-            <label for="voluntario" class="text-purple-400">Sou voluntário</label><br>
+            <label for="voluntario" class="text-gray-500">Sou voluntário</label><br>
           </div>
            
           <div class="m-1"> 
             <input type="radio" id="supervisor" name="tipo_usuario" value="supervisor" class=" text-purple-400 border-gray-300 checked:bg-purple-500 focus:outline-none">
-            <label for="supervisor" class="text-purple-400">Sou supervisor</label> 
+            <label for="supervisor" class="text-gray-500">Sou supervisor</label> 
           </div>
           
           
