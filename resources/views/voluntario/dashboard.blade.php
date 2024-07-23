@@ -28,8 +28,8 @@
         </div>
     </div>
     <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">Consultas Autorizadas</p>
-        <ol class="text-gray-400 p-4 bg-slate-50 shadow-md sm:rounded-lg">
+        <p class="text-purple-400 text-xl font-bold text-center">Próximas consultas</p>
+        <ol class="text-gray-400 p-4 m-3 bg-slate-50 shadow-md sm:rounded-lg">
             <li>1. Clique em Criar reunião</li>
             <li>2. Uma nova aba será aberta. Habilite câmera e microfone. Verifique seu nome e clique em Entrar na reunião</li>
             <li>3. Após a reunião estar aberta, clique em Participantes > Convidar alguém</li>

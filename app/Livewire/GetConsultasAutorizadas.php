@@ -6,6 +6,7 @@ use App\Models\Consulta;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On; 
 use Masmerise\Toaster\Toastable;
+use Carbon\Carbon; 
 
 class GetConsultasAutorizadas extends Component
 {
@@ -13,7 +14,9 @@ class GetConsultasAutorizadas extends Component
 
     public $consultasAut;
     public function mount(){
-        $this->consultasAut = Consulta::where('id_voluntario', Auth::user()->id)->where('status', 'autorizada')->get(); 
+        $today = Carbon::now()->format('Y-m-d'); 
+        $this->consultasAut = Consulta::where('id_voluntario', Auth::user()->id)
+        ->where('dia', $today)->get(); 
     }
     public function render()
     {
@@ -25,10 +28,13 @@ class GetConsultasAutorizadas extends Component
         // dd($id); 
         $updated = Consulta::where('id_voluntario', Auth::user()->id)->where( 'id', $id)->update([
             'link' => $link,
+            'status' => 'disponivel'
         ]); 
         if($updated){
             $this->success('Link salvo com sucesso'); //toaster 
+            $this->mount(); 
         }
+
     }
     //#[On('enviaStringLink')] //escuta do evento 'enviaStringLink' disparado no dashboard 
     //método imediatamente abaixo é responsável por lidar com o evento 
