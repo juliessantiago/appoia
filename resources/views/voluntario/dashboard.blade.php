@@ -116,6 +116,11 @@
             // }
             Livewire.dispatch('salvaLinkReuniaoAberta',  {link: link, id: idConsulta }) //envia dados para método no componente que escuta esse evento por nome
         })
+        Livewire.on('marcaAusente', () => {
+            diaConsulta = event.detail.dia
+            console.log(event.detail.id)
+            console.log(diaConsulta)
+        })
 
     });//init
 
