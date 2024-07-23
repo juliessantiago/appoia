@@ -25,12 +25,12 @@
     {{-- <div class="m-10">
         @livewire('get-consulta-aluno')
     </div>
-         --}}
+    --}}
     
         <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">Meu histórico de consultas</p>
-        @livewire('aluno-get-consultas')
-    </div>
+            <p class="text-purple-400 text-xl font-bold text-center">Meu histórico de consultas</p>
+            @livewire('aluno-get-consultas')
+        </div>
 
 
     <div class="flex justify-end px-14 py-6"> 

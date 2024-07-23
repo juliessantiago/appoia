@@ -44,6 +44,7 @@
                                     {{$consulta->id}}
                                 </th>
                                 <td class="px-6 py-4 capitalize">
+                                    {{-- {{$consulta->dia}} --}}
                                     {{$consulta->dia}}
                                 </td>
                                 <td class="px-6 py-4 capitalize">
@@ -66,7 +67,7 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <button  type="submit" wire:click="$dispatch('marcaAusente', { dia: {{$consulta->dia}}, id: {{$consulta->id}} })"  class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-gray-300 rounded-lg hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-400">
+                                    <button  type="submit" wire:click="$dispatch('marcaAusente', { dia: '{{$consulta->dia}}', id: {{$consulta->id}} })"  class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-gray-300 rounded-lg hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-400">
                                         Ausente
                                     </button>
                                 </td>

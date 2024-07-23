@@ -105,10 +105,10 @@
                 }
             });
         })
-        Livewire.on('enviaLink', ()=> {
+        Livewire.on('enviaLink', (event)=> {
             let link = ''
-            link = event.detail.link
-            idConsulta = event.detail.id
+            link = event.link
+            idConsulta = event.id
             // console.log(link)
             // if(link == null || link == '' || link == "" ){
             //     console.log('tá vazia')
@@ -116,10 +116,11 @@
             // }
             Livewire.dispatch('salvaLinkReuniaoAberta',  {link: link, id: idConsulta }) //envia dados para método no componente que escuta esse evento por nome
         })
-        Livewire.on('marcaAusente', () => {
-            diaConsulta = event.detail.dia
-            console.log(event.detail.id)
-            console.log(diaConsulta)
+        Livewire.on('marcaAusente', (event ) => {
+            // diaConsulta = event.detail.dia
+            // console.log(event.detail.id)
+            console.log(event.id)
+            console.log(event.dia)
         })
 
     });//init
