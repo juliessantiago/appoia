@@ -13,4 +13,7 @@ class Notificacao extends Model
     public function notifiable(){ //determina a relação polimórfica
         return $this->morphTo(); //modelo Notificacao pode pertencer a qualquer model que tenha essa relação
     }
+
+    
+
 }

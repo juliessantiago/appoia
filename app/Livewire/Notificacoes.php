@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Notificacao;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\Attributes\On; 
 
 class Notificacoes extends Component
 {
@@ -33,5 +34,14 @@ class Notificacoes extends Component
     public function render()
     {
         return view('livewire.notificacoes');
+    }
+    #[On('alteraStatusNotificacao')] 
+    public function mudaStatus($id){
+        $updated = Notificacao::where('id', $id)->update([
+            "lida" => 1
+        ]); 
+        if($updated){
+            $this->mount();
+        }
     }
 }

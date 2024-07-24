@@ -6,12 +6,12 @@
         </div>
         @endif
     </div> 
-      <div class="flex justify-end">
+      <div class="flex justify-end mx-4">
         @livewire('notificacoes')
         
       </div>
 <!--------------------------componentes------------------------------------> 
-    <div class="m-10">
+    <div class="mb-10">
         <x-toaster-hub />
         <p class="text-purple-400 text-xl font-bold text-center">Meus Expedientes</p>
         <div class="text-center my-5">
@@ -124,8 +124,6 @@
             //para marcar que aluno não compareceu à reunião 
             //é necessário que o horário da consulta já tenha passado 
             //lembrando que as consultas exibidas nessa chamada de evento são do dia corrente
-            // console.log(moment().hours())
-            // console.log(finalConsulta.hours())
             if((moment().hours()) < finalConsulta.hours()){
                 toastr.error('Voce só pode marcar como ausente após o horário de término da consulta')
             }else if (event.consulta.status === 'ausente'){
@@ -134,6 +132,19 @@
             else{
                 Livewire.dispatch('alteraStatusAusente',  {id: event.consulta.id })
             }
+        })
+        Livewire.on('exibeNotificacoes', (event) => {
+            toastr.options.closeButton = true
+            toastr.options.timeOut = 0 //impede toastr de fechar automaticamente
+            toastr.options.extendedTimeOut = 0, // Impede que toastr feche ao passar o mouse
+            event.notificacoes.forEach(notificacao => {
+                toastr.info(notificacao.mensagem)
+                toastr.options.onclick = function() { 
+                    // console.log(notificacao.id)
+                    Livewire.dispatch('alteraStatusNotificacao',  {id: notificacao.id }) 
+                }
+                
+            });
         })
 
     });//init
