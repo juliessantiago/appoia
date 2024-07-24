@@ -37,6 +37,7 @@ class Notificacoes extends Component
     }
     #[On('alteraStatusNotificacao')] 
     public function mudaStatus($id){
+        // dd($id);
         $updated = Notificacao::where('id', $id)->update([
             "lida" => 1
         ]); 
