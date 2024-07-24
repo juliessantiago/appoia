@@ -126,8 +126,6 @@
             // console.log(finalConsulta.hours())
             if((moment().hours()) < finalConsulta.hours()){
                 toastr.error('Voce só pode marcar como ausente após o horário de término da consulta')
-            }else if (event.consulta.status === 'ausente'){
-                toastr.warning(`Status da consulta já é "Ausente"`)
             }
             else{
                 Livewire.dispatch('alteraStatusAusente',  {id: event.consulta.id })

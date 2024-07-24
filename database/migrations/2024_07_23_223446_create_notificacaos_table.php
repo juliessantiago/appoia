@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notificacoes', function (Blueprint $table) {
+        Schema::create('notificacaos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->morphs('notifiable'); //tipo morphs indica que esse campo suporta relação polimórfica
