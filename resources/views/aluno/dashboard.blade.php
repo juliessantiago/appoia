@@ -9,6 +9,10 @@
         </div>
         @endif
     </div> 
+    <div class="flex justify-end">
+        @livewire('notificacoes')
+        
+      </div>
       
 <!--------------------------componentes------------------------------------> 
     <div class="m-10">

@@ -1,13 +1,15 @@
 <x-app-layout>
     <div class="flex justify-center">      
-        
         @if(session('success'))
         <div class="flex bg-green-300 p-10 border-green-400 rounded-lg">
               <p class="text-white">  {{session('success')}}  </p>  
         </div>
         @endif
     </div> 
-      
+      <div class="flex justify-end">
+        @livewire('notificacoes')
+        
+      </div>
 <!--------------------------componentes------------------------------------> 
     <div class="m-10">
         <x-toaster-hub />
@@ -126,6 +128,8 @@
             // console.log(finalConsulta.hours())
             if((moment().hours()) < finalConsulta.hours()){
                 toastr.error('Voce só pode marcar como ausente após o horário de término da consulta')
+            }else if (event.consulta.status === 'ausente'){
+                toastr.warning(`Status da consulta já é "Ausente"`)
             }
             else{
                 Livewire.dispatch('alteraStatusAusente',  {id: event.consulta.id })

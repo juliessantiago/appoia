@@ -42,23 +42,21 @@ class GetConsultasHojeVol extends Component
     }
     #[On('alteraStatusAusente')] 
     public function salvaStatusAusente($id){
-        $voluntario = Voluntario::find(Auth::user()->id); 
-        $notificacao = new Notificacao([
-            'mensagem' => 'Consulta teve status alterado',
-            'lida' => false,
-        ]);
+    //    Os campos notifiable_id e notifiable_type vão ser preenchidos automaticamente 
+        $updated = Consulta::where('id_voluntario', Auth::user()->id)->where( 'id', $id)->update([
+            'status' => 'ausente'
+        ]); 
+        if($updated){
+            $voluntario = Voluntario::find(Auth::user()->id); 
+            $notificacao = new Notificacao([
+                'mensagem' => 'Consulta teve status alterado',
+                'lida' => false,
+            ]);
 
-        $voluntario->notificacoes()->save($notificacao); //cria relação entre voluntário e a notificação criada
-       //Os campos notifiable_id e notifiable_type vão ser preenchidos automaticamente 
-        // $updated = Consulta::where('id_voluntario', Auth::user()->id)->where( 'id', $id)->update([
-        //     'status' => 'ausente'
-        // ]); 
-        // if($updated){
-
-        //     // $this->success('Status alterado para Ausente'); //toaster 
-        //     // $this->mount(); 
-            
-        // }
+            $voluntario->notificacoes()->save($notificacao); //cria relação entre voluntário e a notificação criada
+            $this->success('Status alterado para Ausente'); //toaster 
+            $this->mount(); 
+        }
     }
     
 
