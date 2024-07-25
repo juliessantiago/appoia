@@ -16,4 +16,10 @@ class Supervisor extends Authenticatable
         'crp'
     ]; 
     use HasFactory;
+
+    public function notificacoes(){
+        return $this->morphMany(Notificacao::class, 'notifiable'); 
+        //Model Notificacao vai armazenar as várias entradas, guardando id e tipo 
+    }
+    
 }

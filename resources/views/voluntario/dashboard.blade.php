@@ -1,15 +1,17 @@
 <x-app-layout>
     <div class="flex justify-center">      
-        
         @if(session('success'))
         <div class="flex bg-green-300 p-10 border-green-400 rounded-lg">
               <p class="text-white">  {{session('success')}}  </p>  
         </div>
         @endif
     </div> 
-      
+      <div class="flex justify-end mx-4">
+        @livewire('notificacoes')
+        
+      </div>
 <!--------------------------componentes------------------------------------> 
-    <div class="m-10">
+    <div class="mb-10">
         <x-toaster-hub />
         <p class="text-purple-400 text-xl font-bold text-center">Meus Expedientes</p>
         <div class="text-center my-5">
@@ -34,7 +36,7 @@
             <li>2. Uma nova aba será aberta. Habilite câmera e microfone. Verifique seu nome e clique em Entrar na reunião</li>
             <li>3. Após a reunião estar aberta, clique em Participantes > Convidar alguém</li>
             <li>4. Clique no botão para copiar o link </li>
-            <li>5. No seu dashboard, clique em enviar link</li>
+            <li>5. Aqui no seu dashboard, encontre a consulta e clique em enviar link</li>
         </ol>
         @livewire('get-consultas-hoje-vol')
     </div>
@@ -122,16 +124,28 @@
             //para marcar que aluno não compareceu à reunião 
             //é necessário que o horário da consulta já tenha passado 
             //lembrando que as consultas exibidas nessa chamada de evento são do dia corrente
-            // console.log(moment().hours())
-            // console.log(finalConsulta.hours())
             if((moment().hours()) < finalConsulta.hours()){
                 toastr.error('Voce só pode marcar como ausente após o horário de término da consulta')
-            }else if (event.consulta.status === 'ausente'){
-                toastr.warning(`Status da consulta já é "Ausente"`)
             }
+            // else if (event.consulta.status === 'ausente'){
+            //     toastr.warning(`Status da consulta já é "Ausente"`)
+            // }
             else{
-                Livewire.dispatch('alteraStatusAusente',  {id: event.consulta.id })
+                Livewire.dispatch('alteraStatusAusente',  {id: event.consulta.id, dia: event.consulta.dia })
             }
+        })
+        Livewire.on('exibeNotificacoes', (event) => {
+            toastr.options.closeButton = true
+            toastr.options.timeOut = 0 //impede toastr de fechar automaticamente
+            toastr.options.extendedTimeOut = 0, // Impede que toastr feche ao passar o mouse
+            event.notificacoes.forEach(notificacao => {
+                toastr.info(notificacao.mensagem)
+                toastr.options.onclick = function() { 
+                    // console.log(notificacao.id)
+                    Livewire.dispatch('alteraStatusNotificacao',  {id: notificacao.id }) 
+                }
+                
+            });
         })
 
     });//init

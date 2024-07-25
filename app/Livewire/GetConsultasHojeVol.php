@@ -1,12 +1,16 @@
 <?php
 
 namespace App\Livewire;
+
+use App\Models\Notificacao;
 use Livewire\Component;
 use App\Models\Consulta;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On; 
 use Masmerise\Toaster\Toastable;
 use Carbon\Carbon; 
+use App\Models\Voluntario;
+
 
 class GetConsultasHojeVol extends Component
 {
@@ -37,12 +41,22 @@ class GetConsultasHojeVol extends Component
        
     }
     #[On('alteraStatusAusente')] 
-    public function salvaStatusAusente($id){
+    public function salvaStatusAusente($id, $dia){
+    //    Os campos notifiable_id e notifiable_type vão ser preenchidos automaticamente 
+        
         $updated = Consulta::where('id_voluntario', Auth::user()->id)->where( 'id', $id)->update([
             'status' => 'ausente'
         ]); 
         if($updated){
-            $this->success('Status alterado para Ausente'); //toaster 
+            $voluntario = Voluntario::find(Auth::user()->id); 
+            $notificacao = new Notificacao([
+                'mensagem' => 'Consulta teve status alterado',
+                'lida' => false,
+            ]);
+
+            $dataFormat = Carbon::create('2024-07-25')->format('d-m-Y'); 
+            $voluntario->notificacoes()->save($notificacao); //cria relação entre voluntário e a notificação criada
+            $this->success("Status da consulta do dia ".$dataFormat." alterado para Ausente"); //toaster 
             $this->mount(); 
         }
     }

@@ -75,3 +75,7 @@ text-xl p-6 font-bold
 
 /*------------------------------Botões----------------------------*/ 
 '#38bdf8', //cor padrão botão confirmar sweet alert
+
+/*------------------------ícone sininho notificação-----------*/ 
+<a href="https://www.flaticon.com/br/icones-gratis/packard-bell" title="packard bell ícones">Packard bell ícones criados por Ilham Fitrotul Hayat - Flaticon</a>
+<a href="https://www.flaticon.com/br/icones-gratis/packard-bell" title="packard bell ícones">Packard bell ícones criados por Dysa Studio - Flaticon</a>

@@ -9,6 +9,10 @@
         </div>
         @endif
     </div> 
+    <div class="flex justify-end">
+        @livewire('notificacoes')
+        
+      </div>
       
 <!--------------------------componentes------------------------------------> 
     <div class="m-10">
@@ -28,7 +32,7 @@
     --}}
     
         <div class="m-10">
-            <p class="text-purple-400 text-xl font-bold text-center">Meu histórico de consultas</p>
+            <p class="text-purple-400 text-xl font-bold text-center">Você tem uma consulta marcada para hoje</p>
             @livewire('aluno-get-consultas')
         </div>
 
