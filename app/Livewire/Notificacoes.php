@@ -41,8 +41,10 @@ class Notificacoes extends Component
         $updated = Notificacao::where('id', $id)->update([
             "lida" => 1
         ]); 
+        
         if($updated){
             $this->mount();
+            $this->render();  
         }
     }
 }

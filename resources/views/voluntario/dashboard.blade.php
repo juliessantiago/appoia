@@ -36,7 +36,7 @@
             <li>2. Uma nova aba será aberta. Habilite câmera e microfone. Verifique seu nome e clique em Entrar na reunião</li>
             <li>3. Após a reunião estar aberta, clique em Participantes > Convidar alguém</li>
             <li>4. Clique no botão para copiar o link </li>
-            <li>5. Retorne ao seu dashboard, encontre a reunião e clique em enviar link</li>
+            <li>5. Aqui no seu dashboard, encontre a consulta e clique em enviar link</li>
         </ol>
         @livewire('get-consultas-hoje-vol')
     </div>
@@ -126,11 +126,12 @@
             //lembrando que as consultas exibidas nessa chamada de evento são do dia corrente
             if((moment().hours()) < finalConsulta.hours()){
                 toastr.error('Voce só pode marcar como ausente após o horário de término da consulta')
-            }else if (event.consulta.status === 'ausente'){
-                toastr.warning(`Status da consulta já é "Ausente"`)
             }
+            // else if (event.consulta.status === 'ausente'){
+            //     toastr.warning(`Status da consulta já é "Ausente"`)
+            // }
             else{
-                Livewire.dispatch('alteraStatusAusente',  {id: event.consulta.id })
+                Livewire.dispatch('alteraStatusAusente',  {id: event.consulta.id, dia: event.consulta.dia })
             }
         })
         Livewire.on('exibeNotificacoes', (event) => {
