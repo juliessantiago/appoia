@@ -14,9 +14,12 @@
                         <th scope="col" class="px-6 py-3">
                             Descrição
                         </th>
+                       
                         <th>
-
+                           
                         </th>
+                        
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -31,11 +34,20 @@
                                 <td class="px-6 py-4 capitalize">
                                     {{$assunto->descricao}}
                                 </td>
+                                @if(Auth()->guard()->name == 'supervisor')
                                 <td>
                                     <button wire:click="$dispatch('abreModalExclusaoAssunto', { assunto: {{ $assunto }} })" class="text-md hover:text-pink-500">
                                         Excluir
                                     </button>
                                 </td>  
+                                @endif
+                                <td>
+                                    <button class="text-md hover:text-pink-500">
+                                        <a href="{{route('assuntoVoluntarios', $assunto->id)}}">
+                                            Ver voluntários
+                                        </a>
+                                    </button>
+                                </td>
                             </tr>
                         </div>  
                     @endforeach

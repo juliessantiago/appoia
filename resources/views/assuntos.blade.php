@@ -11,14 +11,18 @@
     @if($assuntos->count() > 0)
       <div class="">
         <h4 class="text-center text-purple-300 text-2xl p-6 font-bold">Escolha um tema para a conversa</h4>
+        <div class="m-10"> 
+          <p class="text-purple-400 text-xl font-bold text-center">Assuntos</p>
+          @livewire('search-assunto') 
+        </div>
         <div class="flex flex-wrap justify-center">
-          @foreach($assuntos as $assunto)
+          {{-- @foreach($assuntos as $assunto)
             <a href="{{route('assuntoVoluntarios', $assunto->id)}}" class="w-full max-w-sm bg-white border-gray-100 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4  hover:border-purple-400 border-2 focus:ring-4 focus:outline-none focus:ring-purple-400">
                 <div class="flex flex-col items-center pt-10 pb-10 ">
                     <h5 class="mb-1 text-center text-xl font-medium text-violet-300 dark:text-white">{{$assunto->descricao}}</h5>
                 </div>
               </a><!--cardzinho-->
-          @endforeach
+          @endforeach  --}}
           
         </div>
 
