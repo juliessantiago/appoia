@@ -41,13 +41,15 @@
                                     </button>
                                 </td>  
                                 @endif
-                                <td>
-                                    <button class="text-md hover:text-pink-500">
-                                        <a href="{{route('assuntoVoluntarios', $assunto->id)}}">
-                                            Ver voluntários
-                                        </a>
-                                    </button>
-                                </td>
+                                @if(Auth()->guard()->name == 'aluno')
+                                 <td>
+                                        <button class="text-md hover:text-pink-500">
+                                            <a href="{{route('assuntoVoluntarios', $assunto->id)}}">
+                                                Ver voluntários
+                                            </a>
+                                        </button>
+                                    </td>
+                                @endif
                             </tr>
                         </div>  
                     @endforeach
