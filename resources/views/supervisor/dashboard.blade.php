@@ -30,9 +30,9 @@
 <!----------------------------------------------------------------------------------------------------------->
 <script>
     document.addEventListener('livewire:init', () => {
-        Livewire.on('abreModalExclusao', ()=> {
-            let id = event.detail.data.id
-            let descricao = event.detail.data.descricao
+        Livewire.on('abreModalExclusaoAssunto', (event)=> {
+            let id = event.assunto.id
+            let descricao = event.assunto.descricao
             Swal.fire({
                 title: "Excluir o assunto "+descricao+"?",
                 showCancelButton: true,
@@ -42,10 +42,11 @@
                 cancelButtonText: `Cancelar`
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.dispatch('enviaDadosExclusao',  {id: id }) //envia dados para método no componente que escuta esse evento por nome
+                    Livewire.dispatch('excluiAssunto',  {id: id }) //envia dados para método no componente que escuta esse evento por nome
                 }
             });
         })
+     
     });
 </script>
     <div class="flex justify-end px-14 py-6"> 
