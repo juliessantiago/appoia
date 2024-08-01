@@ -21,7 +21,7 @@ class VoluntarioController extends Controller
         return view('voluntario', ['voluntario' => Voluntario::find($id)]); 
     }
 
-    public function showRegister(){
+    public function showRegister(){ 
         return view ('voluntario/register'); 
     }
 

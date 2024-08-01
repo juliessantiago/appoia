@@ -19,9 +19,9 @@
         <x-toaster-hub />
      
         <div class="flex justify-center">
-            <img src="{{ asset('images/stickers/nova-consulta.png')}}" class="max-w-2/3">
+            <img src="{{ asset('images/stickers/nova-consulta.png')}}" class="">
             <div class="self-center"> 
-                <p class="text-center text-sky-300 text-4xl p-6 font-bold"><a href="{{route('allAssuntos')}}">Quero marcar uma conversa</a></p>
+                <p class="text-center text-sky-300 text-3xl p-6 font-bold"><a href="{{route('allAssuntos')}}">Quero marcar uma conversa</a></p>
             </div>
         </div>
     </div>
@@ -43,5 +43,29 @@
         </div>
     </div>
     
+    <script>
+        document.addEventListener('livewire:init', () => {
+            Livewire.on('exibeNotificacoes', (event) => {
+                // console.log(event.notificacoes)
+                toastr.options.closeButton = true
+                toastr.options.timeOut = 0 //impede toastr de fechar automaticamente
+                toastr.options.extendedTimeOut = 0 // Impede que toastr feche ao passar o mouse
+                // let numeros = [1, 2, 3]
+                let array = {id: 0, "mensagem" : "teste" }
+                event.notificacoes.push(array)
+                // console.log(event.notificacoes)
+                event.notificacoes.forEach(notificacao => {
+                    if(notificacao.mensagem != "teste"){
+                        toastr.info(notificacao.mensagem)
+                        toastr.options.onHidden  = function() { 
+                            console.log(notificacao.id)
+                            Livewire.dispatch('alteraStatusNotificacao',  {id: notificacao.id }) 
+                        }
+                    }
+                   
+                });
+            })
+        }); 
+    </script> 
  
 </x-app-layout>

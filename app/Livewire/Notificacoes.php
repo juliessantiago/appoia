@@ -27,9 +27,6 @@ class Notificacoes extends Component
                 break;
         }
         
-        
-       
-
     }
     public function render()
     {
