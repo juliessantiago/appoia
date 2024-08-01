@@ -18,8 +18,12 @@
 
     </head>
     <body> 
+        @csrf
+
         <div class="py-2"> 
-            <h4 class="text-center text-purple-300 text-4xl p-1 font-bold">Marcar consulta</h4>
+            <h4 class="text-center text-p
+            
+            urple-300 text-4xl p-1 font-bold">Marcar consulta</h4>
         </div>
       <div class="flex flex-row justify-center">
         <div id="calendar" class="p-10 "> 

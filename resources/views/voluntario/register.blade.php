@@ -9,6 +9,14 @@
         <h3 class="text-center text-2xl font-bold mb-4 text-pink-300">Crie sua conta como voluntário</h3>
         @csrf
 
+
+        <!-- Supervisor -->
+        <div>
+            <x-input-label for="supervisor_id" :value="__('Supervisor')" />
+            <x-text-input id="supervisor_id" class="block mt-1 w-full" type="text" :value="old('supervisor_id')" required autofocus />
+            <x-input-error :messages="$errors->get('supervisor_id')" class="mt-2" />
+        </div>
+
         <!-- Nome -->
         <div>
             <x-input-label for="name" :value="__('Nome')" />
