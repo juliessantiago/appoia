@@ -19,6 +19,7 @@ class VoluntarioSeeder extends Seeder
     {
         $voluntarios = [
             [
+                'supervisor_id' => 1, 
                 'name' => 'Pedro Alcantara', 
                 'email' => 'pedroalcantara@gmail.com', 
                 'password' => Hash::make('token123'),
@@ -27,6 +28,7 @@ class VoluntarioSeeder extends Seeder
                 'matricula' => '12345678'
             ], 
             [
+                'supervisor_id' => 1,
                 'name' => 'Letícia Pereira', 
                 'email' => 'leticiapereira@gmail.com', 
                 'password' => Hash::make('token123'),

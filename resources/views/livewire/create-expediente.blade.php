@@ -4,7 +4,7 @@
             <div class="px-4 py-2">
                 <label for="diaSemana" class="block mx-2 mb-2 text-sm font-medium text-gray-500 dark:text-white">Dia da Semana</label>
                 <select wire:model="diaSemana" class="max-w-20 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-400" name="escola">
-                    <option value="" class=" font-md">Selecione um dia da semana</option>
+                    <option value="" class=" font-md"></option>
                         <option value="segunda" class="rounded-lg">Segunda-feira</option>
                         <option value="terça" class="rounded-lg">Terça-feira</option>
                         <option value="quarta" class="rounded-lg">Quarta-feira</option>

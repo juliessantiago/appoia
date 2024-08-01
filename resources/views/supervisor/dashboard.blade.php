@@ -30,9 +30,9 @@
 <!----------------------------------------------------------------------------------------------------------->
 <script>
     document.addEventListener('livewire:init', () => {
-        Livewire.on('abreModalExclusao', ()=> {
-            let id = event.detail.data.id
-            let descricao = event.detail.data.descricao
+        Livewire.on('abreModalExclusaoAssunto', (event)=> {
+            let id = event.assunto.id
+            let descricao = event.assunto.descricao
             Swal.fire({
                 title: "Excluir o assunto "+descricao+"?",
                 showCancelButton: true,
@@ -42,15 +42,16 @@
                 cancelButtonText: `Cancelar`
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.dispatch('enviaDadosExclusao',  {id: id }) //envia dados para método no componente que escuta esse evento por nome
+                    Livewire.dispatch('excluiAssunto',  {id: id }) //envia dados para método no componente que escuta esse evento por nome
                 }
             });
         })
+     
     });
 </script>
     <div class="flex justify-end px-14 py-6"> 
         <div class="flex mt-4 md:mt-6">
-            <a href="{{route('supervisor.logout')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-400 rounded-lg hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-purple-400">Sair </a>
+            <a href="{{route('supervisor.logout')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Sair </a>
         </div>
     </div>
     

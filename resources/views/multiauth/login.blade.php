@@ -5,7 +5,15 @@
     <form method="POST" action="{{route('multiAuth')}}">
         <div class="flex justify-center">
             <img class="" src="{{ asset('images/stickers/login_aluno.png')}}"/> 
-            
+            @if(session('evento'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const event = new Event('{{ session('evento') }}');
+                window.dispatchEvent(event);
+            });
+        </script>
+    @endif
+
         </div> 
         <h3 class="text-center text-3xl font-bold  text-pink-300">Entrar</h3>
         @csrf
@@ -19,7 +27,7 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Senha')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -33,17 +41,17 @@
         <div class="flex justify-between">
           <div class="m-1">
             <input checked type="radio" id="aluno" name="tipo_usuario" value="aluno" class=" text-purple-400 border-gray-300 checked:bg-purple-500">
-            <label for="aluno" class=" text-purple-400" che>Sou paciente</label><br>
+            <label for="aluno" class=" text-gray-500" che>Sou paciente</label><br>
           </div>
 
           <div class="m-1"> 
             <input type="radio" id="voluntario" name="tipo_usuario" value="voluntario" class=" text-purple-400 border-gray-300 checked:bg-purple-500">
-            <label for="voluntario" class="text-purple-400">Sou voluntário</label><br>
+            <label for="voluntario" class="text-gray-500">Sou voluntário</label><br>
           </div>
            
           <div class="m-1"> 
             <input type="radio" id="supervisor" name="tipo_usuario" value="supervisor" class=" text-purple-400 border-gray-300 checked:bg-purple-500 focus:outline-none">
-            <label for="supervisor" class="text-purple-400">Sou supervisor</label> 
+            <label for="supervisor" class="text-gray-500">Sou supervisor</label> 
           </div>
           
           
@@ -59,12 +67,21 @@
 
         <div class="flex items-center justify-end mt-4">
            
-            <x-primary-button name="signUp"> 
-                {{ __('Não tenho uma conta') }}
-            </x-primary-button>
+                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('preSignUp') }}">
+                    {{ __('Criar nova conta') }}
+                </a>
+
             <x-primary-button class="ms-3" name="signIn">
                 {{ __('Entrar') }}
             </x-primary-button>
         </div>
     </form>
+    <script>
+        window.addEventListener('notificaNovaConta', function () {
+            // Lógica do evento
+            toastr.error('oi oi oi ');
+            
+        });
+    </script>
+    </script>
 </x-guest-layout>

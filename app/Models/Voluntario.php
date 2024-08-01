@@ -21,7 +21,7 @@ class Voluntario extends Authenticatable
         'telefone', 
         // 'universidade_id',
         'matricula', 
-        // 'supervisor_id'
+        'supervisor_id'
     ];
 
     protected $hidden = [
@@ -39,4 +39,10 @@ class Voluntario extends Authenticatable
     public function consultas(){ //voluntário pode ter várias consultas
         return $this->hasMany(Consulta::class, 'id_voluntario'); 
     }
+
+    public function notificacoes(){
+        return $this->morphMany(Notificacao::class, 'notifiable'); 
+        //Model Notificacao vai armazenar as várias entradas, guardando id e tipo 
+    }
+    
 }
