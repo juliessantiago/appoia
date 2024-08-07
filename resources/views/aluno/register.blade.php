@@ -4,7 +4,7 @@
             <img class="" src="{{ asset('images/stickers/login_aluno.png')}}"/> 
             
         </div> 
-        <h3 class="text-center text-2xl font-bold mb-4 text-pink-300">Crie sua conta como paciente</h3>
+        <h3 class="text-center text-2xl font-bold mb-4 text-pink-300">Crie sua conta</h3>
         @csrf
 
         <div class="justify-center mb-4">
@@ -14,7 +14,7 @@
         <!-- Nome -->
         <div>
             <x-input-label for="name" :value="__('Nome *')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-text-input id="name" class="block mt-1 w-full text-purple-400" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
