@@ -14,8 +14,6 @@
         <div class="flex justify-center">
             <img class="" src="{{ asset('images/stickers/login_aluno.png')}}"/> 
   
-           
-
         </div> 
       
         <h3 class="text-center text-3xl font-bold  text-pink-300">Entrar</h3>
