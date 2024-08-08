@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->text('data_nascimento');
-            $table->text('responsavel');    
+            $table->text('responsavel')->nullable();    
             $table->text('sexo');
             $table->text('name');
             $table->string('email')->unique();
