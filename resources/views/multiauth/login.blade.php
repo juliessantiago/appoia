@@ -3,18 +3,21 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{route('multiAuth')}}">
+             @if(session('mensagem'))
+             <div class="flex justify-center">
+                <div class="bg-lime-300 m-4 px-6 py-2 rounded-md">
+                    <p class="text-center text-white">{{session('mensagem')}}</p> 
+                    {{-- <p class="text-center text-white">Conta criada com sucesso</p>  --}}
+                </div>
+            </div>
+             @endif
         <div class="flex justify-center">
             <img class="" src="{{ asset('images/stickers/login_aluno.png')}}"/> 
-            @if(session('evento'))
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const event = new Event('{{ session('evento') }}');
-                window.dispatchEvent(event);
-            });
-        </script>
-    @endif
+  
+           
 
         </div> 
+      
         <h3 class="text-center text-3xl font-bold  text-pink-300">Entrar</h3>
         @csrf
 

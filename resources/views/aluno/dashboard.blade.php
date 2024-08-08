@@ -1,7 +1,7 @@
 <x-app-layout>
     {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
     {{-- <script src="sweetalert2.all.min.js"></script> --}}
-    <div class="flex justify-center">      
+    <div class="flex justify-center bg-pink-200">      
         
         @if(session('success'))
         <div class="flex bg-green-300 p-10 border-green-400 rounded-lg">

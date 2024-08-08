@@ -4,7 +4,7 @@
             <img class="" src="{{ asset('images/stickers/login_aluno.png')}}"/> 
             
         </div> 
-        <h3 class="text-center text-2xl font-bold mb-4 text-pink-300">Crie sua conta como paciente</h3>
+        <h3 class="text-center text-2xl font-bold mb-4 text-pink-300">Crie sua conta</h3>
         @csrf
 
         <div class="justify-center mb-4">
@@ -14,19 +14,22 @@
         <!-- Nome -->
         <div>
             <x-input-label for="name" :value="__('Nome *')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-text-input id="name" class="block mt-1 w-full text-purple-400" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!--Data de nascimento--> 
         <div>
-            <x-input-label for="data_nascimento" :value="__('Data de nascimento *')" />
-            <x-text-input id="data_nascimento" class="block mt-1 w-full text-purple-400" type="date" name="data_nascimento" :value="old('data_nascimento')" required autofocus autocomplete="Data de nascimento" />
+            <x-input-label for="data_nascimento" :value="__('Data de nascimento *')"/>
+            <x-text-input id="data_nascimento" id="data_nasc" class="block mt-1 w-full text-purple-400" type="date" name="data_nascimento" :value="old('data_nascimento')" required autofocus autocomplete="Data de nascimento" 
+            onblur="verificaDataNasc()"/>
             <x-input-error :messages="$errors->get('data_nascimento')" class="mt-2" />
+            
         </div>
 
         <!--Responsável--> 
-        <div>
+        <div class="mt-4 hidden" id="respons-div" >
+            <p class="text-purple-300 text-sm text-center">Como você é menor de idade, precisa informar o nome de um responsável</p>
             <x-input-label for="responsavel" :value="__('Responsável')" />
             <x-text-input id="responsavel" class="block mt-1 w-full text-purple-400" type="text" name="responsavel" :value="old('responsavel')" autofocus autocomplete="Responsável" />
             <x-input-error :messages="$errors->get('responsavel')" class="mt-2" />
@@ -34,8 +37,10 @@
 
         <!--Sexo--> 
         <div>
-            <x-input-label for="responsavel" :value="__('Sexo')" />
-            <select id="sexo" class="block mt-1 w-full text-purple-400 border-gray-300" name="sexo" :value="old('sexo')">
+            
+            <x-input-label for="responsavel" :value="__('Sexo')"/>
+            <select id="sexo" class="rounded-md block mt-1 w-full text-purple-400 border-gray-300" name="sexo" :value="old('sexo')">
+                <option>Selecione uma opção </option>
                 <option value="feminino">Feminino</option>
                 <option value="masculino">Masculino</option>
             </select>
@@ -44,13 +49,9 @@
 
         <!--Escola-->
         <div>
-            <x-input-label for="id_escola" :value="__('Escola ')" />
+            <x-input-label for="id_escola" :value="__('Escola ')"  />
             <livewire:escola-select />
         </div>
-
-        
-        
-
 
         <!-- Emaill -->
         <div class="mt-4">
@@ -93,3 +94,27 @@
         </div>
     </form>
 </x-guest-layout>
+<script> 
+    
+    function verificaDataNasc(){
+        let  dataNascimento = document.querySelector("#data_nasc").value
+        let nascFormated = moment(dataNascimento)
+        let hoje = moment()
+        let idade = hoje.diff(nascFormated, 'years')
+        let responsDiv = document.querySelector("#respons-div")
+        if(dataNascimento != null && dataNascimento != ""){
+            if(idade < 18){
+                responsDiv.classList.remove('hidden') 
+                responsDiv.classList.add('block') 
+                idade = ""
+            }else{
+                responsDiv.classList.add('hidden')
+                responsDiv.classList.remove('block')
+                idade = ""
+            }
+              
+        }
+        // console.log(dataNascimento)
+    }
+
+</script>

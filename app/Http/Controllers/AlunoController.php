@@ -10,8 +10,6 @@ use Illuminate\Validation\Rules;
 use Illuminate\Auth\Events\Registered;
 
 
-
-
 class AlunoController extends Controller
 {
     public function index(){ //método deve sair daqui pois não é uma ação que Aluno fará 
@@ -39,11 +37,12 @@ class AlunoController extends Controller
     public function registerAluno(Request $request){ //alterar nome para store
         // dd($request); 
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.Aluno::class],
-            'data_nascimento' => ['required'.Aluno::class],
+            'name' => ['required', 'string', 'max:200'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:alunos'],
+            'data_nascimento' => ['required'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]); 
+        // dd($validacao); 
         $aluno = Aluno::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -56,7 +55,7 @@ class AlunoController extends Controller
 
         event(new Registered($aluno));
 
-        return redirect()->route('multilogin');  
+        return redirect()->route('multilogin')->with('mensagem',  'Conta criada com sucesso!');  
         //Enviar mensagem de sucesso de conta criada!! 
     }
 }
