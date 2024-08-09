@@ -37,8 +37,8 @@ class SupervisorController extends Controller
 
         // $this->dispatchBrowserEvent('notificaNovaConta');
         session()->flash('evento', 'notificaNovaConta');
-        return redirect()->route('multilogin');  
-        //Enviar mensagem de sucesso de conta criada!! 
+        return redirect()->route('multilogin')->with('mensagem',  'Conta criada com sucesso!');  
+
     }
 
     public function logout(){
