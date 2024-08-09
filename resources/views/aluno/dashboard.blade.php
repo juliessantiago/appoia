@@ -1,19 +1,13 @@
 <x-app-layout>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
-    {{-- <script src="sweetalert2.all.min.js"></script> --}}
-    <div class="flex justify-center bg-pink-200">      
-        
-        @if(session('success'))
-        <div class="flex bg-green-300 p-10 border-green-400 rounded-lg">
-              <p class="text-white">  {{session('success')}}  </p>  
-        </div>
-        @endif
-    </div> 
     <div class="flex justify-end">
         @livewire('notificacoes')
-        
       </div>
-      
+<!--------------------------Aluno menor de idade------------------------> 
+@if( Auth::user()->status == 'naoAutorizado')
+<div class="m-10">
+    @livewire('upload-autorizacao')
+</div>
+@elseif(Auth::user()->status == 'autorizado')
 <!--------------------------componentes------------------------------------> 
     <div class="m-10">
         <x-toaster-hub />
@@ -26,22 +20,17 @@
         </div>
     </div>
 
-    {{-- <div class="m-10">
-        @livewire('get-consulta-aluno')
+    <div class="m-10">
+        <p class="text-purple-400 text-xl font-bold text-center">{{ \Carbon\Carbon::now()->dayName}} , {{ \Carbon\Carbon::now()->format('d-m-Y')}}</p>
+        @livewire('aluno-get-consultas')
     </div>
-    --}}
-    
-        <div class="m-10">
-            <p class="text-purple-400 text-xl font-bold text-center">{{ \Carbon\Carbon::now()->dayName}} , {{ \Carbon\Carbon::now()->format('d-m-Y')}}</p>
-            @livewire('aluno-get-consultas')
-        </div>
 
-
-    <div class="flex justify-end px-14 py-6"> 
-        <div class="flex mt-4 md:mt-6">
-            <a href="{{route('aluno.logout')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Sair </a>
-        </div>
+@endif
+<div class="flex justify-end px-14 py-6"> 
+    <div class="flex mt-4 md:mt-6">
+        <a href="{{route('aluno.logout')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Sair </a>
     </div>
+</div>
     
     <script>
         document.addEventListener('livewire:init', () => {

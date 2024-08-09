@@ -30,6 +30,7 @@ Route::prefix('aluno')->middleware('auth:aluno')->group(function () {
     Route::get('/assuntoVoluntarios/{id}', [AssuntoController::class, 'showVoluntarios'])->name('assuntoVoluntarios');
     Route::get('/voluntarioHorarios/{id}', [ExpedienteController::class, 'showHorarios'])->name('voluntarioHorarios'); 
     Route::get('/voluntarios', [VoluntarioController::class, 'index'])->name('allVoluntarios'); 
+    Route::get('aluno/menorIdade', [AlunoController::class, 'showAutorizacao'])->name('menorIdade'); 
     Route::get('/preMeeting', [AlunoController::class, 'showPreMeeting'])->name('preMeeting'); 
     Route::get('/logout', [AlunoController::class, 'logout'])->name('aluno.logout');
 });
