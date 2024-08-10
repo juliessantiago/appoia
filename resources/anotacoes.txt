@@ -82,5 +82,5 @@ text-xl p-6 font-bold
 /*-----------------------Ícone carinha chorando------------------*/ 
 <a href="https://www.flaticon.com/br/icones-gratis/triste" title="triste ícones">Triste ícones criados por justicon - Flaticon</a>
 
-/*-----------------------ícones de número-------------------------*/
-<a href="https://www.flaticon.com/br/icones-gratis/numero-2" title="número 2 ícones">Número 2 ícones criados por Hight Quality Icons - Flaticon</a>
+/*-------------------------figurinha autorizacao--------------------*/ 
+<a href="https://www.flaticon.com/br/stickers-gratis/politica" title="política figurinhas">Política figurinhas criadas por kerismaker - Flaticon</a>

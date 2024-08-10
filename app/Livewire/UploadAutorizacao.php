@@ -17,7 +17,6 @@ class UploadAutorizacao extends Component
         ]);
     }
 
-
     public function save(){
         $aluno = Auth::user()->name; 
         //tratar o nome!

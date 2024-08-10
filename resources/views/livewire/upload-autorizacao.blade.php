@@ -2,7 +2,7 @@
     <form wire:submit.prevent="save">
         @if ($photo)
             Arquivo:
-            <img src="{{ $photo->temporaryUrl() }}">
+            <img class="" src="{{ $photo->temporaryUrl() }}">
         @endif
         <input type="file" wire:model="photo">
         {{-- @error('photo') <span class="error">{{ $message }}</span> @enderror --}}
