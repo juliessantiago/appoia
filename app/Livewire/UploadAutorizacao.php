@@ -3,6 +3,8 @@
 namespace App\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
+
 
 class UploadAutorizacao extends Component
 {
@@ -15,7 +17,10 @@ class UploadAutorizacao extends Component
         ]);
     }
 
+
     public function save(){
-        $this->photo->store('photos');
+        $aluno = Auth::user()->name; 
+        //tratar o nome!
+        $this->photo->storeAs('images',  'autorizacao'.$aluno, 'public');
     }
 }
