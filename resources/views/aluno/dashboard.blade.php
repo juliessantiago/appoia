@@ -1,5 +1,5 @@
 <x-app-layout >
-<div class="bg-slate-200">
+<div class="bg-white">
     <div class="flex justify-end">
         @livewire('notificacoes')
       </div>
@@ -10,13 +10,13 @@
     <div class="flex justify-center">
         <img  src="{{ asset('images/stickers/autorizacao.png')}}" alt="Appoia logo" />
     </div>
-    <h2 class="text-pink-300 text-3xl text-center">Olá! Como você é menor de idade, 
-    <h2 class="text-pink-300 text-3xl text-center"> vamos precisar de uma autorização, ok?</h2>
+    <h2 class="text-pink-300 text-2xl text-center">Olá! Como você é menor de idade, 
+    <h2 class="text-pink-300 text-2xl text-center"> vamos precisar de uma autorização, ok?</h2>
     <div class="flex justify-center align-middle mt-10">
          <h2 class="self-center mx-4 text-gray-400 text-xl">Primeiro, você precisa fazer download do PDF abaixo</h2>
     </div>
-    <div class="flex justify-center align-middle mt-10"> 
-        <input type="text"/>
+    <div class="flex justify-center align-middle mt-10"> <!--download--> 
+        @livewire('download-autorizacao')
     </div>
     <div class="flex justify-center align-middle mt-6">
         <h2 class="self-center mx-4 text-gray-400 text-xl">Depois você vai precisar imprimir a autorização e pedir que seu responsável assine</h2>
@@ -24,6 +24,9 @@
  
     <div class="flex justify-center align-middle mt-6">
         <h2 class="self-center mx-4 text-gray-400 text-xl">Agora é só tirar uma foto e colocar aqui abaixo. Pronto!</h2>
+    </div>
+    <div class="flex justify-center align-middle ">
+        <h2 class="self-center mx-4 text-gray-400 text-lg">O arquivo deve ser no formato .jpg ou .png e pode ter no máximo 1Mb</h2>
     </div>
    <div class="flex justify-center align-middle mt-6">
         @livewire('upload-autorizacao')
@@ -56,10 +59,6 @@
         </div>
     </div>
 </div><!--fundo cinza--> 
-    
-
-
-
     
     <script>
         document.addEventListener('livewire:init', () => {
