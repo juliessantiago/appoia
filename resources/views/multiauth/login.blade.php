@@ -5,9 +5,9 @@
     <form method="POST" action="{{route('multiAuth')}}">
              @if(session('mensagem'))
              <div class="flex justify-center">
-                <div class="bg-lime-300 m-4 px-6 py-2 rounded-md">
-                    <p class="text-center text-white">{{session('mensagem')}}</p> 
-                    {{-- <p class="text-center text-white">Conta criada com sucesso</p>  --}}
+                <div class="bg-lime-400 m-4 px-6 py-2 rounded-md">
+                    <p class="text-center text-gray-100">{{session('mensagem')}}</p> 
+                    {{-- <p class="text-center text-gray-100">Conta criada com sucesso</p>  --}}
                 </div>
             </div>
              @endif

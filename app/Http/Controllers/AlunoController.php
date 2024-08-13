@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Auth\Events\Registered;
+use Carbon\Carbon; 
 
 
 class AlunoController extends Controller
@@ -36,26 +37,30 @@ class AlunoController extends Controller
 
     public function registerAluno(Request $request){ //alterar nome para store
         // dd($request); 
+        $status = ''; 
         $request->validate([
             'name' => ['required', 'string', 'max:200'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:alunos'],
             'data_nascimento' => ['required'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]); 
-        // dd($validacao); 
+
+        $nascimento = (Carbon::create($request->data_nascimento)->format('Y-m-d')); 
+        $hoje = Carbon::now(); 
+     
+        $hoje->diffInYears($nascimento) < 18 ?  $status = 'naoAutorizado' :   $status = 'autorizado'; 
         $aluno = Aluno::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'responsavel' => $request->responsavel,
             'id_escola' => $request->escola,
+            'status' => $status, 
             'sexo' => $request->sexo,
             'data_nascimento' => $request->data_nascimento,
         ]);
 
         event(new Registered($aluno));
-
         return redirect()->route('multilogin')->with('mensagem',  'Conta criada com sucesso!');  
-        //Enviar mensagem de sucesso de conta criada!! 
     }
 }

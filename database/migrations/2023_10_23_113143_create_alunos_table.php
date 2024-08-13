@@ -18,10 +18,10 @@ return new class extends Migration
             $table->text('responsavel')->nullable();    
             $table->text('sexo');
             $table->text('name');
+            $table->enum('status', ['autorizado', 'naoAutorizado']);
             $table->string('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->tinyInteger('status')->default(0);
             $table->unsignedBigInteger('id_escola');
             $table->foreign('id_escola')->references('id')->on('escolas')->onDelete('cascade');
         });

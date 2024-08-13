@@ -16,9 +16,8 @@ class MultiAuthController extends Controller
         return view('multiauth/preSignUp');
     }
     public function multiAuth(Request $request){ //precisa de refatoração
-        $dados = $request->all();
+        $dados = $request->all(); 
         // dd($dados); 
-
         if($request->tipo_usuario == 'aluno'){
             if (auth()->guard('aluno')->attempt(['email' => $dados['email'], 'password' => $dados['password']])) {
                 return redirect()->route('dashboardAluno');
