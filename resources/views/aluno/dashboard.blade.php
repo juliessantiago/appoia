@@ -6,12 +6,12 @@
 
     <!--------------------------Aluno menor de idade------------------------> 
 @if( Auth::user()->status == 'naoAutorizado')
-<div class="m-10">
+<div class="m-10 ">
     <div class="flex justify-center">
         <img  src="{{ asset('images/stickers/autorizacao.png')}}" alt="Appoia logo" />
     </div>
-    <h2 class="text-pink-300 text-2xl text-center">Olá! Como você é menor de idade, 
-    <h2 class="text-pink-300 text-2xl text-center"> vamos precisar de uma autorização, ok?</h2>
+    <h2 class="text-pink-300 text-xl text-center">Olá! Como você é menor de idade, 
+    <h2 class="text-pink-300 text-xl text-center"> vamos precisar de uma autorização, ok?</h2>
     <div class="flex justify-center align-middle mt-10">
          <h2 class="self-center mx-4 text-gray-400 text-xl">Primeiro, você precisa fazer download do PDF abaixo</h2>
     </div>
