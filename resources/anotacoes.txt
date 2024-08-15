@@ -84,3 +84,6 @@ text-xl p-6 font-bold
 
 /*-------------------------figurinha autorizacao--------------------*/ 
 <a href="https://www.flaticon.com/br/stickers-gratis/politica" title="política figurinhas">Política figurinhas criadas por kerismaker - Flaticon</a>
+
+<!-----------------------figurinha relógio----------------------------*/ 
+<a href="https://www.flaticon.com/br/stickers-gratis/relogio" title="relógio figurinhas">Relógio figurinhas criadas por Ina Mella - Flaticon</a>

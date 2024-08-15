@@ -23,12 +23,13 @@ class UploadAutorizacao extends Component
         // $this->file->storeAs('files', $hashNome, 'public'); 
         Storage::disk('s3')->put('files', $this->file, 'public');
         $updated = Aluno::where('id', Auth::user()->id)->update([
-            'status' => true,
+            // 'status' => true,
             'linkAutorizacao' => $hashNome
         ]); 
-        // if($updated){
-            //dispatch: dispara evento pelo Livewire
-            Toaster::success('Arquivo enviado com sucesso!'); //não está funcionando!!!!!!
-        // }
+        // dd($updated); 
+        if($updated){
+            //dispara toaster
+            Toaster::success('Obrigada! Sua autorização será analisada e logo você poderá ter acesso às funcionalidades'); 
+        }
     }
 }

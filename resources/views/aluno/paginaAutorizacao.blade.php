@@ -1,5 +1,17 @@
 <x-app-layout >
-{{-- @if( Auth::user()->status == 0) --}}
+<x-toaster-hub />
+@if( Auth::user()->status == 0 && Auth::user()->linkAutorizacao !=null)
+    <div class="flex justify-center">
+        <img  src="{{ asset('images/stickers/relogio.png')}}" class="animate-bounce" />
+       
+    </div>
+    <div class="flex-col align-middle self-center text-center">  
+        <p class=" text-purple-400 text-xl">Sua autorização ainda está em análise</p>
+        <p class=" text-purple-400 text-xl">Em breve você terá acesso às funcionalidades do sistema</p>
+    </div>
+   
+@else
+    <div class="container">
         <div class="m-10">
             <div class="flex justify-center">
                 <img  src="{{ asset('images/stickers/autorizacao.png')}}" />
@@ -30,7 +42,10 @@
                 @livewire('upload-autorizacao')
         </div>
     </div>
-{{-- @endif --}}
+    </div>
+@endif
+
+
     <div class="flex justify-end px-14 py-6"> 
         <div class="flex mt-4 md:mt-6">
             <a href="{{route('aluno.logout')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Sair </a>
