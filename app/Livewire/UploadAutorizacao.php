@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Masmerise\Toaster\Toaster;
 use Masmerise\Toaster\Toastable;
 use App\Models\Aluno;
-use Illuminate\Support\Facades\Crypt;
-
+use Illuminate\Support\Facades\Storage; 
 class UploadAutorizacao extends Component
 {
     use WithFileUploads;
@@ -17,12 +16,12 @@ class UploadAutorizacao extends Component
     public $file;
 
     public function save(){
-        dd("save"); 
+        // dd("save"); 
         // $nomeAlterado = str_replace(' ', '', Auth::user()->name);
         $hashNome = $this->file->hashName(); 
         // dd($hashNome); 
-        $this->file->storeAs('files', $hashNome, 'public');
-        // https://laravel.com/docs/11.x/filesystem#other-uploaded-file-information
+        // $this->file->storeAs('files', $hashNome, 'public'); 
+        Storage::disk('s3')->put('files', $this->file, 'public');
         $updated = Aluno::where('id', Auth::user()->id)->update([
             'status' => true,
             'linkAutorizacao' => $hashNome
