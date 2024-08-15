@@ -17,6 +17,7 @@ class Aluno extends Authenticatable
         'name', 
         'email', 
         'status',
+        'linkAutorizacao',
         'data_nascimento', 
         'id_escola', 
         'sexo', 

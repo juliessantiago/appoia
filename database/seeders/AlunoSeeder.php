@@ -26,7 +26,7 @@ class AlunoSeeder extends Seeder
                 'data_nascimento' => '1995-03-29', 
                 'responsavel' => 'Rosângela Souza', 
                 'sexo' => 'feminino', 
-                'status' => 'autorizado',
+                'status' => 1,
                 'id_escola'=> rand(1, $escolas),
             ], 
             [
@@ -36,7 +36,7 @@ class AlunoSeeder extends Seeder
                 'data_nascimento' => '2010-04-11', 
                 'responsavel' => 'João Silva', 
                 'sexo' => 'masculino', 
-                'status' => 'naoAutorizado',
+                'status' => 0,
                 'id_escola'=> rand(1, $escolas),
             ], 
             [
@@ -45,7 +45,7 @@ class AlunoSeeder extends Seeder
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
                 'data_nascimento' => '2008-10-20', 
                 'responsavel' => 'Maria Aparecida Silva', 
-                'status' => 'naoAutorizado',
+                'status' => 0,
                 'sexo' => 'masculino', 
                 'id_escola'=> rand(1, $escolas),
             ]

@@ -18,7 +18,8 @@ return new class extends Migration
             $table->text('responsavel')->nullable();    
             $table->text('sexo');
             $table->text('name');
-            $table->enum('status', ['autorizado', 'naoAutorizado']);
+            $table->text('linkAutorizacao')->nullable(); 
+            $table->boolean('status')->nullable(); 
             $table->string('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

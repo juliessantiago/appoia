@@ -17,17 +17,19 @@ class UploadAutorizacao extends Component
     public $file;
 
     public function save(){
-        $nomeAlterado = str_replace(' ', '', Auth::user()->name);
-        $hashNome = Crypt::encryptString($nomeAlterado); 
+        dd("save"); 
+        // $nomeAlterado = str_replace(' ', '', Auth::user()->name);
+        $hashNome = $this->file->hashName(); 
         // dd($hashNome); 
         $this->file->storeAs('files', $hashNome, 'public');
         // https://laravel.com/docs/11.x/filesystem#other-uploaded-file-information
-        // $updated = Aluno::where('id', Auth::user()->id)->update([
-        //     'status' => 'autorizado',
-        // ]); 
+        $updated = Aluno::where('id', Auth::user()->id)->update([
+            'status' => true,
+            'linkAutorizacao' => $hashNome
+        ]); 
         // if($updated){
-        //     //dispatch: dispara evento pelo Livewire
-        //     $this->success('Arquivo enviado com sucesso!'); //não está funcionando!!!!!!
+            //dispatch: dispara evento pelo Livewire
+            Toaster::success('Arquivo enviado com sucesso!'); //não está funcionando!!!!!!
         // }
     }
 }

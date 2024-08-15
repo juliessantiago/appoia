@@ -25,7 +25,7 @@ Route::post('/multiAuth', [MultiAuthController::class, 'multiAuth'])->name('mult
 
 /*--------------------Aluno - todas as rotas acessíveis por aluno -----------*/ 
 Route::prefix('aluno')->middleware('auth:aluno')->group(function () {
-    Route::get('/dashboard', [AlunoController::class, 'dashboard'])->name('dashboardAluno');
+    Route::get('/dashboard', [AlunoController::class, 'showDashboard'])->name('dashboardAluno');
     Route::get('/assuntos',[AssuntoController::class, 'index'])->name('allAssuntos'); 
     Route::get('/assuntoVoluntarios/{id}', [AssuntoController::class, 'showVoluntarios'])->name('assuntoVoluntarios');
     Route::get('/voluntarioHorarios/{id}', [ExpedienteController::class, 'showHorarios'])->name('voluntarioHorarios'); 
@@ -33,6 +33,7 @@ Route::prefix('aluno')->middleware('auth:aluno')->group(function () {
     Route::get('aluno/menorIdade', [AlunoController::class, 'showAutorizacao'])->name('menorIdade'); 
     Route::get('/preMeeting', [AlunoController::class, 'showPreMeeting'])->name('preMeeting'); 
     Route::get('/logout', [AlunoController::class, 'logout'])->name('aluno.logout');
+    Route::get('/autorizacao', [AlunoController::class, ''])->name('autorizacao'); 
 });
 Route::get('aluno/register', [AlunoController::class, 'showRegister'])->name('registerAlunoForm'); 
 Route::post('aluno/register', [AlunoController::class, 'registerAluno'])->name('registerAluno'); 

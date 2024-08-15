@@ -10,7 +10,6 @@ use Illuminate\Validation\Rules;
 use Illuminate\Auth\Events\Registered;
 use Carbon\Carbon; 
 
-
 class AlunoController extends Controller
 {
     public function index(){ //método deve sair daqui pois não é uma ação que Aluno fará 
@@ -18,8 +17,13 @@ class AlunoController extends Controller
     }
 
    
-    public function dashboard(){
-        return view('aluno/dashboard'); 
+    public function showDashboard(){
+        // dd(Auth::user()->name); 
+        if(Auth::user()->status == 0){
+            return view('aluno/paginaAutorizacao'); 
+        }else{
+            return view('aluno/dashboard'); 
+        }
     }
 
     public function showPreMeeting(){
@@ -48,7 +52,7 @@ class AlunoController extends Controller
         $nascimento = (Carbon::create($request->data_nascimento)->format('Y-m-d')); 
         $hoje = Carbon::now(); 
      
-        $hoje->diffInYears($nascimento) < 18 ?  $status = 'naoAutorizado' :   $status = 'autorizado'; 
+        $hoje->diffInYears($nascimento) < 18 ?  $status = false :   $status = true; 
         $aluno = Aluno::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -60,6 +64,7 @@ class AlunoController extends Controller
             'data_nascimento' => $request->data_nascimento,
         ]);
 
+    //    dd($aluno); 
         event(new Registered($aluno));
         return redirect()->route('multilogin')->with('mensagem',  'Conta criada com sucesso!');  
     }
