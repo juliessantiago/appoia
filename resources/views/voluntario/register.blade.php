@@ -13,7 +13,7 @@
         <!-- Supervisor -->
         <div>
             <x-input-label for="supervisor_id" :value="__('Supervisor')" />
-            <x-text-input id="supervisor_id" class="block mt-1 w-full" type="text" :value="old('supervisor_id')" required autofocus />
+            <x-text-input id="supervisor_id" class="block mt-1 w-full"  name="supervisor_id" type="text" :value="old('supervisor_id')" required autofocus />
             <x-input-error :messages="$errors->get('supervisor_id')" class="mt-2" />
         </div>
 
