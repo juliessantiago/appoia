@@ -55,6 +55,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $assuntos->links() }}
         </div>
     @else
         <p class="m-4 text-center text-gray-400">Nenhum assunto encontrado</p>

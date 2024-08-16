@@ -28,6 +28,8 @@ class UploadAutorizacao extends Component
         ]); 
         // dd($updated); 
         if($updated){
+            //não estou enviando notificação cada vez que um aluno envia um arquivo de autorização 
+            //porque vai criar um número muito grande de notificações
             //dispara toaster
             Toaster::success('Obrigada! Sua autorização será analisada e logo você poderá ter acesso às funcionalidades'); 
         }

@@ -78,6 +78,8 @@ Route::post('voluntario/register', [VoluntarioController::class, 'registerVolunt
 Route::prefix('supervisor')->middleware('auth:supervisor')->group(function () {
     Route::get('/dashboard', [SupervisorController::class, 'dashboard'])->name('dashboardSupervisor'); 
     Route::get('/logout', [SupervisorController::class, 'logout'])->name('supervisor.logout');
+    //dashboard exibe cards que redirecionam para diferentes páginas: 
+    Route::get('/paginaAssuntos', [SupervisorController::class, 'paginaAssuntos'])->name('paginaAssuntos'); 
 });
 Route::get('supervisor/register', [SupervisorController::class, 'showRegister'])->name('registerSupervisorForm'); 
 Route::post('supervisor/register', [SupervisorController::class, 'registerSupervisor'])->name('registerSupervisor'); 
