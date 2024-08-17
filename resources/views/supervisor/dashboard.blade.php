@@ -19,6 +19,7 @@
             <p class="text-pink-300 text-center text-xl font-bold mt-4">Assuntos</p>
         </a>
     </div>
+
     <div class="flex-col p-8 bg-pink-100 rounded-md focus:bg-pink-300">
         <a href="#">
             <img src="{{ asset('images/stickers/voluntarios.png')}}" class="content-center">
@@ -33,7 +34,7 @@
         </a>
     </div>
     <div class="flex-col p-8 bg-pink-100 rounded-md focus:bg-pink-300">
-        <a href="#">
+        <a href="{{route('paginaAutorizacoes')}}">
             <img src="{{ asset('images/stickers/autorizacao.png')}}" class="content-center" width="128px">
             <p class="text-pink-300 text-center text-xl font-bold mt-4">Autorizações</p>
         </a>

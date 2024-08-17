@@ -1,7 +1,5 @@
 <x-app-layout>
     <x-toaster-hub />
-
-
     <div class="m-10">
         <x-toaster-hub />
     </div>

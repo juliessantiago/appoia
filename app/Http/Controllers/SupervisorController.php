@@ -41,8 +41,11 @@ class SupervisorController extends Controller
 
     }
 
-    public function paginaAssuntos(){ //mostra página com todas as opções de assuntos
+    public function showAssuntos(){ //mostra página com todas as opções de assuntos
         return view('supervisor/paginaAssuntos'); 
+    }
+    public function showAutorizacoes(){ //mostra página com todas as opções de assuntos
+        return view('supervisor/paginaAutorizacoes'); 
     }
 
     public function logout(){
