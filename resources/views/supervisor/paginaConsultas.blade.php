@@ -6,21 +6,14 @@
             <p class="text-sky-400 text-md ml-4">Dashboard</p>
         </a>
     </div>
-
     
-    <p class="text-purple-400 text-3xl font-bold text-center">Informações do Voluntário</p>
+    <p class="text-purple-400 text-3xl font-bold text-center">Consultas Pendentes</p>
     <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">Expedientes de trabalho</p>
+        {{-- <p class="text-purple-400 text-xl font-bold text-center">Criar novo assunto</p> --}}
         <div class="flex items-center justify-center"> 
-            @livewire('get-expediente', ['id' => $id])
+            @livewire('get-consultas-pendentes')
         </div>
-    </div>
 
-    <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">Histórico de Consultas</p>
-        <div class="flex items-center justify-center"> 
-            @livewire('get-consultas', ['id' => $id])
-        </div>
     </div>
    
 <!-------------------------------------------------------------------------------------------------------------------------------------------->

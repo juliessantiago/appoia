@@ -11,8 +11,9 @@ use App\Http\Controllers\MultiAuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); 
 });
+
 Route::get('/preSignUp', [MultiAuthController::class, 'showPreSignUp'])->name('preSignUp'); 
 
 /*--------------------------------------Blog-------------------------------------*/ 
@@ -83,6 +84,7 @@ Route::prefix('supervisor')->middleware('auth:supervisor')->group(function () {
     Route::get('/paginaAutorizacoes', [SupervisorController::class, 'showAutorizacoes'])->name('paginaAutorizacoes'); 
     Route::get('/paginaVoluntarios', [SupervisorController::class, 'showVoluntarios'])->name('paginaVoluntarios'); 
     Route::get('/detalhesVoluntario/{id}', [SupervisorController::class, 'showDetalhesVoluntario'])->name('detalhesVoluntario'); 
+    Route::get('/paginaConsultas', [SupervisorController::class, 'showConsultas'])->name('paginaConsultas'); 
     
 });
 Route::get('supervisor/register', [SupervisorController::class, 'showRegister'])->name('registerSupervisorForm'); 

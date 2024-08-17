@@ -60,6 +60,10 @@ class SupervisorController extends Controller
         //3) No componente livewire exibo as informações de acordo com o id passado. Eles também são usados na dashboard de voluntário
     }
 
+    public function showConsultas(){ //mostra página com todas as opções de voluntarios
+        return view('supervisor/paginaConsultas'); 
+    }
+
     public function logout(){
         Auth::guard('supervisor')->logout(); 
         return redirect()->route('multilogin'); 

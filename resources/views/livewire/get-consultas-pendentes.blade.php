@@ -1,6 +1,6 @@
 <div class="p-4">
     {{-- {{$consultas}} --}}
-    @if($consultas->count() > 0)
+    @if($pendentes->count() > 0)
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 
@@ -19,9 +19,7 @@
                         <th scope="col" class="px-6 py-3"> 
                             Status
                         </th>
-                        <th scope="col" class="px-6 py-3"> 
-                            Paciente
-                        </th>
+                   
                         <th>
                         </th>
                         <th>
@@ -30,7 +28,7 @@
                 </thead>
                 <tbody>
                     {{-- {{count($expedientes)}} --}}
-                    @foreach ($consultas as $consulta)
+                    @foreach ($pendentes as $consulta)
                     {{-- {{$expediente->id}} --}}
                         <div>
                             <tr  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"  >
@@ -47,22 +45,11 @@
                                 <td  class="px-6 py-4">
                                     {{$consulta->status}}
                                 </td>
-                                <td  class="px-6 py-4">
-                                    {{$consulta->name}}
+                                <td class="px-6 py-4">
+                                    <button wire:click="$dispatch('abreModalAutorizaConsulta', { consulta: {{ $consulta }} })" class="text-md text-pink-500 hover:text-pink-600">
+                                        Autorizar 
+                                     </button>
                                 </td>
-                               @if(Auth::guard()->name == 'voluntario')
-                                    <td>
-                                        <button class="text-md hover:text-pink-500">
-                                            Editar
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="text-md hover:text-pink-500">
-                                            Excluir
-                                        </button>
-                                    </td>
-                                
-                                @endif
                             </tr>
                         </div>
                
@@ -74,7 +61,7 @@
         </div>
     @else 
         
-        <p class="text-center text-sm text-gray-500">Não há histórico de consultas</p>
+        <p class="text-center text-sm text-gray-500">Não há consultas a serem autorizadas</p>
     @endif 
 </div>
     

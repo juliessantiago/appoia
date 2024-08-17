@@ -13,6 +13,7 @@ class GetVoluntarios extends Component
     public function render()
     {
         //Atenção: para usar paginação NÃO pode usar método MOUNT, usa-se diretamente  o render 
+        //Paginação está com problema
         $voluntarios = Voluntario::where('supervisor_id', Auth::user()->id)->get(); 
         return view('livewire.get-voluntarios', ['voluntarios' => $voluntarios]);
     }
