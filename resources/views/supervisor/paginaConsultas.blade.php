@@ -29,3 +29,26 @@
         </div>
     </div>
 </x-app-layout>
+<!----------------------------------------------------------------------------------------------------------->
+<script>
+    document.addEventListener('livewire:init', () => {
+        Livewire.on('abreModalAutorizaConsulta', (event)=> {
+            // console.log(event.consulta)
+            Swal.fire({
+                title: "Autorizar Consulta",
+                text: "Autorizando a consulta, o voluntário poderá criar o link da reunião online e disponibilizar ao paciente",
+                showCancelButton: true,
+                confirmButtonColor: "#F0ABFC", 
+                cancelButtonColor: "#9CA3AF",
+                confirmButtonText: "Autorizar",
+                cancelButtonText: `Cancelar`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // console.log('confirmou')
+                    Livewire.dispatch('autorizaConsulta',  {id: event.consulta.id }) //envia dados para método no componente que escuta esse evento por nome
+                }
+            });
+        });
+
+    }); 
+</script>
