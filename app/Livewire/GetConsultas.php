@@ -9,8 +9,8 @@ class GetConsultas extends Component
 {
     public $consultas; 
 
-    public function mount(){
-        $this->consultas = Consulta::where('id_voluntario', Auth::user()->id)->get(); 
+    public function mount($id){
+        $this->consultas = Consulta::where('id_voluntario', $id)->get(); 
     }
     public function render()
     {

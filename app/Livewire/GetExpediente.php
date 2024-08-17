@@ -22,7 +22,7 @@ class GetExpediente extends Component
     public function refreshComponent(){
         // dd('atualizou');
         // $this->dispatch('$refresh'); 
-        // $this->mount($id); 
+        // $this->mount(); 
         $this->render(); 
     }
     public function render()

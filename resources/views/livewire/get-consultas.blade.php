@@ -38,7 +38,7 @@
                                 <td  class="px-6 py-4">
                                     {{$consulta->status}}
                                 </td>
-                               
+                               @if(Auth::guard()->name == 'voluntario')
                                     <td>
                                         <button class="text-md hover:text-pink-500">
                                             Editar
@@ -49,7 +49,8 @@
                                             Excluir
                                         </button>
                                     </td>
-                                        
+                                
+                                @endif
                             </tr>
                         </div>
                

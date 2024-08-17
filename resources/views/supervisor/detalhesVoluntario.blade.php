@@ -3,14 +3,20 @@
     <div class="m-10">
         <x-toaster-hub />
     </div>
-    
+    ID DO VOLUNTÁRIO {{$id}}
     <p class="text-purple-400 text-3xl font-bold text-center">Informações do Voluntário</p>
     <div class="m-10">
-        {{-- <p class="text-purple-400 text-xl font-bold text-center">Criar novo assunto</p> --}}
+        <p class="text-purple-400 text-xl font-bold text-center">Expedientes de trabalho</p>
         <div class="flex items-center justify-center"> 
             @livewire('get-expediente', ['id' => $id])
         </div>
+    </div>
 
+    <div class="m-10">
+        <p class="text-purple-400 text-xl font-bold text-center">Histórico de Consultas</p>
+        <div class="flex items-center justify-center"> 
+            @livewire('get-consultas', ['id' => $id])
+        </div>
     </div>
    
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
