@@ -2,7 +2,7 @@
 
     <x-toaster-hub />
   
-    <p class="text-purple-400 text-3xl font-bold text-center">Autorizações para aprovar</p>
+    <p class="text-purple-400 text-3xl font-bold text-center mt-10">Autorizações</p>
     <div class="m-10">
         <div class="flex items-center justify-center"> 
             @livewire('get-autorizacoes-alunos')
@@ -19,6 +19,24 @@
                 imageUrl: caminho,
                 showCloseButton: true,
             }); 
+        }); 
+
+        Livewire.on('abreModalLiberaAluno', (event)=> {
+            let idAluno = event.aluno.id
+                Swal.fire({
+                    title: "Liberar paciente?",
+                    text: "Somente libere acesso se o arquivo com a autorização assinada foi enviado corretamente",
+                    showCancelButton: true,
+                    confirmButtonColor: "#F0ABFC", //liberar
+                    cancelButtonColor: "#9CA3AF",
+                    confirmButtonText: "Liberar",
+                    cancelButtonText: `Cancelar`
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // console.log(idAluno)
+                        Livewire.dispatch('enviaIdAluno',  {idAluno: idAluno }) //envia dados para método no componente que escuta esse evento por nome
+                    }
+                });
         }); 
 
     }); 

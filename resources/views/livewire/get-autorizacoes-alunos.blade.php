@@ -27,6 +27,9 @@
                   <th scope="col" class="px-6 py-3">
                      Autorização
                   </th> 
+                  <th scope="col" class="px-6 py-3">
+                     
+                  </th> 
             </tr>
          </thead>
          <tbody>
@@ -44,11 +47,16 @@
                         </td>
                   
                         <td  class="px-6 py-4">
-                              {{$aluno->status}}
+                           @if($aluno->status == 0)
+                              <p>Não liberado</p>
+                           @else
+                              <p>Liberado</p>
+                           @endif
+                       
                         </td>
                         <td>
                            @if($aluno->created_at == null)
-                              <p>Indisponível</p>
+                              <p class="text-center">Indisponível</p>
                            @else
                               {{\Carbon\Carbon::create($aluno->created_at)->format('d/m/y')}}
                            @endif 
@@ -58,14 +66,26 @@
                         </td>
                         <td class="px-6 py-4">
                            @if($aluno->linkAutorizacao==null)
-                              <p>Indisponível</p>
+                              <p class="text-center">Indisponível</p>
                            @else
                               <button wire:click="$dispatch('abreModalAutorizacao', { aluno: {{ $aluno }} })" class="text-md text-pink-500 hover:text-pink-600">
                                  Ver autorização
                               </button>
                            @endif
-                          
                         </td>
+                        @if($aluno->linkAutorizacao == null || $aluno->linkAutorizacao == '' || $aluno->linkAutorizacao == ' ')
+                           <td class="px-6 py-4">
+                              <div> 
+                                 <p>Indisponível</p>
+                              </div> 
+                           </td>   
+                        @else
+                           <td class="px-6 py-4">
+                              <button wire:click="$dispatch('abreModalLiberaAluno', { aluno: {{ $aluno }} })">
+                                 Liberar acesso
+                              </button>
+                           </td>
+                        @endif 
                      </tr>
                   </div>
 
