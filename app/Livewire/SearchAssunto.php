@@ -5,10 +5,12 @@ use App\Models\Assunto;
 use Livewire\Attributes\On; 
 use Livewire\Component;
 use Masmerise\Toaster\Toastable;
+use Livewire\WithPagination;
 
 class SearchAssunto extends Component
 {
     use Toastable; 
+    use WithPagination;
         public $search = '';
 
         #[On('atualiza-assuntos')] 
@@ -31,8 +33,7 @@ class SearchAssunto extends Component
         } 
         public function render()
         {
-            $assuntos = Assunto::where('descricao', 'like', '%' . $this->search . '%')
-                ->get();
+            $assuntos = Assunto::where('descricao', 'like', '%' . $this->search . '%')->paginate(3);
     
             return view('livewire.search-assunto', ['assuntos' => $assuntos]);
         }

@@ -84,3 +84,18 @@ text-xl p-6 font-bold
 
 /*-------------------------figurinha autorizacao--------------------*/ 
 <a href="https://www.flaticon.com/br/stickers-gratis/politica" title="política figurinhas">Política figurinhas criadas por kerismaker - Flaticon</a>
+
+<!-----------------------figurinha relógio----------------------------*/ 
+<a href="https://www.flaticon.com/br/stickers-gratis/relogio" title="relógio figurinhas">Relógio figurinhas criadas por Ina Mella - Flaticon</a>
+
+<!----------------------figurinha prancheta (opções assuntos) dashboard supervisor--------------------------------*/ 
+<a href="https://www.flaticon.com/br/stickers-gratis/prancheta" title="prancheta figurinhas">Prancheta figurinhas criadas por Gohsantosadrive - Flaticon</a>
+
+<!--------------------figurinha formanda (dashboard supervisor)-------------------------------------------!> 
+<a href="https://www.flaticon.com/br/stickers-gratis/aluna" title="aluna figurinhas">Aluna figurinhas criadas por kerismaker - Flaticon</a>
+
+<!----------------figurinha agenda (dashboard supervisor)--------------------------------------------------!> 
+<a href="https://www.flaticon.com/br/stickers-gratis/calendario" title="calendário figurinhas">Calendário figurinhas criadas por Ghozi Muhtarom - Flaticon</a>
+
+<!-----------------figurinha teleconsulta (dashboard)----------------------------------------------------------!>
+<a href="https://www.flaticon.com/br/stickers-gratis/video-chamada" title="video chamada figurinhas">Video chamada figurinhas criadas por inipagistudio - Flaticon</a>

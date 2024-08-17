@@ -41,6 +41,13 @@ class SupervisorController extends Controller
 
     }
 
+    public function showAssuntos(){ //mostra página com todas as opções de assuntos
+        return view('supervisor/paginaAssuntos'); 
+    }
+    public function showAutorizacoes(){ //mostra página com todas as opções de assuntos
+        return view('supervisor/paginaAutorizacoes'); 
+    }
+
     public function logout(){
         Auth::guard('supervisor')->logout(); 
         return redirect()->route('multilogin'); 
