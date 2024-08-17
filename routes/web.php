@@ -81,6 +81,8 @@ Route::prefix('supervisor')->middleware('auth:supervisor')->group(function () {
     //dashboard exibe cards que redirecionam para diferentes páginas: 
     Route::get('/paginaAssuntos', [SupervisorController::class, 'showAssuntos'])->name('paginaAssuntos'); 
     Route::get('/paginaAutorizacoes', [SupervisorController::class, 'showAutorizacoes'])->name('paginaAutorizacoes'); 
+    Route::get('/paginaVoluntarios', [SupervisorController::class, 'showVoluntarios'])->name('paginaVoluntarios'); 
+    Route::get('/detalhesVoluntario/{id}', [SupervisorController::class, 'showDetalhesVoluntario'])->name('detalhesVoluntario'); 
     
 });
 Route::get('supervisor/register', [SupervisorController::class, 'showRegister'])->name('registerSupervisorForm'); 

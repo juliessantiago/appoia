@@ -21,7 +21,7 @@
     </div>
 
     <div class="flex-col p-8 bg-pink-100 rounded-md focus:bg-pink-300">
-        <a href="#">
+        <a href="{{route('paginaVoluntarios')}}">
             <img src="{{ asset('images/stickers/voluntarios.png')}}" class="content-center">
             <p class="text-pink-300 text-center text-xl font-bold mt-4">Voluntários</p>
         </a>

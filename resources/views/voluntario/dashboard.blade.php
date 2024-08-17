@@ -24,7 +24,8 @@
             @livewire('create-expediente')
         </div>
         <div class="m-5">
-            @livewire('get-expediente')
+            {{-- @livewire('get-expediente') --}}
+            @livewire('get-expediente', ['id' => Auth::user()->id])
         </div>
         <div class="m-5">
         </div>

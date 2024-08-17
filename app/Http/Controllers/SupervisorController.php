@@ -48,6 +48,18 @@ class SupervisorController extends Controller
         return view('supervisor/paginaAutorizacoes'); 
     }
 
+    public function showVoluntarios(){ //mostra página com todas as opções de voluntarios
+        return view('supervisor/paginaVoluntarios'); 
+    }
+
+    public function showDetalhesVoluntario($id){ //mostra página que carrega componentes livewire com detalhes de voluntario
+        return view('supervisor/detalhesVoluntario', ["id" => $id]); 
+        //1)no componente getVoluntarios, há na tabela a opção de visualizar detalhes do voluntário
+        //quando clico no link, chamo a rota detalhesVoluntario/{id}, passando como parametro o id do voluntário
+        //2) rota chama (através desse método aqui) a view detalhesVoluntario.blade, nela eu chamo os componentes necessários, passando o id do voluntário
+        //3) No componente livewire exibo as informações de acordo com o id passado. Eles também são usados na dashboard de voluntário
+    }
+
     public function logout(){
         Auth::guard('supervisor')->logout(); 
         return redirect()->route('multilogin'); 

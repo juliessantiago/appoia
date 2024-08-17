@@ -3,18 +3,17 @@
     <div class="m-10">
         <x-toaster-hub />
     </div>
-    <p class="text-purple-400 text-3xl font-bold text-center">Assuntos</p>
+    
+    <p class="text-purple-400 text-3xl font-bold text-center">Informações do Voluntário</p>
     <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">Criar novo assunto</p>
+        {{-- <p class="text-purple-400 text-xl font-bold text-center">Criar novo assunto</p> --}}
         <div class="flex items-center justify-center"> 
-            @livewire('create-assunto')
+            @livewire('get-expediente', ['id' => $id])
         </div>
-    </div>
-    <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">Assuntos</p>
-        @livewire('search-assunto')
-    </div>
 
+    </div>
+   
+<!-------------------------------------------------------------------------------------------------------------------------------------------->
     <div class="flex justify-between px-14 py-6"> 
         <div class="flex mt-4 md:mt-6">
             <a href="{{url()->previous()}}"><img src="{{ asset('images/icons/voltar.png')}}" /></a>
