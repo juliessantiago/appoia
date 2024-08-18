@@ -54,7 +54,7 @@ class GetConsultasHojeVol extends Component
                 'lida' => false,
             ]);
 
-            $dataFormat = Carbon::create('2024-07-25')->format('d-m-Y'); 
+            $dataFormat = Carbon::create($dia)->format('d-m-Y'); 
             $voluntario->notificacoes()->save($notificacao); //cria relação entre voluntário e a notificação criada
             $this->success("Status da consulta do dia ".$dataFormat." alterado para Ausente"); //toaster 
             $this->mount(); 

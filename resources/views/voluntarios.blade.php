@@ -1,5 +1,11 @@
 <x-app-layout>
-
+  
+  <div class="flex mt-4 md:mt-4">
+    <a href="{{route('dashboardSupervisor')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium"> 
+        <img  src="{{ asset('images/icons/dashboard.png')}}" class="h-8" alt="voltar para dashboard" />
+        <p class="text-sky-400 text-md ml-4">Dashboard</p>
+    </a>
+</div>
     <h4 class="text-center text-purple-300 text-2xl p-6 font-bold">Nossos voluntários</h4>
     <div class="w-full flex justify-center items-center flex-wrap">
       @if($voluntarios->count() > 0 )
@@ -19,7 +25,7 @@
       @else 
       <div class="mt-14 ">
         @livewire('show-sorry-face')
-        <p class="text-2xl text-gray-400 text-center">Desculpe, não encontrei resultados.</p>
+        <p class="text-2xl text-gray-400 text-center">Desculpe, não encontramos resultados.</p>
       </div>
       @endif
     </div>

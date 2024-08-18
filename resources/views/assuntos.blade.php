@@ -1,19 +1,18 @@
 <x-app-layout>
     <div class="flex justify-center content-center m-8">
-      <div class="flex-column max-w-md p-4 m-4 bg-sky-300 rounded-md">
-        {{-- <img src="{{ asset('images/stickers/duvida.png')}}"/> --}}
-        <h4 class="text-slate-50">Não sabe o que fazer agora? Tudo bem, vamos te ajudar!</h4>
-        <span class="text-slate-50 text-md">Você pode começar escolhendo um assunto que gostaria de falar ou ir direto para a </span>
-        <span class="text-2xl  text-slate-50 text-md mx-2 underline"><a href="{{route('allVoluntarios')}}">lista de voluntários</a></span>
+      <div class="flex"> 
+        <img  src="{{ asset('images/stickers/lampadazinha.png')}}"/>
       </div>
-      {{-- <div class=" md:mt-6">
-        <a href="{{route('allVoluntarios')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Voluntários</a>
-      </div> --}}
+      <div class="flex-column content-center m-4">
+        {{-- <img src="{{ asset('images/stickers/duvida.png')}}"/> --}}
+        <p class="text-gray-400 text-justify text-lg">Você pode começar escolhendo um assunto que gostaria de falar<p>
+        <p class="text-gray-400 text-justify text-lg">ou ir direto para a  <a href="{{route('allVoluntarios')}}" class="text-gray-400 underline">lista de voluntários</a></p>
+      </div>
     </div>
    
     @if($assuntos->count() > 0)
       <div class="">
-        <h4 class="text-center text-purple-300 text-2xl p-6 font-bold">Escolha um tema para a conversa</h4>
+        <h4 class="text-center text-purple-400 text-2xl p-6 font-bold">Escolha um tema para a conversa</h4>
         <div class="m-10"> 
           <p class="text-purple-400 text-xl font-bold text-center">Assuntos</p>
           @livewire('search-assunto') 

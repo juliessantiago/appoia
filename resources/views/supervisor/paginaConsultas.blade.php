@@ -45,7 +45,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     // console.log('confirmou')
-                    Livewire.dispatch('autorizaConsulta',  {id: event.consulta.id }) //envia dados para método no componente que escuta esse evento por nome
+                    Livewire.dispatch('autorizaConsulta',  {consulta: event.consulta }) //envia dados para método no componente que escuta esse evento por nome
                 }
             });
         });

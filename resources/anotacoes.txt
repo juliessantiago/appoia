@@ -100,5 +100,8 @@ text-xl p-6 font-bold
 <!-----------------figurinha teleconsulta (dashboard)----------------------------------------------------------!>
 <a href="https://www.flaticon.com/br/stickers-gratis/video-chamada" title="video chamada figurinhas">Video chamada figurinhas criadas por inipagistudio - Flaticon</a>
 
-<!-------------------ícone voltar para dashboard----------------------------------------------------------------------------------!> 
+<!-------------------ícone voltar para (todas dashboards)----------------------------------------------------------------------------------!> 
 <a href="https://www.flaticon.com/br/icones-gratis/painel-de-controle" title="painel de controle ícones">Painel de controle ícones criados por kmg design - Flaticon</a>
+
+<!-------------------figurinha lampada na página de assuntos (dashboard aluno)---------------------------------------!> 
+<a href="https://www.flaticon.com/br/stickers-gratis/criatividade" title="criatividade figurinhas">Criatividade figurinhas criadas por Stickers - Flaticon</a>

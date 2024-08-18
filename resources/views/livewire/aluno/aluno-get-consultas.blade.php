@@ -69,7 +69,7 @@
                 </table>
             </div>
         @else 
-            <p class="text-center text-sm text-gray-500">Você não possui nenhuma consulta marcada para hoje</p>
+            <p class="text-center text-sm text-gray-500">Você não possui consulta marcada para hoje</p>
         @endif 
     </div>
         

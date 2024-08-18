@@ -19,8 +19,11 @@ class UploadAutorizacao extends Component
         // dd("save"); 
         // $nomeAlterado = str_replace(' ', '', Auth::user()->name);
         $hashNome = $this->file->hashName(); 
+        // dd($hashNome); 
         // $this->file->storeAs('files', $hashNome, 'public'); 
-        Storage::disk('s3')->put('files', $hashNome, 'public');
+        $this->file->storeAs(path: 'files', name: $hashNome);
+        // $retorno = Storage::disk('s3')->put('/files', $hashNome, 'public');
+        // dd($retorno); 
         $updated = Aluno::where('id', Auth::user()->id)->update([
             // 'status' => true,
             'linkAutorizacao' => $hashNome
