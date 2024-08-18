@@ -9,7 +9,7 @@ class Consulta extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'status',
+        'status', //pendente, autorizada, disponível, realizada, cancelada, ausente
         'dia', 
         'start', 
         'end', 

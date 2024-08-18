@@ -83,7 +83,7 @@
             </table>
         </div>
     @else 
-        <p class="text-center text-sm text-gray-500">Você ainda não possui consultas autorizadas</p>
+        <p class="text-center text-sm text-gray-500">Você não possui consultas hoje</p>
     @endif 
 </div>
     

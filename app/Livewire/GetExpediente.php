@@ -11,8 +11,8 @@ class GetExpediente extends Component
 {
     public $expedientes; 
    //descobrir forma de exibir na ordem dos dias da semana
-    public function mount(){ 
-        $this->expedientes = Expediente::where('id_voluntario', Auth::user()->id )->orderByRaw("FIELD(diaSemana, 'segunda', 'terca',
+    public function mount($id){ 
+        $this->expedientes = Expediente::where('id_voluntario', $id)->orderByRaw("FIELD(diaSemana, 'segunda', 'terca',
         'quarta', 'quinta', 'sexta')")->get(); 
     }
     //Consigo acessar Auth:user() dentro do componente Livewire
@@ -22,7 +22,7 @@ class GetExpediente extends Component
     public function refreshComponent(){
         // dd('atualizou');
         // $this->dispatch('$refresh'); 
-        $this->mount(); 
+        // $this->mount(); 
         $this->render(); 
     }
     public function render()

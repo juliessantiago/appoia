@@ -13,7 +13,7 @@
   <link rel="icon" src="{{ asset('images/favicon/favicon.png')}}"">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <!-- Hotjar Tracking Code for Site 5077382 (nome ausente) -->
-    <script>
+    <script> //Hotjar
       (function(h,o,t,j,a,r){
           h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
           h._hjSettings={hjid:5077382,hjsv:6};
@@ -25,31 +25,34 @@
     </script>
 </head>
 <body class="scroll-smooth">
-  <nav class="bg-purple-400 dark:bg-gray-900">
+  <nav class="bg-pink-300 dark:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-          {{-- <img  src="{{ asset('images/logo_pequeno.png')}}" class="h-8" alt="Appoia logo" /> --}}
-          <span class="text-violet-200 text-lg text-bold">Appoia</span>
-          <!-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Appoia</span> -->
+      <a href="/" class="inline-flex items-center px-6 py-2 text-sm font-medium"> 
+          <img  src="{{ asset('images/icone_appoia.png')}}" class="h-8" alt="voltar para página inicial" />
+          <p class="text-pink-300 text-md ml-4 font-bold">Appoia</p>
       </a>
-      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+             
+      {{-- <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
           <span class="sr-only">Abrir menu</span>
           <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
           </svg>
-      </button>
+      </button> --}}
       <div class="hidden w-full md:block md:w-auto" id="navbar-default">
         <ul class="font-medium flex flex-col p-4 
         md:p-0 mt-4  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-       
+          
           <li>
-            <a href="#" class="text-lg block py-2 px-3  bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  text-white font-bold" aria-current="page">Como podemos ajudar</a>
+            <a href="#ajudar" class="text-lg block py-2 px-3  bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  text-white font-bold" aria-current="page">Como podemos ajudar</a>
           </li>
           <li>
-              <a href="#" class="text-lg block py-2 px-3 bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500 text-white font-bold" aria-current="page">Como funciona</a>
+              <a href="#como_funciona" class="text-lg block py-2 px-3 bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500 text-white font-bold" aria-current="page">Como funciona</a>
           </li>
           <li>
-              <a href="{{ route('multilogin') }}" class="text-lg block py-2 px-3 bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500 font-bold text-white" aria-current="page">Entrar</a>
+              <a href="#blog" class="text-lg block py-2 px-3 bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500 font-bold text-white" aria-current="page">Blog</a>
+          </li>
+          <li>
+            <a href="{{ route('multilogin') }}" class="text-lg block py-2 px-3 bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500 font-bold text-white" aria-current="page">Entrar</a>
           </li>
           <li>
             <a href="{{ route('registerAlunoForm') }}" class="text-lg block py-2 px-3 bg-violet-400 rounded md:bg-transparent md:text-slate-50 md:p-0 dark:text-white md:dark:text-blue-500  font-bold text-white" aria-current="page">Criar Conta</a>
@@ -59,16 +62,16 @@
     </div>
   </nav>
 <!------------------------------header--------------------------------> 
-<div class="flex justify-around">
+<div class="flex justify-around mb-10">
   <img class="max-w-screen-md" src="{{ asset('images/imagem_header.jpg')}}"> 
   <div class="flex flex-col justify-center align-middle">
-    <h1 class="text-fuchsia-300 text-6xl">Você não está</h1>
-    <h2 class="text-fuchsia-400 text-7xl ml-6">sozinho</h2>
+    <h1 class="text-purple-300 text-7xl">Você não está</h1>
+    <h2 class="text-purple-400 text-8xl ml-6">sozinho</h2>
   </div>
 </div>
 <!-----------------------Como podemos ajudar------------------------>
-<div class="font-bold text-center text-4xl text-pink-400"> ... </div>
-<h4 class="text-center text-sky-300 text-4xl p-6 font-bold">Como podemos ajudar você</h4>
+<div class="font-bold text-center text-4xl text-pink-400 mt-10"> ... </div>
+<h4 class="text-center text-sky-300 text-4xl p-6 font-bold" id="ajudar">Como podemos ajudar você</h4>
 
 <div class="flex flex-row p-6 align-middle justify-around">
   <!-- <h3 class="text-purple-300 text-center text-3xl p-2">Cuide de sua mente</h3>
@@ -127,47 +130,13 @@
 
 <!-----------------------------------Como funciona-------------------------------------------->
 <div class="font-bold text-center text-4xl text-pink-400"> ... </div>
-<div class="flex justify-center">
-  <img src="{{ asset('images/funciona.png')}}">
+<div class="flex justify-center" id="como_funciona">
+  <img src="{{ asset('images/como_funciona.png')}}">
 </div>
-
-<!----------------------------------Depoimentos------------------------------------------------->
-{{-- <div class="flex justify-around align-middle mt-5 mb-10 ">
-    
-    <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">Aluna Anônima </h5>
-          <h6 class="text-gray-400 font-bold dark:text-white"> Escola Cel. Pedro Osório - Pelotas</h6>
-      </a>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">"Nunca tinha conversado com psicólogo antes, gostei. Me ajudou muito"</p>
-     <span class="text-sm "></span>
-    </div>
-
-    <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">Aluna Anônima </h5>
-          <h6 class="text-gray-400 font-bold dark:text-white"> Colégio Municipal Pelotense - Pelotas</h6>
-      </a>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">"Foi muito bom! Pude conversar sobre minhas ansiedades com total liberdade"</p>
-      <span class="text-sm "></span>
-    </div>
-
-    <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">Aluno Anônimo </h5>
-          <h6 class="text-gray-400 font-bold dark:text-white"> Escola Municipal Dr. Acides Mendonça Lima - Pelotas</h6>
-      </a>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">"Gostei! A voluntária me ouviu com atenção."</p>
-      <span class="text-sm "></span>
-    </div>
-    
-    
-
-</div> --}}
 
 <!----------------------------------------blog------------------------------------------------------>
 <div class="font-bold text-center text-4xl text-pink-400"> ... </div>
-<div class="m-4 p-6">
+<div class="m-4 p-6" id="blog">
   <div class="flex justify-around items-center mb-10"><!--flex superior-->
     <img src="images/depressao_blog.png" class="w-2/8 p-2">
     <!--card-->
@@ -239,18 +208,20 @@
 </div><!--final div blog--> 
 
 <!--------------------------------------Footer------------------------------------------------------>
-<footer class="bg-purple-400  shadow dark:bg-gray-800">
+<footer class="bg-pink-300  shadow dark:bg-gray-800">
   <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
     <span class="text-sm text-slate-50 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">Appoia</a>. Licença MIT.
   </span>
   <ul class="flex flex-wrap items-center mt-3 text-base font-medium text-slate-50 dark:text-gray-400 sm:mt-0">
       <li>
-          <a href="#" class="hover:text-white me-4 md:me-6">Como podemos ajudar</a>
+          <a href="#ajudar" class="hover:text-white me-4 md:me-6">Como podemos ajudar</a>
       </li>
       <li>
-          <a href="#" class="hover:text-slate-50 me-4 md:me-6">Como funciona</a>
+          <a href="#como_funciona" class="hover:text-slate-50 me-4 md:me-6">Como funciona</a>
       </li>
-   
+      <li>
+        <a href="#blog" class="hover:text-slate-50 me-4 md:me-6">Blog</a>
+      </li>
       <li>
         <a href="{{route('registerVoluntarioForm')}}" class=" font-bold hover:text-slate-50 me-4 md:me-6">Cadastro voluntário</a>
       </li>

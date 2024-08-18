@@ -56,19 +56,22 @@
         <!-- Emaill -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email *')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-text-input id="email" class="block mt-1 w-full text-purple-400 @error('email') is-invalid @enderror" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2 bg-pink-800 p-2" />
+                @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
         </div>
 
         <!-- Senha -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Senha *')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="password" class="block mt-1 w-full text-purple-400"
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
-
+            
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
@@ -76,7 +79,7 @@
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirmar senha')" />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+            <x-text-input id="password_confirmation" class="block mt-1 w-full text-purple-400"
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" />
 

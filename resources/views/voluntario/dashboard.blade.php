@@ -24,7 +24,8 @@
             @livewire('create-expediente')
         </div>
         <div class="m-5">
-            @livewire('get-expediente')
+            {{-- @livewire('get-expediente') --}}
+            @livewire('get-expediente', ['id' => Auth::user()->id])
         </div>
         <div class="m-5">
         </div>
@@ -42,7 +43,10 @@
     </div>
     <div class="m-10">
         <p class="text-purple-400 text-xl font-bold text-center">Minhas Consultas</p>
-        @livewire('get-consultas')
+        {{-- @livewire('get-consultas') --}}
+        {{Auth::user()->id}}
+        @livewire('get-consultas', ['id' => Auth::user()->id])
+
     </div>
     <div class="bg-pink-400"> 
         {{-- <form method="POST" action="{{route('preMeetingVoluntario')}}">

@@ -11,14 +11,14 @@
         <!-- Nome -->
         <div>
             <x-input-label for="name" :value="__('Nome')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-text-input id="name" class="block mt-1 w-full text-purple-400" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!--CRP--> 
         <div>
             <x-input-label for="crp" :value="__('CRP')" />
-            <x-text-input id="crp" class="block mt-1 w-full" type="text" name="crp" :value="old('crp')" required autofocus autocomplete="crp" />
+            <x-text-input id="crp" class="block mt-1 w-full text-purple-400" type="text" name="crp" :value="old('crp')" required autofocus autocomplete="crp" />
             <x-input-error :messages="$errors->get('crp')" class="mt-2" />
         </div>
 
@@ -26,7 +26,7 @@
         <!-- Emaill -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full text-purple-400" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
@@ -34,7 +34,7 @@
         <div class="mt-4">
             <x-input-label for="password" :value="__('Senha')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="password" class="block mt-1 w-full text-purple-400"
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
@@ -46,7 +46,7 @@
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirmar senha')" />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+            <x-text-input id="password_confirmation" class="block mt-1 w-full text-purple-400"
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" />
 

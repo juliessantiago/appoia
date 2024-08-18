@@ -1,5 +1,5 @@
 <div class="p-4">
-    
+    @if($expedientes->count() > 0)
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             
@@ -43,6 +43,7 @@
                             <td class="px-6 py-4">
                                 {{$expediente->fimExpediente}}
                             </td>
+                            @if(Auth()->guard()->name == 'voluntario')<!--somente voluntário edita e exclui seu expediente--> 
                                 <td>
                                     <button wire:click="$dispatch('abreModalEdicao', { data: {{ $expediente }} })" class="text-md hover:text-pink-500">
                                         Editar
@@ -53,6 +54,7 @@
                                         Excluir
                                     </button>
                                 </td>
+                                @endif
                                     
                         </tr>
                     </div>
@@ -63,6 +65,8 @@
             </tbody>
         </table>
     </div>
-
+    @else
+        <p class="text-gray-400">Voluntário ainda não cadastrou seus expedientes</p>
+    @endif
 </div>
 

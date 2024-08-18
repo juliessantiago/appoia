@@ -21,14 +21,14 @@
     </div>
 
     <div class="flex-col p-8 bg-pink-100 rounded-md focus:bg-pink-300">
-        <a href="#">
+        <a href="{{route('paginaVoluntarios')}}">
             <img src="{{ asset('images/stickers/voluntarios.png')}}" class="content-center">
             <p class="text-pink-300 text-center text-xl font-bold mt-4">Voluntários</p>
         </a>
     </div>
 
     <div class="flex-col p-8 bg-pink-100 rounded-md focus:bg-pink-300">
-        <a href="#">
+        <a href="{{route('paginaConsultas')}}">
             <img src="{{ asset('images/stickers/consultas.png')}}" class="">
             <p class="text-pink-300 text-center text-xl font-bold mt-4">Consultas</p>
         </a>
@@ -39,57 +39,8 @@
             <p class="text-pink-300 text-center text-xl font-bold mt-4">Autorizações</p>
         </a>
     </div>
-    <div class="flex-col p-8 bg-pink-100 rounded-md focus:bg-pink-300">
-        <a href="#">
-            <img src="{{ asset('images/stickers/calendario.png')}}" class="">
-            <p class="text-pink-300 text-center text-xl font-bold mt-4">Expedientes</p>
-        </a>
-    </div>
-    
 </div>
 
-{{-- <div class="flex justify-around m-6 mt-6">
-    <div class="flex-col p-10 bg-pink-100 rounded-md focus:bg-pink-300">
-        <a href="#">
-            <img src="{{ asset('images/stickers/assuntos.png')}}" class="">
-            <p class="text-pink-300 text-center text-xl font-bold mt-4">Expedientes</p>
-        </a>
-    </div>
-    <div class="flex-col p-10 bg-pink-100 rounded-md focus:bg-pink-300">
-        <a href="#">
-            <img src="{{ asset('images/stickers/voluntarios.png')}}" class="content-center">
-            <p class="text-pink-300 text-center text-xl font-bold mt-4">Voluntários</p>
-        </a>
-    </div>
-    <div class="flex-col p-10 bg-pink-100 rounded-md focus:bg-pink-300">
-        <a href="#">
-            <img src="{{ asset('images/stickers/autorizacao.png')}}" class="content-center" width="128px">
-            <p class="text-pink-300 text-center text-xl font-bold mt-4">Autorizações</p>
-        </a>
-    </div>
-</div> --}}
-
-    {{-- <div class="m-10">
-        <x-toaster-hub />
-    </div>
-    <p class="text-purple-400 text-3xl font-bold text-center">Assuntos</p>
-    <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">Criar novo assunto</p>
-        <div class="flex items-center justify-center">
-            @livewire('create-assunto')
-        </div>
-    </div>
-
-
-    <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">Assuntos</p>
-        @livewire('search-assunto')
-    </div>
-
-    <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">Autorizações para Aprovar</p>
-        @livewire('get-autorizacoes-alunos')
-    </div> --}}
 <!----------------------------------------------------------------------------------------------------------->
 <script>
     document.addEventListener('livewire:init', () => {

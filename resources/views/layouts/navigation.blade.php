@@ -5,9 +5,12 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    {{-- <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
-                    </a> --}}
+                    <div class="flex mt-2">
+                        <a href="/" class="inline-flex items-center px-6 py-2 text-sm font-medium"> 
+                            <img  src="{{ asset('images/icone_appoia.png')}}" class="h-8" alt="voltar para página inicial" />
+                            <p class="text-pink-300 text-md ml-4 font-bold">Appoia</p>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Navigation Links -->
