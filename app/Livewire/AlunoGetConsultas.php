@@ -12,8 +12,9 @@ class AlunoGetConsultas extends Component
     public $consultas; 
     //exibe consultas de hoje
     public function mount(){
-        $hoje = (Carbon::now()->format('Y-m-d')); 
-        $this->consultas = Consulta::where('id_aluno', Auth::user()->id)->get()->where('dia', $hoje); 
+        $today = Carbon::now()->format('Y-m-d'); 
+        $this->consultas = Consulta::where('id_aluno', Auth::user()->id)
+        ->where('dia', $today)->get(); 
     }
     public function render()
     {

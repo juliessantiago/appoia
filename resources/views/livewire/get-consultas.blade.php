@@ -58,7 +58,7 @@
                                         </button>
                                     </td> --}}
                                     <td>
-                                        <button  type="submit" wire:click="$dispatch('abreModalCancelaConsulta', { consulta:  {{$consulta}} })"  class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-fuchsia-400 rounded-lg hover:bg-fuchsia-500 focus:ring-4 focus:outline-none focus:ring-fuchsia-500">
+                                        <button  type="submit" wire:click="$dispatch('abreModalCancelaConsulta', { consulta:  {{$consulta}} })"  class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">
                                             Cancelar
                                         </button>
                                     </td>
