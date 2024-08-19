@@ -31,6 +31,8 @@
                                 <p>Universidade: {{Auth::user()->universidade->sigla}}
                             @elseif(Auth::guard()->name == 'aluno')
                                 <p>Escola: {{Auth::user()->escola->nome}}
+                            @else
+                                <p>Supervisor: {{Auth::user()->supervisor->name}} <!--user é voluntário-->
                             @endif
                             </div>
                             <div class="ms-1">

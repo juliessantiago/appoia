@@ -44,5 +44,9 @@ class Voluntario extends Authenticatable
         return $this->morphMany(Notificacao::class, 'notifiable'); 
         //Model Notificacao vai armazenar as várias entradas, guardando id e tipo 
     }
+
+    public function supervisor(){
+        return $this->belongsTo(Supervisor::class, 'supervisor_id'); 
+    }
     
 }
