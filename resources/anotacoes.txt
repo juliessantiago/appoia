@@ -105,3 +105,6 @@ text-xl p-6 font-bold
 
 <!-------------------figurinha lampada na página de assuntos (dashboard aluno)---------------------------------------!> 
 <a href="https://www.flaticon.com/br/stickers-gratis/criatividade" title="criatividade figurinhas">Criatividade figurinhas criadas por Stickers - Flaticon</a>
+
+<!--------------------------------------ícone usuário sem foto---------------------------------------------!> 
+<a href="https://www.flaticon.com/br/icones-gratis/do-utilizador" title="do utilizador ícones">Do utilizador ícones criados por Freepik - Flaticon</a>

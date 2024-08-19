@@ -27,7 +27,10 @@
             <a href="{{route('aluno.logout')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Sair </a>
         </div>
     </div>
-        
+    
+    <div class="m-10"> 
+        @livewire('get-voluntarios-cards')
+    </div>
 </div><!--fundo branco--> 
 
   

@@ -21,7 +21,8 @@ class Voluntario extends Authenticatable
         'telefone', 
         // 'universidade_id',
         'matricula', 
-        'supervisor_id'
+        'supervisor_id', 
+        'foto_perfil'
     ];
 
     protected $hidden = [

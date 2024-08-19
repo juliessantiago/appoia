@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('telefone'); 
             // $table->text('dataNascimento'); 
             $table->text('matricula'); 
+            $table->text('foto_perfil')->nullable(); 
             $table->unsignedBigInteger('supervisor_id');
             $table->foreign('supervisor_id')->references('id')->on('supervisors')->onDelete('cascade');
         });

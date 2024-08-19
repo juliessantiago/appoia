@@ -46,15 +46,8 @@
         {{-- @livewire('get-consultas') --}}
         {{-- {{Auth::user()->id}} --}}
         @livewire('get-consultas', ['id' => Auth::user()->id])
-
     </div>
-    <div class="bg-pink-400"> 
-        {{-- <form method="POST" action="{{route('preMeetingVoluntario')}}">
-            <input hidden type="text" value=""/> 
-        </form> --}}
-    </div>
-
-          
+    
 
 <!-------------------------------------------------------------------------------->
 <script> 
