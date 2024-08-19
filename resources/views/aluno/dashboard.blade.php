@@ -1,6 +1,6 @@
 <x-app-layout >
  {{-- @if(Auth::user()->status == true) --}}
-<div class="bg-slate-100">
+<div class="bg-slate-100 m-6">
     <div class="flex justify-end">
         @livewire('notificacoes')
       </div>

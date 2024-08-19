@@ -34,3 +34,24 @@
         </div>
     </div>
 </x-app-layout>
+<script>
+     document.addEventListener('livewire:init', () => {
+        Livewire.on('abreModalExclusaoAssunto', (event)=> {
+            let id = event.assunto.id
+            let descricao = event.assunto.descricao
+            Swal.fire({
+                title: "Excluir o assunto "+descricao+"?",
+                showCancelButton: true,
+                confirmButtonColor: "#F0ABFC", //botão de confirmação aqui é para exclusão
+                cancelButtonColor: "#9CA3AF",
+                confirmButtonText: "Excluir",
+                cancelButtonText: `Cancelar`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('excluiAssunto',  {id: id }) //envia dados para método no componente que escuta esse evento por nome
+                }
+            });
+        })
+
+    });
+</script>
