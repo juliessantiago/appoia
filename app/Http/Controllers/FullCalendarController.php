@@ -19,6 +19,7 @@ class FullCalendarController extends Controller
        
         if($request->ajax()) {
              $data = Consulta::where('id_voluntario', $id)
+                        ->where('status', '!=', 'cancelada')
                         ->whereDate('start', '>=', $request->start)
                        ->whereDate('end',   '<=', $request->end)
                        ->get(['id', 'start', 'end', 'id_voluntario', 'id_aluno']);
@@ -59,10 +60,18 @@ class FullCalendarController extends Controller
     }
 
     public function verificaConsultas($id){
-        $ultimaConsulta = Consulta::where('id_aluno', $id)->get()->last(); 
-        $data =  Carbon::create($ultimaConsulta->dia)->addDays(7); 
-        // dd($dias); 
-        return response()->json($data);
+        $dataGambi = Carbon::create('2024-01-01')->format('Y-m-d'); //preciso retornar uma data se não tem consulta marcada  com status válido
+        // dd($dataGambi); 
+        $ultimaConsulta = Consulta::where('id_aluno', $id)->where('status', '!=', 'cancelada')->get()->last();
+        // dd($ultimaConsulta); 
+        if($ultimaConsulta != null || $ultimaConsulta != ''){
+            $data =  Carbon::create($ultimaConsulta->dia)->addDays(7); 
+            // dd($dias); 
+            return response()->json($data);
+        }else{
+            return response()->json($dataGambi);
+        }
+       
     }
     public function ajax(Request $request): JsonResponse //criação de consulta 
     {

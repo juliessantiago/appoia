@@ -66,7 +66,7 @@
         </table>
     </div>
     @else
-        <p class="text-gray-400 text-center">Voluntário ainda não cadastrou seus expedientes</p>
+        <p class="text-gray-400 text-center">Não há dados de expedientes</p>
     @endif
 </div>
 
