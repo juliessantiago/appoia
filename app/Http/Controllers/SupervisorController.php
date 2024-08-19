@@ -24,14 +24,16 @@ class SupervisorController extends Controller
         // dd($request); 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.Supervisor::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:supervisors'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+        // dd($request); 
         $supervisor = Supervisor::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'crp' => $request->crp,
+            'universidade_id' =>$request->universidade
         ]);
         event(new Registered($supervisor));
 

@@ -44,7 +44,7 @@
     <div class="m-10">
         <p class="text-purple-400 text-xl font-bold text-center">Minhas Consultas</p>
         {{-- @livewire('get-consultas') --}}
-        {{Auth::user()->id}}
+        {{-- {{Auth::user()->id}} --}}
         @livewire('get-consultas', ['id' => Auth::user()->id])
 
     </div>

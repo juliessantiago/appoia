@@ -48,7 +48,7 @@
                                     {{$consulta->status}}
                                 </td>
                                 <td  class="px-6 py-4">
-                                    {{$consulta->name}}
+                                    {{$consulta->aluno->name}}
                                 </td>
                                @if(Auth::guard()->name == 'voluntario')
                                     <td>

@@ -22,6 +22,11 @@
             <x-input-error :messages="$errors->get('crp')" class="mt-2" />
         </div>
 
+        <!--Universidade-->
+        <div>
+            <x-input-label for="universidade_id" :value="__('Universidade ')"  />
+            <livewire:universidade-select />
+        </div>
 
         <!-- Emaill -->
         <div class="mt-4">
