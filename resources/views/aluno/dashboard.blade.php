@@ -18,7 +18,7 @@
     </div>
 
     <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">{{ \Carbon\Carbon::now()->dayName}} , {{ \Carbon\Carbon::now()->format('d/m/Y')}}</p>
+        <p class="text-purple-400 text-xl font-bold text-center">{{ \Carbon\Carbon::now()->dayName}}, {{ \Carbon\Carbon::now()->format('d/m/Y')}}</p>
         @livewire('aluno-get-consultas')
     </div>
 
@@ -28,9 +28,7 @@
         </div>
     </div>
     
-    <div class="m-10"> 
-        @livewire('get-voluntarios-cards')
-    </div>
+    
 </div><!--fundo branco--> 
 
   
