@@ -13,7 +13,8 @@ class Supervisor extends Authenticatable
     protected $fillable = [
         'name', 
         'email', 
-        'crp'
+        'crp',
+        'universidade_id'
     ]; 
     
     protected $hidden = [
@@ -21,6 +22,10 @@ class Supervisor extends Authenticatable
     ];
     public function voluntarios(){
         return $this->hasMany(Voluntario::class, 'id_supervisor'); 
+    }
+
+    public function universidade(){// singular -> uma universidade pertence a um supervisor
+        return $this->belongsTo(Universidade::class);
     }
  
 

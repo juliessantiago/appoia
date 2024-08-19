@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('crp');
+            $table->unsignedBigInteger('universidade_id');
+            $table->foreign('universidade_id')->references('id')->on('universidades')->onDelete('cascade');
         });
     }
 

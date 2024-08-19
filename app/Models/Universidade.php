@@ -9,19 +9,14 @@ class Universidade extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'sigla',
         'nome', 
         'cidade', 
-        'logradouro', 
-        'numero', 
-        'bairro', 
-        'cod_mec', 
-        'cat_adm', //pública ou privada
-        'org_acad', //faculdade, universidade ou instituto federal
-        'credenciamento', //presencial ou EAD
+        'codigo' //'código da instituição no MEC
     ];
 
-    public function pessoas(){
-        return $this->hasMany(Pessoa::class);
+    public function supervisores(){
+        return $this->hasMany(Supervisor::class, 'id_universidade');
     }
     
 }

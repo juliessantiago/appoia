@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->text('nome'); 
+            $table->text('sigla');
+            $table->text('cidade');
+            $table->text('codigo'); 
         });
     }
 
