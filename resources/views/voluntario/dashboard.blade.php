@@ -1,18 +1,29 @@
 <x-app-layout>
-    <div class="flex justify-center">      
-        @if(session('success'))
-        <div class="flex bg-green-300 p-10 border-green-400 rounded-lg">
-              <p class="text-white">  {{session('success')}}  </p>  
-        </div>
-        @endif
-    </div> 
+    <x-toaster-hub />
+
       <div class="flex justify-end mx-4">
         @livewire('notificacoes')
-        
       </div>
 <!--------------------------componentes------------------------------------> 
+@if(Auth::user()->foto_perfil == null || Auth::user()->foto_perfil == '' )
+    <script>
+           Swal.fire({
+                title: "Envie sua foto de perfil",
+                text: "Se seu perfil exibir uma foto, os pacientes se sentirão mais à vontade para marcar uma consulta",
+                showCancelButton: true,
+                confirmButtonColor: "#F0ABFC", 
+                cancelButtonColor: "#9CA3AF",
+                confirmButtonText: "Enviar agora",
+                cancelButtonText: `Depois`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/voluntario/uploadFoto";
+                }
+            });
+    </script>
+@endif
+  
     <div class="mb-10">
-        <x-toaster-hub />
         <p class="text-purple-400 text-xl font-bold text-center">Meus Expedientes</p>
         <div class="text-center my-5">
             {{-- <p class="text-center my-10 text-purple-400 text-lg">Adicionar novo horário de expediente</p> --}}

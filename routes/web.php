@@ -67,8 +67,8 @@ Route::prefix('voluntario')->middleware('auth:voluntario')->group(function () {
     Route::get('/dashboard', [VoluntarioController::class, 'dashboard'])->name('dashboardVoluntario');
     Route::get('/logout', [VoluntarioController::class, 'logout'])->name('voluntario.logout');
     Route::get('/voluntarioAssuntos/{id}', [VoluntarioController::class, 'showAssuntos'])->name('voluntarioAssuntos'); 
-    Route::get('/preMeetingVoluntario/{id}', [VoluntarioController::class, 'showPreMeeting'])->name('preMeetingVoluntario'); 
-
+    Route::get('/preMeetingVoluntario/{id}', [VoluntarioController::class, 'showPreMeeting'])->name('preMeetingVoluntario'); //preMeeting de voluntário já é página do Jitsi 
+    Route::get('/uploadFoto', [VoluntarioController::class, 'sendFotoPerfil'])->name('uploadFoto'); 
 });
 
 Route::get('voluntario/register', [VoluntarioController::class, 'showRegister'])->name('registerVoluntarioForm'); 

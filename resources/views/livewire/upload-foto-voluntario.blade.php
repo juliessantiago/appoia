@@ -1,7 +1,7 @@
-<div>
+<div class="m-4">
     @if ($photo)
-    <div class="container flex justify-center"><!--alterar esse tamanho, só altera a div, não o tamanho da exibição da imagem--> 
-       <img src="{{ $photo->temporaryUrl() }}" class="w-1/2"><!--tamanho da imagem está muito grande! --> 
+    <div class="flex justify-center"><!--alterar esse tamanho, só altera a div, não o tamanho da exibição da imagem--> 
+       <img src="{{ $photo->temporaryUrl() }}" class=""><!--tamanho da imagem está muito grande! --> 
     </div>
    @endif
    <div wire:loading.delay  wire:target="file" class="">

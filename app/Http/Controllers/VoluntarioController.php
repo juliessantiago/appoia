@@ -69,6 +69,9 @@ class VoluntarioController extends Controller
     public function showPreMeeting(){
         return view ('voluntario/preMeeting'); 
     }
+    public function sendFotoPerfil(){
+        return view ('voluntario/uploadFoto'); 
+    }
     
     public function logout(){
         Auth::guard('voluntario')->logout(); 

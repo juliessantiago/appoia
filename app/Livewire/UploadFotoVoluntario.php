@@ -16,20 +16,19 @@ class UploadFotoVoluntario extends Component
     public $photo;
 
     public function save(){
-        $hashNome = $this->file->hashName(); //cria hash para o nome do arquivo, mas mantém extensão
+        $hashNome = $this->photo->hashName(); //cria hash para o nome do arquivo, mas mantém extensão
         if(app()->env == 'local'){
-            $local = $this->file->store('files',  'public'); 
+            $local = $this->photo->store('voluntarios',  'public'); 
         }else{
-            $retorno = Storage::disk('s3')->put('/files', $this->file, 'public');
+            $retorno = Storage::disk('s3')->put('/files', $this->photo, 'public');
         }
         $updated = Voluntario::where('id', Auth::user()->id)->update([
-            'linkAutorizacao' => $hashNome
+            'foto_perfil' => $hashNome
         ]); 
         if($updated){
-            //não estou enviando notificação cada vez que um aluno envia um arquivo de autorização 
-            //porque vai criar um número muito grande de notificações
-            //dispara toaster
-            Toaster::success('Obrigada! Sua autorização será analisada e logo você poderá ter acesso às funcionalidades'); 
+            Toaster::success('Foto de perfil salva com sucesso!'); 
+            return redirect()->route('dashboardVoluntario'); 
+            
         }
     }
     public function render()

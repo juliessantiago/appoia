@@ -1,10 +1,9 @@
 <x-app-layout>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
-    {{-- <script src="sweetalert2.all.min.js"></script> --}}
+    <x-toaster-hub />
 
-        <div class="flex justify-end">
-            @livewire('notificacoes')
-          </div>
+    <div class="flex justify-end">
+        @livewire('notificacoes')
+    </div>
 
 <!--------------------------componentes------------------------------------>
 <p class="text-center text-3xl mt-10 mb-20 font-bold text-gray-400">Clique na opção que você gostaria de acessar</p>
