@@ -11,8 +11,9 @@ class GetConsultas extends Component
     public $consultas; 
 
     public function mount($id){
-        $this->consultas = DB::table('consultas')->join('alunos', 'consultas.id_aluno', '=', 'alunos.id')->
-            select('consultas.id', 'consultas.dia', 'consultas.start', 'consultas.status', 'alunos.name')->get(); 
+        $this->consultas = Consulta::where('id_voluntario', $id)->get(); 
+        // $this->consultas = DB::table('consultas')->join('alunos', 'consultas.id_aluno', '=', 'alunos.id')->
+        //     select('consultas.id', 'consultas.dia', 'consultas.start', 'consultas.status', 'alunos.name')->get(); 
             //consulta usando relacionamento não funcionou... 
         }
     public function render()

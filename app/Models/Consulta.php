@@ -19,9 +19,9 @@ class Consulta extends Model
     ];
 
     public function voluntario(){// singular -> uma consulta pertence a um voluntário
-        return $this->belongsTo(Voluntario::class);
+        return $this->belongsTo(Voluntario::class, 'id_voluntario');
     }
     public function aluno(){ //uma consulta pertence a um aluno
-        return $this->belongsTo(Aluno::class);
+        return $this->belongsTo(Aluno::class, 'id_aluno');
     }
 }

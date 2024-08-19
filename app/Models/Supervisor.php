@@ -14,7 +14,8 @@ class Supervisor extends Authenticatable
         'name', 
         'email', 
         'crp',
-        'universidade_id'
+        'universidade_id', 
+        'password'
     ]; 
     
     protected $hidden = [

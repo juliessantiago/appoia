@@ -37,5 +37,8 @@ class Aluno extends Authenticatable
         return $this->morphMany(Notificacao::class, 'notifiable'); 
         //Model Notificacao vai armazenar as várias entradas, guardando id e tipo 
     }
+    public function escola(){
+        return $this->belongsTo(Escola::class, 'id_escola'); 
+    }
     
 }
