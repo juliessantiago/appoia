@@ -32,7 +32,6 @@
                     <tbody>
                         {{-- {{count($expedientes)}} --}}
                         @foreach ($consultas as $consulta)
-                        {{-- {{$expediente->id}} --}}
                             <div>
                                 <tr  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"  >
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -46,7 +45,7 @@
                                         {{\Carbon\Carbon::create($consulta->start)->format('H:i:s')}}
                                     </td>
                                     <td class="px-6 py-4 capitalize">
-                                        <input value="{{$consulta->link}}" type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-300 focus:border-purple-300 block max-w-md p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 cursor-pointer" placeholder="John" required />
+                                        <input value="{{$consulta->link}}" type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-300 focus:border-purple-300 block max-w-md p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 cursor-pointer" placeholder="link" required />
                                     </td>
                                     <td class="px-6 py-4 capitalize">
                                         

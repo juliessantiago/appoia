@@ -95,7 +95,7 @@
                 console.log($error)
             })
         })
-        Livewire.on('abreModalExclusao', ()=> {
+        Livewire.on('abreModalExclusao', ()=> { //de expediente
             let id = event.detail.data.id
             let diaSemana = event.detail.data.diaSemana
             Swal.fire({
@@ -150,6 +150,23 @@
                 }
                 
             });
+        })
+
+        Livewire.on('abreModalCancelaConsulta', (event) => {      
+            Swal.fire({
+                title: "Cancelar consulta?",
+                text: "Se você cancelar a consulta, o paciente será notificado e terá que marcá-la novamente em outra data", 
+                showCancelButton: true,
+                confirmButtonColor: "#F0ABFC", //botão de confirmação aqui é para exclusão
+                cancelButtonColor: "#9CA3AF",
+                confirmButtonText: "Cancelar consulta",
+                cancelButtonText: "Não cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('enviaDadosCancelamento',  {consulta: event.consulta }) //envia dados para método no componente que escuta esse evento por nome
+                }
+            });
+
         })
 
     });//init

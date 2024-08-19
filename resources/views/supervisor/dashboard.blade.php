@@ -1,14 +1,10 @@
 <x-app-layout>
     {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
     {{-- <script src="sweetalert2.all.min.js"></script> --}}
-    <div class="flex justify-center">
 
-        @if(session('success'))
-        <div class="flex bg-green-300 p-10 border-green-400 rounded-lg">
-              <p class="text-white">  {{session('success')}}  </p>
-        </div>
-        @endif
-    </div>
+        <div class="flex justify-end">
+            @livewire('notificacoes')
+          </div>
 
 <!--------------------------componentes------------------------------------>
 <p class="text-center text-3xl mt-10 mb-20 font-bold text-gray-400">Clique na opção que você gostaria de acessar</p>
@@ -43,25 +39,28 @@
 
 <!----------------------------------------------------------------------------------------------------------->
 <script>
-    document.addEventListener('livewire:init', () => {
-        Livewire.on('abreModalExclusaoAssunto', (event)=> {
-            let id = event.assunto.id
-            let descricao = event.assunto.descricao
-            Swal.fire({
-                title: "Excluir o assunto "+descricao+"?",
-                showCancelButton: true,
-                confirmButtonColor: "#F0ABFC", //botão de confirmação aqui é para exclusão
-                cancelButtonColor: "#9CA3AF",
-                confirmButtonText: "Excluir",
-                cancelButtonText: `Cancelar`
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Livewire.dispatch('excluiAssunto',  {id: id }) //envia dados para método no componente que escuta esse evento por nome
+   document.addEventListener('livewire:init', () => {
+        Livewire.on('exibeNotificacoes', (event) => {
+            // console.log(event.notificacoes)
+            toastr.options.closeButton = true
+            toastr.options.timeOut = 0 //impede toastr de fechar automaticamente
+            toastr.options.extendedTimeOut = 0 // Impede que toastr feche ao passar o mouse
+            // let numeros = [1, 2, 3]
+            let array = {id: 0, "mensagem" : "teste" }
+            event.notificacoes.push(array)
+            // console.log(event.notificacoes)
+            event.notificacoes.forEach(notificacao => {
+                if(notificacao.mensagem != "teste"){
+                    toastr.info(notificacao.mensagem)
+                    toastr.options.onHidden  = function() { 
+                        console.log(notificacao.id)
+                        Livewire.dispatch('alteraStatusNotificacao',  {id: notificacao.id }) 
+                    }
                 }
+               
             });
         })
-
-    });
+    }); 
 </script>
     <div class="flex justify-end px-14 py-6">
         <div class="flex mt-4 md:mt-">

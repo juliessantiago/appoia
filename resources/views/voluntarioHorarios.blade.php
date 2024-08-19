@@ -19,11 +19,13 @@
     </head>
     <body> 
         @csrf
-        @if (session()->has('erro'))
-            <div class="alert alert-danger">
-                {{ session('erro') }}
-            </div>
-        @endif
+     
+        <div class="flex mt-4 md:mt-4 mx-10">
+            <a href="{{route('dashboardAluno')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium"> 
+                <img  src="{{ asset('images/icons/dashboard.png')}}" class="h-8" alt="voltar para dashboard" />
+                <p class="text-sky-400 text-md ml-4">Dashboard</p>
+            </a>
+        </div>
         <div class="py-2"> 
             <h4 class="text-center text-purple-300 text-4xl p-1 font-bold">Marcar consulta</h4>
         </div>
