@@ -19,11 +19,13 @@
     </head>
     <body> 
         @csrf
-
+        @if (session()->has('erro'))
+            <div class="alert alert-danger">
+                {{ session('erro') }}
+            </div>
+        @endif
         <div class="py-2"> 
-            <h4 class="text-center text-p
-            
-            urple-300 text-4xl p-1 font-bold">Marcar consulta</h4>
+            <h4 class="text-center text-purple-300 text-4xl p-1 font-bold">Marcar consulta</h4>
         </div>
       <div class="flex flex-row justify-center">
         <div id="calendar" class="p-10 "> 
@@ -34,6 +36,21 @@
             var expedientes = []
             let idVoluntario = window.location.pathname.slice(-1)
             let idAluno = {{Auth::user()->id}}
+            let diaLiberado = ''
+            function getQtdConsultas(){
+                $.ajax({
+                    url: "/consultas/"+idAluno,
+                    method: 'GET', 
+                    dataType: 'json', 
+                    success: function(response) {
+                        diaLiberado = response
+                        // console.log(expedientes[0])
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Erro na requisição:', error);
+                    }
+                });
+            }
             function getExpedientes(){
                 $.ajax({
                     url: "/expedientes/"+idVoluntario,
@@ -47,10 +64,10 @@
                         console.error('Erro na requisição:', error);
                     }
                 });
-        }
+            }
             $(document).ready(function () {
                 getExpedientes()
-                
+                getQtdConsultas()
             
         /*------------Get Site URL----*/
         var SITEURL = "{{ url('/') }}";
@@ -70,9 +87,9 @@
                         editable: false,
                         defaultView: 'agendaWeek',
                         views: {
-                            agendaWeek: {
-                                columnFormat: 'DD-MM'
-                            }
+                            // agendaWeek: {
+                            //     columnFormat: 'DD-MM' //deu problema, não estava alterando dia no header do calendário
+                            // }
                         },
                         slotDuration: "01:00:00",
                         allDaySlot: false, 
@@ -98,13 +115,15 @@
                         eventAfterRender(event, element, view){
                             // element -> evento no html 
                             // view -> tipo de view utilizada (semana, mês)
-                            if(event.id_aluno != idAluno ){
+                            
+                                if(event.id_aluno != idAluno ){
                                 // console.log(event.title)
-                                console.log(element[0].innerText)
+                                // console.log(element[0].innerText)
                                 element[0].innerText = 'indisponível'
                                 element.css('background-color', '#A9A9A9')
                                 element.css('border-color', '#A9A9A9')
-                            }
+                                }
+                            
                         },
                         selectable: true,
                         selectHelper: true,
@@ -116,13 +135,28 @@
                             var end = $.fullCalendar.formatDate(end, "Y-MM-DD H:mm");
                             var checkDiaExpediente = false
                             var checkHoraExpediente = false
-                        
                             var diaSemana = (new Date(start)).getDay() 
                             // new Date(start) -> obter data com dia da semana
                             // getDay() -> separa apenas o dia da semana em formato de número 
                             // console.log(diaSemana);
                             var daySelected = (start.split(" ")[0])
                             let today = new moment().format('YYYY-MM-DD')
+                            // console.log(contConsult)
+                            // if(contConsult > 0){
+                            //     Swal.fire({
+                            //         title: "Oops!",
+                            //         text: "Voce já possui consulta marcada nessa semana",
+                            //         confirmButtonText: "Ok",
+                            //         confirmButtonColor: '#f472b6',
+                                    
+                            //     });
+                            // }
+                        //    console.log(daySelected)
+                           if(daySelected < diaLiberado){ //diaLiberado: data da última consulta + 7 dias
+                                calendar.fullCalendar('unselect')
+                                toastr.warning('Você já possui uma consulta marcada nessa semana, escolha uma data após o dia '+moment(diaLiberado).format('DD/MM/YYYY'))
+                                return;
+                            }
                             if(daySelected < today){
                                 calendar.fullCalendar('unselect')
                                 toastr.error('Opa, você selecionou uma data que já passou!')

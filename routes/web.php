@@ -45,6 +45,7 @@ Route::controller(FullCalendarController::class)->group(function(){
     Route::get('fullcalendar/{id}', 'index')->middleware('auth:aluno');
     Route::post('fullcalendarAjax', 'ajax')->middleware('auth:aluno');
     Route::get('expedientes/{id}', 'expedientes')->middleware('auth:aluno');
+    Route::get('consultas/{id}',  'verificaConsultas')->middleware('auth:aluno');
 });
 
 // Route::get('/dashboard', function () {

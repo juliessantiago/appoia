@@ -22,7 +22,7 @@ class Aluno extends Authenticatable
         'id_escola', 
         'sexo', 
         'password', 
-        'responsavel'
+        'responsavel', 
     ];
 
     protected $hidden = [

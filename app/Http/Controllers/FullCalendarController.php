@@ -58,7 +58,12 @@ class FullCalendarController extends Controller
         return response()->json($retorno);
     }
 
-    //TODO:
+    public function verificaConsultas($id){
+        $ultimaConsulta = Consulta::where('id_aluno', $id)->get()->last(); 
+        $data =  Carbon::create($ultimaConsulta->dia)->addDays(7); 
+        // dd($dias); 
+        return response()->json($data);
+    }
     public function ajax(Request $request): JsonResponse //criação de consulta 
     {
         $checkDiaExpediente = false; 
@@ -90,10 +95,12 @@ class FullCalendarController extends Controller
             
             //FIXME:
             $data = Carbon::createFromFormat('Y-m-d', $request->dia)->format('Y-m-d');
+           
             // dd($data);
             // $inicio = Carbon::createFromFormat('H:i', $request->inicio); 
             // $inicioFormat = $inicio->format('H:i'); 
             // $final  = $inicio->addHour()->format('H:i');
+
               $event = Consulta::create([
                 'id_aluno'=> Auth::user()->id, 
                 'status' => $request->status,

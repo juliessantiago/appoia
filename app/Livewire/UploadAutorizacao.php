@@ -16,19 +16,15 @@ class UploadAutorizacao extends Component
     public $file;
 
     public function save(){
-        // dd("save"); 
-        // $nomeAlterado = str_replace(' ', '', Auth::user()->name);
-        $hashNome = $this->file->hashName(); 
-        // dd($hashNome); 
-        // $this->file->storeAs('files', $hashNome, 'public'); 
-        $this->file->storeAs(path: 'files', name: $hashNome);
-        // $retorno = Storage::disk('s3')->put('/files', $hashNome, 'public');
-        // dd($retorno); 
+        $hashNome = $this->file->hashName(); //cria hash para o nome do arquivo, mas mantém extensão
+        if(app()->env == 'local'){
+            $local = $this->file->store('files',  'public'); 
+        }else{
+            $retorno = Storage::disk('s3')->put('/files', $this->file, 'public');
+        }
         $updated = Aluno::where('id', Auth::user()->id)->update([
-            // 'status' => true,
             'linkAutorizacao' => $hashNome
         ]); 
-        // dd($updated); 
         if($updated){
             //não estou enviando notificação cada vez que um aluno envia um arquivo de autorização 
             //porque vai criar um número muito grande de notificações

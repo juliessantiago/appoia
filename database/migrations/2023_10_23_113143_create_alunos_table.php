@@ -21,8 +21,8 @@ return new class extends Migration
             $table->text('linkAutorizacao')->nullable(); 
             $table->boolean('status')->nullable(); 
             $table->string('email')->unique();
-            // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->date('proxConsulta')->nullable(); 
             $table->unsignedBigInteger('id_escola');
             $table->foreign('id_escola')->references('id')->on('escolas')->onDelete('cascade');
         });
