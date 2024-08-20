@@ -37,6 +37,7 @@ class GetConsultasHojeVol extends Component
         if($updated){
             $this->success('Link salvo com sucesso'); //toaster 
             $this->mount(); 
+
         }
        
     }

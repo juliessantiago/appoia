@@ -55,8 +55,8 @@
                                 <td  class="px-6 py-4">
                                     {{$consulta->status}}
                                 </td>
-                                        <td>
-                                            <a href="{{route('preMeetingVoluntario', [$consulta->link])}}" target="_blank"  class=" text-lime-500">Criar Reunião</a>
+                                        <td><!--preMeetingVoluntario já é a janela com a chamada. Nessa rota defino as configurações--> 
+                                            <a href="{{route('preMeetingVoluntario', [$consulta->link])}}" target="_blank"  class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-sky-400">Criar Reunião</a>
                                         </td>
                                 <td class="flex justify-around my-2">
                                     <input  id="link" type="text" class="mx-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="cole aqui o link" required />

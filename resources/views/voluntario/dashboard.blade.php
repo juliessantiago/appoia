@@ -45,10 +45,10 @@
         <p class="text-purple-400 text-xl font-bold text-center">Consultas de Hoje</p>
         <ol class="text-gray-400 p-4 m-3 bg-slate-50 shadow-md sm:rounded-lg">
             <li>1. Clique em Criar reunião</li>
-            <li>2. Uma nova aba será aberta. Habilite câmera e microfone. Verifique seu nome e clique em Entrar na reunião</li>
-            <li>3. Após a reunião estar aberta, clique em Participantes > Convidar alguém</li>
-            <li>4. Clique no botão para copiar o link </li>
-            <li>5. Aqui no seu dashboard, encontre a consulta e clique em enviar link</li>
+            <li>2. Uma nova aba será aberta. Habilite câmera e microfone. Insira seu nome e clique em Entrar na reunião</li>
+            <li><span>3. Após a reunião estar aberta, clique em Participantes <img class="inline" src="{{ asset('images/icons/convidar.png')}}"/> ->  Convidar alguém</span></li>
+            <li>4. Clique no botão para copiar o link  <img class="inline" src="{{ asset('images/icons/copiar.png')}}"/></li>
+            <li>5. Aqui no seu dashboard, encontre a consulta, cole o link no campo indicado e clique em enviar link</li>
         </ol>
         @livewire('get-consultas-hoje-vol')
     </div>
@@ -119,9 +119,9 @@
             let link = ''
             link = event.link
             idConsulta = event.id
-            console.log(link)
+            // console.log(link)
             if(link == null || link == '' || link == "" ){
-                console.log('tá vazia')
+                // console.log('tá vazia')
                 toastr.error('Você precisa colar o link da reunião antes')
             }else{
                 Livewire.dispatch('salvaLinkReuniaoAberta',  {link: link, id: idConsulta }) //envia dados para método no componente que escuta esse evento por nome
