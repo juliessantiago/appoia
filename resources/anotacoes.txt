@@ -108,3 +108,9 @@ text-xl p-6 font-bold
 
 <!--------------------------------------ícone usuário sem foto---------------------------------------------!> 
 <a href="https://www.flaticon.com/br/icones-gratis/do-utilizador" title="do utilizador ícones">Do utilizador ícones criados por Freepik - Flaticon</a>
+
+<!--------------------------------------ícone convidar pessoa na reunião--------------------------------!> 
+<a href="https://www.flaticon.com/br/icones-gratis/pessoa" title="pessoa ícones">Pessoa ícones criados por Becris - Flaticon</a>
+
+<!------------------------------------ícone copiar link--------------------------------------------------------!> 
+<a href="https://www.flaticon.com/br/icones-gratis/copia-de" title="cópia de ícones">Cópia de ícones criados por kawalanicon - Flaticon</a>

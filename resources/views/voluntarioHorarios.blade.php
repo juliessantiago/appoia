@@ -111,6 +111,8 @@
                             hiddenDays: [0, 6], //domingo, sábado não são exibidos 
                         eventRender: function (event, element, view) { //por que event render só é executada ao clicar? 
                             // console.log(event)
+                            getQtdConsultas()
+
                             event.allDay = false;
                             calendar.fullCalendar('option', 'businessHours', expedientes);
                         },
@@ -133,6 +135,8 @@
                         eventDurationEditable: false,
                         displayEventEnd: true,
                         select: function (start, end, allDay) { //função executada quando as datas são selecionadas
+                            getQtdConsultas()
+                    
                             var start = $.fullCalendar.formatDate(start, "Y-MM-DD H:mm");
                             var end = $.fullCalendar.formatDate(end, "Y-MM-DD H:mm");
                             var checkDiaExpediente = false
@@ -267,27 +271,27 @@
                         //     });
                         // },
 
-                        eventClick: function (event) { //evento quando é clicado é excluído
-                            if(event.id_aluno == idAluno){
-                                var deleteMsg = confirm("Você realmente gostaria de excluir?");
-                                if (deleteMsg) {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: SITEURL + '/fullcalendarAjax',
-                                        data: {
-                                                id: event.id,
-                                                type: 'delete'
-                                        },
+                        // eventClick: function (event) { //evento quando é clicado é excluído
+                        //     if(event.id_aluno == idAluno){
+                        //         var deleteMsg = confirm("Você realmente gostaria de excluir?");
+                        //         if (deleteMsg) {
+                        //             $.ajax({
+                        //                 type: "POST",
+                        //                 url: SITEURL + '/fullcalendarAjax',
+                        //                 data: {
+                        //                         id: event.id,
+                        //                         type: 'delete'
+                        //                 },
 
-                                        success: function (response) {
-                                            calendar.fullCalendar('removeEvents', event.id);
-                                            displayMessage("Evento excluído com sucesso");
-                                        }
-                                    });
-                                }
-                            }
+                        //                 success: function (response) {
+                        //                     calendar.fullCalendar('removeEvents', event.id);
+                        //                     displayMessage("Evento excluído com sucesso");
+                        //                 }
+                        //             });
+                        //         }
+                        //     }
                             
-                        }
+                        // }
                     });
         });
         /*---------Toastr Success ------------*/

@@ -55,6 +55,27 @@
                 }
                
             });
+        });
+        Livewire.on('abreInstrucoesConsulta', (event) => {
+            console.log(event.consulta.link)
+            let caminho =  "/images/dashboard.png"
+            Swal.fire({
+                html: `
+                <h1 class="text-3xl text-pink-400 m-4 font-bold">Olá! Tudo pronto?</h1>
+                <p class="text-md text-gray-400">Você  pode manter sua câmera desligada para manter o anonimato, se preferir</p>,
+                <p class="text-md text-gray-400">Se o voluntário ainda não estiver na chamada, aguarde um pouquinho</p>
+                <p class="text-xl text-gray-400 mt-4">Boa consulta!</p>
+                   `,
+                confirmButtonColor: "#7dd3fc",
+                confirmButtonText: "Tudo pronto",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.open(event.consulta.link, '_blank');
+                    // window.location.href = event.consulta.link;
+                    // Livewire.dispatch('recebeLinkChamada',  {link: event.consulta.link }) //envia dados para método no componente que escuta esse evento por nome
+                }
+            });
+               
         })
     }); 
 </script> 
