@@ -271,27 +271,27 @@
                         //     });
                         // },
 
-                        eventClick: function (event) { //evento quando é clicado é excluído
-                            if(event.id_aluno == idAluno){
-                                var deleteMsg = confirm("Você realmente gostaria de excluir?");
-                                if (deleteMsg) {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: SITEURL + '/fullcalendarAjax',
-                                        data: {
-                                                id: event.id,
-                                                type: 'delete'
-                                        },
+                        // eventClick: function (event) { //evento quando é clicado é excluído
+                        //     if(event.id_aluno == idAluno){
+                        //         var deleteMsg = confirm("Você realmente gostaria de excluir?");
+                        //         if (deleteMsg) {
+                        //             $.ajax({
+                        //                 type: "POST",
+                        //                 url: SITEURL + '/fullcalendarAjax',
+                        //                 data: {
+                        //                         id: event.id,
+                        //                         type: 'delete'
+                        //                 },
 
-                                        success: function (response) {
-                                            calendar.fullCalendar('removeEvents', event.id);
-                                            displayMessage("Evento excluído com sucesso");
-                                        }
-                                    });
-                                }
-                            }
+                        //                 success: function (response) {
+                        //                     calendar.fullCalendar('removeEvents', event.id);
+                        //                     displayMessage("Evento excluído com sucesso");
+                        //                 }
+                        //             });
+                        //         }
+                        //     }
                             
-                        }
+                        // }
                     });
         });
         /*---------Toastr Success ------------*/
