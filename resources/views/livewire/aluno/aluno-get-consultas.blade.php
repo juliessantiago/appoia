@@ -23,11 +23,9 @@
                             <th scope="col" class="px-6 py-3">
                                 
                             </th>
-                            <th>
-                            </th>
+                           
                             
-                            {{-- <th>
-                            </th> --}}
+                          
                         </tr>
                     </thead>
                     <tbody>
@@ -55,7 +53,11 @@
                                                 Entrar na consulta
                                             </button>
                                         </td>
+                                    @else
+                                        <td class="px-6 py-4">
+                                        </td>
                                     @endif
+                                    
                                 </tr>
                             </div>
                         @endforeach

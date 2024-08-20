@@ -50,7 +50,7 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <button wire:click="$dispatch('abreModalExclusao', { data: {{ $expediente }} })" class="text-md hover:text-pink-500">
+                                    <button wire:click="$dispatch('abreModalExclusao', { data: {{ $expediente }} })" class="text-md hover:text-pink-700">
                                         Excluir
                                     </button>
                                 </td>
