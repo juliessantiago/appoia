@@ -17,11 +17,9 @@ class UploadFotoVoluntario extends Component
 
     public function save(){
         $hashNome = $this->photo->hashName(); //cria hash para o nome do arquivo, mas mantém extensão
-        if(app()->env == 'local'){
-            $local = $this->photo->store('voluntarios',  'public'); 
-        }else{
+            // $local = $this->photo->store('voluntarios',  'public'); 
             $retorno = Storage::disk('s3')->put('/files', $this->photo, 'public');
-        }
+        
         $updated = Voluntario::where('id', Auth::user()->id)->update([
             'foto_perfil' => $hashNome
         ]); 

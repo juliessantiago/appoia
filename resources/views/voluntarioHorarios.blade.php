@@ -69,7 +69,8 @@
                 });
             }
             function verificaExpedientes(){
-                if(expedientes == null || expedientes ==''){
+                // console.log(expedientes.length)
+                if(expedientes.length == 0){
                     // alert('voluntario ainda não cadastrou seus horários de atendimento')
                     Swal.fire({
                         title: "Oops! Nos desculpe...", 
@@ -86,7 +87,7 @@
             $(document).ready(function () {
                 getExpedientes()
                 getQtdConsultas()
-                verificaExpedientes()
+                // verificaExpedientes()
         /*------------Get Site URL----*/
         var SITEURL = "{{ url('/') }}";
         /*-------------- CSRF Token------*/

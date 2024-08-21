@@ -17,11 +17,9 @@ class UploadAutorizacao extends Component
 
     public function save(){
         $hashNome = $this->file->hashName(); //cria hash para o nome do arquivo, mas mantém extensão
-        if(app()->env == 'local'){
-            $local = $this->file->store('files',  'public'); 
-        }else{
-            $retorno = Storage::disk('s3')->put('/files', $this->file, 'public');
-        }
+            // $local = $this->file->store('files',  'public'); 
+        $retorno = Storage::disk('s3')->put('/files', $this->file, 'public');
+
         $updated = Aluno::where('id', Auth::user()->id)->update([
             'linkAutorizacao' => $hashNome
         ]); 

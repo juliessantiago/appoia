@@ -44,8 +44,8 @@ class GetConsultas extends Component
                     'lida' => false,
                 ]);
 
-                $aluno->notificacoes()->save($notificacao); //cria relação entre supervisor e a notificação criada
-                $supervisor->notificacoes()->save($notificacao); //cria relação entre aluno e a notificação criada
+                $aluno->notificacoes()->save($notificacao); //cria relação entre aluno e a notificação criada
+                $supervisor->notificacoes()->save($notificacao); //cria relação entre supervisor e a notificação criada
 
                 // $this->refreshComponent(); //não estou conseguindo dar refresh no componente
     

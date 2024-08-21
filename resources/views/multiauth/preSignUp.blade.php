@@ -21,5 +21,10 @@
         </div>
 
     </div>
+    <div class="flex justify-center">
+        <a href="/" class="text-md hover:text-pink-500">
+            <img  src="{{ asset('images/icons/home.png')}}"/>
+        </a>
+    </div>
 
 </x-guest-layout>

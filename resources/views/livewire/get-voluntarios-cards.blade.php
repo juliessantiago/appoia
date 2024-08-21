@@ -7,7 +7,7 @@
                 @if($voluntario->foto_perfil == null || $voluntario->foto_perfil == '')
                     <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ asset('images/voluntario.png')}}"/>
                 @else
-                    <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ Storage::url('voluntarios/'.$voluntario->foto_perfil)}}"/>
+                    <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ Storage::url('files/'.$voluntario->foto_perfil)}}"/>
                 @endif
                     <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white capitalize">{{$voluntario->name}}</h5>
                     <span class="text-sm text-gray-500 dark:text-gray-400 capitalize">{{$voluntario->supervisor->universidade->nome}}</span>

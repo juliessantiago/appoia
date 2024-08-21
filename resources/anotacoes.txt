@@ -114,3 +114,6 @@ text-xl p-6 font-bold
 
 <!------------------------------------ícone copiar link--------------------------------------------------------!> 
 <a href="https://www.flaticon.com/br/icones-gratis/copia-de" title="cópia de ícones">Cópia de ícones criados por kawalanicon - Flaticon</a>
+
+<!-----------------------------------------ícone voltar para home------------------------------------------!> 
+<a href="https://www.flaticon.com/free-icons/home" title="home icons">Home icons created by Dave Gandy - Flaticon</a>
