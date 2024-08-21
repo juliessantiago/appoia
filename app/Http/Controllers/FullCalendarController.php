@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Models\Consulta;
+use App\Models\Supervisor;
+use App\Models\Voluntario;
+use App\Models\Notificacao;
 use App\Models\Expediente;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -119,7 +122,17 @@ class FullCalendarController extends Controller
                 'end' => $request->end,
                 'id_voluntario' => $request->idVoluntario
               ]);
+              $voluntario = Voluntario::find($request->idVoluntario); 
+            //   dd($voluntario->supervisor_id); 
+             $supervisor = Supervisor::find($voluntario->supervisor_id); 
+            //   dd($supervisor); 
 
+              $notificacao = new  Notificacao([
+                    'mensagem' => 'Consulta marcada com voluntário '. $voluntario->name.'. Acesse a página de consultas e a autorize.',
+                    'lida' => false,
+                ]);
+                // $voluntario->notificacoes()->save($notificacao); 
+                $supervisor->notificacoes()->save($notificacao); //cria relação entre supervisor e a notificação criada
               return response()->json($event);
              break;
 

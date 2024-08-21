@@ -1,5 +1,5 @@
 <x-app-layout >
-<div class="bg-slate-100 m-6">
+<div class="bg-slate-100 p-10">
     <div class="flex justify-end">
         @livewire('notificacoes')
       </div>
@@ -8,17 +8,19 @@
     <div class="m-10">
 
         <x-toaster-hub />
-    
+        
         <div class="flex justify-center">
             <img src="{{ asset('images/stickers/nova-consulta.png')}}" class="">
+
             <div class="self-center"> 
                 <p class="text-center text-sky-300 text-3xl p-6 font-bold"><a href="{{route('allAssuntos')}}">Quero marcar uma conversa</a></p>
             </div>
         </div>
     </div>
-
+    {{-- <p class="text-center text-gray-500">Aqui no seu dashboard você pode visualizar seu histórico de consultas já realizadas</p>
+    <p class="text-center text-gray-500">e acessar o link da chamada de vídeo no dia da consulta</p> --}}
     <div class="m-10">
-        <p class="text-purple-400 text-xl font-bold text-center">{{ \Carbon\Carbon::now()->dayName}}, {{ \Carbon\Carbon::now()->format('d/m/Y')}}</p>
+        <p class="text-purple-400 text-xl font-bold text-center capitalize">{{ \Carbon\Carbon::now()->dayName}}, {{ \Carbon\Carbon::now()->format('d/m/Y')}}</p>
         @livewire('aluno-get-consultas')
     </div>
 

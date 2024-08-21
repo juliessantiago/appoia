@@ -39,6 +39,7 @@
             let idVoluntario = window.location.pathname.slice(-1)
             let idAluno = {{Auth::user()->id}}
             let diaLiberado = ''
+         
             function getQtdConsultas(){
                 $.ajax({
                     url: "/consultas/"+idAluno,
@@ -67,10 +68,26 @@
                     }
                 });
             }
+            function verificaExpedientes(){
+                // console.log(expedientes.length)
+                if(expedientes.length == 0){
+                    // alert('voluntario ainda não cadastrou seus horários de atendimento')
+                    Swal.fire({
+                        title: "Oops! Nos desculpe...", 
+                        text: "O voluntário escolhido ainda não cadastrou seus horários de atendimento", 
+                        confirmButtonText: "Voltar",
+                        confirmButtonColor: "#7dd3fc",
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = '/aluno/voluntarios';
+                            }
+                        });
+                }
+            }
             $(document).ready(function () {
                 getExpedientes()
                 getQtdConsultas()
-            
+                // verificaExpedientes()
         /*------------Get Site URL----*/
         var SITEURL = "{{ url('/') }}";
         /*-------------- CSRF Token------*/
@@ -111,6 +128,7 @@
                             hiddenDays: [0, 6], //domingo, sábado não são exibidos 
                         eventRender: function (event, element, view) { //por que event render só é executada ao clicar? 
                             // console.log(event)
+                            verificaExpedientes()
                             getQtdConsultas()
 
                             event.allDay = false;

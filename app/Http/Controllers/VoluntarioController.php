@@ -39,7 +39,7 @@ class VoluntarioController extends Controller
             'cpf' => $request->cpf,
             'matricula' => $request->matricula,
             'telefone' => $request->telefone,
-            'supervisor_id' =>$request->supervisor_id
+            'supervisor_id' =>$request->supervisor
         ]);
 
         event(new Registered($voluntario));
