@@ -36,7 +36,7 @@
         </div>
         <div class="m-5">
             {{-- @livewire('get-expediente') --}}
-            @livewire('get-expediente', ['id' => Auth::user()->id])
+            @livewire('get-expediente')
         </div>
         <div class="m-5">
         </div>
