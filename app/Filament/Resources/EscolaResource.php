@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AssuntoResource\Pages;
-use App\Filament\Resources\AssuntoResource\RelationManagers;
-use App\Models\Assunto;
+use App\Filament\Resources\EscolaResource\Pages;
+use App\Filament\Resources\EscolaResource\RelationManagers;
+use App\Models\Escola;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class AssuntoResource extends Resource
+class EscolaResource extends Resource
 {
-    protected static ?string $model = Assunto::class;
+    protected static ?string $model = Escola::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -23,10 +23,7 @@ class AssuntoResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Textarea::make('descricao')
-                    ->required()
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
+                //
             ]);
     }
 
@@ -34,24 +31,13 @@ class AssuntoResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('descricao')
-                
+                //
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -63,10 +49,19 @@ class AssuntoResource extends Resource
             ]);
     }
     
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+    
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageAssuntos::route('/'),
+            'index' => Pages\ListEscolas::route('/'),
+            'create' => Pages\CreateEscola::route('/create'),
+            'edit' => Pages\EditEscola::route('/{record}/edit'),
         ];
     }    
 }
