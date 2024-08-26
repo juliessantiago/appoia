@@ -15,17 +15,17 @@
         </div>
 
         <!-- Nome -->
-        <div>
+        <div class="my-2">
             <x-input-label for="name" :value="__('Nome*')" />
             <x-text-input id="name" class="block mt-1 w-full text-purple-400 " type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
         
         <!-- Supervisor -->
-        <div>
+        <div class="my-2">
             <x-input-label for="supervisor_id" :value="__('Supervisor *')"  />
             <livewire:supervisor-select />
-            <x-input-error :messages="$errors->get('supervisor_id')" class="mt-2" />
+            <x-input-error :messages="$errors->get('supervisor')" class="mt-2" />
 
         </div>
 
@@ -40,14 +40,14 @@
         </div>
 
         <!--telefone--> 
-        <div>
+        <div class="my-2">
             <x-input-label for="telefone" :value="__('Telefone')" />
             <x-text-input id="telefone" class="block mt-1 w-full text-purple-400 " type="text" name="telefone" :value="old('telefone')" required autofocus autocomplete="telefone" />
             <x-input-error :messages="$errors->get('telefone')" class="mt-2" />
         </div>
 
           <!--matricula-->
-          <div>
+          <div class="my-2">
             <x-input-label for="matricula" :value="__('Matrícula*')" />
             <x-text-input id="matricula" class="block mt-1 w-full text-purple-400 " type="text" name="matricula" :value="old('matricula')" required autofocus autocomplete="matricula" />
             <x-input-error :messages="$errors->get('matricula')" class="mt-2" />
@@ -55,14 +55,14 @@
 
 
         <!-- Emaill -->
-        <div class="mt-4">
+        <div class="my-2">
             <x-input-label for="email" :value="__('Email*')" />
             <x-text-input id="email" class="block mt-1 w-full text-purple-400 " name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Senha -->
-        <div class="mt-4">
+        <div class="my-2">
             <p class="text-sm text-gray-400">A senha precisa ter no mínimo 8 caracteres</p>
             <x-input-label for="password" :value="__('Senha*')" />
 
@@ -75,7 +75,7 @@
         </div>
 
         <!-- Confirmação de senha-->
-        <div class="mt-4">
+        <div class="my-2">
             <x-input-label for="password_confirmation" :value="__('Confirmar senha')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full text-purple-400 "

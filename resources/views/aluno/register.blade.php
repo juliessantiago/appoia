@@ -12,14 +12,14 @@
             {{-- <p class="text-gray-400 text-sm">Se você é menor de idade, precisa informar o nome de seu responsável</p> --}}
         </div>
         <!-- Nome -->
-        <div>
+        <div class="my-2">
             <x-input-label for="name" :value="__('Nome *')" />
             <x-text-input id="name" class="block mt-1 w-full text-purple-400" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!--Data de nascimento--> 
-        <div>
+        <div class="my-2">
             <x-input-label for="data_nascimento" :value="__('Data de nascimento *')"/>
             <x-text-input id="data_nascimento" id="data_nasc" class="block mt-1 w-full text-purple-400" type="date" name="data_nascimento" :value="old('data_nascimento')" required autofocus autocomplete="Data de nascimento" 
             onblur="verificaDataNasc()"/>
@@ -28,7 +28,7 @@
         </div>
 
         <!--Responsável--> 
-        <div class="mt-4 hidden" id="respons-div" >
+        <div class="my-2 hidden" id="respons-div" >
             <p class="text-purple-300 text-sm text-center">Como você é menor de idade, precisa informar o nome de um responsável</p>
             <x-input-label for="responsavel" :value="__('Responsável')" />
             <x-text-input id="responsavel" class="block mt-1 w-full text-purple-400" type="text" name="responsavel" :value="old('responsavel')" autofocus autocomplete="Responsável" />
@@ -36,7 +36,7 @@
         </div>
 
         <!--Sexo--> 
-        <div>
+        <div class="my-2">
             
             <x-input-label for="responsavel" :value="__('Sexo')"/>
             <select id="sexo" class="rounded-md block mt-1 w-full text-purple-400 border-gray-300" name="sexo" :value="old('sexo')">
@@ -48,13 +48,13 @@
         </div>
 
         <!--Escola-->
-        <div>
+        <div class="my-2">
             <x-input-label for="id_escola" :value="__('Escola ')"  />
             <livewire:escola-select />
         </div>
 
         <!-- Emaill -->
-        <div class="mt-4">
+        <div class="my-2">
             <x-input-label for="email" :value="__('Email *')" />
             <x-text-input id="email" class="block mt-1 w-full text-purple-400" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" />
@@ -62,7 +62,7 @@
         </div>
 
         <!-- Senha -->
-        <div class="mt-4">
+        <div class="my-2">
             <p class="text-sm text-gray-400">A senha precisa ter no mínimo 8 caracteres</p>
             <x-input-label for="password" :value="__('Senha *')" />
 
@@ -75,7 +75,7 @@
         </div>
 
         <!-- Confirmação de senha-->
-        <div class="mt-4">
+        <div class="my-2">
             <x-input-label for="password_confirmation" :value="__('Confirmar senha')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full text-purple-400"

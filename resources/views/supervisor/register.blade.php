@@ -12,35 +12,35 @@
             {{-- <p class="text-gray-400 text-sm">Se você é menor de idade, precisa informar o nome de seu responsável</p> --}}
         </div>
         <!-- Nome -->
-        <div>
+        <div class="my-2">
             <x-input-label for="name" :value="__('Nome*')" />
             <x-text-input id="name" class="block mt-1 w-full text-purple-400" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!--CRP--> 
-        <div>
+        <div class="my-2">
             <x-input-label for="crp" :value="__('CRP*')" />
             <x-text-input id="crp" class="block mt-1 w-full text-purple-400" type="text" name="crp" :value="old('crp')" required autofocus autocomplete="crp" />
             <x-input-error :messages="$errors->get('crp')" class="mt-2" />
         </div>
 
         <!--Universidade-->
-        <div>
+        <div class="my-2">
             <x-input-label for="universidade_id" :value="__('Universidade*')"  />
-            <x-input-error :messages="$errors->get('universidade_id')" class="mt-2" />
             <livewire:universidade-select />
+            <x-input-error :messages="$errors->get('universidade')" class="mt-2" />
         </div>
 
         <!-- Emaill -->
-        <div class="mt-4">
+        <div class="my-2">
             <x-input-label for="email" :value="__('Email*')" />
             <x-text-input id="email" class="block mt-1 w-full text-purple-400" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Senha -->
-        <div class="mt-4">
+        <div class="my-2">
             <p class="text-sm text-gray-400">A senha precisa ter no mínimo 8 caracteres</p>
             <x-input-label for="password" :value="__('Senha*')" />
 
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Confirmação de senha-->
-        <div class="mt-4">
+        <div class="my-2">
             <x-input-label for="password_confirmation" :value="__('Confirmar senha')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full text-purple-400"

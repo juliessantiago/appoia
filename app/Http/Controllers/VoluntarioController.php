@@ -29,7 +29,7 @@ class VoluntarioController extends Controller
         // dd($request); 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'supervisor_id' => ['required'], 
+            'supervisor' => ['required'], 
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.Voluntario::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'assuntos' => ['required'], 
@@ -48,7 +48,7 @@ class VoluntarioController extends Controller
         $voluntario->assuntos()->attach($request['assuntos']);
         event(new Registered($voluntario));
 
-        $this->dispatchBrowserEvent('notificaNovaConta');
+        // $this->dispatchBrowserEvent('notificaNovaConta');
         session()->flash('evento', 'notificaNovaConta');
 
         return redirect()->route('multilogin')->with('mensagem',  'Conta criada com sucesso!');  

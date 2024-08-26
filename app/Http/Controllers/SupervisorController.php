@@ -26,7 +26,7 @@ class SupervisorController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:supervisors'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'universidade_id' => ['required']
+            'universidade' => ['required']
         ]);
         // dd($request); 
         $supervisor = Supervisor::create([
