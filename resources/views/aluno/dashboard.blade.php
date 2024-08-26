@@ -13,7 +13,7 @@
             <img src="{{ asset('images/stickers/nova-consulta.png')}}" class="">
 
             <div class="self-center"> 
-                <p class="text-center text-sky-300 text-3xl p-6 font-bold"><a href="{{route('allAssuntos')}}">Quero marcar uma conversa</a></p>
+                <p class="text-center text-sky-300 text-3xl p-6 font-bold underline"><a href="{{route('allAssuntos')}}">Quero marcar uma conversa</a></p>
             </div>
         </div>
     </div>
