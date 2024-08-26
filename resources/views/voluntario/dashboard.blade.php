@@ -88,7 +88,8 @@
                     <input type="time" id="fim" class="swal2-input w-2/3 border-purple-200 rounded-lg focus:ring-purple-300 focus:border-purple-400 ring:purple-500 " placeholder="início do expediente" value=${fimExpediente}>
                     </div>
                     `,
-                confirmButtonText: 'Editar',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#c084fc',
                 focusConfirm: false,
                 preConfirm: () => {
                     let novoInicio = document.getElementById('inicio').value

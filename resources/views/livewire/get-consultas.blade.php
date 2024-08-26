@@ -20,7 +20,7 @@
                             Status
                         </th>
                         <th scope="col" class="px-6 py-3"> 
-                            Paciente
+                            Aluno
                         </th>
                         <th>
                         </th>
@@ -31,7 +31,7 @@
                 <tbody>
                     {{-- {{count($expedientes)}} --}}
                     @foreach ($consultas as $consulta)
-                    
+                  
                     {{-- {{$expediente->id}} --}}
                         <div>
                             <tr  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"  >
@@ -58,9 +58,11 @@
                                         </button>
                                     </td> --}}
                                     <td>
+                                        @if($consulta->dia  > \Carbon\Carbon::now()->format('Y-m-d'))
                                         <button  type="submit" wire:click="$dispatch('abreModalCancelaConsulta', { consulta:  {{$consulta}} })"  class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">
                                             Cancelar
                                         </button>
+                                        @endif
                                     </td>
                                 
                                 @endif

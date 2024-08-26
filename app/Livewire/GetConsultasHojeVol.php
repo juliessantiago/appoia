@@ -20,7 +20,7 @@ class GetConsultasHojeVol extends Component
     public function mount(){
         $today = Carbon::now()->format('Y-m-d'); 
         $this->consultasHoje = Consulta::where('id_voluntario', Auth::user()->id)
-        ->where('dia', $today)->get(); 
+        ->where('dia', $today)->where('status', 'autorizada')->get(); 
     }
     public function render()
     {

@@ -18,10 +18,11 @@
             </div>
             <div class="justify-center border-3 mt-10">
                 <p class="text-center text-pink-300 text-xl ">Olá! Como você é menor de idade,</p>
-                <p class="text-pink-300 text-xl text-center"> vamos precisar de uma autorização, ok?</p>
+                <p class="text-pink-300 text-xl text-center"> vamos precisar de uma autorização para as consultas, ok?</p>
+                <p></p>
             </div>
           
-            <div class="flex justify-center align-middle mt-10">
+            {{-- <div class="flex justify-center align-middle mt-10">
                 <p class="self-center mx-4 text-gray-400 text-lg">Primeiro, você precisa fazer download do PDF abaixo</p>
             </div>
             <div class="flex justify-center align-middle mt-10"> <!--download--> 
@@ -30,13 +31,26 @@
             <div class="flex justify-center align-middle mt-10">
                 <p class="self-center mx-4 text-gray-400 text-lg">Depois você vai precisar imprimir a autorização
                     e pedir que seu responsável assine</p>
-        </div>
-        
+        </div> --}}
             <div class="flex justify-center align-middle mt-10">
-                <h2 class="self-center mx-4 text-gray-400 text-lg">Agora é só tirar uma foto e colocar aqui abaixo. Pronto!</h2>
+                <p class="self-center mx-4 text-gray-400 text-lg">Peça para um responsável escrever à mão</p>
+            </div>
+            <div class="flex justify-center align-middle">
+                <p class="self-center mx-4 text-gray-400 text-lg">ou digitar uma autorização como no modelo abaixo</p>
+            </div>
+            <div class="flex justify-center align-middle">
+                {{-- <p class="self-center mx-4 text-gray-400 text-lg"></p> --}}
+            </div>
+
+            <div class="flex justify-center">
+                <img  src="{{ asset('images/modelo_autorizacao.jpg')}}"/ class="m-2">
+            </div>
+            
+            <div class="flex justify-center align-middle mt-10">
+                <h2 class="self-center mx-4 text-gray-400 text-lg">Agora é só tirar uma foto da folha e colocar aqui abaixo. Pronto!</h2>
             </div>
             <div class="flex justify-center align-middle ">
-                <h2 class="self-center mx-4 text-gray-400 text-lg">O arquivo deve ser no formato .jpg ou .png e pode ter no máximo 1Mb</h2>
+                <h2 class="self-center mx-4 text-gray-400 text-md">O arquivo deve ser no formato .jpg ou .png e pode ter no máximo 1Mb</h2>
             </div>
         <div class="flex justify-center align-middle mt-10">
                 @livewire('upload-autorizacao')

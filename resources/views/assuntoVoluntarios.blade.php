@@ -1,8 +1,8 @@
 <x-app-layout>
-
+  {{-- {{$assuntoId}} --}}
     <div class="">
       <h4 class="text-center text-purple-300 text-2xl p-6 font-bold">Voluntários que abordam esse assunto</h4>
-      @livewire('get-voluntarios-cards')
+      @livewire('get-assunto-voluntarios', ['id' => $assuntoId])
     </div>
   
 

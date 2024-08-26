@@ -16,7 +16,9 @@ class AssuntoController extends Controller
     }
 
     public function showVoluntarios($id){
-        return view('assuntoVoluntarios', ['assuntoVoluntarios' =>Assunto::find($id)->voluntarios]); 
+        // return view('assuntoVoluntarios', ['assuntoVoluntarios' =>Assunto::find($id)->voluntarios]); 
+        return view('assuntoVoluntarios', ['assuntoId' =>$id]); 
+
     }
 }
      

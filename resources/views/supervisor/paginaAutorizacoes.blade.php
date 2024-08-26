@@ -3,7 +3,7 @@
     <x-toaster-hub />
     <div class="flex mt-4 md:mt-4 mx-4">
         <a href="{{route('dashboardSupervisor')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium"> 
-            <img  src="{{ asset('images/icons/dashboard.png')}}" alt="voltar para dashboard" />
+            <img  src="{{ asset('images/icons/dashboard.png')}}" alt="voltar para dashboard" class="h-8"/>
             <p class="text-sky-400 text-md ml-4">Dashboard</p>
         </a>
     </div>
@@ -41,7 +41,7 @@
             Livewire.on('abreModalLiberaAluno', (event)=> {
                 let idAluno = event.aluno.id
                     Swal.fire({
-                        title: "Liberar paciente?",
+                        title: "Liberar aluno?",
                         text: "Somente libere acesso se o arquivo com a autorização assinada foi enviado corretamente",
                         showCancelButton: true,
                         confirmButtonColor: "#F0ABFC", //liberar
