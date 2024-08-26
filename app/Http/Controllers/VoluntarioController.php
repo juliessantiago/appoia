@@ -29,14 +29,16 @@ class VoluntarioController extends Controller
         // dd($request); 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'supervisor_id' => ['required'], 
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.Voluntario::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'assuntos' => ['required'], 
+            'matricula' => ['required'], 
         ]);
         $voluntario = Voluntario::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'cpf' => $request->cpf,
             'matricula' => $request->matricula,
             'telefone' => $request->telefone,
             'supervisor_id' =>$request->supervisor

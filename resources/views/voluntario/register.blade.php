@@ -9,25 +9,34 @@
         <h3 class="text-center text-2xl font-bold mb-4 text-pink-300">Crie sua conta como voluntário</h3>
         @csrf
 
+        <div class="justify-center mb-4">
+            <p class="text-gray-400 text-sm">* campo obrigatório</p>
+            {{-- <p class="text-gray-400 text-sm">Se você é menor de idade, precisa informar o nome de seu responsável</p> --}}
+        </div>
 
         <!-- Nome -->
         <div>
-            <x-input-label for="name" :value="__('Nome')" />
+            <x-input-label for="name" :value="__('Nome*')" />
             <x-text-input id="name" class="block mt-1 w-full text-purple-400 " type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
         
         <!-- Supervisor -->
         <div>
-            <x-input-label for="supervisor_id" :value="__('Supervisor')"  />
+            <x-input-label for="supervisor_id" :value="__('Supervisor *')"  />
             <livewire:supervisor-select />
+            <x-input-error :messages="$errors->get('supervisor_id')" class="mt-2" />
+
         </div>
 
         <!--Assuntos----> 
-        <div class="mt-4">
-            {{-- <x-input-label for="assuntos" :value="__('assuntos')"  /> --}}
-            <p class="text-sm text-purple-500">Selecione os assuntos que voce gostaria de abordar nas conversas</p>
+        <div class="my-4">
+            <x-input-label for="assuntos" :value="__('Assuntos*')"  />
+            {{-- <p class="text-sm text-purple-500">Assuntos que você gostaria de abordar: </p> --}}
+            {{-- <p class="text-sm text-purple-500">Selecione pelo menos um assunto</p> --}}
             <livewire:get-assuntos />
+            <x-input-error :messages="$errors->get('assuntos')" class="mt-2" />
+
         </div>
 
         <!--telefone--> 
@@ -37,16 +46,9 @@
             <x-input-error :messages="$errors->get('telefone')" class="mt-2" />
         </div>
 
-        <!--cpf-->
-        <div>
-            <x-input-label for="cpf" :value="__('CPF')" />
-            <x-text-input id="cpf" class="block mt-1 w-full text-purple-400 " type="text" name="cpf" :value="old('cpf')" required autofocus autocomplete="cpf" />
-            <x-input-error :messages="$errors->get('cpf')" class="mt-2" />
-        </div>
-
           <!--matricula-->
           <div>
-            <x-input-label for="matricula" :value="__('Matrícula')" />
+            <x-input-label for="matricula" :value="__('Matrícula*')" />
             <x-text-input id="matricula" class="block mt-1 w-full text-purple-400 " type="text" name="matricula" :value="old('matricula')" required autofocus autocomplete="matricula" />
             <x-input-error :messages="$errors->get('matricula')" class="mt-2" />
         </div>
@@ -54,14 +56,15 @@
 
         <!-- Emaill -->
         <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('Email*')" />
             <x-text-input id="email" class="block mt-1 w-full text-purple-400 " name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Senha -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Senha')" />
+            <p class="text-sm text-gray-400">A senha precisa ter no mínimo 8 caracteres</p>
+            <x-input-label for="password" :value="__('Senha*')" />
 
             <x-text-input id="password" class="block mt-1 w-full text-purple-400 "
                             type="password"

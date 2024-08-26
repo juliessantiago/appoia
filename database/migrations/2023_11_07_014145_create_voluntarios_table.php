@@ -17,8 +17,7 @@ return new class extends Migration
             $table->text('name'); 
             $table->text('email'); 
             $table->text('password');
-            $table->text('cpf'); 
-            $table->text('telefone'); 
+            $table->text('telefone')->nullable(); 
             // $table->text('dataNascimento'); 
             $table->text('matricula'); 
             $table->text('foto_perfil')->nullable(); 

@@ -7,37 +7,42 @@
         <h3 class="text-center text-2xl font-bold mb-4 text-pink-300">Crie sua conta como supervisor</h3>
 
         @csrf
-
+        <div class="justify-center mb-4">
+            <p class="text-gray-400 text-sm">* campo obrigatório</p>
+            {{-- <p class="text-gray-400 text-sm">Se você é menor de idade, precisa informar o nome de seu responsável</p> --}}
+        </div>
         <!-- Nome -->
         <div>
-            <x-input-label for="name" :value="__('Nome')" />
+            <x-input-label for="name" :value="__('Nome*')" />
             <x-text-input id="name" class="block mt-1 w-full text-purple-400" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!--CRP--> 
         <div>
-            <x-input-label for="crp" :value="__('CRP')" />
+            <x-input-label for="crp" :value="__('CRP*')" />
             <x-text-input id="crp" class="block mt-1 w-full text-purple-400" type="text" name="crp" :value="old('crp')" required autofocus autocomplete="crp" />
             <x-input-error :messages="$errors->get('crp')" class="mt-2" />
         </div>
 
         <!--Universidade-->
         <div>
-            <x-input-label for="universidade_id" :value="__('Universidade ')"  />
+            <x-input-label for="universidade_id" :value="__('Universidade*')"  />
+            <x-input-error :messages="$errors->get('universidade_id')" class="mt-2" />
             <livewire:universidade-select />
         </div>
 
         <!-- Emaill -->
         <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full text-purple-400" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-input-label for="email" :value="__('Email*')" />
+            <x-text-input id="email" class="block mt-1 w-full text-purple-400" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Senha -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Senha')" />
+            <p class="text-sm text-gray-400">A senha precisa ter no mínimo 8 caracteres</p>
+            <x-input-label for="password" :value="__('Senha*')" />
 
             <x-text-input id="password" class="block mt-1 w-full text-purple-400"
                             type="password"

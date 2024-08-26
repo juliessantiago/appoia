@@ -57,12 +57,13 @@
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email *')" />
             <x-text-input id="email" class="block mt-1 w-full text-purple-400" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2 bg-pink-800 p-2" />
+            <x-input-error :messages="$errors->get('email')" />
 
         </div>
 
         <!-- Senha -->
         <div class="mt-4">
+            <p class="text-sm text-gray-400">A senha precisa ter no mínimo 8 caracteres</p>
             <x-input-label for="password" :value="__('Senha *')" />
 
             <x-text-input id="password" class="block mt-1 w-full text-purple-400"
