@@ -130,8 +130,8 @@
 
 <!-----------------------------------Como funciona-------------------------------------------->
 <div class="font-bold text-center text-4xl text-pink-400"> ... </div>
-<div class="flex justify-center" id="como_funciona">
-  <img src="{{ asset('images/como_funciona.png')}}">
+<div class="flex justify-center" id="como_funciona" class="mx-auto self-center">
+  <img src="{{ asset('images/como_funciona.png')}}" >
 </div>
 
 <!----------------------------------------blog------------------------------------------------------>

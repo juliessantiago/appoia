@@ -24,6 +24,11 @@
         @livewire('aluno-get-consultas')
     </div>
 
+    <div class="m-10">
+        <p class="text-purple-400 text-xl font-bold text-center">Meu histórico de consultas</p>
+        @livewire('get-historico-consultas-aluno')
+    </div>
+
     <div class="flex justify-end px-14 py-1"> 
         <div class="flex mt-4 md:mt-1">
             <a href="{{route('aluno.logout')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Sair </a>
