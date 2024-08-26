@@ -51,7 +51,7 @@ class GetConsultasHojeVol extends Component
         if($updated){
             $voluntario = Voluntario::find(Auth::user()->id); 
             $notificacao = new Notificacao([
-                'mensagem' => 'Consulta teve status alterado',
+                'mensagem' => 'Consulta teve status alterado para ausente',
                 'lida' => false,
             ]);
 
