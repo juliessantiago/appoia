@@ -148,7 +148,7 @@
           <a href="#">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">Depressão na Adolescência: Você Não Está Sozinho</h5>
           </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Dicas para entender e superar os momentos difíceis.</p>
+          <p class="mb-3 font-normal text-gray-400 dark:text-gray-400">Dicas para entender e superar os momentos difíceis.</p>
           <div class="flex mt-4 md:mt-6">
             <a href="{{route('blog')}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" target="_blank">Leia mais</a>
           </div>
@@ -167,7 +167,7 @@
             <a href="#">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">Enchentes e Perdas: Superando o Trauma e Encontrando Força</h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Como lidar com o impacto emocional de desastres naturais e reconstruir sua vida.</p>
+            <p class="mb-3 font-normal text-gray-400 dark:text-gray-400">Como lidar com o impacto emocional de desastres naturais e reconstruir sua vida.</p>
             <div class="flex mt-4 md:mt-6">
               <a href="{{route('blog')}}" target="_blank" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
             </div>
@@ -183,7 +183,7 @@
             <a href="#">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">TDAH: Transforme Seu "Problema" em Superpoder</h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Dicas e técnicas para aproveitar o máximo do seu potencial</p>
+            <p class="mb-3 font-normal text-gray-400 dark:text-gray-400">Dicas e técnicas para aproveitar o máximo do seu potencial</p>
             <div class="flex mt-4 md:mt-6">
               <a href="{{route('blog')}}" target="_blank" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
             </div>
@@ -198,7 +198,7 @@
             <a href="#">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">Ansiedade: Como Lidar com a Pressão da Escola</h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Descubra estratégias para manter a calma e enfrentar os desafios do dia a dia.</p>
+            <p class="mb-3 font-normal text-gray-400 dark:text-gray-400">Descubra estratégias para manter a calma e enfrentar os desafios do dia a dia.</p>
             <div class="flex mt-4 md:mt-6">
               <a href="{{route('blog')}}" target="_blank" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-sky-300 rounded-lg hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Leia mais</a>
             </div>
