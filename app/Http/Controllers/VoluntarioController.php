@@ -41,10 +41,12 @@ class VoluntarioController extends Controller
             'telefone' => $request->telefone,
             'supervisor_id' =>$request->supervisor
         ]);
-
+      
+        // dd($assuntos); 
+        $voluntario->assuntos()->attach($request['assuntos']);
         event(new Registered($voluntario));
 
-        // $this->dispatchBrowserEvent('notificaNovaConta');
+        $this->dispatchBrowserEvent('notificaNovaConta');
         session()->flash('evento', 'notificaNovaConta');
 
         return redirect()->route('multilogin')->with('mensagem',  'Conta criada com sucesso!');  
