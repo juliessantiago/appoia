@@ -23,7 +23,6 @@ class VoluntarioSeeder extends Seeder
                 'name' => 'Pedro Alcantara', 
                 'email' => 'pedroalcantara@gmail.com', 
                 'password' => Hash::make('token123'),
-                'cpf' => '12345678',
                 'telefone' => '12345678',
                 'matricula' => '12345678'
             ], 
@@ -32,7 +31,6 @@ class VoluntarioSeeder extends Seeder
                 'name' => 'Letícia Pereira', 
                 'email' => 'leticiapereira@gmail.com', 
                 'password' => Hash::make('token123'),
-                'cpf' => '12345678',
                 'telefone' => '12345678',
                 'matricula' => '12345678'
             ], 

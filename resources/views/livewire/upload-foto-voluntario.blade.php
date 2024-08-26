@@ -4,7 +4,7 @@
        <img src="{{ $photo->temporaryUrl() }}" class=""><!--tamanho da imagem está muito grande! --> 
     </div>
    @endif
-   <div wire:loading.delay  wire:target="file" class="">
+   <div wire:loading.delay  wire:target="photo" class="">
     {{-- <p class="text-pink-400 text-xl mt-2">Carregando...</p> --}}
         <div class="">
         <div role="status" class="animate-pulse">

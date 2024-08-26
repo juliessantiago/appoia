@@ -1,9 +1,20 @@
 <x-app-layout>
     <x-toaster-hub />
 
-      <div class="flex justify-end mx-4">
+    @if(Auth::user()->foto_perfil == null || Auth::user()->foto_perfil == '' )
+      <div class="flex justify-between mx-4">
+            <div class="flex mt-4 md:mt-6">
+                <a href="{{route('uploadFoto')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Cadastrar foto</a>
+            </div>
+            @livewire('notificacoes')
+        </div>
+    @else
+    <div class="flex justify-end mx-4">
         @livewire('notificacoes')
-      </div>
+    </div>
+    @endif
+
+      
 <!--------------------------componentes------------------------------------> 
 @if(Auth::user()->foto_perfil == null || Auth::user()->foto_perfil == '' )
     <script>
@@ -36,7 +47,7 @@
         </div>
         <div class="m-5">
             {{-- @livewire('get-expediente') --}}
-            @livewire('get-expediente', ['id' => Auth::user()->id])
+            @livewire('get-expediente')
         </div>
         <div class="m-5">
         </div>
@@ -180,6 +191,7 @@
 </script>
 
     <div class="flex justify-end px-14 py-6"> 
+        
         <div class="flex mt-4 md:mt-6">
             <a href="{{route('voluntario.logout')}}" class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">Sair </a>
         </div>

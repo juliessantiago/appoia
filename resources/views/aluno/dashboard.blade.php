@@ -13,7 +13,7 @@
             <img src="{{ asset('images/stickers/nova-consulta.png')}}" class="">
 
             <div class="self-center"> 
-                <p class="text-center text-sky-300 text-3xl p-6 font-bold"><a href="{{route('allAssuntos')}}">Quero marcar uma conversa</a></p>
+                <p class="text-center text-sky-300 text-3xl p-6 font-bold underline"><a href="{{route('allAssuntos')}}">Quero marcar uma conversa</a></p>
             </div>
         </div>
     </div>
@@ -22,6 +22,11 @@
     <div class="m-10">
         <p class="text-purple-400 text-xl font-bold text-center capitalize">{{ \Carbon\Carbon::now()->dayName}}, {{ \Carbon\Carbon::now()->format('d/m/Y')}}</p>
         @livewire('aluno-get-consultas')
+    </div>
+
+    <div class="m-10">
+        <p class="text-purple-400 text-xl font-bold text-center">Meu histórico de consultas</p>
+        @livewire('get-historico-consultas-aluno')
     </div>
 
     <div class="flex justify-end px-14 py-1"> 

@@ -17,7 +17,6 @@ class Voluntario extends Authenticatable
         'name', 
         'email', 
         'password', 
-        'cpf', 
         'telefone', 
         // 'universidade_id',
         'matricula', 

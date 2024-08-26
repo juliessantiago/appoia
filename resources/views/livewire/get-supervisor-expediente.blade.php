@@ -35,14 +35,9 @@
                                 {{$expediente->id}}
                             </th>
                             <td class="px-6 py-4 capitalize">
-                            @if($expediente->diaSemana == 'terca')
-                                terça
-                            @else
                                 {{$expediente->diaSemana}}
-                            @endif
-                             </td>
+                            </td>
                             <td class="px-6 py-4">
-
                                 {{$expediente->inicioExpediente}}
                             </td>
                             <td class="px-6 py-4">

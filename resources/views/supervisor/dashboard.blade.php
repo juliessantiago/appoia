@@ -10,27 +10,27 @@
 <div class="flex justify-around m-6 mt-6">
     <div class="flex-col p-8 bg-pink-100 rounded-md focus:bg-pink-300">
         <a href="{{route('paginaAssuntos')}}">
-            <img src="{{ asset('images/stickers/assuntos.png')}}" class="">
+            <img src="{{ asset('images/stickers/assuntos.png')}}" class="mx-auto">
             <p class="text-pink-300 text-center text-xl font-bold mt-4">Assuntos</p>
         </a>
     </div>
 
     <div class="flex-col p-8 bg-pink-100 rounded-md focus:bg-pink-300">
         <a href="{{route('paginaVoluntarios')}}">
-            <img src="{{ asset('images/stickers/voluntarios.png')}}" class="content-center">
+            <img src="{{ asset('images/stickers/voluntarios.png')}}" class="mx-auto">
             <p class="text-pink-300 text-center text-xl font-bold mt-4">Voluntários</p>
         </a>
     </div>
 
     <div class="flex-col p-8 bg-pink-100 rounded-md focus:bg-pink-300">
         <a href="{{route('paginaConsultas')}}">
-            <img src="{{ asset('images/stickers/consultas.png')}}" class="">
-            <p class="text-pink-300 text-center text-xl font-bold mt-4">Consultas</p>
+            <img src="{{ asset('images/stickers/consultas.png')}}" class="mx-auto">
+            <p class="text-pink-300 text-center text-xl font-bold mt-4">Consultas Pendentes</p>
         </a>
     </div>
     <div class="flex-col p-8 bg-pink-100 rounded-md focus:bg-pink-300">
         <a href="{{route('paginaAutorizacoes')}}">
-            <img src="{{ asset('images/stickers/autorizacao.png')}}" class="content-center" width="128px">
+            <img src="{{ asset('images/stickers/autorizacao.png')}}" class="mx-auto" width="128px">
             <p class="text-pink-300 text-center text-xl font-bold mt-4">Autorizações</p>
         </a>
     </div>

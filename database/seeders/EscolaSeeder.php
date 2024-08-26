@@ -38,6 +38,10 @@ class EscolaSeeder extends Seeder
                 [
                     'nome' =>'Colégio Estadual Nosso Senhor do Bonfim', 
                     'cidade' => 'Morro Redondo'
+                ], 
+                [
+                    'nome' =>'IFSUL - campus Pelotas', 
+                    'cidade' => 'Pelotas'
                 ]
             ]; 
             Escola::insert($escolas); 

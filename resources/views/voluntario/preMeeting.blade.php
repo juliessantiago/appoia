@@ -12,7 +12,10 @@
         // console.log(string)
         const api = new JitsiMeetExternalAPI("8x8.vc", {
           roomName: "vpaas-magic-cookie-ce4ec617270641c8a072e2e3265ca160/"+string+".lang=ptBR",
-          parentNode: document.querySelector('#jaas-container')
+          parentNode: document.querySelector('#jaas-container'), 
+          configOverwrite: {
+             defaultLanguage: 'pt-BR' 
+          },
         });
       }
     </script>

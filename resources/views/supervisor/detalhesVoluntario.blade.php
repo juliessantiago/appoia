@@ -12,7 +12,7 @@
     <div class="m-10">
         <p class="text-purple-400 text-xl font-bold text-center">Expedientes de trabalho</p>
         <div class="flex items-center justify-center"> 
-            @livewire('get-expediente', ['id' => $id])
+            @livewire('get-supervisor-expediente', ['id' => $id])
         </div>
     </div>
 
