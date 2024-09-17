@@ -43,7 +43,7 @@
                                 @endif
                                 @if(Auth()->guard()->name == 'aluno')
                                  <td>
-                                        <button class="text-md hover:text-pink-500">
+                                        <button class="inline-flex items-center px-6 py-2 text-sm font-medium text-center text-white bg-purple-300 rounded-lg hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-purple-400">
                                             <a href="{{route('assuntoVoluntarios', $assunto->id)}}">
                                                 Ver voluntários
                                             </a>

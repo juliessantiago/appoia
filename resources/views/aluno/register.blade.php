@@ -51,6 +51,7 @@
         <div class="my-2">
             <x-input-label for="id_escola" :value="__('Escola ')"  />
             <livewire:escola-select />
+            <x-input-error :messages="$errors->get('escola')" class="mt-2" />
         </div>
 
         <!-- Emaill -->

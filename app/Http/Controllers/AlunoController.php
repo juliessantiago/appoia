@@ -47,6 +47,8 @@ class AlunoController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:alunos'],
             'data_nascimento' => ['required'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'sexo' => ['required'], 
+            'escola' => ['required']
         ]); 
 
         $nascimento = (Carbon::create($request->data_nascimento)->format('Y-m-d')); 
